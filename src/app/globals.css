@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
+/* ============================================
+   rechner360.de Design System — Tailwind v4
+
+   Approach: Use CSS custom properties as an
+   indirection layer so dark mode overrides work.
+   @theme references var(--xxx) which changes
+   based on .dark class.
+   ============================================ */
+
+/* Light mode defaults */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: #FFFFFF;
+  --surface-raised: #F8FAFC;
+  --surface-sunken: #F1F5F9;
+
+  --text-color: #0F172A;
+  --text-secondary-color: #475569;
+  --text-muted-color: #94A3B8;
+  --text-inverse-color: #F8FAFC;
+
+  --border-color: #E2E8F0;
+  --border-strong-color: #CBD5E1;
+}
+
+/* Dark mode overrides */
+.dark {
+  --surface: #0B1120;
+  --surface-raised: #131C31;
+  --surface-sunken: #0A0F1C;
+
+  --text-color: #F1F5F9;
+  --text-secondary-color: #94A3B8;
+  --text-muted-color: #64748B;
+  --text-inverse-color: #0F172A;
+
+  --border-color: #1E293B;
+  --border-strong-color: #334155;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+
+  /* Primary (Blue) — static, same in both modes */
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-200: #BFDBFE;
+  --color-primary-300: #93C5FD;
+  --color-primary-400: #60A5FA;
+  --color-primary-500: #3B82F6;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-primary-800: #1E40AF;
+  --color-primary-900: #1E3A8A;
+  --color-primary-950: #172554;
+
+  /* Accent (Emerald) */
+  --color-accent-50: #ECFDF5;
+  --color-accent-100: #D1FAE5;
+  --color-accent-200: #A7F3D0;
+  --color-accent-300: #6EE7B7;
+  --color-accent-400: #34D399;
+  --color-accent-500: #10B981;
+  --color-accent-600: #059669;
+  --color-accent-700: #047857;
+  --color-accent-800: #065F46;
+  --color-accent-900: #064E3B;
+
+  /* Negative (Red) */
+  --color-negative-50: #FEF2F2;
+  --color-negative-100: #FEE2E2;
+  --color-negative-400: #F87171;
+  --color-negative-500: #EF4444;
+  --color-negative-600: #DC2626;
+
+  /* Warning (Amber) */
+  --color-warning-50: #FFFBEB;
+  --color-warning-400: #FBBF24;
+  --color-warning-500: #F59E0B;
+  --color-warning-600: #D97706;
+
+  /* Dynamic surfaces — var() references change with .dark */
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+
+  /* Dynamic text */
+  --color-text: var(--text-color);
+  --color-text-secondary: var(--text-secondary-color);
+  --color-text-muted: var(--text-muted-color);
+  --color-text-inverse: var(--text-inverse-color);
+
+  /* Dynamic borders */
+  --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong-color);
+  --color-border-focus: #3B82F6;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Container */
+  --container-max: 1280px;
+  --container-content: 768px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   Base Styles
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-color);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Currency & number display */
+.font-currency {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Smooth result animations */
+.animate-result-in {
+  animation: resultIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes resultIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Chart segment animation */
+.animate-chart-segment {
+  transition: stroke-dashoffset 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Ad slot placeholder */
+.ad-slot {
+  min-height: var(--ad-min-height, 250px);
+  background-color: var(--surface-sunken);
+  border-radius: var(--radius-lg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong-color); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted-color); }
+
+/* Selection */
+::selection { background-color: #BFDBFE; color: #1E3A8A; }
+.dark ::selection { background-color: #1E40AF; color: #DBEAFE; }

@@ -1,0 +1,76 @@
+export const SITE_NAME = 'rechner360.de';
+export const SITE_URL = 'https://rechner360.de';
+export const SITE_DESCRIPTION = 'Kostenlose Online-Rechner für Finanzen, Steuern und mehr. Aktuell 2026, präzise und DSGVO-konform.';
+
+export const BUNDESLAENDER = [
+  { id: 'bw', name: 'Baden-Württemberg', kirchensteuer: 0.08 },
+  { id: 'by', name: 'Bayern', kirchensteuer: 0.08 },
+  { id: 'be', name: 'Berlin', kirchensteuer: 0.09 },
+  { id: 'bb', name: 'Brandenburg', kirchensteuer: 0.09 },
+  { id: 'hb', name: 'Bremen', kirchensteuer: 0.09 },
+  { id: 'hh', name: 'Hamburg', kirchensteuer: 0.09 },
+  { id: 'he', name: 'Hessen', kirchensteuer: 0.09 },
+  { id: 'mv', name: 'Mecklenburg-Vorpommern', kirchensteuer: 0.09 },
+  { id: 'ni', name: 'Niedersachsen', kirchensteuer: 0.09 },
+  { id: 'nw', name: 'Nordrhein-Westfalen', kirchensteuer: 0.09 },
+  { id: 'rp', name: 'Rheinland-Pfalz', kirchensteuer: 0.09 },
+  { id: 'sl', name: 'Saarland', kirchensteuer: 0.09 },
+  { id: 'sn', name: 'Sachsen', kirchensteuer: 0.09 },
+  { id: 'st', name: 'Sachsen-Anhalt', kirchensteuer: 0.09 },
+  { id: 'sh', name: 'Schleswig-Holstein', kirchensteuer: 0.09 },
+  { id: 'th', name: 'Thüringen', kirchensteuer: 0.09 },
+] as const;
+
+export type BundeslandId = typeof BUNDESLAENDER[number]['id'];
+
+export const STEUERKLASSEN = [
+  { id: 1, name: 'Steuerklasse I', description: 'Ledige, Geschiedene, Verwitwete' },
+  { id: 2, name: 'Steuerklasse II', description: 'Alleinerziehende' },
+  { id: 3, name: 'Steuerklasse III', description: 'Verheiratete (höheres Einkommen)' },
+  { id: 4, name: 'Steuerklasse IV', description: 'Verheiratete (gleiches Einkommen)' },
+  { id: 5, name: 'Steuerklasse V', description: 'Verheiratete (niedrigeres Einkommen)' },
+  { id: 6, name: 'Steuerklasse VI', description: 'Zweit- und Nebenjobs' },
+] as const;
+
+export type SteuerklasseId = typeof STEUERKLASSEN[number]['id'];
+
+export const RECHNER = [
+  {
+    slug: 'brutto-netto-rechner',
+    title: 'Brutto Netto Rechner',
+    shortTitle: 'Brutto-Netto',
+    description: 'Berechnen Sie schnell und genau, wie viel Netto von Ihrem Bruttogehalt übrig bleibt.',
+    icon: 'calculator',
+    color: 'primary',
+    popular: true,
+  },
+  {
+    slug: 'gehaltsrechner',
+    title: 'Gehaltsrechner',
+    shortTitle: 'Gehalt',
+    description: 'Vergleichen Sie Ihr Gehalt über alle Steuerklassen und berechnen Sie die Arbeitgeberkosten.',
+    icon: 'wallet',
+    color: 'accent',
+    popular: true,
+  },
+  {
+    slug: 'kreditrechner',
+    title: 'Kreditrechner',
+    shortTitle: 'Kredit',
+    description: 'Berechnen Sie die monatliche Rate, Gesamtkosten und Zinsen für Ihren Kredit.',
+    icon: 'landmark',
+    color: 'primary',
+    popular: true,
+  },
+  {
+    slug: 'tilgungsrechner',
+    title: 'Tilgungsrechner',
+    shortTitle: 'Tilgung',
+    description: 'Erstellen Sie einen detaillierten Tilgungsplan für Ihre Baufinanzierung.',
+    icon: 'home',
+    color: 'accent',
+    popular: true,
+  },
+] as const;
+
+export type RechnerSlug = typeof RECHNER[number]['slug'];
