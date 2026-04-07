@@ -9,6 +9,8 @@ import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
 import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
 import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
 import { UNTERHALT_PAGES } from '@/data/programmatic/unterhalt-pages';
+import { STUNDENLOHN_PAGES } from '@/data/programmatic/stundenlohn-pages';
+import { MWST_PAGES } from '@/data/programmatic/mwst-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -90,6 +92,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    ...STUNDENLOHN_PAGES.map((p) => ({
+      url: `${SITE_URL}/stundenlohn-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...MWST_PAGES.map((p) => ({
+      url: `${SITE_URL}/mwst-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
   ];
 
