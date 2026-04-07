@@ -48,7 +48,7 @@ export function KreditrechnerForm() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       {/* Form */}
-      <Card padding="lg" className="lg:col-span-2">
+      <Card padding="lg" className="lg:col-span-2 lg:sticky lg:top-20 lg:self-start">
         <div className="space-y-5">
           <InputGroup label="Verwendungszweck" htmlFor="verwendung" tooltip="Zweckgebundene Kredite (z.B. Auto) haben oft günstigere Zinsen.">
             <Select id="verwendung" value={verwendung} onChange={(e) => { const v = e.target.value as Verwendungszweck; setVerwendung(v); setZinssatz(VERWENDUNGSZWECK_ZINSEN[v]); }}>

@@ -32,7 +32,7 @@ export function ElterngeldForm() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
-      <Card padding="lg" className="lg:col-span-2">
+      <Card padding="lg" className="lg:col-span-2 lg:sticky lg:top-20 lg:self-start">
         <div className="space-y-5">
           <InputGroup label="Bruttoeinkommen vor Geburt (monatlich)" htmlFor="brutto" tooltip="Durchschnittliches Bruttogehalt der letzten 12 Monate vor der Geburt. Das Elterngeld-Netto wird automatisch berechnet.">
             <CurrencyInput id="brutto" value={brutto} onChange={setBrutto} placeholder="z.B. 3.500" />

@@ -24,7 +24,7 @@ export function ProgrammaticAbfindungsForm({ abfindung: initA }: Props) {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
-      <Card padding="lg" className="lg:col-span-2">
+      <Card padding="lg" className="lg:col-span-2 lg:sticky lg:top-20 lg:self-start">
         <div className="space-y-5">
           <InputGroup label="Jahresbrutto (ohne Abfindung)" htmlFor="b"><CurrencyInput id="b" value={jahresbrutto} onChange={setJahresbrutto} /></InputGroup>
           <InputGroup label="Abfindung (brutto)" htmlFor="a"><CurrencyInput id="a" value={abfindung} onChange={setAbfindung} /></InputGroup>

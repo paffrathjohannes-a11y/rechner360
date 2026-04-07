@@ -65,7 +65,7 @@ export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initi
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
-      <Card padding="lg" className="lg:col-span-2">
+      <Card padding="lg" className="lg:col-span-2 lg:sticky lg:top-20 lg:self-start">
         <div className="space-y-5">
           <InputGroup label="Bruttogehalt (monatlich)" htmlFor="brutto">
             <CurrencyInput id="brutto" value={brutto} onChange={setBrutto} />
