@@ -287,4 +287,162 @@ export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
     relatedRechner: 'unterhalt-rechner',
     publishDate: '2026-04-07',
   },
+
+  // ─── Hochpreis-Artikel (SEO + Affiliate) ───────────────────
+
+  {
+    slug: 'kredit-aufnehmen-2026',
+    title: 'Kredit aufnehmen 2026 — Was Sie wissen müssen',
+    metaTitle: 'Kredit aufnehmen 2026 — Zinsen, Voraussetzungen & Tipps',
+    metaDescription: 'Kredit aufnehmen leicht gemacht: Aktuelle Zinsen, Voraussetzungen, Kreditarten und Tipps für die günstigste Finanzierung 2026.',
+    intro: 'Ob Autokauf, Renovierung oder Umschuldung — ein Kredit kann die richtige Lösung sein. Doch welche Kreditart passt zu Ihnen? Worauf sollten Sie achten? Und wie bekommen Sie die besten Zinsen? Dieser Ratgeber gibt Ihnen alle Antworten für 2026.',
+    sections: [
+      {
+        title: 'Welche Kreditarten gibt es?',
+        content: '<strong>Ratenkredit:</strong> Der Klassiker — feste monatliche Rate, fester Zinssatz, feste Laufzeit. Ideal für Anschaffungen von 1.000 bis 75.000 €. <strong>Rahmenkredit:</strong> Flexibel wie ein Dispo, aber günstiger. Sie zahlen nur Zinsen auf den genutzten Betrag. <strong>Autokredit:</strong> Zweckgebunden und dadurch oft günstiger als ein freier Ratenkredit. <strong>Umschuldung:</strong> Einen teuren Altkredit durch einen günstigeren ersetzen — lohnt sich oft bei Zinsdifferenz ab 1 Prozentpunkt.',
+      },
+      {
+        title: 'Aktuelle Kreditzinsen 2026',
+        content: 'Die Zinsen für Ratenkredite liegen 2026 zwischen <strong>3,5 % und 9 %</strong> effektiv, je nach Bonität, Laufzeit und Anbieter. Kurze Laufzeiten (12–36 Monate) sind oft günstiger. Bei Vergleichsportalen wie Smava oder CHECK24 finden Sie die besten Konditionen Ihrer Bonität — der Vergleich ist kostenlos und dauert wenige Minuten.',
+      },
+      {
+        title: 'Voraussetzungen für einen Kredit',
+        content: 'Die wichtigsten Voraussetzungen: <strong>Volljährigkeit</strong> und Wohnsitz in Deutschland, <strong>regelmäßiges Einkommen</strong> (Festanstellung bevorzugt), <strong>positive Schufa</strong> (kein harter Negativeintrag), und eine <strong>stabile Kontoführung</strong> ohne Rücklastschriften. Selbstständige brauchen meist die letzten 2–3 Steuerbescheide.',
+      },
+      {
+        title: 'So bekommen Sie den günstigsten Kredit',
+        content: '<strong>1. Vergleichen:</strong> Nie das erste Angebot nehmen. Vergleichsportale prüfen über 20 Banken gleichzeitig. <strong>2. Laufzeit optimieren:</strong> So kurz wie möglich, so lang wie nötig. Kürzere Laufzeiten = weniger Gesamtzinsen. <strong>3. Zweiter Kreditnehmer:</strong> Ein zweiter Antragsteller verbessert die Bonität und senkt den Zinssatz. <strong>4. Sondertilgung sichern:</strong> Achten Sie auf kostenlose Sondertilgung — so können Sie bei Bonuszahlung oder Erbschaft schneller tilgen.',
+      },
+      {
+        title: 'Häufige Fehler vermeiden',
+        content: 'Nehmen Sie keinen Kredit auf, um andere Kredite zu bedienen — das ist ein Warnsignal. Vergleichen Sie immer den <strong>Effektivzins</strong>, nicht den Sollzins. Achten Sie auf versteckte Kosten wie Restschuldversicherungen — diese sind fast nie sinnvoll und verteuern den Kredit um 10–20 %. Und: Die monatliche Rate sollte maximal 35 % Ihres Nettoeinkommens betragen.',
+      },
+    ],
+    relatedRechner: 'kreditrechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'baufinanzierung-vergleich-2026',
+    title: 'Baufinanzierung Vergleich 2026 — So finden Sie die besten Zinsen',
+    metaTitle: 'Baufinanzierung Vergleich 2026 — Bauzinsen, Tipps & Anbieter',
+    metaDescription: 'Baufinanzierung vergleichen und Tausende Euro sparen. Aktuelle Bauzinsen, Anbieter-Vergleich und Tipps für die optimale Finanzierung 2026.',
+    intro: 'Bei einer Baufinanzierung über 300.000 € macht bereits 0,3 % Zinsdifferenz über 20 Jahre mehr als 15.000 € Unterschied. Ein sorgfältiger Vergleich lohnt sich also enorm. Hier erfahren Sie, worauf es 2026 ankommt.',
+    sections: [
+      {
+        title: 'Aktuelle Bauzinsen 2026',
+        content: 'Die Bauzinsen für 10 Jahre Zinsbindung liegen Anfang 2026 bei etwa <strong>3,2–3,8 %</strong>, für 15 Jahre bei <strong>3,5–4,1 %</strong> und für 20 Jahre bei <strong>3,7–4,3 %</strong>. Die Zinsen sind stark abhängig von Eigenkapitalquote, Beleihungsauslauf und Bonität. Über Vergleichsportale wie CHECK24 Baufinanzierung erreichen Sie oft Konditionen unter dem Marktdurchschnitt.',
+      },
+      {
+        title: 'Zinsbindung — kurz oder lang?',
+        content: 'Bei <strong>steigenden Zinsen</strong> lohnt sich eine lange Zinsbindung (15–20 Jahre), um sich den aktuellen Zins zu sichern. Bei <strong>fallenden Zinsen</strong> ist eine kürzere Bindung (5–10 Jahre) günstiger, da Sie früher zu besseren Konditionen umfinanzieren können. Faustregel: Im Zweifel lieber länger binden — die Planungssicherheit ist den kleinen Zinsaufschlag wert.',
+      },
+      {
+        title: 'Eigenkapital und Beleihungsauslauf',
+        content: 'Je mehr Eigenkapital, desto besser der Zins. Bei <strong>unter 60 % Beleihungsauslauf</strong> (also mind. 40 % Eigenkapital) bekommen Sie die besten Konditionen. Bei 80 % steigt der Zins deutlich, bei 100 % Finanzierung nochmals. Die Kaufnebenkosten (10–15 %) sollten immer aus Eigenkapital kommen — diese finanziert kaum eine Bank zu guten Konditionen.',
+      },
+      {
+        title: 'Tilgung richtig wählen',
+        content: 'Mindestens <strong>2 % Anfangstilgung</strong> sind empfehlenswert, besser 3 %. Bei 300.000 € und 3,5 % Zins sind Sie mit 2 % Tilgung nach 30 Jahren schuldenfrei, mit 3 % bereits nach 23 Jahren — und sparen über 50.000 € Zinsen. Vereinbaren Sie immer kostenlose Sondertilgung (mindestens 5 % p.a.) und die Möglichkeit zur Tilgungsanpassung.',
+      },
+      {
+        title: 'So vergleichen Sie richtig',
+        content: 'Vergleichen Sie immer den <strong>Effektivzins bei gleicher Zinsbindung und Tilgung</strong>. Holen Sie mindestens 3 Angebote ein: Ihre Hausbank, einen Online-Vermittler (z.B. CHECK24, Interhyp) und eine Direktbank. Achten Sie auf Bereitstellungszinsen (ab wann?), Sondertilgungsoptionen und Tilgungswechsel. Nutzen Sie unseren Tilgungsrechner, um verschiedene Szenarien durchzuspielen.',
+      },
+    ],
+    relatedRechner: 'tilgungsrechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'etf-sparplan-anfaenger',
+    title: 'ETF-Sparplan für Anfänger — Schritt für Schritt zum Vermögen',
+    metaTitle: 'ETF-Sparplan für Anfänger 2026 — Einfach erklärt mit Beispielen',
+    metaDescription: 'ETF-Sparplan starten: Was sind ETFs, welcher ist der richtige, und wie viel sollte man sparen? Der komplette Einsteigerguide 2026.',
+    intro: 'Mit einem ETF-Sparplan können Sie schon ab 1 € monatlich ein Vermögen aufbauen. Dank Zinseszinseffekt und breiter Streuung ist es eine der einfachsten und effektivsten Geldanlagen. Hier erfahren Sie alles, was Sie als Einsteiger wissen müssen.',
+    sections: [
+      {
+        title: 'Was ist ein ETF?',
+        content: 'Ein ETF (Exchange Traded Fund) ist ein börsengehandelter Indexfonds. Er bildet einen Index wie den <strong>MSCI World</strong> (1.500 Unternehmen weltweit) oder den <strong>S&P 500</strong> (500 größte US-Unternehmen) nach. Statt einzelne Aktien zu kaufen, investieren Sie mit einem ETF automatisch in Hunderte oder Tausende Unternehmen gleichzeitig. Die Kosten liegen bei nur 0,1–0,3 % pro Jahr — ein Bruchteil aktiv verwalteter Fonds.',
+      },
+      {
+        title: 'Warum ein Sparplan?',
+        content: 'Ein Sparplan investiert automatisch jeden Monat einen festen Betrag. Das hat drei Vorteile: <strong>1. Cost-Average-Effekt:</strong> Bei niedrigen Kursen kaufen Sie mehr Anteile, bei hohen weniger — das glättet den Einstiegspreis. <strong>2. Disziplin:</strong> Sie sparen automatisch, ohne jeden Monat eine Entscheidung treffen zu müssen. <strong>3. Flexibilität:</strong> Sie können jederzeit erhöhen, pausieren oder aufhören.',
+      },
+      {
+        title: 'So viel wird aus Ihrem Sparplan',
+        content: 'Bei 200 € monatlich und 7 % durchschnittlicher Rendite (historischer Schnitt MSCI World): Nach <strong>10 Jahren: ca. 34.000 €</strong> (24.000 € eingezahlt), nach <strong>20 Jahren: ca. 104.000 €</strong> (48.000 € eingezahlt), nach <strong>30 Jahren: ca. 243.000 €</strong> (72.000 € eingezahlt). Der Zinseszinseffekt wird umso stärker, je länger Sie investiert bleiben. Berechnen Sie Ihr persönliches Ergebnis mit unserem Zinseszinsrechner.',
+      },
+      {
+        title: 'Den richtigen ETF wählen',
+        content: 'Für Einsteiger empfehlen sich breit gestreute Welt-ETFs: <strong>MSCI World</strong> (Industrieländer), <strong>MSCI ACWI</strong> (Industrie- + Schwellenländer) oder <strong>FTSE All-World</strong>. Achten Sie auf niedrige Kosten (TER unter 0,3 %), ausreichend Fondsvolumen (über 500 Mio. €) und ob der ETF thesaurierend (Dividenden werden reinvestiert) oder ausschüttend ist. Für maximalen Zinseszins wählen Sie thesaurierend.',
+      },
+      {
+        title: 'Depot eröffnen und starten',
+        content: 'Sie brauchen ein Wertpapierdepot bei einem Online-Broker. Neo-Broker wie Trade Republic oder Scalable Capital bieten kostenlose Depots und Sparpläne ab 1 €. Die Eröffnung dauert etwa 10 Minuten per Video-Ident. Danach richten Sie Ihren Sparplan ein: ETF auswählen, Betrag festlegen, Ausführungstag wählen — fertig. Ab jetzt wächst Ihr Vermögen automatisch.',
+      },
+    ],
+    relatedRechner: 'zinseszinsrechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'steuererklaerung-tipps-2026',
+    title: 'Steuererklärung 2026 — Die besten Tipps für maximale Erstattung',
+    metaTitle: 'Steuererklärung 2026 — Tipps für maximale Steuererstattung',
+    metaDescription: 'Steuererklärung 2026: Die besten Tipps und Tricks für eine hohe Erstattung. Welche Kosten absetzen? Welche Software nutzen? Fristen und Pflichten.',
+    intro: 'Die durchschnittliche Steuererstattung in Deutschland liegt bei über 1.000 €. Trotzdem verzichten Millionen auf ihre Steuererklärung. Mit den richtigen Tipps holen Sie sich Ihr Geld zurück — oft in weniger als einer Stunde.',
+    sections: [
+      {
+        title: 'Lohnt sich die Steuererklärung?',
+        content: 'Kurz: Fast immer. Arbeitnehmer bekommen im Schnitt <strong>1.063 € zurück</strong>. Besonders lohnt es sich, wenn Sie Werbungskosten über 1.230 € haben (Fahrtkosten, Homeoffice, Fortbildung), Sonderausgaben wie Versicherungen oder Spenden geltend machen, außergewöhnliche Belastungen hatten (Krankheitskosten, Brille, Zahnersatz) oder haushaltsnahe Dienstleistungen bezahlt haben (Handwerker, Reinigung, Gartenpflege).',
+      },
+      {
+        title: 'Die wichtigsten Pauschalen 2026',
+        content: '<strong>Arbeitnehmer-Pauschbetrag:</strong> 1.230 € — wird automatisch abgezogen, auch ohne Nachweis. <strong>Homeoffice-Pauschale:</strong> 6 € pro Tag, max. 1.260 € (210 Tage). <strong>Entfernungspauschale:</strong> 0,30 € pro km (einfache Strecke) für die ersten 20 km, 0,38 € ab dem 21. km. <strong>Verpflegungspauschale:</strong> 14 € bei 8+ Stunden Abwesenheit, 28 € bei 24+ Stunden. <strong>Sonderausgaben-Pauschbetrag:</strong> 36 € (72 € für Ehepaare).',
+      },
+      {
+        title: 'Fristen und Pflicht',
+        content: 'Abgabefrist für die freiwillige Steuererklärung 2025: <strong>31. Dezember 2029</strong> (4 Jahre rückwirkend). Bei Pflichtveranlagung (z.B. Steuerklasse III/V, Nebeneinkünfte über 410 €): <strong>31. Juli 2026</strong>. Mit Steuerberater oder Lohnsteuerhilfeverein verlängert sich die Frist um 6–14 Monate. Tipp: Auch für vergangene Jahre können Sie noch Erstattungen holen — bis zu 4 Jahre rückwirkend.',
+      },
+      {
+        title: 'Die beste Steuersoftware',
+        content: 'Moderne Steuersoftware führt Sie Schritt für Schritt durch die Erklärung und findet automatisch Abzugsmöglichkeiten. <strong>WISO Steuer</strong> ist der Testsieger und Marktführer — mit automatischem Belegabruf, Plausibilitätsprüfung und Erstattungsrechner. Für einfache Fälle reicht auch eine App wie Taxfix. Mit Software erledigen Sie die Erklärung in 30–60 Minuten statt mehreren Stunden.',
+      },
+      {
+        title: 'Handwerkerkosten und haushaltsnahe Dienstleistungen',
+        content: 'Oft übersehen und besonders lukrativ: <strong>Handwerkerkosten</strong> sind zu 20 % absetzbar (max. 1.200 € Steuerersparnis pro Jahr). Das gilt für Renovierung, Reparatur, Modernisierung — aber nur den Arbeitslohn, nicht das Material. <strong>Haushaltsnahe Dienstleistungen</strong> wie Reinigung, Gartenpflege oder Winterdienst sind ebenfalls zu 20 % absetzbar (max. 4.000 € Steuerersparnis). Wichtig: Immer per Überweisung zahlen, nie bar.',
+      },
+    ],
+    relatedRechner: 'brutto-netto-rechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'private-altersvorsorge',
+    title: 'Private Altersvorsorge — So schließen Sie die Rentenlücke',
+    metaTitle: 'Private Altersvorsorge 2026 — Rentenlücke berechnen & schließen',
+    metaDescription: 'Private Altersvorsorge: Wie groß ist Ihre Rentenlücke? Welche Optionen gibt es? ETF, Riester, Rürup oder Betriebsrente — der komplette Überblick 2026.',
+    intro: 'Die gesetzliche Rente wird für die meisten nicht reichen. Wer heute 3.000 € netto verdient, bekommt als Rente nur etwa 1.500 € — vor Steuern. Die Rentenlücke von 1.500 € monatlich muss privat geschlossen werden. Je früher Sie anfangen, desto leichter ist es.',
+    sections: [
+      {
+        title: 'Wie groß ist Ihre Rentenlücke?',
+        content: 'Die Rentenlücke ist die Differenz zwischen Ihrem heutigen Nettoeinkommen und der erwarteten gesetzlichen Rente. Faustregel: Die gesetzliche Rente ersetzt etwa <strong>48 % des letzten Bruttogehalts</strong> — Tendenz sinkend. Bei 3.500 € brutto sind das ca. 1.680 € Rente (vor Steuern und Krankenversicherung). Netto bleiben davon etwa 1.400 €. Wenn Sie 2.500 € zum Leben brauchen, fehlen monatlich 1.100 €. Berechnen Sie Ihre persönliche Rentenlücke mit unserem Rentenrechner.',
+      },
+      {
+        title: 'ETF-Sparplan — der effizienteste Weg',
+        content: 'Ein breit gestreuter ETF-Sparplan (z.B. auf den MSCI World) bietet langfristig die höchste Rendite bei vertretbarem Risiko: historisch <strong>7–9 % pro Jahr</strong> im Durchschnitt. Bei 300 € monatlich über 30 Jahre ergibt das ca. <strong>365.000 €</strong> Vermögen. Daraus können Sie sich im Alter monatlich ca. 1.200 € entnehmen — über 30 Jahre. Depots bei Neo-Brokern wie Trade Republic oder Scalable Capital sind kostenlos.',
+      },
+      {
+        title: 'Betriebliche Altersvorsorge',
+        content: 'Falls Ihr Arbeitgeber eine betriebliche Altersvorsorge (bAV) mit Zuschuss anbietet, sollten Sie diese nutzen. Der Arbeitgeber muss mindestens <strong>15 % Zuschuss</strong> auf die Entgeltumwandlung geben. Die Beiträge sind bis 302 € monatlich steuer- und sozialversicherungsfrei. Nachteil: Die Auszahlung ist im Alter voll steuerpflichtig und krankenversicherungspflichtig.',
+      },
+      {
+        title: 'Riester und Rürup — für wen lohnt es sich?',
+        content: '<strong>Riester</strong> lohnt sich vor allem für Familien (300 € Kinderzulage pro Kind) und Geringverdiener (175 € Grundzulage bei 60 € Mindestbeitrag). Für Gutverdiener ohne Kinder ist die Rendite oft mager. <strong>Rürup</strong> (Basisrente) lohnt sich für Selbstständige und Gutverdiener: Beiträge bis 27.566 € (2026) sind steuerlich absetzbar. Die Auszahlung erfolgt als lebenslange Rente.',
+      },
+      {
+        title: 'Die richtige Strategie nach Alter',
+        content: '<strong>20–35 Jahre:</strong> Voll auf ETF-Sparplan setzen — Sie haben 30+ Jahre Zeit, Schwankungen auszusitzen. Mindestens 15 % vom Netto investieren. <strong>35–50 Jahre:</strong> ETF-Sparplan fortführen, bAV mitnehmen wenn Arbeitgeber zuzahlt. Riester prüfen wenn Kinder da sind. <strong>50–65 Jahre:</strong> Schrittweise sicherer werden — Anleihen-Anteil erhöhen. Rürup kann steuerlich attraktiv sein. Immobilie bis Renteneintritt abbezahlt haben.',
+      },
+    ],
+    relatedRechner: 'rentenrechner',
+    publishDate: '2026-04-07',
+  },
 ];

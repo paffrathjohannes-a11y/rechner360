@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import '@/app/(legal)/legal.css';
 
 export const dynamicParams = false;
@@ -36,6 +37,9 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
         </p>
         <p className="text-lg leading-relaxed mb-8">{artikel.intro}</p>
 
+        {/* Ad: after intro */}
+        <NativeAdSlot format="horizontal" className="my-8" />
+
         {artikel.sections.map((section, i) => (
           <div key={i}>
             <h2>{section.title}</h2>
@@ -52,6 +56,9 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
           </p>
         </div>
       </article>
+
+      {/* Ad: after article, before related */}
+      <NativeAdSlot format="horizontal" className="mt-6" />
 
       <RelatedCalculators currentSlug={artikel.relatedRechner} className="mt-8" />
     </div>

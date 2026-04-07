@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { AbfindungsForm } from './abfindungs-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Was ist die Fünftelregelung?', answer: 'Die Fünftelregelung (§ 34 EStG) ist eine steuerliche Vergünstigung für außerordentliche Einkünfte wie Abfindungen. Dabei wird die Steuer so berechnet, als würde die Abfindung auf 5 Jahre verteilt. Das glättet die Progression und senkt die Steuerlast oft erheblich.' },
@@ -28,6 +30,7 @@ export default function AbfindungsrechnerPage() {
         description: 'Netto-Abfindung mit Fünftelregelung berechnen.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.abfindungsrechner.headline} offers={affiliateOffersBySlug.abfindungsrechner.offers} />}
     >
       <AbfindungsForm />
     </CalculatorPageLayout>

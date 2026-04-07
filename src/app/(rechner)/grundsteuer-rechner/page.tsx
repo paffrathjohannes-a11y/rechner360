@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { GrundsteuerForm } from './grundsteuer-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Wie berechnet sich die neue Grundsteuer?', answer: 'Die Grundsteuer ab 2025 wird berechnet als: Grundsteuerwert × Steuermesszahl × Hebesatz. Der Grundsteuerwert basiert auf dem Bodenwert (Fläche × Bodenrichtwert) und dem Gebäudewert. Die Steuermesszahl beträgt 0,031% für Wohngrundstücke.' },
@@ -29,6 +31,7 @@ export default function GrundsteuerRechnerPage() {
         description: 'Neue Grundsteuer nach Reform 2025 berechnen.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['grundsteuer-rechner'].headline} offers={affiliateOffersBySlug['grundsteuer-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

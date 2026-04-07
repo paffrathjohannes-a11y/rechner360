@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { ElterngeldForm } from './elterngeld-form';
 import { ELTERNGELD_FAQS } from '@/data/content/elterngeld-guide';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 export const metadata: Metadata = {
   title: 'Elterngeld Rechner 2026 — Basiselterngeld & ElterngeldPlus',
@@ -23,6 +25,7 @@ export default function ElterngeldRechnerPage() {
         description: 'Kostenloser Elterngeld Rechner 2026.',
       }}
       faqs={ELTERNGELD_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['elterngeld-rechner'].headline} offers={affiliateOffersBySlug['elterngeld-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

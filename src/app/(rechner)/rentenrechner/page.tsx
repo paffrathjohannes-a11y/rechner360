@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { RentenForm } from './renten-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Wie berechnet sich die gesetzliche Rente?', answer: 'Die Monatsrente ergibt sich aus: Entgeltpunkte × Zugangsfaktor × aktueller Rentenwert. Pro Jahr, in dem Sie das Durchschnittseinkommen verdienen, erhalten Sie 1 Entgeltpunkt. Der aktuelle Rentenwert liegt 2026 bei ca. 39,32 € (West).' },
@@ -28,6 +30,7 @@ export default function RentenrechnerPage() {
         description: 'Gesetzliche Rente berechnen mit Entgeltpunkten und Rentenlücke.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.rentenrechner.headline} offers={affiliateOffersBySlug.rentenrechner.offers} />}
     >
       <RentenForm />
     </CalculatorPageLayout>

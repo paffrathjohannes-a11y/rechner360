@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { BaukostenForm } from './baukosten-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Was kostet ein Haus bauen 2026?', answer: 'Die reinen Baukosten liegen 2026 bei ca. 1.800-3.500 €/m² je nach Ausstattung und Bauweise. Für ein Einfamilienhaus mit 140 m² in mittlerer Ausstattung sind das ca. 308.000 € Baukosten. Mit Grundstück, Nebenkosten und Außenanlagen rechnet man mit 450.000-600.000 € Gesamtkosten.' },
@@ -25,6 +27,7 @@ export default function BaukostenRechnerPage() {
       subtitle="Berechnen Sie die Baukosten für Ihr Haus — nach Ausstattung, Bauweise und Region."
       jsonLd={{ name: 'Baukosten Rechner 2026', url: '/baukosten-rechner', description: 'Hausbaukosten berechnen: pro m\u00b2, Massiv vs. Fertighaus, mit Keller und Nebenkosten.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['baukosten-rechner'].headline} offers={affiliateOffersBySlug['baukosten-rechner'].offers} />}
       guideContent={
         <section className="space-y-4 mt-12">
           <h2 className="text-2xl font-bold text-text">Baukosten pro m² nach Ausstattung (2026)</h2>

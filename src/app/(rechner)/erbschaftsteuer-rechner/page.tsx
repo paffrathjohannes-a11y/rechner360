@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { ErbschaftsteuerForm } from './erbschaftsteuer-form';
 import { ERBSCHAFTSTEUER_FAQS } from '@/data/content/erbschaftsteuer-guide';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 export const metadata: Metadata = {
   title: 'Erbschaftsteuer Rechner 2026 — Kostenlos berechnen',
@@ -35,6 +37,7 @@ export default function ErbschaftsteuerRechnerPage() {
         description: 'Kostenloser Erbschaftsteuer-Rechner 2026. Berechnen Sie Erbschaftsteuer und Schenkungsteuer mit Freibeträgen.',
       }}
       faqs={ERBSCHAFTSTEUER_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['erbschaftsteuer-rechner'].headline} offers={affiliateOffersBySlug['erbschaftsteuer-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

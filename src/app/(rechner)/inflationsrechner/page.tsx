@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { InflationsForm } from './inflations-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Was ist Inflation?', answer: 'Inflation bezeichnet den allgemeinen Anstieg des Preisniveaus. Wenn die Inflation 3% beträgt, kosten Güter und Dienstleistungen im Durchschnitt 3% mehr als im Vorjahr. Dadurch sinkt die Kaufkraft des Geldes.' },
@@ -28,6 +30,7 @@ export default function InflationsrechnerPage() {
         description: 'Kaufkraftverlust durch Inflation berechnen.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.inflationsrechner.headline} offers={affiliateOffersBySlug.inflationsrechner.offers} />}
     >
       <InflationsForm />
     </CalculatorPageLayout>

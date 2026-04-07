@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { BruttoNettoForm } from './brutto-netto-form';
 import { BRUTTO_NETTO_FAQS } from '@/data/content/brutto-netto-guide';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 export const metadata: Metadata = {
   title: 'Brutto Netto Rechner 2026 — Kostenlos & Aktuell',
@@ -35,6 +37,7 @@ export default function BruttoNettoRechnerPage() {
         description: 'Kostenloser Brutto-Netto-Rechner 2026. Berechnen Sie Ihr Nettogehalt mit allen Abzügen.',
       }}
       faqs={BRUTTO_NETTO_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['brutto-netto-rechner'].headline} offers={affiliateOffersBySlug['brutto-netto-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

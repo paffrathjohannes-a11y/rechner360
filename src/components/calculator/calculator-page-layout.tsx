@@ -20,6 +20,7 @@ interface CalculatorPageLayoutProps {
   children: ReactNode;
   guideContent?: ReactNode;
   faqs?: FAQ[];
+  affiliateSection?: ReactNode;
 }
 
 export function CalculatorPageLayout({
@@ -30,6 +31,7 @@ export function CalculatorPageLayout({
   children,
   guideContent,
   faqs,
+  affiliateSection,
 }: CalculatorPageLayoutProps) {
   const category = getCategoryForRechner(slug);
 
@@ -52,10 +54,16 @@ export function CalculatorPageLayout({
 
       {children}
 
-      {/* Ad: after calculator results, before guide content */}
+      {/* Ad: after calculator results */}
       <NativeAdSlot format="horizontal" className="mt-10" />
 
+      {/* Affiliate recommendations — natural next step after results */}
+      {affiliateSection && <div className="mt-8">{affiliateSection}</div>}
+
       {guideContent && <div className="mt-12">{guideContent}</div>}
+
+      {/* Ad: between guide content and FAQ */}
+      {guideContent && <NativeAdSlot format="horizontal" className="mt-6" />}
 
       {faqs && faqs.length > 0 && (
         <FAQSection faqs={faqs} className="mt-8" />

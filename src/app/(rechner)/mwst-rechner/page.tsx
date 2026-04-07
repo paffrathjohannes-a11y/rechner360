@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { MwstForm } from './mwst-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Wie berechne ich die MwSt?', answer: 'Netto zu Brutto: Netto × 1,19 (bei 19%) oder × 1,07 (bei 7%). Brutto zu Netto: Brutto ÷ 1,19 bzw. ÷ 1,07. Die Mehrwertsteuer ist die Differenz zwischen Brutto und Netto.' },
@@ -23,6 +25,7 @@ export default function MwstRechnerPage() {
       subtitle="Mehrwertsteuer berechnen — Netto zu Brutto und zurück. 19% oder 7%."
       jsonLd={{ name: 'MwSt Rechner', url: '/mwst-rechner', description: 'Mehrwertsteuer berechnen: Netto ↔ Brutto.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['mwst-rechner'].headline} offers={affiliateOffersBySlug['mwst-rechner'].offers} />}
     >
       <MwstForm />
     </CalculatorPageLayout>

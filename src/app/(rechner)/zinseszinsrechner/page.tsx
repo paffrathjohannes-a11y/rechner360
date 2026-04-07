@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { ZinseszinsForm } from './zinseszins-form';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 const FAQS = [
   { question: 'Was ist der Zinseszinseffekt?', answer: 'Beim Zinseszins werden nicht nur das Startkapital, sondern auch die bereits angefallenen Zinsen verzinst. Dadurch wächst das Vermögen exponentiell — je länger der Anlagezeitraum, desto stärker der Effekt. Albert Einstein soll ihn als „achtes Weltwunder" bezeichnet haben.' },
@@ -24,6 +26,7 @@ export default function ZinseszinsrechnerPage() {
       subtitle="Berechnen Sie, wie Ihr Geld durch Zinseszins und regelmäßiges Sparen wächst."
       jsonLd={{ name: 'Zinseszinsrechner', url: '/zinseszinsrechner', description: 'Zinseszins und Sparplan berechnen.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.zinseszinsrechner.headline} offers={affiliateOffersBySlug.zinseszinsrechner.offers} />}
     >
       <ZinseszinsForm />
     </CalculatorPageLayout>
