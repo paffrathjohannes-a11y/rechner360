@@ -288,6 +288,16 @@ export const RECHNER = [
     popular: false,
     category: 'gehalt-steuern' as CategoryId,
   },
+  {
+    slug: 'pkv-rechner',
+    title: 'PKV Rechner',
+    shortTitle: 'PKV',
+    description: 'Vergleichen Sie GKV und PKV — lohnt sich ein Wechsel in die private Krankenversicherung?',
+    icon: 'shield-check',
+    color: 'accent',
+    popular: true,
+    category: 'vorsorge-soziales' as CategoryId,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];

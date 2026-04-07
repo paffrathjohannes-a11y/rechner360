@@ -109,6 +109,15 @@ const clarkVersicherung: AffiliateOffer = {
   url: `https://www.awin1.com/cread.php?awinmid=29697&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.clark.de`,
 };
 
+const check24Versicherung: AffiliateOffer = {
+  partner: 'check24',
+  product: 'pkv',
+  title: 'CHECK24 PKV-Vergleich',
+  description: 'Private Krankenversicherung vergleichen — über 4.500 Tarife im Überblick.',
+  cta: 'PKV vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=9364&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.check24.de%2Fprivate-krankenversicherung%2F`,
+};
+
 // ─── Nebenkosten / Energie ───────────────────────────────────
 
 const check24Immobilien: AffiliateOffer = {
@@ -222,5 +231,11 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   inflationsrechner: {
     headline: 'Kaufkraft erhalten — Geld anlegen',
     offers: [tradeRepublic, scalableCapital],
+  },
+
+  // Versicherung
+  'pkv-rechner': {
+    headline: 'PKV-Tarife vergleichen',
+    offers: [{ ...clarkVersicherung, highlight: true, badge: 'Empfehlung' }, check24Versicherung],
   },
 };

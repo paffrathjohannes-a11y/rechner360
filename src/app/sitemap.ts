@@ -19,6 +19,7 @@ import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
 import { BAUKOSTEN_PAGES } from '@/data/programmatic/baukosten-pages';
 import { BUERGERGELD_PAGES } from '@/data/programmatic/buergergeld-pages';
 import { ERBSCHAFTSTEUER_PAGES } from '@/data/programmatic/erbschaftsteuer-pages';
+import { PKV_PAGES } from '@/data/programmatic/pkv-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -157,6 +158,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...ERBSCHAFTSTEUER_PAGES.map((p) => ({
       url: `${SITE_URL}/erbschaftsteuer-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...PKV_PAGES.map((p) => ({
+      url: `${SITE_URL}/pkv-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
