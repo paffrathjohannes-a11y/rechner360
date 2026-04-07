@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Calculator, Users } from 'lucide-react';
+import { Calculator, Users, EyeOff } from 'lucide-react';
 
 /**
  * Nutzerzähler — zeigt simulierte Berechnungszahlen die realistisch steigen.
@@ -42,7 +42,7 @@ export function UsageCounter() {
   const formattedCount = count.toLocaleString('de-DE');
 
   return (
-    <div className="flex items-center justify-center gap-6 text-sm text-text-muted">
+    <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-text-muted">
       <div className="flex items-center gap-1.5">
         <Calculator className="w-4 h-4 text-accent-500" />
         <span><strong className="text-text font-semibold">{formattedCount}</strong> Berechnungen</span>
@@ -50,7 +50,12 @@ export function UsageCounter() {
       <div className="h-4 w-px bg-border" />
       <div className="flex items-center gap-1.5">
         <Users className="w-4 h-4 text-primary-500" />
-        <span><strong className="text-text font-semibold">26</strong> kostenlose Rechner</span>
+        <span><strong className="text-text font-semibold">26</strong> Rechner</span>
+      </div>
+      <div className="h-4 w-px bg-border hidden sm:block" />
+      <div className="hidden sm:flex items-center gap-1.5">
+        <EyeOff className="w-4 h-4 text-text-muted" />
+        <span>Keine Daten gespeichert</span>
       </div>
     </div>
   );

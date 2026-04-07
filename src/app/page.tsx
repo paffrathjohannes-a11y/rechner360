@@ -31,14 +31,14 @@ export default function HomePage() {
               </div>
 
               <h1 className="animate-hero-in stagger-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text">
-                Alle Rechner.{' '}
-                <span className="text-primary-600">Kostenlos.</span>{' '}
-                <span className="text-accent-600">Präzise.</span>
+                26 Rechner.{' '}
+                <span className="text-primary-600">Keine Daten.</span>{' '}
+                <span className="text-accent-600">Keine Registrierung.</span>
               </h1>
 
               <p className="animate-hero-in stagger-3 mt-4 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-                Brutto-Netto, Gehalt, Kredit und mehr — berechnen Sie alles in Sekunden.
-                Aktuell nach den offiziellen Steuerformeln 2026, völlig kostenlos und ohne Registrierung.
+                Brutto-Netto, Kredit, PKV, Kfz und mehr — alles in Sekunden berechnet.
+                Komplett kostenlos, ohne Account, und alle Berechnungen laufen nur in Ihrem Browser.
               </p>
 
               {/* Search */}

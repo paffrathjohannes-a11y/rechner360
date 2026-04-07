@@ -1,6 +1,6 @@
 export const SITE_NAME = 'rechner360.de';
 export const SITE_URL = 'https://www.rechner360.de';
-export const SITE_DESCRIPTION = 'Kostenlose Online-Rechner für Finanzen, Steuern und mehr. Aktuell 2026, präzise und DSGVO-konform.';
+export const SITE_DESCRIPTION = '26 kostenlose Online-Rechner für Finanzen, Steuern und Versicherungen. Keine Registrierung, keine Daten gespeichert — alles läuft in Ihrem Browser. Aktuell 2026.';
 
 export const BUNDESLAENDER = [
   { id: 'bw', name: 'Baden-Württemberg', kirchensteuer: 0.08 },

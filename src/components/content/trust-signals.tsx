@@ -1,11 +1,11 @@
-import { Shield, RefreshCw, Zap, Lock } from 'lucide-react';
+import { Shield, RefreshCw, EyeOff, UserX } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
 const signals = [
-  { icon: RefreshCw, label: 'Aktuell 2026', sublabel: 'Neuste Steuerwerte' },
-  { icon: Zap, label: '100% kostenlos', sublabel: 'Ohne Registrierung' },
-  { icon: Shield, label: 'Geprüfte Ergebnisse', sublabel: 'Offiziell geprüft' },
-  { icon: Lock, label: 'Datenschutz', sublabel: 'Keine Datenspeicherung' },
+  { icon: EyeOff, label: 'Keine Daten gespeichert', sublabel: 'Alles läuft im Browser' },
+  { icon: UserX, label: 'Kein Account nötig', sublabel: 'Sofort und anonym nutzen' },
+  { icon: RefreshCw, label: 'Aktuell 2026', sublabel: 'Offizielle Steuerformeln' },
+  { icon: Shield, label: 'Geprüfte Quellen', sublabel: 'BMF, EZB, SGB' },
 ] as const;
 
 interface TrustSignalsProps {
