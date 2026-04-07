@@ -11,6 +11,7 @@ import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
 import { UNTERHALT_PAGES } from '@/data/programmatic/unterhalt-pages';
 import { STUNDENLOHN_PAGES } from '@/data/programmatic/stundenlohn-pages';
 import { MWST_PAGES } from '@/data/programmatic/mwst-pages';
+import { RENTEN_PAGES } from '@/data/programmatic/renten-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -101,6 +102,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...MWST_PAGES.map((p) => ({
       url: `${SITE_URL}/mwst-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...RENTEN_PAGES.map((p) => ({
+      url: `${SITE_URL}/rentenrechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
