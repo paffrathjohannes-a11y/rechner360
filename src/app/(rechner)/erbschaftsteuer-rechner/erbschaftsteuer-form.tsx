@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useTrackCalculator } from '@/hooks/use-track-calculator';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
@@ -27,6 +28,7 @@ export function ErbschaftsteuerForm({ defaultWert, defaultVerwandtschaft }: Erbs
   const [hausratFreibetrag, setHausratFreibetrag] = useState(false);
   const [alterDesKindes, setAlterDesKindes] = useState(10);
   const [result, setResult] = useState<ErbschaftsteuerResult | null>(null);
+  useTrackCalculator('erbschaftsteuer-rechner', result !== null);
 
   const showVersorgung = artDesErwerbs === 'erbschaft' && (verwandtschaft === 'ehepartner' || verwandtschaft === 'kind');
   const showAlter = versorgungsfreibetrag && verwandtschaft === 'kind';

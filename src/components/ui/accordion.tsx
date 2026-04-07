@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { trackFaqExpand } from '@/lib/utils/analytics-events';
 
 interface AccordionItemProps {
   title: string;
@@ -17,7 +18,7 @@ export function AccordionItem({ title, children, defaultOpen = false }: Accordio
     <div className="border-b border-border last:border-b-0">
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => { if (!isOpen) trackFaqExpand(title); setIsOpen(!isOpen); }}
         className={cn(
           'flex w-full items-center justify-between py-4 text-left text-sm font-medium text-text',
           'transition-colors duration-150 hover:text-primary-600',

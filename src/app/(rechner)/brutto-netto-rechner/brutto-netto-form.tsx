@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useTrackCalculator } from '@/hooks/use-track-calculator';
 import { Calculator } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,6 +38,7 @@ const defaultInput: BruttoNettoInput = {
 export function BruttoNettoForm() {
   const [input, setInput] = useState<BruttoNettoInput>(defaultInput);
   const [result, setResult] = useState<BruttoNettoResult | null>(() => calculateBruttoNetto(defaultInput));
+  useTrackCalculator('brutto-netto-rechner', result !== null);
 
   // Auto-calculate on every input change
   useEffect(() => {
