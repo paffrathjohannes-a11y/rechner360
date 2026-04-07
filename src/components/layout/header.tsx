@@ -63,8 +63,8 @@ export function Header() {
                 <ChevronDown className="h-3.5 w-3.5" />
               </button>
               {moreOpen && (
-                <div className="absolute right-0 top-full mt-1 w-56 rounded-xl border border-border bg-surface shadow-lg animate-result-in z-50">
-                  <div className="py-2">
+                <div className="absolute right-0 top-full pt-2 w-56 z-50">
+                  <div className="rounded-xl border border-border bg-surface shadow-lg animate-result-in py-2">
                     {MORE_NAV.map((r) => (
                       <Link
                         key={r.slug}

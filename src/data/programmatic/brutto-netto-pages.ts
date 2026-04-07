@@ -40,6 +40,21 @@ export function generateBruttoNettoPages(): BruttoNettoPageDef[] {
     }
   }
 
+  // Kirchensteuer-Varianten für die Top-Gehälter (SK 1 only)
+  const TOP_GEHAELTER = [2000, 2500, 3000, 3500, 4000, 4500, 5000, 6000];
+  for (const brutto of TOP_GEHAELTER) {
+    const bruttoStr = brutto.toLocaleString('de-DE');
+    pages.push({
+      slug: `${brutto}-euro-mit-kirchensteuer`,
+      brutto,
+      steuerklasse: 1,
+      title: `${bruttoStr} € brutto mit Kirchensteuer`,
+      metaTitle: `${bruttoStr} € brutto netto mit Kirchensteuer 2026`,
+      metaDescription: `${bruttoStr} € brutto mit Kirchensteuer — wie viel netto? ✓ Steuerklasse 1 ✓ Mit 9% Kirchensteuer ✓ Alle Abzüge`,
+      h1: `${bruttoStr} € brutto in netto — mit Kirchensteuer`,
+    });
+  }
+
   return pages;
 }
 
