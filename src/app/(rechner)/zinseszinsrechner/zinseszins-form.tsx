@@ -11,22 +11,31 @@ import { formatCurrency } from '@/lib/utils/format';
 import type { ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
 
-export function ZinseszinsForm() {
+interface ZinseszinsFormProps {
+  initialSparrate?: number;
+}
+
+export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
   const [startkapital, setStartkapital] = useState(10000);
-  const [sparrate, setSparrate] = useState(200);
+  const [sparrate, setSparrate] = useState(initialSparrate ?? 200);
   const [zinssatz, setZinssatz] = useState(5);
   const [laufzeit, setLaufzeit] = useState(10);
+  const [steuer, setSteuer] = useState(false);
   const [result, setResult] = useState<ZinseszinsResult | null>(null);
 
   useEffect(() => {
     if (laufzeit <= 0) { setResult(null); return; }
-    setResult(calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit }));
-  }, [startkapital, sparrate, zinssatz, laufzeit]);
+    setResult(calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit, steuerBeruecksichtigen: steuer }));
+  }, [startkapital, sparrate, zinssatz, laufzeit, steuer]);
 
   const chartSegments: ChartSegment[] = result ? [
     { label: 'Eingezahlt', value: result.eingezahlt, color: 'var(--color-primary-500)', percentage: (result.eingezahlt / result.endkapital) * 100 },
-    { label: 'Zinsen', value: result.zinsen, color: 'var(--color-accent-500)', percentage: (result.zinsen / result.endkapital) * 100 },
+    { label: 'Zinsen', value: steuer ? result.zinsenNachSteuer : result.zinsen, color: 'var(--color-accent-500)', percentage: ((steuer ? result.zinsenNachSteuer : result.zinsen) / result.endkapital) * 100 },
+    ...(steuer && result.steuerGesamt > 0 ? [{ label: 'Steuern', value: result.steuerGesamt, color: 'var(--color-warning-500)', percentage: (result.steuerGesamt / result.endkapital) * 100 }] : []),
   ] : [];
+
+  const endkapitalAnzeige = result ? (steuer ? result.endkapitalNachSteuer : result.endkapital) : 0;
+  const zinsenAnzeige = result ? (steuer ? result.zinsenNachSteuer : result.zinsen) : 0;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
@@ -52,6 +61,12 @@ export function ZinseszinsForm() {
               ))}
             </Select>
           </InputGroup>
+          <InputGroup label="Abgeltungsteuer berücksichtigen" htmlFor="steuer" tooltip="26,375 % (inkl. Soli) auf Erträge über dem Freibetrag von 1.000 €/Jahr (Ledige).">
+            <Select id="steuer" value={steuer ? 'ja' : 'nein'} onChange={(e) => setSteuer(e.target.value === 'ja')}>
+              <option value="nein">Nein (Brutto-Rendite)</option>
+              <option value="ja">Ja (nach Steuern)</option>
+            </Select>
+          </InputGroup>
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>
@@ -60,19 +75,25 @@ export function ZinseszinsForm() {
         {result && (
           <div className="animate-result-in space-y-6">
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10 text-center">
-              <p className="text-sm text-text-secondary">Endkapital nach {laufzeit} Jahren</p>
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400">{formatCurrency(result.endkapital)}</p>
+              <p className="text-sm text-text-secondary">Endkapital nach {laufzeit} Jahren{steuer ? ' (nach Steuern)' : ''}</p>
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400">{formatCurrency(endkapitalAnzeige)}</p>
             </Card>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className={cn('grid gap-4', steuer ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-1 sm:grid-cols-3')}>
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Eingezahlt</p>
                 <p className="text-xl font-bold font-currency text-primary-500 mt-1">{formatCurrency(result.eingezahlt)}</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-sm text-text-muted">Zinsen / Rendite</p>
-                <p className="text-xl font-bold font-currency text-accent-500 mt-1">{formatCurrency(result.zinsen)}</p>
+                <p className="text-sm text-text-muted">Zinsen{steuer ? ' (netto)' : ''}</p>
+                <p className="text-xl font-bold font-currency text-accent-500 mt-1">{formatCurrency(zinsenAnzeige)}</p>
               </Card>
+              {steuer && result.steuerGesamt > 0 && (
+                <Card padding="md" className="text-center">
+                  <p className="text-sm text-text-muted">Steuern gesamt</p>
+                  <p className="text-xl font-bold font-currency text-warning-500 mt-1">{formatCurrency(result.steuerGesamt)}</p>
+                </Card>
+              )}
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Rendite gesamt</p>
                 <p className="text-xl font-bold text-text mt-1">+{result.renditeGesamt}%</p>
@@ -80,10 +101,9 @@ export function ZinseszinsForm() {
             </div>
 
             <Card padding="lg">
-              <ResultsChart segments={chartSegments} centerLabel="Endkapital" centerValue={formatCurrency(result.endkapital)} size={180} />
+              <ResultsChart segments={chartSegments} centerLabel="Endkapital" centerValue={formatCurrency(endkapitalAnzeige)} size={180} />
             </Card>
 
-            {/* Jahres-Tabelle */}
             <Card padding="none">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
@@ -92,6 +112,7 @@ export function ZinseszinsForm() {
                       <th className="px-3 py-2 text-left text-text-secondary font-medium">Jahr</th>
                       <th className="px-3 py-2 text-right text-text-secondary font-medium">Eingezahlt</th>
                       <th className="px-3 py-2 text-right text-text-secondary font-medium">Zinsen</th>
+                      {steuer && <th className="px-3 py-2 text-right text-text-secondary font-medium">Steuer</th>}
                       <th className="px-3 py-2 text-right text-text-secondary font-medium">Gesamt</th>
                     </tr>
                   </thead>
@@ -104,8 +125,9 @@ export function ZinseszinsForm() {
                       <tr key={z.jahr} className="border-b border-border last:border-b-0 hover:bg-surface-raised transition-colors">
                         <td className="px-3 py-2 text-text">{z.jahr}</td>
                         <td className="px-3 py-2 text-right font-currency text-primary-500">{formatCurrency(z.eingezahlt)}</td>
-                        <td className="px-3 py-2 text-right font-currency text-accent-500">{formatCurrency(z.zinsen)}</td>
-                        <td className="px-3 py-2 text-right font-currency font-bold text-text">{formatCurrency(z.gesamt)}</td>
+                        <td className="px-3 py-2 text-right font-currency text-accent-500">{formatCurrency(steuer ? z.zinsen - z.steuer : z.zinsen)}</td>
+                        {steuer && <td className="px-3 py-2 text-right font-currency text-warning-500">{formatCurrency(z.steuer)}</td>}
+                        <td className="px-3 py-2 text-right font-currency font-bold text-text">{formatCurrency(steuer ? z.gesamtNachSteuer : z.gesamt)}</td>
                       </tr>
                     ))}
                   </tbody>

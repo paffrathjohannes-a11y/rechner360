@@ -14,6 +14,7 @@ export function TilgungsrechnerForm() {
   const [zinssatz, setZinssatz] = useState(3.5);
   const [tilgung, setTilgung] = useState(2);
   const [zinsbindung, setZinsbindung] = useState(10);
+  const [sondertilgung, setSondertilgung] = useState(0);
   const [result, setResult] = useState<TilgungsResult | null>(null);
 
   useEffect(() => {
@@ -23,8 +24,9 @@ export function TilgungsrechnerForm() {
       zinssatz,
       anfaengliche_tilgung: tilgung,
       zinsbindung_jahre: zinsbindung,
+      sondertilgung_jaehrlich: sondertilgung,
     }));
-  }, [darlehensbetrag, zinssatz, tilgung, zinsbindung]);
+  }, [darlehensbetrag, zinssatz, tilgung, zinsbindung, sondertilgung]);
 
   const laufzeitJahre = result ? Math.ceil(result.gesamtlaufzeit_monate / 12) : 0;
 
@@ -51,6 +53,10 @@ export function TilgungsrechnerForm() {
                 <option key={v} value={v}>{typeof v === 'number' && v % 1 !== 0 ? v.toFixed(1).replace('.', ',') : v} %</option>
               ))}
             </Select>
+          </InputGroup>
+
+          <InputGroup label="Sondertilgung (jährlich)" htmlFor="sondertilgung" tooltip="Viele Baufinanzierungen erlauben 5-10% Sondertilgung pro Jahr. Spart erheblich Zinsen.">
+            <CurrencyInput id="sondertilgung" value={sondertilgung} onChange={setSondertilgung} placeholder="z.B. 5.000" />
           </InputGroup>
 
           <InputGroup label="Zinsbindung" htmlFor="zinsbindung">

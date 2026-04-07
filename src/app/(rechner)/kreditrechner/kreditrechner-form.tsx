@@ -11,7 +11,18 @@ import { formatCurrency } from '@/lib/utils/format';
 import type { KreditInput, KreditResult, ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
 
+type Verwendungszweck = 'frei' | 'auto' | 'renovierung' | 'umschuldung' | 'elektronik';
+
+const VERWENDUNGSZWECK_ZINSEN: Record<Verwendungszweck, number> = {
+  frei: 5.5,
+  auto: 3.5,
+  renovierung: 4.5,
+  umschuldung: 4.0,
+  elektronik: 6.5,
+};
+
 export function KreditrechnerForm() {
+  const [verwendung, setVerwendung] = useState<Verwendungszweck>('frei');
   const [darlehensbetrag, setDarlehensbetrag] = useState(20000);
   const [zinssatz, setZinssatz] = useState(5.5);
   const [laufzeit, setLaufzeit] = useState(60);
@@ -37,6 +48,16 @@ export function KreditrechnerForm() {
       {/* Form */}
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
+          <InputGroup label="Verwendungszweck" htmlFor="verwendung" tooltip="Zweckgebundene Kredite (z.B. Auto) haben oft günstigere Zinsen.">
+            <Select id="verwendung" value={verwendung} onChange={(e) => { const v = e.target.value as Verwendungszweck; setVerwendung(v); setZinssatz(VERWENDUNGSZWECK_ZINSEN[v]); }}>
+              <option value="frei">Freie Verwendung</option>
+              <option value="auto">Autokredit</option>
+              <option value="renovierung">Renovierung / Modernisierung</option>
+              <option value="umschuldung">Umschuldung</option>
+              <option value="elektronik">Elektronik / Möbel</option>
+            </Select>
+          </InputGroup>
+
           <InputGroup label="Darlehensbetrag" htmlFor="betrag">
             <CurrencyInput id="betrag" value={darlehensbetrag} onChange={setDarlehensbetrag} placeholder="z.B. 20.000" />
           </InputGroup>
