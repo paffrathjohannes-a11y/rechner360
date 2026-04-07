@@ -112,7 +112,7 @@ export function GehaltsrechnerForm() {
                   <tr className="border-b border-border bg-surface-sunken">
                     <th className="px-4 py-3 text-left font-medium text-text-secondary">Steuerklasse</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Lohnsteuer</th>
-                    <th className="px-4 py-3 text-right font-medium text-text-secondary">SV-Beitrag</th>
+                    <th className="px-4 py-3 text-right font-medium text-text-secondary">Sozialabgaben</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary hidden sm:table-cell">Abzüge</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Netto</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary hidden md:table-cell">AG-Kosten</th>
@@ -153,7 +153,7 @@ export function GehaltsrechnerForm() {
           </Card>
 
           <p className="text-sm text-text-muted mt-2">
-            Alle Angaben für 2026, ohne Kirchensteuer, kinderlos über 23, KV-Zusatzbeitrag 2,9%.
+            Alle Angaben für 2026, {kirchensteuer ? 'mit' : 'ohne'} Kirchensteuer, {pvKinder === 0 ? 'kinderlos über 23' : `${pvKinder} ${pvKinder === 1 ? 'Kind' : 'Kinder'}`}, KV-Zusatzbeitrag {kvZusatzbeitrag.toFixed(1).replace('.', ',')}%.
           </p>
         </div>
       )}

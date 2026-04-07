@@ -122,30 +122,34 @@ export function GehaltserhoehungForm() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Card padding="md" className="text-center">
-              <p className="text-sm text-text-muted">Brutto-Erhöhung</p>
-              <p className="text-xl font-bold font-currency text-text mt-1">+{formatCurrency(result.bruttoDifferenz)}</p>
+              <p className="text-sm text-text-muted">Brutto-Differenz</p>
+              <p className="text-xl font-bold font-currency text-text mt-1">{result.bruttoDifferenz >= 0 ? '+' : '−'}{formatCurrency(Math.abs(result.bruttoDifferenz))}</p>
             </Card>
             <Card padding="md" className="text-center border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
-              <p className="text-sm text-text-muted">Netto-Erhöhung</p>
-              <p className="text-xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">+{formatCurrency(result.nettoDifferenz)}</p>
-              <p className="text-sm text-text-muted">{result.nettoAnteil}% kommen an</p>
+              <p className="text-sm text-text-muted">Netto-Differenz</p>
+              <p className="text-xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">{result.nettoDifferenz >= 0 ? '+' : '−'}{formatCurrency(Math.abs(result.nettoDifferenz))}</p>
+              <p className="text-sm text-text-muted">{result.bruttoDifferenz !== 0 ? `${Math.abs(result.nettoAnteil)}% ${result.nettoDifferenz >= 0 ? 'kommen an' : 'weniger netto'}` : ''}</p>
             </Card>
             <Card padding="md" className="text-center">
-              <p className="text-sm text-text-muted">Mehr Abgaben</p>
-              <p className="text-xl font-bold font-currency text-negative-500 mt-1">+{formatCurrency(result.mehrAbgaben)}</p>
-              <p className="text-sm text-text-muted">Steuern + SV</p>
+              <p className="text-sm text-text-muted">Abgaben-Differenz</p>
+              <p className="text-xl font-bold font-currency text-negative-500 mt-1">{result.mehrAbgaben >= 0 ? '+' : '−'}{formatCurrency(Math.abs(result.mehrAbgaben))}</p>
+              <p className="text-sm text-text-muted">Steuern + Sozialabgaben</p>
             </Card>
           </div>
 
           <Card padding="md">
-            <p className="text-sm font-medium text-text mb-3">Von {formatCurrency(result.bruttoDifferenz)} Erhöhung kommen an:</p>
+            <p className="text-sm font-medium text-text mb-3">
+              {result.bruttoDifferenz >= 0
+                ? `Von ${formatCurrency(Math.abs(result.bruttoDifferenz))} Gehaltserhöhung kommen an:`
+                : `Von ${formatCurrency(Math.abs(result.bruttoDifferenz))} Gehaltsreduzierung:`}
+            </p>
             <div className="h-6 rounded-full overflow-hidden flex">
-              <div className="bg-accent-500 transition-all duration-300" style={{ width: `${Math.max(0, result.nettoAnteil)}%` }} />
-              <div className="bg-negative-400 transition-all duration-300" style={{ width: `${Math.max(0, 100 - result.nettoAnteil)}%` }} />
+              <div className="bg-accent-500 transition-all duration-300" style={{ width: `${Math.max(0, Math.min(100, result.nettoAnteil))}%` }} />
+              <div className="bg-negative-400 transition-all duration-300" style={{ width: `${Math.max(0, Math.min(100, 100 - result.nettoAnteil))}%` }} />
             </div>
             <div className="flex justify-between mt-2 text-sm text-text-muted">
-              <span>Netto: {result.nettoAnteil}%</span>
-              <span>Abgaben: {Math.max(0, 100 - result.nettoAnteil).toFixed(0)}%</span>
+              <span>Netto: {Math.max(0, Math.min(100, result.nettoAnteil)).toFixed(0)}%</span>
+              <span>Abgaben: {Math.max(0, Math.min(100, 100 - result.nettoAnteil)).toFixed(0)}%</span>
             </div>
           </Card>
         </div>

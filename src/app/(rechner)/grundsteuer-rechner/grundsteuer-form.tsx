@@ -60,7 +60,7 @@ export function GrundsteuerForm() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Bundesland" htmlFor="bundesland" tooltip="Einige Bundesländer nutzen eigene Berechnungsmodelle statt des Bundesmodells.">
+          <InputGroup label="Bundesland (für Modell-Hinweis)" htmlFor="bundesland" tooltip="Nur für Modell-Hinweis — Berechnung erfolgt immer nach Bundesmodell.">
             <Select id="bundesland" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
               {BUNDESLAENDER.map((bl) => (
                 <option key={bl.value} value={bl.value}>{bl.label}</option>

@@ -109,9 +109,15 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
                   {formatCurrency(result.gkv_arbeitnehmer)}
                   <span className="text-sm font-normal text-text-muted"> /Monat</span>
                 </p>
-                <p className="text-sm text-text-muted mt-2">
-                  AG-Anteil: {formatCurrency(result.gkv_arbeitgeber)}
-                </p>
+                {berufsgruppe !== 'selbststaendig' ? (
+                  <p className="text-sm text-text-muted mt-2">
+                    AG-Anteil: {formatCurrency(result.gkv_arbeitgeber)}
+                  </p>
+                ) : (
+                  <p className="text-sm text-text-muted mt-2">
+                    Voller Beitrag (kein Arbeitgeber)
+                  </p>
+                )}
               </Card>
               <Card padding="md">
                 <p className="text-sm text-text-muted uppercase tracking-wide">PKV (Ihr Anteil)</p>
@@ -187,11 +193,13 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
                         <td className="px-4 py-2 text-right font-currency text-text">{formatCurrency(result.gkv_gesamt)}</td>
                         <td className="px-4 py-2 text-right font-currency text-text">{formatCurrency(result.pkv_geschaetzt)}</td>
                       </tr>
-                      <tr className="border-b border-border">
-                        <td className="px-4 py-2 text-text">Arbeitgeber-Anteil</td>
-                        <td className="px-4 py-2 text-right font-currency text-accent-500">{formatCurrency(result.gkv_arbeitgeber)}</td>
-                        <td className="px-4 py-2 text-right font-currency text-accent-500">{formatCurrency(result.pkv_ag_zuschuss)}</td>
-                      </tr>
+                      {berufsgruppe !== 'selbststaendig' && (
+                        <tr className="border-b border-border">
+                          <td className="px-4 py-2 text-text">Arbeitgeber-Anteil</td>
+                          <td className="px-4 py-2 text-right font-currency text-accent-500">{formatCurrency(result.gkv_arbeitgeber)}</td>
+                          <td className="px-4 py-2 text-right font-currency text-accent-500">{formatCurrency(result.pkv_ag_zuschuss)}</td>
+                        </tr>
+                      )}
                       <tr className="border-b border-border font-semibold">
                         <td className="px-4 py-2 text-text">Ihr Anteil</td>
                         <td className="px-4 py-2 text-right font-currency text-primary-500">{formatCurrency(result.gkv_arbeitnehmer)}</td>

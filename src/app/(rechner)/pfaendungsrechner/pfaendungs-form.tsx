@@ -20,8 +20,8 @@ export function PfaendungsForm() {
   }, [netto, unterhalt]);
 
   // Balken-Visualisierung
-  const freiProzent = result ? Math.min((result.pfaendungsfreigrenze / netto) * 100, 100) : 0;
-  const pfaendbarProzent = result ? (result.anteilPfaendbar) : 0;
+  const freiProzent = result ? Math.min((result.verbleibendesBetrag / netto) * 100, 100) : 0;
+  const pfaendbarProzent = result ? Math.min((result.pfaendbarerBetrag / netto) * 100, 100) : 0;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

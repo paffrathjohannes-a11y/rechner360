@@ -89,12 +89,12 @@ export function KalorienForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-sm text-text-muted">Grundumsatz (BMR)</p>
+                <p className="text-sm text-text-muted">Grundumsatz</p>
                 <p className="text-2xl font-bold text-text mt-1">{result.grundumsatz.toLocaleString('de-DE')} kcal</p>
                 <p className="text-sm text-text-muted">Ruhezustand</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-sm text-text-muted">Gesamtumsatz (TDEE)</p>
+                <p className="text-sm text-text-muted">Gesamtumsatz</p>
                 <p className="text-2xl font-bold text-primary-500 mt-1">{result.gesamtumsatz.toLocaleString('de-DE')} kcal</p>
                 <p className="text-sm text-text-muted">Faktor ×{result.aktivitaetsFaktor}</p>
               </Card>

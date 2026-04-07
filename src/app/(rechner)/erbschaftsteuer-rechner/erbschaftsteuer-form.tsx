@@ -150,7 +150,7 @@ export function ErbschaftsteuerForm({ defaultWert, defaultVerwandtschaft }: Erbs
                   {result.steuerBetrag > 0 && ` (${formatPercent(result.effektiverSteuersatz)} effektive Steuer)`}
                 </p>
                 <div className="flex justify-center gap-2 mt-2">
-                  <Badge variant="default">Steuerklasse {result.steuerklasse}</Badge>
+                  <Badge variant="default">Erbschaftsteuerklasse {result.steuerklasse}</Badge>
                   {result.steuerpflichtigerErwerb > 0 && (
                     <Badge variant="muted">Steuersatz {formatPercent(result.steuersatz)}</Badge>
                   )}

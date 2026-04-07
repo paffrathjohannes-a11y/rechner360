@@ -36,7 +36,7 @@ export function AbfindungsForm() {
           </InputGroup>
           <InputGroup label="Steuerklasse" htmlFor="stkl">
             <Select id="stkl" value={steuerklasse} onChange={(e) => setSteuerklasse(Number(e.target.value) as 1|2|3|4|5|6)}>
-              {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
+              {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name} — {sk.description}</option>))}
             </Select>
           </InputGroup>
           <Toggle checked={kirchensteuer} onChange={setKirchensteuer} label="Kirchensteuer" />
