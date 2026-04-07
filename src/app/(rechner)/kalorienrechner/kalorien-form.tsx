@@ -13,13 +13,13 @@ export function KalorienForm() {
   const [groesse, setGroesse] = useState(175);
   const [alter, setAlter] = useState(30);
   const [geschlecht, setGeschlecht] = useState<'mann' | 'frau'>('mann');
-  const [aktivitaet, setAktivitaet] = useState<string>('moderat');
+  const [aktivitaet, setAktivitaet] = useState<'sitzend' | 'leicht' | 'moderat' | 'aktiv' | 'sehr-aktiv'>('moderat');
   const [ziel, setZiel] = useState<'abnehmen' | 'halten' | 'zunehmen'>('halten');
   const [result, setResult] = useState<KalorienResult | null>(null);
 
   useEffect(() => {
     if (gewicht > 0 && groesse > 0 && alter > 0) {
-      setResult(calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet: aktivitaet as any, ziel }));
+      setResult(calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet, ziel }));
     }
   }, [gewicht, groesse, alter, geschlecht, aktivitaet, ziel]);
 
@@ -43,7 +43,7 @@ export function KalorienForm() {
             </Select>
           </InputGroup>
           <InputGroup label="Aktivit&auml;t" htmlFor="aktivitaet">
-            <Select id="aktivitaet" value={aktivitaet} onChange={(e) => setAktivitaet(e.target.value)}>
+            <Select id="aktivitaet" value={aktivitaet} onChange={(e) => setAktivitaet(e.target.value as typeof aktivitaet)}>
               <option value="sitzend">Sitzend (kaum Bewegung)</option>
               <option value="leicht">Leicht aktiv (1-3x Sport/Woche)</option>
               <option value="moderat">Moderat aktiv (3-5x Sport/Woche)</option>

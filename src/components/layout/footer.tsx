@@ -62,11 +62,6 @@ export function Footer() {
                   &Uuml;ber uns
                 </Link>
               </li>
-              <li>
-                <Link href="/ratgeber" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
-                  Ratgeber
-                </Link>
-              </li>
             </ul>
           </div>
 
