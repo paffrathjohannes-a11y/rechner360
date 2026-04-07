@@ -8,9 +8,9 @@ import { ThemeToggle } from './theme-toggle';
 import { cn } from '@/lib/utils/cn';
 
 // Top 5 im Desktop-Nav direkt sichtbar, Rest im Dropdown
-const topSlugs = new Set(RECHNER.filter((r) => r.popular).slice(0, 5).map((r) => r.slug));
-const TOP_NAV = RECHNER.filter((r) => topSlugs.has(r.slug));
-const MORE_NAV = RECHNER.filter((r) => !topSlugs.has(r.slug));
+const topSlugs = new Set<string>(RECHNER.filter((r) => r.popular).slice(0, 5).map((r) => r.slug));
+const TOP_NAV = RECHNER.filter((r) => topSlugs.has(r.slug as string));
+const MORE_NAV = RECHNER.filter((r) => !topSlugs.has(r.slug as string));
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
