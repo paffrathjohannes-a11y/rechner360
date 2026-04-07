@@ -104,7 +104,7 @@ export const RECHNER = [
     shortTitle: 'Inflation',
     description: 'Berechnen Sie den Kaufkraftverlust durch Inflation \u00fcber beliebige Zeitr\u00e4ume.',
     icon: 'trending-down',
-    color: 'warning' as const,
+    color: 'primary',
     popular: false,
   },
   {
