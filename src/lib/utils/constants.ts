@@ -108,6 +108,15 @@ export const RECHNER = [
     popular: false,
   },
   {
+    slug: 'grundsteuer-rechner',
+    title: 'Grundsteuer Rechner',
+    shortTitle: 'Grundsteuer',
+    description: 'Berechnen Sie Ihre neue Grundsteuer nach der Reform 2025 mit Bodenrichtwert und Hebesatz.',
+    icon: 'map-pin',
+    color: 'primary',
+    popular: false,
+  },
+  {
     slug: 'unterhalt-rechner',
     title: 'Unterhalt Rechner',
     shortTitle: 'Unterhalt',
