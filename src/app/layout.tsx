@@ -29,6 +29,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  verification: {
+    google: 'eJ8na0jojkqKp59IIAq1M97YM8cKdGM1M0UoU1_nYhA',
+  },
   title: {
     default: `Kostenlose Online-Rechner 2026 | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
