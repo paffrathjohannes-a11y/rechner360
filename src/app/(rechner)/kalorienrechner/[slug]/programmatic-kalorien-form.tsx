@@ -28,9 +28,9 @@ export function ProgrammaticKalorienForm({ gewicht: initG, geschlecht: initS }: 
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Gewicht (kg)" htmlFor="g"><Input id="g" type="number" value={gewicht} onChange={(e) => setGewicht(Number(e.target.value))} /></InputGroup>
-          <InputGroup label="Gr\u00f6\u00dfe (cm)" htmlFor="h"><Input id="h" type="number" value={groesse} onChange={(e) => setGroesse(Number(e.target.value))} /></InputGroup>
-          <InputGroup label="Alter" htmlFor="a"><Input id="a" type="number" value={alter} onChange={(e) => setAlter(Number(e.target.value))} /></InputGroup>
+          <InputGroup label="Gewicht (kg)" htmlFor="g"><Input id="g" type="number" value={gewicht} onChange={setGewicht} /></InputGroup>
+          <InputGroup label="Gr\u00f6\u00dfe (cm)" htmlFor="h"><Input id="h" type="number" value={groesse} onChange={setGroesse} /></InputGroup>
+          <InputGroup label="Alter" htmlFor="a"><Input id="a" type="number" value={alter} onChange={setAlter} /></InputGroup>
           <InputGroup label="Aktivit\u00e4t" htmlFor="ak">
             <Select id="ak" value={aktivitaet} onChange={(e) => setAktivitaet(e.target.value as typeof aktivitaet)}>
               <option value="sitzend">Sitzend</option><option value="leicht">Leicht aktiv</option><option value="moderat">Moderat aktiv</option><option value="aktiv">Sehr aktiv</option><option value="sehr-aktiv">Extrem aktiv</option>

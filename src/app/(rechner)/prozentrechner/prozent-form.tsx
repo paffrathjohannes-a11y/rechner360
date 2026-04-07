@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { prozentAnteil, prozentSatz, prozentGrundwert, prozentAenderung } from '@/lib/calculator/math/prozent';
 import { cn } from '@/lib/utils/cn';
@@ -36,11 +36,11 @@ export function ProzentForm() {
         <h3 className="text-base font-semibold text-text">Wie viel sind X% von Y?</h3>
         <div className="flex items-end gap-2">
           <InputGroup label="Prozent" htmlFor="m1p" className="flex-1">
-            <Input id="m1p" type="number" value={m1_prozent} onChange={(e) => setM1Prozent(Number(e.target.value))} />
+            <NumberInput id="m1p" value={m1_prozent} onChange={setM1Prozent} />
           </InputGroup>
           <span className="pb-2.5 text-text-muted font-medium">% von</span>
           <InputGroup label="Grundwert" htmlFor="m1g" className="flex-1">
-            <Input id="m1g" type="number" value={m1_grundwert} onChange={(e) => setM1Grundwert(Number(e.target.value))} />
+            <NumberInput id="m1g" value={m1_grundwert} onChange={setM1Grundwert} />
           </InputGroup>
         </div>
         <div className="rounded-lg bg-primary-50/50 dark:bg-primary-900/10 p-3 text-center">
@@ -55,11 +55,11 @@ export function ProzentForm() {
         <h3 className="text-base font-semibold text-text">X ist wie viel % von Y?</h3>
         <div className="flex items-end gap-2">
           <InputGroup label="Wert" htmlFor="m2a" className="flex-1">
-            <Input id="m2a" type="number" value={m2_anteil} onChange={(e) => setM2Anteil(Number(e.target.value))} />
+            <NumberInput id="m2a" value={m2_anteil} onChange={setM2Anteil} />
           </InputGroup>
           <span className="pb-2.5 text-text-muted font-medium">ist ?% von</span>
           <InputGroup label="Grundwert" htmlFor="m2g" className="flex-1">
-            <Input id="m2g" type="number" value={m2_grundwert} onChange={(e) => setM2Grundwert(Number(e.target.value))} />
+            <NumberInput id="m2g" value={m2_grundwert} onChange={setM2Grundwert} />
           </InputGroup>
         </div>
         <div className="rounded-lg bg-accent-50/50 dark:bg-accent-900/10 p-3 text-center">
@@ -74,11 +74,11 @@ export function ProzentForm() {
         <h3 className="text-base font-semibold text-text">X ist Y% von was?</h3>
         <div className="flex items-end gap-2">
           <InputGroup label="Wert" htmlFor="m3a" className="flex-1">
-            <Input id="m3a" type="number" value={m3_anteil} onChange={(e) => setM3Anteil(Number(e.target.value))} />
+            <NumberInput id="m3a" value={m3_anteil} onChange={setM3Anteil} />
           </InputGroup>
           <span className="pb-2.5 text-text-muted font-medium">ist</span>
           <InputGroup label="Prozent" htmlFor="m3p" className="flex-1">
-            <Input id="m3p" type="number" value={m3_prozent} onChange={(e) => setM3Prozent(Number(e.target.value))} />
+            <NumberInput id="m3p" value={m3_prozent} onChange={setM3Prozent} />
           </InputGroup>
           <span className="pb-2.5 text-text-muted font-medium">% von ?</span>
         </div>
@@ -94,11 +94,11 @@ export function ProzentForm() {
         <h3 className="text-base font-semibold text-text">Prozentuale Veränderung</h3>
         <div className="flex items-end gap-2">
           <InputGroup label="Alter Wert" htmlFor="m4a" className="flex-1">
-            <Input id="m4a" type="number" value={m4_alt} onChange={(e) => setM4Alt(Number(e.target.value))} />
+            <NumberInput id="m4a" value={m4_alt} onChange={setM4Alt} />
           </InputGroup>
           <span className="pb-2.5 text-text-muted font-medium">→</span>
           <InputGroup label="Neuer Wert" htmlFor="m4n" className="flex-1">
-            <Input id="m4n" type="number" value={m4_neu} onChange={(e) => setM4Neu(Number(e.target.value))} />
+            <NumberInput id="m4n" value={m4_neu} onChange={setM4Neu} />
           </InputGroup>
         </div>
         <div className={cn(
