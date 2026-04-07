@@ -6,6 +6,7 @@ import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
+import { AdvancedOptions } from '@/components/calculator/advanced-options';
 import { calculateGrundsteuer, type GrundsteuerResult } from '@/lib/calculator/immobilien/grundsteuer';
 import { formatCurrency } from '@/lib/utils/format';
 
@@ -83,21 +84,26 @@ export function GrundsteuerForm() {
           <InputGroup label="Wohnfläche (m²)" htmlFor="wf">
             <NumberInput id="wf" min={30} max={500} value={wohnflaeche} onChange={setWohnflaeche} />
           </InputGroup>
-          <InputGroup label="Baujahr" htmlFor="bj">
-            <NumberInput id="bj" min={1900} max={2026} value={baujahr} onChange={setBaujahr} />
-          </InputGroup>
-          <InputGroup label="Gebäudeart" htmlFor="ga">
-            <Select id="ga" value={gebaeudeart} onChange={(e) => setGebaeudeart(e.target.value as typeof gebaeudeart)}>
-              <option value="efh">Einfamilienhaus</option>
-              <option value="dhh">Doppelhaushälfte</option>
-              <option value="rh">Reihenhaus</option>
-              <option value="etw">Eigentumswohnung</option>
-              <option value="mfh">Mehrfamilienhaus</option>
-            </Select>
-          </InputGroup>
-          <InputGroup label="Hebesatz (%)" htmlFor="hs" tooltip="Den Hebesatz Ihrer Kommune finden Sie auf der Website Ihrer Stadt/Gemeinde.">
+          <InputGroup label="Hebesatz (%)" htmlFor="hs" tooltip="Den Hebesatz finden Sie auf der Website Ihrer Stadt/Gemeinde. Typisch: 300–600%.">
             <NumberInput id="hs" min={100} max={1000} value={hebesatz} onChange={setHebesatz} />
           </InputGroup>
+
+          <AdvancedOptions>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputGroup label="Baujahr" htmlFor="bj">
+                <NumberInput id="bj" min={1900} max={2026} value={baujahr} onChange={setBaujahr} />
+              </InputGroup>
+              <InputGroup label="Gebäudeart" htmlFor="ga">
+                <Select id="ga" value={gebaeudeart} onChange={(e) => setGebaeudeart(e.target.value as typeof gebaeudeart)}>
+                  <option value="efh">Einfamilienhaus</option>
+                  <option value="dhh">Doppelhaushälfte</option>
+                  <option value="rh">Reihenhaus</option>
+                  <option value="etw">Eigentumswohnung</option>
+                  <option value="mfh">Mehrfamilienhaus</option>
+                </Select>
+              </InputGroup>
+            </div>
+          </AdvancedOptions>
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>

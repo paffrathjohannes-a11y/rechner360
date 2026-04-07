@@ -32,7 +32,7 @@ export function UnterhaltForm() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Bereinigtes Nettoeinkommen" htmlFor="netto" tooltip="Nettoeinkommen nach Abzug von berufsbed. Aufwendungen (5%), Schulden, Vorsorge etc.">
+          <InputGroup label="Nettoeinkommen" htmlFor="netto" tooltip="Bereinigtes Nettoeinkommen: Ihr Netto nach Abzug von berufsbedingten Aufwendungen (pauschal 5%), Schulden und Vorsorgebeiträgen.">
             <CurrencyInput id="netto" value={netto} onChange={setNetto} />
           </InputGroup>
 

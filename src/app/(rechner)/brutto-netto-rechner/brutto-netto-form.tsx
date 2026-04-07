@@ -12,6 +12,7 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { ResultsChart } from '@/components/calculator/results-chart';
 import { BreakdownTable } from '@/components/calculator/breakdown-table';
 import { BUNDESLAENDER, STEUERKLASSEN } from '@/lib/utils/constants';
+import { AdvancedOptions } from '@/components/calculator/advanced-options';
 import { calculateBruttoNetto } from '@/lib/calculator/brutto-netto';
 import { formatCurrency } from '@/lib/utils/format';
 import type { BruttoNettoInput, BruttoNettoResult, BreakdownItem, ChartSegment } from '@/types/calculator';
@@ -115,74 +116,49 @@ export function BruttoNettoForm() {
             </Select>
           </InputGroup>
 
-          <div className="flex flex-col gap-3">
+          <AdvancedOptions>
             <Toggle
               checked={input.kirchensteuer}
               onChange={(v) => updateInput('kirchensteuer', v)}
               label="Kirchensteuer"
             />
-          </div>
 
-          <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Anzahl der Kinderfreibeträge laut Lohnsteuerkarte. Jedes Kind = 0,5 oder 1,0 je nach Steuerklasse.">
-            <Select
-              id="kfb"
-              value={input.kinderfreibetraege}
-              onChange={(e) => updateInput('kinderfreibetraege', Number(e.target.value))}
-            >
-              {[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5].map((v) => (
-                <option key={v} value={v}>{v}</option>
-              ))}
-            </Select>
-          </InputGroup>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputGroup label="Kinder" htmlFor="pvk" tooltip="Beeinflusst Pflegeversicherung. Kinderlose ab 23 zahlen 0,6% Zuschlag.">
+                <Select id="pvk" value={input.pflegeversicherung_kinder} onChange={(e) => updateInput('pflegeversicherung_kinder', Number(e.target.value))}>
+                  {[0, 1, 2, 3, 4, 5].map((v) => (
+                    <option key={v} value={v}>{v === 0 ? 'Keine Kinder' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+                  ))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Anzahl laut Lohnsteuerkarte.">
+                <Select id="kfb" value={input.kinderfreibetraege} onChange={(e) => updateInput('kinderfreibetraege', Number(e.target.value))}>
+                  {[0, 0.5, 1, 1.5, 2, 2.5, 3].map((v) => (<option key={v} value={v}>{v}</option>))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="KV-Zusatzbeitrag" htmlFor="kvz" tooltip="Durchschnitt 2026: 2,9%.">
+                <Select id="kvz" value={input.kv_zusatzbeitrag} onChange={(e) => updateInput('kv_zusatzbeitrag', Number(e.target.value))}>
+                  {[1.5, 1.9, 2.3, 2.5, 2.7, 2.9, 3.1, 3.5].map((v) => (
+                    <option key={v} value={v}>{v.toFixed(1).replace('.', ',')}%</option>
+                  ))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel je nach Antrieb.">
+                <Select id="fw" value={input.firmenwagen_antrieb} onChange={(e) => updateInput('firmenwagen_antrieb', e.target.value as BruttoNettoInput['firmenwagen_antrieb'])}>
+                  <option value="kein">Kein Firmenwagen</option>
+                  <option value="verbrenner">Verbrenner (1%)</option>
+                  <option value="hybrid">Hybrid (0,5%)</option>
+                  <option value="elektro">E-Auto (0,25%)</option>
+                </Select>
+              </InputGroup>
+            </div>
 
-          <InputGroup label="Kinder (für Pflegeversicherung)" htmlFor="pvk" tooltip="Anzahl Ihrer Kinder. Ab 2 Kindern sinkt der PV-Beitrag. Kinderlose ab 23 zahlen 0,6% Zuschlag.">
-            <Select
-              id="pvk"
-              value={input.pflegeversicherung_kinder}
-              onChange={(e) => updateInput('pflegeversicherung_kinder', Number(e.target.value))}
-            >
-              {[0, 1, 2, 3, 4, 5].map((v) => (
-                <option key={v} value={v}>{v === 0 ? 'Keine Kinder (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
-              ))}
-            </Select>
-          </InputGroup>
-
-          <InputGroup label="KV-Zusatzbeitrag (%)" htmlFor="kvz" tooltip="Durchschnittlicher Zusatzbeitrag 2026: 2,9%. Variiert je nach Krankenkasse.">
-            <Select
-              id="kvz"
-              value={input.kv_zusatzbeitrag}
-              onChange={(e) => updateInput('kv_zusatzbeitrag', Number(e.target.value))}
-            >
-              {[1.0, 1.2, 1.3, 1.5, 1.7, 1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5].map((v) => (
-                <option key={v} value={v}>{v.toFixed(1).replace('.', ',')} %</option>
-              ))}
-            </Select>
-          </InputGroup>
-
-          {/* Firmenwagen / Geldwerter Vorteil */}
-          <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel: Verbrenner 1%, Hybrid 0,5%, E-Auto 0,25% vom Bruttolistenpreis.">
-            <Select
-              id="fw"
-              value={input.firmenwagen_antrieb}
-              onChange={(e) => updateInput('firmenwagen_antrieb', e.target.value as BruttoNettoInput['firmenwagen_antrieb'])}
-            >
-              <option value="kein">Kein Firmenwagen</option>
-              <option value="verbrenner">Verbrenner (1%-Regel)</option>
-              <option value="hybrid">Hybrid (0,5%-Regel)</option>
-              <option value="elektro">E-Auto (0,25%-Regel)</option>
-            </Select>
-          </InputGroup>
-
-          {input.firmenwagen_antrieb !== 'kein' && (
-            <InputGroup label="Bruttolistenpreis" htmlFor="fwp" tooltip="Bruttolistenpreis des Fahrzeugs inkl. Sonderausstattung (auf volle 100 € abgerundet).">
-              <CurrencyInput
-                id="fwp"
-                value={input.firmenwagen_listenpreis}
-                onChange={(v) => updateInput('firmenwagen_listenpreis', v)}
-                placeholder="z.B. 45.000"
-              />
-            </InputGroup>
-          )}
+            {input.firmenwagen_antrieb !== 'kein' && (
+              <InputGroup label="Bruttolistenpreis" htmlFor="fwp">
+                <CurrencyInput id="fwp" value={input.firmenwagen_listenpreis} onChange={(v) => updateInput('firmenwagen_listenpreis', v)} placeholder="z.B. 45.000" />
+              </InputGroup>
+            )}
+          </AdvancedOptions>
 
           <p className="text-xs text-text-muted text-center">
             Ergebnisse aktualisieren sich automatisch.

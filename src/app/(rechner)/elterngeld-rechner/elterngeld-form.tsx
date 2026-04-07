@@ -50,9 +50,9 @@ export function ElterngeldForm() {
           </InputGroup>
 
           <div className="space-y-3">
-            <Toggle checked={partnermonate} onChange={setPartnermonate} label="Partnermonate (+2 bzw. +4)" />
-            <Toggle checked={zwillinge} onChange={setZwillinge} label="Mehrlingsgeburt (Zwillinge+)" />
-            <Toggle checked={geschwister} onChange={setGeschwister} label="Geschwisterbonus" />
+            <Toggle checked={partnermonate} onChange={setPartnermonate} label="Partnermonate — beide Eltern nehmen Elternzeit (+2 Mon.)" />
+            <Toggle checked={zwillinge} onChange={setZwillinge} label="Mehrlingsgeburt (Zwillinge oder mehr)" />
+            <Toggle checked={geschwister} onChange={setGeschwister} label="Geschwisterbonus — Kind unter 3 oder 2 Kinder unter 6" />
           </div>
 
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>

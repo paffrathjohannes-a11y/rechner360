@@ -74,7 +74,7 @@ export function GehaltsrechnerForm() {
               ))}
             </Select>
           </InputGroup>
-          <InputGroup label="Kinder (PV)" htmlFor="pvk">
+          <InputGroup label="Kinder" htmlFor="pvk">
             <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
               {[0, 1, 2, 3, 4, 5].map((v) => (
                 <option key={v} value={v}>{v === 0 ? 'Keine (0,6% Zuschlag)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>

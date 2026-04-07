@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
+import { AdvancedOptions } from '@/components/calculator/advanced-options';
 import { calculateGehaltserhoehung, type GehaltserhoehungResult } from '@/lib/calculator/tax/gehaltserhoehung';
 import { STEUERKLASSEN, BUNDESLAENDER } from '@/lib/utils/constants';
 import { formatCurrency } from '@/lib/utils/format';
@@ -32,77 +33,77 @@ export function GehaltserhoehungForm() {
   return (
     <div className="space-y-6">
       <Card padding="lg">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
-          <InputGroup label="Aktuelles Brutto" htmlFor="alt">
-            <CurrencyInput id="alt" value={bruttoAlt} onChange={setBruttoAlt} />
-          </InputGroup>
-          <InputGroup label="Neues Brutto" htmlFor="neu">
-            <CurrencyInput id="neu" value={bruttoNeu} onChange={setBruttoNeu} />
-          </InputGroup>
-          <InputGroup label="Steuerklasse" htmlFor="sk">
-            <Select id="sk" value={steuerklasse} onChange={(e) => setSteuerklasse(Number(e.target.value) as typeof steuerklasse)}>
-              {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
-            </Select>
-          </InputGroup>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <InputGroup label="Bundesland" htmlFor="bl">
-            <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
-              {BUNDESLAENDER.map((bl) => (<option key={bl.id} value={bl.id}>{bl.name}</option>))}
-            </Select>
-          </InputGroup>
-          <InputGroup label="Kirchensteuer" htmlFor="kist">
-            <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
-              <option value="nein">Nein</option>
-              <option value="ja">Ja</option>
-            </Select>
-          </InputGroup>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Anzahl laut Lohnsteuerkarte. Jedes Kind = 0,5 oder 1,0 je nach Steuerklasse.">
-            <Select id="kfb" value={kinderfreibetraege} onChange={(e) => setKinderfreibetraege(Number(e.target.value))}>
-              {[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5].map((v) => (
-                <option key={v} value={v}>{v}</option>
-              ))}
-            </Select>
-          </InputGroup>
-          <InputGroup label="KV-Zusatzbeitrag (%)" htmlFor="kvz" tooltip="Durchschnitt 2026: 2,9%. Variiert je nach Krankenkasse.">
-            <Select id="kvz" value={kvZusatzbeitrag} onChange={(e) => setKvZusatzbeitrag(Number(e.target.value))}>
-              {[1.0, 1.5, 1.7, 1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5].map((v) => (
-                <option key={v} value={v}>{v.toFixed(1).replace('.', ',')} %</option>
-              ))}
-            </Select>
-          </InputGroup>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-          <InputGroup label="Kinder (Pflegeversicherung)" htmlFor="pvk" tooltip="Kinderlose ab 23 zahlen 0,6% Zuschlag. Ab 2 Kindern sinkt der PV-Beitrag.">
-            <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
-              {[0, 1, 2, 3, 4, 5].map((v) => (
-                <option key={v} value={v}>{v === 0 ? 'Keine (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
-              ))}
-            </Select>
-          </InputGroup>
-          <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel: Verbrenner 1%, Hybrid 0,5%, E-Auto 0,25% vom Bruttolistenpreis.">
-            <Select id="fw" value={fwAntrieb} onChange={(e) => setFwAntrieb(e.target.value)}>
-              <option value="kein">Kein Firmenwagen</option>
-              <option value="verbrenner">Verbrenner (1%)</option>
-              <option value="hybrid">Hybrid (0,5%)</option>
-              <option value="elektro">E-Auto (0,25%)</option>
-            </Select>
-          </InputGroup>
-        </div>
-        {fwAntrieb !== 'kein' && (
-          <div className="mt-4">
-            <InputGroup label="Bruttolistenpreis" htmlFor="fwp" tooltip="Bruttolistenpreis des Fahrzeugs inkl. Sonderausstattung.">
-              <CurrencyInput id="fwp" value={fwPreis} onChange={setFwPreis} placeholder="z.B. 45.000" />
+        <div className="space-y-5">
+          {/* Kern-Felder: Was der Nutzer wirklich braucht */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <InputGroup label="Aktuelles Brutto" htmlFor="alt">
+              <CurrencyInput id="alt" value={bruttoAlt} onChange={setBruttoAlt} />
+            </InputGroup>
+            <InputGroup label="Neues Brutto" htmlFor="neu">
+              <CurrencyInput id="neu" value={bruttoNeu} onChange={setBruttoNeu} />
+            </InputGroup>
+            <InputGroup label="Steuerklasse" htmlFor="sk">
+              <Select id="sk" value={steuerklasse} onChange={(e) => setSteuerklasse(Number(e.target.value) as typeof steuerklasse)}>
+                {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
+              </Select>
             </InputGroup>
           </div>
-        )}
+
+          {/* Erweiterte Optionen — standardmäßig eingeklappt */}
+          <AdvancedOptions>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <InputGroup label="Bundesland" htmlFor="bl">
+                <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
+                  {BUNDESLAENDER.map((bl) => (<option key={bl.id} value={bl.id}>{bl.name}</option>))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="Kirchensteuer" htmlFor="kist">
+                <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
+                  <option value="nein">Nein</option>
+                  <option value="ja">Ja</option>
+                </Select>
+              </InputGroup>
+              <InputGroup label="Kinder" htmlFor="pvk" tooltip="Beeinflusst Pflegeversicherung. Kinderlose ab 23 zahlen 0,6% Zuschlag.">
+                <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
+                  {[0, 1, 2, 3, 4, 5].map((v) => (
+                    <option key={v} value={v}>{v === 0 ? 'Keine Kinder' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+                  ))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Anzahl laut Lohnsteuerkarte.">
+                <Select id="kfb" value={kinderfreibetraege} onChange={(e) => setKinderfreibetraege(Number(e.target.value))}>
+                  {[0, 0.5, 1, 1.5, 2, 2.5, 3].map((v) => (<option key={v} value={v}>{v}</option>))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="KV-Zusatzbeitrag" htmlFor="kvz" tooltip="Durchschnitt 2026: 2,9%. Variiert je nach Krankenkasse.">
+                <Select id="kvz" value={kvZusatzbeitrag} onChange={(e) => setKvZusatzbeitrag(Number(e.target.value))}>
+                  {[1.5, 1.9, 2.3, 2.5, 2.7, 2.9, 3.1, 3.5].map((v) => (
+                    <option key={v} value={v}>{v.toFixed(1).replace('.', ',')}%</option>
+                  ))}
+                </Select>
+              </InputGroup>
+              <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel je nach Antrieb.">
+                <Select id="fw" value={fwAntrieb} onChange={(e) => setFwAntrieb(e.target.value)}>
+                  <option value="kein">Kein Firmenwagen</option>
+                  <option value="verbrenner">Verbrenner (1%)</option>
+                  <option value="hybrid">Hybrid (0,5%)</option>
+                  <option value="elektro">E-Auto (0,25%)</option>
+                </Select>
+              </InputGroup>
+            </div>
+            {fwAntrieb !== 'kein' && (
+              <InputGroup label="Bruttolistenpreis" htmlFor="fwp">
+                <CurrencyInput id="fwp" value={fwPreis} onChange={setFwPreis} placeholder="z.B. 45.000" />
+              </InputGroup>
+            )}
+          </AdvancedOptions>
+
+          <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
+        </div>
       </Card>
 
       {result && (
         <div className="animate-result-in space-y-6">
-          {/* Vergleich */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
             <Card padding="md" className="text-center">
               <p className="text-sm text-text-muted">Vorher (netto)</p>
@@ -119,7 +120,6 @@ export function GehaltserhoehungForm() {
             </Card>
           </div>
 
-          {/* Ergebnis */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Card padding="md" className="text-center">
               <p className="text-sm text-text-muted">Brutto-Erhöhung</p>
@@ -137,16 +137,15 @@ export function GehaltserhoehungForm() {
             </Card>
           </div>
 
-          {/* Visual Bar */}
           <Card padding="md">
             <p className="text-sm font-medium text-text mb-3">Von {formatCurrency(result.bruttoDifferenz)} Erhöhung kommen an:</p>
             <div className="h-6 rounded-full overflow-hidden flex">
-              <div className="bg-accent-500 transition-all duration-300" style={{ width: `${result.nettoAnteil}%` }} />
-              <div className="bg-negative-400 transition-all duration-300" style={{ width: `${100 - result.nettoAnteil}%` }} />
+              <div className="bg-accent-500 transition-all duration-300" style={{ width: `${Math.max(0, result.nettoAnteil)}%` }} />
+              <div className="bg-negative-400 transition-all duration-300" style={{ width: `${Math.max(0, 100 - result.nettoAnteil)}%` }} />
             </div>
             <div className="flex justify-between mt-2 text-sm text-text-muted">
               <span>Netto: {result.nettoAnteil}%</span>
-              <span>Abgaben: {(100 - result.nettoAnteil).toFixed(0)}%</span>
+              <span>Abgaben: {Math.max(0, 100 - result.nettoAnteil).toFixed(0)}%</span>
             </div>
           </Card>
         </div>
