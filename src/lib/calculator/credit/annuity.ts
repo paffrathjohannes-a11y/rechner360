@@ -7,7 +7,11 @@ import type { KreditInput, KreditResult, TilgungsplanZeile } from '@/types/calcu
 export function calculateKredit(input: KreditInput): KreditResult {
   const { darlehensbetrag, zinssatz, laufzeit_monate, sondertilgung_jaehrlich = 0 } = input;
 
-  const monatszins = zinssatz / 100 / 12;
+  if (darlehensbetrag <= 0 || laufzeit_monate <= 0) {
+    return { monatliche_rate: 0, gesamtkosten: 0, gesamtzinsen: 0, tilgungsplan: [] };
+  }
+
+  const monatszins = Math.max(0, zinssatz) / 100 / 12;
 
   // Annuitätenformel: rate = P * (r * (1+r)^n) / ((1+r)^n - 1)
   let monatliche_rate: number;

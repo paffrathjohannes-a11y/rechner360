@@ -4,6 +4,8 @@ import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
 import { PKV_PAGES } from '@/data/programmatic/pkv-pages';
+import { KFZ_PAGES } from '@/data/programmatic/kfz-pages';
+import { BU_PAGES } from '@/data/programmatic/bu-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -53,6 +55,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...PKV_PAGES.map((p) => ({
       url: `${SITE_URL}/pkv-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...KFZ_PAGES.map((p) => ({
+      url: `${SITE_URL}/kfz-versicherung-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...BU_PAGES.map((p) => ({
+      url: `${SITE_URL}/bu-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

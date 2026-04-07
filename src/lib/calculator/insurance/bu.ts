@@ -64,8 +64,8 @@ export function calculateBu(input: BuInput): BuResult {
   // Berufsgruppen-Risiko
   monatsbeitrag *= RISIKO[berufsgruppe];
 
-  // Alter: exponentiell teurer
-  const altersAufschlag = 1 + Math.pow((alter - 25) / 40, 1.5) * 0.8;
+  // Alter: exponentiell teurer (Math.abs verhindert NaN bei alter < 25)
+  const altersAufschlag = 1 + Math.pow(Math.abs(alter - 25) / 40, 1.5) * 0.8;
   monatsbeitrag *= altersAufschlag;
 
   // Laufzeit: längere Laufzeit = teurer
@@ -79,10 +79,10 @@ export function calculateBu(input: BuInput): BuResult {
   const jahresbeitrag = Math.round(monatsbeitrag * 12 * 100) / 100;
   const gesamtkosten = Math.round(monatsbeitrag * 12 * laufzeitJahre);
 
-  const absicherungsgrad = Math.round((buRente / nettoeinkommen) * 100);
-  const empfohleneRente = Math.round(nettoeinkommen * 0.75 / 50) * 50; // auf 50€ gerundet, 75% des Nettos
+  const absicherungsgrad = nettoeinkommen > 0 ? Math.round((buRente / nettoeinkommen) * 100) : 0;
+  const empfohleneRente = nettoeinkommen > 0 ? Math.round(nettoeinkommen * 0.75 / 50) * 50 : 0;
 
-  const kostenNutzenFaktor = Math.round(buRente / monatsbeitrag);
+  const kostenNutzenFaktor = monatsbeitrag > 0 ? Math.round(buRente / monatsbeitrag) : 0;
 
   // Hinweis
   let hinweis: string;

@@ -17,7 +17,19 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   return params.then(({ slug }) => {
     const artikel = RATGEBER_ARTIKEL.find((a) => a.slug === slug);
     if (!artikel) return {};
-    return { title: artikel.metaTitle, description: artikel.metaDescription, alternates: { canonical: `/ratgeber/${artikel.slug}` } };
+    return {
+      title: artikel.metaTitle,
+      description: artikel.metaDescription,
+      alternates: { canonical: `/ratgeber/${artikel.slug}` },
+      openGraph: {
+        title: artikel.metaTitle,
+        description: artikel.metaDescription,
+        url: `/ratgeber/${artikel.slug}`,
+        type: 'article',
+        publishedTime: artikel.publishDate,
+        authors: ['rechner360.de'],
+      },
+    };
   });
 }
 
@@ -26,8 +38,22 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
   const artikel = RATGEBER_ARTIKEL.find((a) => a.slug === slug);
   if (!artikel) notFound();
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: artikel.title,
+    description: artikel.metaDescription,
+    datePublished: artikel.publishDate,
+    dateModified: artikel.publishDate,
+    author: { '@type': 'Organization', name: 'rechner360.de', url: 'https://rechner360.de' },
+    publisher: { '@type': 'Organization', name: 'rechner360.de', url: 'https://rechner360.de' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://rechner360.de/ratgeber/${artikel.slug}` },
+  };
+
   return (
     <div className="space-y-8">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+
       <Breadcrumbs items={[{ label: 'Ratgeber', href: '/ratgeber' }, { label: artikel.title }]} />
 
       <article className="legal-content">
