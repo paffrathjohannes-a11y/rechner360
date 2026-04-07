@@ -9,6 +9,8 @@ import { CategorySection } from '@/components/home/category-section';
 import { CalculatorSearch } from '@/components/search/calculator-search';
 import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
 import { NativeAdSlot } from '@/components/ads/native-ad-slot';
+import { UsageCounter } from '@/components/home/usage-counter';
+import { HeroCalculator } from '@/components/home/hero-calculator';
 import { cn } from '@/lib/utils/cn';
 
 const quickCalcs = [
@@ -51,6 +53,16 @@ export default function HomePage() {
               {/* Search */}
               <div className="animate-hero-in stagger-4 mt-8">
                 <CalculatorSearch variant="hero" />
+              </div>
+
+              {/* Hero Calculator — Brutto-Netto sofort nutzbar */}
+              <div className="animate-hero-in stagger-5 mt-8">
+                <HeroCalculator />
+              </div>
+
+              {/* Usage Counter */}
+              <div className="animate-hero-in stagger-5 mt-6">
+                <UsageCounter />
               </div>
 
               {/* Quick Calc Chips */}
