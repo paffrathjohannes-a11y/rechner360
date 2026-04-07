@@ -80,6 +80,15 @@ export const RECHNER = [
     color: 'accent',
     popular: true,
   },
+  {
+    slug: 'elterngeld-rechner',
+    title: 'Elterngeld Rechner',
+    shortTitle: 'Elterngeld',
+    description: 'Berechnen Sie Ihr Elterngeld — Basiselterngeld oder ElterngeldPlus mit Geschwisterbonus.',
+    icon: 'baby',
+    color: 'primary',
+    popular: true,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Calculator, Wallet, Landmark, Home, HeartPulse } from 'lucide-react';
+import { ArrowRight, Calculator, Wallet, Landmark, Home, HeartPulse, Baby } from 'lucide-react';
 import { RECHNER } from '@/lib/utils/constants';
 import { cn } from '@/lib/utils/cn';
 
@@ -9,6 +9,7 @@ const iconMap: Record<string, typeof Calculator> = {
   landmark: Landmark,
   home: Home,
   'heart-pulse': HeartPulse,
+  'baby': Baby,
 };
 
 interface RelatedCalculatorsProps {
