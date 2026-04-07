@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'baukosten-rechner',
+    title: 'Baukosten Rechner',
+    shortTitle: 'Baukosten',
+    description: 'Berechnen Sie die Baukosten f\u00fcr Ihr Haus: pro m\u00b2, nach Ausstattung, mit Keller, Garage und Nebenkosten.',
+    icon: 'hard-hat',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'abfindungsrechner',
     title: 'Abfindungsrechner',
     shortTitle: 'Abfindung',
