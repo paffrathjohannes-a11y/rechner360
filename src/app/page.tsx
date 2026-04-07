@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
@@ -11,15 +10,7 @@ import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants'
 import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { UsageCounter } from '@/components/home/usage-counter';
 import { HeroCalculator } from '@/components/home/hero-calculator';
-import { cn } from '@/lib/utils/cn';
 
-const quickCalcs = [
-  { label: '3.000 \u20AC brutto', href: '/brutto-netto-rechner/3000-euro-steuerklasse-1' },
-  { label: '4.000 \u20AC brutto', href: '/brutto-netto-rechner/4000-euro-steuerklasse-1' },
-  { label: '5.000 \u20AC brutto', href: '/brutto-netto-rechner/5000-euro-steuerklasse-1' },
-  { label: '50.000 \u20AC Kredit', href: '/kreditrechner/50000-euro-kredit' },
-  { label: '300.000 \u20AC Baufi', href: '/tilgungsrechner/300000-euro-baufinanzierung' },
-];
 
 export default function HomePage() {
   return (
@@ -65,25 +56,6 @@ export default function HomePage() {
                 <UsageCounter />
               </div>
 
-              {/* Quick Calc Chips */}
-              <div className="animate-hero-in stagger-5 mt-6 flex flex-wrap justify-center gap-2">
-                {quickCalcs.map((qc) => (
-                  <Link
-                    key={qc.href}
-                    href={qc.href}
-                    className={cn(
-                      'inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2',
-                      'text-sm text-text-secondary font-medium',
-                      'hover:border-primary-300 hover:text-primary-600 hover:bg-primary-50/50 hover:shadow-sm hover:scale-[1.03]',
-                      'dark:hover:border-primary-700 dark:hover:bg-primary-900/20',
-                      'active:scale-[0.97] transition-all duration-150',
-                    )}
-                  >
-                    {qc.label}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                ))}
-              </div>
             </div>
           </div>
         </section>
