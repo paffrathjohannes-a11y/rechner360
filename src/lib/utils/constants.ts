@@ -45,6 +45,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'gehaltserhoehung-rechner',
+    title: 'Gehaltserhöhung Rechner',
+    shortTitle: 'Erhöhung',
+    description: 'Berechnen Sie, wie viel von einer Gehaltserhöhung netto übrig bleibt.',
+    icon: 'arrow-up-right',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'gehaltsrechner',
     title: 'Gehaltsrechner',
     shortTitle: 'Gehalt',

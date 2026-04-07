@@ -29,6 +29,7 @@ const iconMap: Record<string, typeof Calculator> = {
   'milestone': Milestone,
   'receipt': Receipt,
   'briefcase': Briefcase,
+  'arrow-up-right': ArrowUpRight,
 };
 
 const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
