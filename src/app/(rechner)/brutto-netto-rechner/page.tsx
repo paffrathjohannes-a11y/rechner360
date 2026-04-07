@@ -74,7 +74,7 @@ export default function BruttoNettoRechnerPage() {
           <p>
             In Deutschland gibt es sechs Steuerklassen. <strong className="text-text">Steuerklasse I</strong> gilt f&uuml;r Ledige,
             <strong className="text-text"> Steuerklasse II</strong> f&uuml;r Alleinerziehende mit Entlastungsbetrag (4.260 &euro;).
-            <strong className="text-text"> Steuerklasse III</strong> (Splitting) und <strong className="text-text">V</strong> sind
+            <strong className="text-text"> Steuerklasse III</strong> (Splitting) und <strong className="text-text">Steuerklasse V</strong> sind
             f&uuml;r Ehepaare mit unterschiedlichem Einkommen. <strong className="text-text">Steuerklasse IV</strong> ist f&uuml;r
             Ehepaare mit &auml;hnlichem Einkommen. <strong className="text-text">Steuerklasse VI</strong> gilt f&uuml;r Zweit- und Nebenjobs.
           </p>

@@ -95,10 +95,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Calculator Grid */}
-        <section className="mx-auto max-w-[var(--container-max)] px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {RECHNER.map((r) => {
+        {/* Popular Calculators */}
+        <section className="mx-auto max-w-[var(--container-max)] px-4 pt-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {RECHNER.filter((r) => r.popular).map((r) => {
               const Icon = iconMap[r.icon] || Calculator;
               const colors = colorMap[r.color] || colorMap.primary;
 
@@ -137,6 +137,37 @@ export default function HomePage() {
             })}
           </div>
         </section>
+
+        {/* More Calculators — compact */}
+        {RECHNER.filter((r) => !r.popular).length > 0 && (
+          <section className="mx-auto max-w-[var(--container-max)] px-4 pt-8 pb-16 sm:px-6 lg:px-8">
+            <h2 className="text-lg font-semibold text-text mb-4">Weitere Rechner</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {RECHNER.filter((r) => !r.popular).map((r) => {
+                const Icon = iconMap[r.icon] || Calculator;
+                return (
+                  <Link
+                    key={r.slug}
+                    href={`/${r.slug}`}
+                    className={cn(
+                      'group flex items-center gap-3 rounded-xl border border-border bg-surface p-4',
+                      'hover:border-primary-300 dark:hover:border-primary-700 hover:bg-surface-raised',
+                      'transition-all duration-150',
+                    )}
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-surface-sunken text-text-muted">
+                      <Icon className="h-4.5 w-4.5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-text truncate">{r.title}</p>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-text-muted group-hover:text-primary-600 transition-colors shrink-0" />
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
 
         {/* Trust Signals */}
         <section className="mx-auto max-w-[var(--container-max)] px-4 pb-16 sm:px-6 lg:px-8">
