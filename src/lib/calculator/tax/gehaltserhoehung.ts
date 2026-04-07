@@ -36,12 +36,14 @@ export function calculateGehaltserhoehung(
   bruttoAlt: number,
   bruttoNeu: number,
   steuerklasse: 1|2|3|4|5|6,
-  options?: { bundesland?: string; kirchensteuer?: boolean; pvKinder?: number },
+  options?: { bundesland?: string; kirchensteuer?: boolean; pvKinder?: number; firmenwagenAntrieb?: string; firmenwagenListenpreis?: number },
 ): GehaltserhoehungResult {
   const overrides = {
     ...(options?.bundesland ? { bundesland: options.bundesland } : {}),
     ...(options?.kirchensteuer !== undefined ? { kirchensteuer: options.kirchensteuer } : {}),
     ...(options?.pvKinder !== undefined ? { pflegeversicherung_kinder: options.pvKinder } : {}),
+    ...(options?.firmenwagenAntrieb ? { firmenwagen_antrieb: options.firmenwagenAntrieb } : {}),
+    ...(options?.firmenwagenListenpreis !== undefined ? { firmenwagen_listenpreis: options.firmenwagenListenpreis } : {}),
   };
   const vorher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoAlt, steuerklasse } as BruttoNettoInput);
   const nachher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoNeu, steuerklasse } as BruttoNettoInput);

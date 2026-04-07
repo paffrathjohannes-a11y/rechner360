@@ -18,12 +18,14 @@ export function GehaltserhoehungForm() {
   const [bundesland, setBundesland] = useState('nw');
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [pvKinder, setPvKinder] = useState(0);
+  const [fwAntrieb, setFwAntrieb] = useState('kein');
+  const [fwPreis, setFwPreis] = useState(0);
   const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
   useEffect(() => {
     if (bruttoAlt <= 0 || bruttoNeu <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder }));
-  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder]);
+    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder, firmenwagenAntrieb: fwAntrieb, firmenwagenListenpreis: fwPreis }));
+  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder, fwAntrieb, fwPreis]);
 
   return (
     <div className="space-y-6">
@@ -54,7 +56,7 @@ export function GehaltserhoehungForm() {
             </Select>
           </InputGroup>
         </div>
-        <div className="grid grid-cols-1 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <InputGroup label="Kinder (Pflegeversicherung)" htmlFor="pvk" tooltip="Kinderlose ab 23 zahlen 0,6% Zuschlag. Ab 2 Kindern sinkt der PV-Beitrag.">
             <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
               {[0, 1, 2, 3, 4, 5].map((v) => (
@@ -62,7 +64,22 @@ export function GehaltserhoehungForm() {
               ))}
             </Select>
           </InputGroup>
+          <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel: Verbrenner 1%, Hybrid 0,5%, E-Auto 0,25% vom Bruttolistenpreis.">
+            <Select id="fw" value={fwAntrieb} onChange={(e) => setFwAntrieb(e.target.value)}>
+              <option value="kein">Kein Firmenwagen</option>
+              <option value="verbrenner">Verbrenner (1%)</option>
+              <option value="hybrid">Hybrid (0,5%)</option>
+              <option value="elektro">E-Auto (0,25%)</option>
+            </Select>
+          </InputGroup>
         </div>
+        {fwAntrieb !== 'kein' && (
+          <div className="mt-4">
+            <InputGroup label="Bruttolistenpreis" htmlFor="fwp" tooltip="Bruttolistenpreis des Fahrzeugs inkl. Sonderausstattung.">
+              <CurrencyInput id="fwp" value={fwPreis} onChange={setFwPreis} placeholder="z.B. 45.000" />
+            </InputGroup>
+          </div>
+        )}
       </Card>
 
       {result && (
