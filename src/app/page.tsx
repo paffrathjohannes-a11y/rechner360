@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, Banknote, HardHat, Users, Scale, Flame, MapPin, Milestone, ArrowRight, TrendingUp } from 'lucide-react';
+import { Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, TrendingUp, Banknote, MapPin, Milestone, HardHat, Users, Scale, Flame, Receipt, Briefcase, ArrowUpRight, ArrowRight } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
