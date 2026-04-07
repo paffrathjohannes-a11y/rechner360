@@ -21,7 +21,7 @@ const iconMap: Record<string, typeof Calculator> = {
   'flame': Flame,
   'trending-up': TrendingUp,
   'map-pin': MapPin,
-  'hourglass': Hourglass,
+  'milestone': Milestone,
 };
 
 interface RelatedCalculatorsProps {
