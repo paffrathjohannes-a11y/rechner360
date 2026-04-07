@@ -26,7 +26,7 @@ export function CookieBanner() {
   function handleAccept() {
     localStorage.setItem(CONSENT_KEY, 'accepted');
     setConsent('accepted');
-    // TODO: Initialize GA4 here
+    window.dispatchEvent(new Event('cookie-consent-change'));
   }
 
   function handleDecline() {

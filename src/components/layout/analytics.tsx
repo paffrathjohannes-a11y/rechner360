@@ -3,7 +3,7 @@
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: Replace with real GA4 ID
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
 
 export function Analytics() {
   const [consent, setConsent] = useState(false);
@@ -12,17 +12,27 @@ export function Analytics() {
     const stored = localStorage.getItem('rechner360_cookie_consent');
     setConsent(stored === 'accepted');
 
-    // Listen for consent changes
     const handleStorage = (e: StorageEvent) => {
       if (e.key === 'rechner360_cookie_consent') {
         setConsent(e.newValue === 'accepted');
       }
     };
+
+    // Also listen for custom event (same-tab consent change)
+    const handleConsent = () => {
+      const stored = localStorage.getItem('rechner360_cookie_consent');
+      setConsent(stored === 'accepted');
+    };
+
     window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
+    window.addEventListener('cookie-consent-change', handleConsent);
+    return () => {
+      window.removeEventListener('storage', handleStorage);
+      window.removeEventListener('cookie-consent-change', handleConsent);
+    };
   }, []);
 
-  if (!consent || GA_MEASUREMENT_ID === 'G-XXXXXXXXXX') return null;
+  if (!consent || !GA_MEASUREMENT_ID) return null;
 
   return (
     <>
