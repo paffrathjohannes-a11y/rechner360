@@ -91,4 +91,54 @@ export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
     relatedRechner: 'elterngeld-rechner',
     publishDate: '2026-04-07',
   },
+  {
+    slug: 'firmenwagen-steuer',
+    title: 'Firmenwagen versteuern — 1%-Regel, Hybrid & E-Auto',
+    metaTitle: 'Firmenwagen versteuern 2026 — 1%-Regel, 0,5% Hybrid, 0,25% E-Auto',
+    metaDescription: 'Firmenwagen Versteuerung: 1%-Regel für Verbrenner, 0,5% für Hybrid, 0,25% für E-Auto. Was bedeutet das für Ihr Netto?',
+    intro: 'Ein Firmenwagen ist ein attraktiver Gehaltsbestandteil — aber er muss als geldwerter Vorteil versteuert werden. Die Höhe hängt von der Antriebsart ab.',
+    sections: [
+      {
+        title: 'Die 1%-Regel erklärt',
+        content: 'Bei der 1%-Regel wird monatlich 1% des Bruttolistenpreises als geldwerter Vorteil zum Gehalt addiert. Bei einem Fahrzeug mit 40.000 € Listenpreis sind das 400 €/Monat, die versteuert und verbeitragt werden müssen. Das steuerliche Brutto steigt von z.B. 4.000 € auf 4.400 €.',
+      },
+      {
+        title: 'Vergünstigung für Hybrid und E-Auto',
+        content: 'Für Plug-in-Hybride gilt die <strong>0,5%-Regel</strong> (statt 1%). Für reine Elektroautos mit einem Listenpreis bis 70.000 € gilt sogar die <strong>0,25%-Regel</strong>. Bei einem E-Auto mit 50.000 € Listenpreis sind das nur 125 €/Monat statt 500 € beim Verbrenner — eine erhebliche Steuerersparnis.',
+      },
+      {
+        title: 'Fahrtenbuch als Alternative',
+        content: 'Alternativ zur Pauschalversteuerung können Sie ein Fahrtenbuch führen. Dann wird nur der tatsächliche private Nutzungsanteil versteuert. Das lohnt sich, wenn Sie den Firmenwagen überwiegend dienstlich nutzen. Allerdings sind die Anforderungen an ein ordnungsgemäßes Fahrtenbuch hoch.',
+      },
+      {
+        title: 'Auswirkung auf Netto und Sozialversicherung',
+        content: 'Der geldwerte Vorteil erhöht sowohl die Lohnsteuer als auch die Sozialversicherungsbeiträge. Bei Steuerklasse I und einem 40.000 € Verbrenner-Firmenwagen sinkt das Netto bei 4.000 € Brutto um ca. 150-180 € im Vergleich zum gleichen Gehalt ohne Firmenwagen. Nutzen Sie unseren Brutto-Netto-Rechner mit Firmenwagen-Option für Ihre individuelle Berechnung.',
+      },
+    ],
+    relatedRechner: 'brutto-netto-rechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'etf-sparplan-rendite',
+    title: 'ETF-Sparplan — Rendite und Kosten berechnen',
+    metaTitle: 'ETF-Sparplan 2026 — Rendite, Kosten & Zinseszins berechnen',
+    metaDescription: 'ETF-Sparplan Rendite berechnen: Wie viel Vermögen bauen Sie mit 200€/Monat auf? Zinseszins-Effekt, Kosten und realistische Renditen.',
+    intro: 'Ein ETF-Sparplan ist einer der einfachsten und günstigsten Wege, langfristig Vermögen aufzubauen. Doch wie viel kommt dabei wirklich raus?',
+    sections: [
+      {
+        title: 'Was bringt ein ETF-Sparplan langfristig?',
+        content: 'Der MSCI World ETF hat in den letzten 30 Jahren durchschnittlich ca. 8% pro Jahr vor Kosten und Inflation erbracht. Bei 200 €/Monat Sparrate und 7% Rendite (nach Kosten) wächst Ihr Vermögen in 20 Jahren auf ca. 104.000 € — bei nur 48.000 € Einzahlung. Der Zinseszins-Effekt macht den Unterschied.',
+      },
+      {
+        title: 'Kosten im Blick behalten',
+        content: 'Die jährlichen Kosten (TER) eines ETF-Sparplans liegen typisch bei 0,1-0,5% pro Jahr. Depotführung ist bei Online-Brokern meist kostenlos. Ordergebühren beim Sparplan: 0-1,5 € pro Ausführung. Auf 30 Jahre summieren sich selbst kleine Kostenunterschiede zu tausenden Euro Differenz.',
+      },
+      {
+        title: 'Steuern auf ETF-Gewinne',
+        content: 'Auf ETF-Gewinne fallen 26,375% Abgeltungssteuer (inkl. Soli) an. Teilfreistellung: Bei Aktien-ETFs sind 30% der Erträge steuerfrei. Der Sparerpauschbetrag beträgt 1.000 € pro Person (2.000 € für Ehepaare). Vorabpauschale wird seit 2018 jährlich berechnet.',
+      },
+    ],
+    relatedRechner: 'zinseszinsrechner',
+    publishDate: '2026-04-07',
+  },
 ];
