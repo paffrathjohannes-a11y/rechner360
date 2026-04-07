@@ -63,7 +63,7 @@ export function CategorySection({ id, title, description, icon, color, calculato
                 </div>
                 <div className="flex items-center gap-2">
                   {r.popular && (
-                    <Badge variant="default" className="text-[10px] px-1.5 py-0.5">
+                    <Badge variant="default" className="text-[11px] px-2 py-0.5">
                       Beliebt
                     </Badge>
                   )}

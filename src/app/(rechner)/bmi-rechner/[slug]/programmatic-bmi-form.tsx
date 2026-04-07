@@ -50,7 +50,7 @@ export function ProgrammaticBmiForm({ gewicht: initG, groesse: initH }: Props) {
                 <p className="text-sm text-text-secondary">{result.beschreibung}</p>
               </div>
             </Card>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Idealgewicht</p>
                 <p className="text-lg font-bold font-currency text-accent-500 mt-1">{result.idealgewichtMin.toFixed(1).replace('.', ',')} – {result.idealgewichtMax.toFixed(1).replace('.', ',')} kg</p>

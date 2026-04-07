@@ -41,7 +41,7 @@ export function GehaltserhoehungForm() {
             </Select>
           </InputGroup>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <InputGroup label="Bundesland" htmlFor="bl">
             <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
               {BUNDESLAENDER.map((bl) => (<option key={bl.id} value={bl.id}>{bl.name}</option>))}

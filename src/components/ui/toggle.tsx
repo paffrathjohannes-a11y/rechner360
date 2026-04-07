@@ -14,7 +14,7 @@ export function Toggle({ checked, onChange, label, disabled = false, className }
   return (
     <label
       className={cn(
-        'inline-flex items-center gap-2 cursor-pointer select-none',
+        'flex items-center gap-2 cursor-pointer select-none',
         disabled && 'opacity-50 cursor-not-allowed',
         className,
       )}

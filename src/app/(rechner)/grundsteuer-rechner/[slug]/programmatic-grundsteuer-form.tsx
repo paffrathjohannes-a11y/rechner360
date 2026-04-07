@@ -40,7 +40,7 @@ export function ProgrammaticGrundsteuerForm({ bundesland }: Props) {
               <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.grundsteuerJahr)}</p>
               <p className="text-sm text-text-muted">{formatCurrency(result.grundsteuerMonat)} / Monat</p>
             </Card>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Grundsteuerwert</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.grundsteuerwert)}</p></Card>
               <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Steuermessbetrag</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.steuermessbetrag)}</p></Card>
             </div>

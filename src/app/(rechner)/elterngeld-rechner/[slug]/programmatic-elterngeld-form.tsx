@@ -46,7 +46,7 @@ export function ProgrammaticElterngeldForm({ netto: initNetto }: Props) {
                 <p className="text-sm text-text-muted">{result.laufzeitMonate} Monate · Gesamt: {formatCurrency(result.gesamt)}</p>
               </div>
             </Card>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Ersatzrate</p>
                 <p className="text-2xl font-bold text-primary-500 mt-1">{(result.ersatzrate * 100).toFixed(0)}%</p>

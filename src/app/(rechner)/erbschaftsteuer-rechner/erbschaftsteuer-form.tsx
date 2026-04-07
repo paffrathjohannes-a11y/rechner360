@@ -159,7 +159,7 @@ export function ErbschaftsteuerForm({ defaultWert, defaultVerwandtschaft }: Erbs
             </Card>
 
             {/* Key figures */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Freibetrag</p>
                 <p className="text-lg font-bold font-currency text-accent-500 mt-1">

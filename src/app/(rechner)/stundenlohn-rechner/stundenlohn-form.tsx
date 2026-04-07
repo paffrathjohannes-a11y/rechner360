@@ -44,7 +44,7 @@ export function StundenlohnForm() {
             </Select>
           </InputGroup>
         </div>
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
           <InputGroup label="Urlaubstage / Jahr" htmlFor="urlaub" tooltip="Gesetzliches Minimum: 20 Tage. Durchschnitt in DE: 28 Tage.">
             <NumberInput id="urlaub" min={20} max={40} value={urlaubstage} onChange={setUrlaubstage} suffix="Tage" />
           </InputGroup>

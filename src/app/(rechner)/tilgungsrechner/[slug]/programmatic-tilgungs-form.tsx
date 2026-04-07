@@ -60,7 +60,7 @@ export function ProgrammaticTilgungsForm({ betrag: initialBetrag, tilgung: initi
       <div className="lg:col-span-3 space-y-6">
         {result && (
           <div className="animate-result-in space-y-6">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Monatliche Rate</p>
                 <p className="text-2xl font-bold font-currency text-accent-500 mt-1">{formatCurrency(result.monatliche_rate)}</p>
