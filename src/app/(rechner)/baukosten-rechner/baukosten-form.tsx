@@ -41,7 +41,7 @@ export function BaukostenForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Wohnfläche (m²)" htmlFor="flaeche">
-            <Input id="flaeche" type="number" min={50} max={500} value={wohnflaeche} onChange={setWohnflaeche} />
+            <Input id="flaeche" type="number" min={50} max={500} value={wohnflaeche} onChange={(e) => setWohnflaeche(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Ausstattung" htmlFor="ausstattung">
             <Select id="ausstattung" value={ausstattung} onChange={(e) => setAusstattung(e.target.value as typeof ausstattung)}>

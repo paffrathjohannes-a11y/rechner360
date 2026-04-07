@@ -32,10 +32,10 @@ export function ProgrammaticBmiForm({ gewicht: initG, groesse: initH }: Props) {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Gewicht (kg)" htmlFor="g">
-            <Input id="g" type="number" value={gewicht} onChange={setGewicht} />
+            <Input id="g" type="number" value={gewicht} onChange={(e) => setGewicht(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Gr\u00f6\u00dfe (cm)" htmlFor="h">
-            <Input id="h" type="number" value={groesse} onChange={setGroesse} />
+            <Input id="h" type="number" value={groesse} onChange={(e) => setGroesse(Number(e.target.value))} />
           </InputGroup>
         </div>
       </Card>

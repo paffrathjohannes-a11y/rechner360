@@ -45,7 +45,7 @@ export function BmiForm() {
               min={20}
               max={300}
               value={gewicht}
-              onChange={setGewicht}
+              onChange={(e) => setGewicht(Number(e.target.value))}
             />
           </InputGroup>
 
@@ -56,7 +56,7 @@ export function BmiForm() {
               min={100}
               max={250}
               value={groesse}
-              onChange={setGroesse}
+              onChange={(e) => setGroesse(Number(e.target.value))}
             />
           </InputGroup>
 
@@ -67,7 +67,7 @@ export function BmiForm() {
               min={1}
               max={120}
               value={alter}
-              onChange={setAlter}
+              onChange={(e) => setAlter(Number(e.target.value))}
             />
           </InputGroup>
 

@@ -28,16 +28,16 @@ export function GrundsteuerForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Grundstücksfläche (m²)" htmlFor="flaeche">
-            <Input id="flaeche" type="number" min={50} max={5000} value={grundstueck} onChange={setGrundstueck} />
+            <Input id="flaeche" type="number" min={50} max={5000} value={grundstueck} onChange={(e) => setGrundstueck(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Bodenrichtwert (€/m²)" htmlFor="brw" tooltip="Den Bodenrichtwert finden Sie auf boris.de oder beim Gutachterausschuss Ihrer Gemeinde.">
             <CurrencyInput id="brw" value={bodenrichtwert} onChange={setBodenrichtwert} suffix="€/m²" />
           </InputGroup>
           <InputGroup label="Wohnfläche (m²)" htmlFor="wf">
-            <Input id="wf" type="number" min={30} max={500} value={wohnflaeche} onChange={setWohnflaeche} />
+            <Input id="wf" type="number" min={30} max={500} value={wohnflaeche} onChange={(e) => setWohnflaeche(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Baujahr" htmlFor="bj">
-            <Input id="bj" type="number" min={1900} max={2026} value={baujahr} onChange={setBaujahr} />
+            <Input id="bj" type="number" min={1900} max={2026} value={baujahr} onChange={(e) => setBaujahr(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Gebäudeart" htmlFor="ga">
             <Select id="ga" value={gebaeudeart} onChange={(e) => setGebaeudeart(e.target.value as typeof gebaeudeart)}>
@@ -49,7 +49,7 @@ export function GrundsteuerForm() {
             </Select>
           </InputGroup>
           <InputGroup label="Hebesatz (%)" htmlFor="hs" tooltip="Den Hebesatz Ihrer Kommune finden Sie auf der Website Ihrer Stadt/Gemeinde.">
-            <Input id="hs" type="number" min={100} max={1000} value={hebesatz} onChange={setHebesatz} />
+            <Input id="hs" type="number" min={100} max={1000} value={hebesatz} onChange={(e) => setHebesatz(Number(e.target.value))} />
           </InputGroup>
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
