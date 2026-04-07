@@ -5,6 +5,7 @@ import { GEHALTS_PAGES } from '@/data/programmatic/gehalts-pages';
 import { BMI_PAGES } from '@/data/programmatic/bmi-pages';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
+import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
 
 const SITE_URL = 'https://rechner360.de';
 
@@ -51,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...TILGUNGS_PAGES.map((p) => ({
       url: `${SITE_URL}/tilgungsrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...ELTERNGELD_PAGES.map((p) => ({
+      url: `${SITE_URL}/elterngeld-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

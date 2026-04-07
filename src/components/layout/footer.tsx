@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="mt-auto border-t border-border bg-surface-raised">
       <div className="mx-auto max-w-[var(--container-max)] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="space-y-3">
             <Link href="/" className="flex items-center gap-2">
@@ -25,16 +25,27 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Rechner */}
+          {/* Rechner Spalte 1 */}
           <div>
             <h3 className="text-sm font-semibold text-text mb-3">Rechner</h3>
             <ul className="space-y-2">
-              {RECHNER.map((r) => (
+              {RECHNER.slice(0, 7).map((r) => (
                 <li key={r.slug}>
-                  <Link
-                    href={`/${r.slug}`}
-                    className="text-sm text-text-secondary hover:text-primary-600 transition-colors"
-                  >
+                  <Link href={`/${r.slug}`} className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
+                    {r.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Rechner Spalte 2 */}
+          <div>
+            <h3 className="text-sm font-semibold text-text mb-3">Weitere Rechner</h3>
+            <ul className="space-y-2">
+              {RECHNER.slice(7).map((r) => (
+                <li key={r.slug}>
+                  <Link href={`/${r.slug}`} className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
                     {r.title}
                   </Link>
                 </li>
