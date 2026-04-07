@@ -12,6 +12,12 @@ export interface BruttoNettoInput {
   alter_ueber_23: boolean;
   geburtsjahr: number;
   lohnzahlungszeitraum: 'monat' | 'jahr';
+  /** Geldwerter Vorteil in EUR/Monat (manuell eingegeben oder berechnet) */
+  geldwerter_vorteil: number;
+  /** Firmenwagen Bruttolistenpreis (0 = kein Firmenwagen) */
+  firmenwagen_listenpreis: number;
+  /** Firmenwagen Antriebsart für %-Regel */
+  firmenwagen_antrieb: 'verbrenner' | 'hybrid' | 'elektro' | 'kein';
 }
 
 export interface BruttoNettoResult {

@@ -29,6 +29,9 @@ const defaultInput: BruttoNettoInput = {
   alter_ueber_23: true,
   geburtsjahr: 1990,
   lohnzahlungszeitraum: 'monat',
+  geldwerter_vorteil: 0,
+  firmenwagen_listenpreis: 0,
+  firmenwagen_antrieb: 'kein',
 };
 
 export function BruttoNettoForm() {
@@ -141,6 +144,31 @@ export function BruttoNettoForm() {
               ))}
             </Select>
           </InputGroup>
+
+          {/* Firmenwagen / Geldwerter Vorteil */}
+          <InputGroup label="Firmenwagen" htmlFor="fw" tooltip="1%-Regel: Verbrenner 1%, Hybrid 0,5%, E-Auto 0,25% vom Bruttolistenpreis.">
+            <Select
+              id="fw"
+              value={input.firmenwagen_antrieb}
+              onChange={(e) => updateInput('firmenwagen_antrieb', e.target.value as BruttoNettoInput['firmenwagen_antrieb'])}
+            >
+              <option value="kein">Kein Firmenwagen</option>
+              <option value="verbrenner">Verbrenner (1%-Regel)</option>
+              <option value="hybrid">Hybrid (0,5%-Regel)</option>
+              <option value="elektro">E-Auto (0,25%-Regel)</option>
+            </Select>
+          </InputGroup>
+
+          {input.firmenwagen_antrieb !== 'kein' && (
+            <InputGroup label="Bruttolistenpreis" htmlFor="fwp" tooltip="Bruttolistenpreis des Fahrzeugs inkl. Sonderausstattung (auf volle 100 € abgerundet).">
+              <CurrencyInput
+                id="fwp"
+                value={input.firmenwagen_listenpreis}
+                onChange={(v) => updateInput('firmenwagen_listenpreis', v)}
+                placeholder="z.B. 45.000"
+              />
+            </InputGroup>
+          )}
 
           <p className="text-xs text-text-muted text-center">
             Ergebnisse aktualisieren sich automatisch.

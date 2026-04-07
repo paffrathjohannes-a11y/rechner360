@@ -38,6 +38,9 @@ export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initi
       alter_ueber_23: true,
       geburtsjahr: 1990,
       lohnzahlungszeitraum: 'monat',
+      geldwerter_vorteil: 0,
+      firmenwagen_listenpreis: 0,
+      firmenwagen_antrieb: 'kein',
     }));
   }, [brutto, steuerklasse]);
 

@@ -23,6 +23,9 @@ const defaultInput: Omit<BruttoNettoInput, 'steuerklasse' | 'brutto'> = {
   alter_ueber_23: true,
   geburtsjahr: 1990,
   lohnzahlungszeitraum: 'monat',
+      geldwerter_vorteil: 0,
+      firmenwagen_listenpreis: 0,
+      firmenwagen_antrieb: 'kein',
 };
 
 interface Props {

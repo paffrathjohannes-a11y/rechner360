@@ -8,6 +8,7 @@ import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
 import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
 import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
+import { UNTERHALT_PAGES } from '@/data/programmatic/unterhalt-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -74,6 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...NEBENKOSTEN_PAGES.map((p) => ({
       url: `${SITE_URL}/nebenkostenrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...UNTERHALT_PAGES.map((p) => ({
+      url: `${SITE_URL}/unterhalt-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

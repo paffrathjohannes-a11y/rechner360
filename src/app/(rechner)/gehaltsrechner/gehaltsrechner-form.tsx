@@ -24,6 +24,9 @@ const defaultInput: Omit<BruttoNettoInput, 'steuerklasse'> = {
   alter_ueber_23: true,
   geburtsjahr: 1990,
   lohnzahlungszeitraum: 'monat',
+      geldwerter_vorteil: 0,
+      firmenwagen_listenpreis: 0,
+      firmenwagen_antrieb: 'kein',
 };
 
 const STEUERKLASSEN_IDS = [1, 2, 3, 4, 5, 6] as const;

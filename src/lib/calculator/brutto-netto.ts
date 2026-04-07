@@ -13,11 +13,27 @@ import type { BruttoNettoInput, BruttoNettoResult } from '@/types/calculator';
 export function calculateBruttoNetto(input: BruttoNettoInput): BruttoNettoResult {
   const brutto = input.brutto;
 
+  // === GELDWERTER VORTEIL (Firmenwagen etc.) ===
+  let geldwerterVorteil = input.geldwerter_vorteil || 0;
+
+  // Firmenwagen: %-Regel nach Antriebsart
+  if (input.firmenwagen_listenpreis > 0 && input.firmenwagen_antrieb !== 'kein') {
+    const prozentSatz =
+      input.firmenwagen_antrieb === 'elektro' ? 0.0025 :  // 0,25% für E-Auto
+      input.firmenwagen_antrieb === 'hybrid' ? 0.005 :     // 0,5% für Hybrid
+      0.01;                                                 // 1% für Verbrenner
+    geldwerterVorteil += Math.round(input.firmenwagen_listenpreis * prozentSatz);
+  }
+
+  // Steuerliches Brutto = Gehalt + geldwerter Vorteil
+  const steuerBrutto = brutto + geldwerterVorteil;
+
   // === STEUERN (über echten PAP 2026) ===
   const pvKinderAnzahl = input.pflegeversicherung_kinder;
   const pvKinderlos = pvKinderAnzahl === 0 && input.alter_ueber_23;
 
-  const lstResult = calculateMonthlyLst(brutto, input.steuerklasse, {
+  // Steuer wird auf steuerBrutto (inkl. geldwertem Vorteil) berechnet
+  const lstResult = calculateMonthlyLst(steuerBrutto, input.steuerklasse, {
     kirchensteuer: input.kirchensteuer,
     kinderfreibetraege: input.kinderfreibetraege,
     kvZusatzbeitrag: input.kv_zusatzbeitrag,
@@ -40,10 +56,11 @@ export function calculateBruttoNetto(input: BruttoNettoInput): BruttoNettoResult
   const steuern_gesamt = round2(lohnsteuer + solidaritaetszuschlag + kirchensteuer);
 
   // === SOZIALVERSICHERUNG (AN-Anteil) ===
-  const kvBemessung = Math.min(brutto, SV_2026.kv.bbg_monthly);
-  const rvBemessung = Math.min(brutto, SV_2026.rv.bbg_monthly);
-  const alvBemessung = Math.min(brutto, SV_2026.alv.bbg_monthly);
-  const pvBemessung = Math.min(brutto, SV_2026.pv.bbg_monthly);
+  // SV-Bemessung auf steuerBrutto (inkl. GWV, da SV-pflichtig)
+  const kvBemessung = Math.min(steuerBrutto, SV_2026.kv.bbg_monthly);
+  const rvBemessung = Math.min(steuerBrutto, SV_2026.rv.bbg_monthly);
+  const alvBemessung = Math.min(steuerBrutto, SV_2026.alv.bbg_monthly);
+  const pvBemessung = Math.min(steuerBrutto, SV_2026.pv.bbg_monthly);
 
   // KV: halber allg. Satz + halber Zusatzbeitrag
   const kvZusatz = input.kv_zusatzbeitrag / 100;
