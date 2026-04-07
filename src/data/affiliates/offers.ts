@@ -238,4 +238,41 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     headline: 'PKV-Tarife vergleichen',
     offers: [{ ...clarkVersicherung, highlight: true, badge: 'Empfehlung' }, check24Versicherung],
   },
+  'kfz-versicherung-rechner': {
+    headline: 'Kfz-Versicherung vergleichen',
+    offers: [
+      {
+        ...check24Versicherung,
+        product: 'kfz',
+        title: 'CHECK24 Kfz-Versicherung',
+        description: 'Über 330 Tarife vergleichen — bis zu 850 € pro Jahr sparen.',
+        cta: 'Kfz vergleichen',
+        url: `https://www.awin1.com/cread.php?awinmid=9364&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.check24.de%2Fkfz-versicherung%2F`,
+        highlight: true,
+        badge: 'Empfehlung',
+      },
+      {
+        ...verivoxKredit,
+        product: 'kfz',
+        title: 'Verivox Kfz-Versicherung',
+        description: 'Schneller Tarifvergleich — in 5 Minuten zum günstigsten Anbieter.',
+        cta: 'Tarife prüfen',
+        url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Fkfz-versicherung%2F`,
+      },
+    ],
+  },
+  'bu-rechner': {
+    headline: 'BU-Versicherung vergleichen',
+    offers: [
+      { ...clarkVersicherung, highlight: true, badge: 'Empfehlung', description: 'Kostenloser BU-Vergleich — unabhängige Beratung von Experten.' },
+      {
+        ...check24Versicherung,
+        product: 'bu',
+        title: 'CHECK24 Berufsunfähigkeit',
+        description: 'BU-Tarife vergleichen — von über 40 Anbietern das beste Angebot.',
+        cta: 'BU vergleichen',
+        url: `https://www.awin1.com/cread.php?awinmid=9364&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.check24.de%2Fberufsunfaehigkeitsversicherung%2F`,
+      },
+    ],
+  },
 };

@@ -298,6 +298,26 @@ export const RECHNER = [
     popular: true,
     category: 'vorsorge-soziales' as CategoryId,
   },
+  {
+    slug: 'kfz-versicherung-rechner',
+    title: 'Kfz-Versicherung Rechner',
+    shortTitle: 'Kfz-Versicherung',
+    description: 'Berechnen Sie Ihre Kfz-Versicherung: Haftpflicht, Teilkasko und Vollkasko im Vergleich.',
+    icon: 'car',
+    color: 'primary',
+    popular: true,
+    category: 'vorsorge-soziales' as CategoryId,
+  },
+  {
+    slug: 'bu-rechner',
+    title: 'BU-Rechner',
+    shortTitle: 'Berufsunfähigkeit',
+    description: 'Berechnen Sie den Beitrag für Ihre Berufsunfähigkeitsversicherung nach Alter und Beruf.',
+    icon: 'shield-check',
+    color: 'accent',
+    popular: true,
+    category: 'vorsorge-soziales' as CategoryId,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];
