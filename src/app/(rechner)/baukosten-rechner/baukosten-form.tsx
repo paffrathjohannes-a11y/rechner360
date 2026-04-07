@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -41,7 +41,7 @@ export function BaukostenForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Wohnfläche (m²)" htmlFor="flaeche">
-            <Input id="flaeche" type="number" min={50} max={500} value={wohnflaeche} onChange={setWohnflaeche} />
+            <NumberInput id="flaeche" min={50} max={500} value={wohnflaeche} onChange={setWohnflaeche} />
           </InputGroup>
           <InputGroup label="Ausstattung" htmlFor="ausstattung">
             <Select id="ausstattung" value={ausstattung} onChange={(e) => setAusstattung(e.target.value as typeof ausstattung)}>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
@@ -32,10 +32,10 @@ export function RentenForm() {
             <CurrencyInput id="brutto" value={brutto} onChange={setBrutto} placeholder="z.B. 45.000" />
           </InputGroup>
           <InputGroup label="Aktuelles Alter" htmlFor="alter">
-            <Input id="alter" type="number" min={18} max={66} value={alter} onChange={setAlter} />
+            <NumberInput id="alter" min={18} max={66} value={alter} onChange={setAlter} />
           </InputGroup>
           <InputGroup label="Bisherige Berufsjahre" htmlFor="bj" tooltip="Jahre, in denen Sie in die gesetzliche Rentenversicherung eingezahlt haben.">
-            <Input id="bj" type="number" min={0} max={50} value={berufsjahre} onChange={setBerufsjahre} />
+            <NumberInput id="bj" min={0} max={50} value={berufsjahre} onChange={setBerufsjahre} />
           </InputGroup>
           <InputGroup label="Gewünschtes Renteneintrittsalter" htmlFor="re">
             <Select id="re" value={renteneintritt} onChange={(e) => setRenteneintritt(Number(e.target.value))}>

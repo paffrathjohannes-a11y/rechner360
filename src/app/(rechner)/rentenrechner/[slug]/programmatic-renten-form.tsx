@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateRente, type RenteResult } from '@/lib/calculator/social/rente';
@@ -26,8 +26,8 @@ export function ProgrammaticRentenForm({ jahresbrutto: initB }: Props) {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Jahresbrutto" htmlFor="b"><CurrencyInput id="b" value={brutto} onChange={setBrutto} /></InputGroup>
-          <InputGroup label="Aktuelles Alter" htmlFor="a"><Input id="a" type="number" min={18} max={66} value={alter} onChange={setAlter} /></InputGroup>
-          <InputGroup label="Bisherige Berufsjahre" htmlFor="bj"><Input id="bj" type="number" min={0} max={50} value={berufsjahre} onChange={setBerufsjahre} /></InputGroup>
+          <InputGroup label="Aktuelles Alter" htmlFor="a"><NumberInput id="a" min={18} max={66} value={alter} onChange={setAlter} /></InputGroup>
+          <InputGroup label="Bisherige Berufsjahre" htmlFor="bj"><NumberInput id="bj" min={0} max={50} value={berufsjahre} onChange={setBerufsjahre} /></InputGroup>
         </div>
       </Card>
       <div className="lg:col-span-3 space-y-6">

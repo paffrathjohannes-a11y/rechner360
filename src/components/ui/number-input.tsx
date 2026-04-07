@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState, useEffect, type InputHTMLAttributes } from 'react';
+import { forwardRef, useState, useRef, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -12,33 +12,47 @@ interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
 
 /**
  * NumberInput — erlaubt dem User das Feld komplett zu leeren und neu zu tippen.
- * Löst das Problem dass type="number" mit value={0} nicht löschbar ist.
+ * Synchronisiert mit externem Value nur wenn nicht fokussiert.
  */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   ({ className, value, onChange, error, suffix, ...props }, ref) => {
     const [displayValue, setDisplayValue] = useState(value > 0 ? value.toString() : '');
+    const isFocusedRef = useRef(false);
+    const lastValueRef = useRef(value);
 
-    // Sync wenn sich der externe Value ändert (z.B. durch prefill)
-    useEffect(() => {
+    // Sync when external value changes (but not while user is typing)
+    if (!isFocusedRef.current && value !== lastValueRef.current) {
+      lastValueRef.current = value;
       setDisplayValue(value > 0 ? value.toString() : '');
-    }, [value]);
+    }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       const raw = e.target.value;
       setDisplayValue(raw);
 
       if (raw === '') {
+        lastValueRef.current = 0;
         onChange(0);
       } else {
         const num = Number(raw);
         if (!isNaN(num)) {
+          lastValueRef.current = num;
           onChange(num);
         }
       }
     }
 
+    function handleFocus() {
+      isFocusedRef.current = true;
+      // Show raw number for easy editing, remove "0"
+      if (value === 0) {
+        setDisplayValue('');
+      }
+    }
+
     function handleBlur() {
-      // Bei leerem Feld: 0 anzeigen
+      isFocusedRef.current = false;
+      lastValueRef.current = value;
       if (displayValue === '' || isNaN(Number(displayValue))) {
         setDisplayValue('');
         onChange(0);
@@ -49,19 +63,20 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
       <div className="relative">
         <input
           ref={ref}
-          type="number"
-          inputMode="numeric"
+          type="text"
+          inputMode="decimal"
           value={displayValue}
           onChange={handleChange}
+          onFocus={handleFocus}
           onBlur={handleBlur}
           className={cn(
             'flex h-10 w-full rounded-lg border bg-surface px-3 py-2 text-base sm:text-sm',
             suffix ? 'pr-12' : '',
-            'transition-colors duration-150',
+            'transition-all duration-150',
+            'focus:bg-surface-raised/50',
             'placeholder:text-text-muted',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
             'disabled:cursor-not-allowed disabled:opacity-50',
-            '[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none',
             error
               ? 'border-negative-500 focus-visible:ring-negative-500'
               : 'border-border hover:border-border-strong',

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateBmi, type BmiResult } from '@/lib/calculator/health/bmi';
 import { cn } from '@/lib/utils/cn';
@@ -32,10 +32,10 @@ export function ProgrammaticBmiForm({ gewicht: initG, groesse: initH }: Props) {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Gewicht (kg)" htmlFor="g">
-            <Input id="g" type="number" value={gewicht} onChange={setGewicht} />
+            <NumberInput id="g" value={gewicht} onChange={setGewicht} />
           </InputGroup>
           <InputGroup label="Gr\u00f6\u00dfe (cm)" htmlFor="h">
-            <Input id="h" type="number" value={groesse} onChange={setGroesse} />
+            <NumberInput id="h" value={groesse} onChange={setGroesse} />
           </InputGroup>
         </div>
       </Card>

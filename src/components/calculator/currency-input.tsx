@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState, type InputHTMLAttributes } from 'react';
+import { forwardRef, useState, useRef, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 interface CurrencyInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -15,32 +15,41 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     const [displayValue, setDisplayValue] = useState(
       value > 0 ? value.toLocaleString('de-DE') : '',
     );
-    const [isFocused, setIsFocused] = useState(false);
+    const isFocusedRef = useRef(false);
+    const lastValueRef = useRef(value);
+
+    // Sync display when external value changes (but not while user is typing)
+    if (!isFocusedRef.current && value !== lastValueRef.current) {
+      lastValueRef.current = value;
+      setDisplayValue(value > 0 ? value.toLocaleString('de-DE') : '');
+    }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       const raw = e.target.value.replace(/[^\d,.-]/g, '');
       setDisplayValue(raw);
       const parsed = parseFloat(raw.replace(/\./g, '').replace(',', '.'));
       if (!isNaN(parsed)) {
+        lastValueRef.current = parsed;
         onChange(parsed);
       } else if (raw === '') {
+        lastValueRef.current = 0;
         onChange(0);
       }
     }
 
     function handleBlur() {
-      setIsFocused(false);
-      if (value > 0) {
-        setDisplayValue(value.toLocaleString('de-DE'));
-      } else {
-        setDisplayValue('');
-      }
+      isFocusedRef.current = false;
+      lastValueRef.current = value;
+      setDisplayValue(value > 0 ? value.toLocaleString('de-DE') : '');
     }
 
     function handleFocus() {
-      setIsFocused(true);
+      isFocusedRef.current = true;
+      // Show raw number for easy editing
       if (value > 0) {
         setDisplayValue(value.toString().replace('.', ','));
+      } else {
+        setDisplayValue('');
       }
     }
 
@@ -56,7 +65,8 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
           onBlur={handleBlur}
           className={cn(
             'flex h-10 w-full rounded-lg border bg-surface pl-3 pr-10 py-2 text-base sm:text-sm font-currency',
-            'transition-colors duration-150',
+            'transition-all duration-150',
+            'focus:bg-surface-raised/50',
             'placeholder:text-text-muted',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
             'disabled:cursor-not-allowed disabled:opacity-50',

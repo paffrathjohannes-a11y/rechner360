@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateBmi, type BmiResult } from '@/lib/calculator/health/bmi';
@@ -39,9 +39,8 @@ export function BmiForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Gewicht (kg)" htmlFor="gewicht">
-            <Input
+            <NumberInput
               id="gewicht"
-              type="number"
               min={20}
               max={300}
               value={gewicht}
@@ -50,9 +49,8 @@ export function BmiForm() {
           </InputGroup>
 
           <InputGroup label="Größe (cm)" htmlFor="groesse">
-            <Input
+            <NumberInput
               id="groesse"
-              type="number"
               min={100}
               max={250}
               value={groesse}
@@ -61,9 +59,8 @@ export function BmiForm() {
           </InputGroup>
 
           <InputGroup label="Alter" htmlFor="alter">
-            <Input
+            <NumberInput
               id="alter"
-              type="number"
               min={1}
               max={120}
               value={alter}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Plus, Minus, AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { Button } from '@/components/ui/button';
@@ -44,7 +44,7 @@ export function UnterhaltForm() {
             {kinderAlter.map((alter, i) => (
               <div key={i} className="flex items-center gap-2">
                 <span className="text-sm text-text-muted w-16">Kind {i + 1}</span>
-                <Input type="number" min={0} max={25} value={alter} onChange={(e) => updateAlter(i, Number(e.target.value))} className="flex-1" />
+                <NumberInput min={0} max={25} value={alter} onChange={(v) => updateAlter(i, v)} className="flex-1" />
                 <span className="text-xs text-text-muted">Jahre</span>
                 {kinderAlter.length > 1 && (
                   <button type="button" onClick={() => removeKind(i)} className="p-2 text-text-muted hover:text-negative-500 cursor-pointer"><Minus className="h-4 w-4" /></button>

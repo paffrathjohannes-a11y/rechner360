@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateKalorien, type KalorienResult } from '@/lib/calculator/health/kalorien';
@@ -28,13 +28,13 @@ export function KalorienForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Gewicht (kg)" htmlFor="gewicht">
-            <Input id="gewicht" type="number" min={30} max={300} value={gewicht} onChange={setGewicht} />
+            <NumberInput id="gewicht" min={30} max={300} value={gewicht} onChange={setGewicht} />
           </InputGroup>
           <InputGroup label="Größe (cm)" htmlFor="groesse">
-            <Input id="groesse" type="number" min={100} max={250} value={groesse} onChange={setGroesse} />
+            <NumberInput id="groesse" min={100} max={250} value={groesse} onChange={setGroesse} />
           </InputGroup>
           <InputGroup label="Alter" htmlFor="alter">
-            <Input id="alter" type="number" min={10} max={100} value={alter} onChange={setAlter} />
+            <NumberInput id="alter" min={10} max={100} value={alter} onChange={setAlter} />
           </InputGroup>
           <InputGroup label="Geschlecht" htmlFor="geschlecht">
             <Select id="geschlecht" value={geschlecht} onChange={(e) => setGeschlecht(e.target.value as 'mann' | 'frau')}>
