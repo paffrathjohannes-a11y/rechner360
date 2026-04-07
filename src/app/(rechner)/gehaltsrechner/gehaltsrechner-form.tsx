@@ -35,6 +35,9 @@ export function GehaltsrechnerForm() {
   const [brutto, setBrutto] = useState(4000);
   const [bundesland, setBundesland] = useState('nw');
   const [pvKinder, setPvKinder] = useState(0);
+  const [kirchensteuer, setKirchensteuer] = useState(false);
+  const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
+  const [kvZusatzbeitrag, setKvZusatzbeitrag] = useState(2.9);
   const [results, setResults] = useState<(BruttoNettoResult & { steuerklasse: number })[]>([]);
 
   useEffect(() => {
@@ -46,12 +49,15 @@ export function GehaltsrechnerForm() {
         brutto,
         bundesland,
         pflegeversicherung_kinder: pvKinder,
+        kirchensteuer,
+        kinderfreibetraege,
+        kv_zusatzbeitrag: kvZusatzbeitrag,
         steuerklasse: sk,
       });
       return { ...r, steuerklasse: sk };
     });
     setResults(newResults);
-  }, [brutto, bundesland, pvKinder]);
+  }, [brutto, bundesland, pvKinder, kirchensteuer, kinderfreibetraege, kvZusatzbeitrag]);
 
   return (
     <div className="space-y-6">
@@ -68,10 +74,28 @@ export function GehaltsrechnerForm() {
               ))}
             </Select>
           </InputGroup>
-          <InputGroup label="Kinder (Pflegeversicherung)" htmlFor="pvk">
+          <InputGroup label="Kinder (PV)" htmlFor="pvk">
             <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
               {[0, 1, 2, 3, 4, 5].map((v) => (
-                <option key={v} value={v}>{v === 0 ? 'Keine (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+                <option key={v} value={v}>{v === 0 ? 'Keine (0,6% Zuschlag)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+              ))}
+            </Select>
+          </InputGroup>
+          <InputGroup label="Kirchensteuer" htmlFor="kist">
+            <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
+            </Select>
+          </InputGroup>
+          <InputGroup label="Kinderfreibeträge" htmlFor="kfb">
+            <Select id="kfb" value={kinderfreibetraege} onChange={(e) => setKinderfreibetraege(Number(e.target.value))}>
+              {[0, 0.5, 1, 1.5, 2, 2.5, 3].map((v) => (<option key={v} value={v}>{v}</option>))}
+            </Select>
+          </InputGroup>
+          <InputGroup label="KV-Zusatzbeitrag" htmlFor="kvz">
+            <Select id="kvz" value={kvZusatzbeitrag} onChange={(e) => setKvZusatzbeitrag(Number(e.target.value))}>
+              {[1.5, 1.9, 2.3, 2.5, 2.7, 2.9, 3.1, 3.5].map((v) => (
+                <option key={v} value={v}>{v.toFixed(1).replace('.', ',')}%</option>
               ))}
             </Select>
           </InputGroup>

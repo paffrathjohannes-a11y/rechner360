@@ -21,12 +21,13 @@ export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
   const [zinssatz, setZinssatz] = useState(5);
   const [laufzeit, setLaufzeit] = useState(10);
   const [steuer, setSteuer] = useState(false);
+  const [freibetrag, setFreibetrag] = useState(1000);
   const [result, setResult] = useState<ZinseszinsResult | null>(null);
 
   useEffect(() => {
     if (laufzeit <= 0) { setResult(null); return; }
-    setResult(calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit, steuerBeruecksichtigen: steuer }));
-  }, [startkapital, sparrate, zinssatz, laufzeit, steuer]);
+    setResult(calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit, steuerBeruecksichtigen: steuer, freibetrag }));
+  }, [startkapital, sparrate, zinssatz, laufzeit, steuer, freibetrag]);
 
   const chartSegments: ChartSegment[] = result ? [
     { label: 'Eingezahlt', value: result.eingezahlt, color: 'var(--color-primary-500)', percentage: (result.eingezahlt / result.endkapital) * 100 },
@@ -61,12 +62,20 @@ export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
               ))}
             </Select>
           </InputGroup>
-          <InputGroup label="Abgeltungsteuer berücksichtigen" htmlFor="steuer" tooltip="26,375 % (inkl. Soli) auf Erträge über dem Freibetrag von 1.000 €/Jahr (Ledige).">
+          <InputGroup label="Abgeltungsteuer berücksichtigen" htmlFor="steuer" tooltip="26,375 % (inkl. Soli) auf Erträge über dem Sparerpauschbetrag.">
             <Select id="steuer" value={steuer ? 'ja' : 'nein'} onChange={(e) => setSteuer(e.target.value === 'ja')}>
               <option value="nein">Nein (Brutto-Rendite)</option>
               <option value="ja">Ja (nach Steuern)</option>
             </Select>
           </InputGroup>
+          {steuer && (
+            <InputGroup label="Sparerpauschbetrag" htmlFor="freibetrag" tooltip="Ledige: 1.000 €/Jahr. Verheiratete: 2.000 €/Jahr.">
+              <Select id="freibetrag" value={freibetrag} onChange={(e) => setFreibetrag(Number(e.target.value))}>
+                <option value={1000}>1.000 € (Ledige)</option>
+                <option value={2000}>2.000 € (Verheiratete)</option>
+              </Select>
+            </InputGroup>
+          )}
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>

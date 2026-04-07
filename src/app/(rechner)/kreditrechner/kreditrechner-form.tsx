@@ -27,6 +27,7 @@ export function KreditrechnerForm() {
   const [darlehensbetrag, setDarlehensbetrag] = useState(20000);
   const [zinssatz, setZinssatz] = useState(5.5);
   const [laufzeit, setLaufzeit] = useState(60);
+  const [sondertilgung, setSondertilgung] = useState(0);
   const [result, setResult] = useState<KreditResult | null>(null);
 
   useEffect(() => {
@@ -34,8 +35,8 @@ export function KreditrechnerForm() {
       setResult(null);
       return;
     }
-    setResult(calculateKredit({ darlehensbetrag, zinssatz, laufzeit_monate: laufzeit }));
-  }, [darlehensbetrag, zinssatz, laufzeit]);
+    setResult(calculateKredit({ darlehensbetrag, zinssatz, laufzeit_monate: laufzeit, sondertilgung_jaehrlich: sondertilgung }));
+  }, [darlehensbetrag, zinssatz, laufzeit, sondertilgung]);
 
   const chartSegments: ChartSegment[] = result
     ? [
@@ -77,6 +78,10 @@ export function KreditrechnerForm() {
                 <option key={m} value={m}>{m} Monate ({m / 12} Jahre)</option>
               ))}
             </Select>
+          </InputGroup>
+
+          <InputGroup label="Sondertilgung (jährlich)" htmlFor="sondertilgung" tooltip="Optionale jährliche Sonderzahlung. Reduziert die Laufzeit und Gesamtzinsen.">
+            <CurrencyInput id="sondertilgung" value={sondertilgung} onChange={setSondertilgung} placeholder="0 = keine" />
           </InputGroup>
 
           <p className="text-xs text-text-muted text-center">

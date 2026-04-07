@@ -83,6 +83,12 @@ export function BuergergeldForm() {
             </InputGroup>
           )}
 
+          {kinder.length > 0 && (
+            <InputGroup label="Kindergeld pro Kind" htmlFor="kg" tooltip="Kindergeld 2026: 255 €/Kind. Wird als Einkommen auf den Bedarf des Kindes angerechnet.">
+              <CurrencyInput id="kg" value={kindergeld} onChange={setKindergeld} />
+            </InputGroup>
+          )}
+
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>
