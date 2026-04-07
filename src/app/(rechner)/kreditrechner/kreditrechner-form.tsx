@@ -10,7 +10,7 @@ import { calculateKredit } from '@/lib/calculator/credit/annuity';
 import { formatCurrency } from '@/lib/utils/format';
 import type { KreditInput, KreditResult, ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
-import { KreditComparison } from './kredit-comparison';
+import { LaufzeitVergleich } from './kredit-comparison';
 
 type Verwendungszweck = 'frei' | 'auto' | 'renovierung' | 'umschuldung' | 'elektronik';
 
@@ -164,10 +164,10 @@ export function KreditrechnerForm() {
         )}
       </div>
 
-      {/* Comparison tool — full width below the grid */}
+      {/* Laufzeit-Vergleich — full width below the grid */}
       {result && (
         <div className="lg:col-span-5 mt-6">
-          <KreditComparison />
+          <LaufzeitVergleich darlehensbetrag={darlehensbetrag} zinssatz={zinssatz} aktuelleLaufzeit={laufzeit} />
         </div>
       )}
     </div>
