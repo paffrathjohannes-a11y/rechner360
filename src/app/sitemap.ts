@@ -6,6 +6,8 @@ import { BMI_PAGES } from '@/data/programmatic/bmi-pages';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
+import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
+import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
 
 const SITE_URL = 'https://rechner360.de';
 
@@ -61,6 +63,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    ...NEBENKOSTEN_PAGES.map((p) => ({
+      url: `${SITE_URL}/nebenkostenrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...KALORIEN_PAGES.map((p) => ({
+      url: `${SITE_URL}/kalorienrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
   ];
 
