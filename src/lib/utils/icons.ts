@@ -1,7 +1,7 @@
 import {
   Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck,
   Percent, Building, TrendingDown, TrendingUp, Banknote, MapPin,
-  Milestone, HardHat, Users, Scale, Flame, Receipt, Briefcase, ArrowUpRight,
+  Milestone, HardHat, Users, Scale, Flame, Receipt, Briefcase, ArrowUpRight, Scroll,
 } from 'lucide-react';
 
 export const iconMap: Record<string, typeof Calculator> = {
@@ -26,6 +26,7 @@ export const iconMap: Record<string, typeof Calculator> = {
   receipt: Receipt,
   briefcase: Briefcase,
   'arrow-up-right': ArrowUpRight,
+  scroll: Scroll,
 };
 
 export const colorMap: Record<string, { bg: string; icon: string; border: string }> = {

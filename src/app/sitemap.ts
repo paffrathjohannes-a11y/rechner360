@@ -18,6 +18,7 @@ import { ABFINDUNGS_PAGES } from '@/data/programmatic/abfindungs-pages';
 import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
 import { BAUKOSTEN_PAGES } from '@/data/programmatic/baukosten-pages';
 import { BUERGERGELD_PAGES } from '@/data/programmatic/buergergeld-pages';
+import { ERBSCHAFTSTEUER_PAGES } from '@/data/programmatic/erbschaftsteuer-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -150,6 +151,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...BUERGERGELD_PAGES.map((p) => ({
       url: `${SITE_URL}/buergergeld-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...ERBSCHAFTSTEUER_PAGES.map((p) => ({
+      url: `${SITE_URL}/erbschaftsteuer-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

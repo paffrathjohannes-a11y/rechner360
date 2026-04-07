@@ -95,6 +95,38 @@ export interface TilgungsResult {
   tilgungsplan: TilgungsplanZeile[];
 }
 
+// Erbschaftsteuer / Schenkungsteuer
+export type Verwandtschaft =
+  | 'ehepartner'
+  | 'kind'
+  | 'enkelkind'
+  | 'elternteil'
+  | 'geschwister'
+  | 'nichte_neffe'
+  | 'sonstige';
+
+export interface ErbschaftsteuerInput {
+  wert: number;
+  verwandtschaft: Verwandtschaft;
+  artDesErwerbs: 'erbschaft' | 'schenkung';
+  versorgungsfreibetrag: boolean;
+  hausratFreibetrag: boolean;
+  alterDesKindes?: number;
+}
+
+export interface ErbschaftsteuerResult {
+  bruttoWert: number;
+  freibetrag: number;
+  versorgungsfreibetrag: number;
+  hausratFreibetrag: number;
+  steuerpflichtigerErwerb: number;
+  steuerklasse: 1 | 2 | 3;
+  steuersatz: number;
+  steuerBetrag: number;
+  effektiverSteuersatz: number;
+  nettoErbe: number;
+}
+
 export interface BreakdownItem {
   label: string;
   value: number;

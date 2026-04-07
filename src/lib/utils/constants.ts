@@ -278,6 +278,16 @@ export const RECHNER = [
     popular: false,
     category: 'vorsorge-soziales' as CategoryId,
   },
+  {
+    slug: 'erbschaftsteuer-rechner',
+    title: 'Erbschaftsteuer Rechner',
+    shortTitle: 'Erbschaftsteuer',
+    description: 'Berechnen Sie die Erbschaftsteuer oder Schenkungsteuer mit allen Freibeträgen und Steuerklassen.',
+    icon: 'scroll',
+    color: 'primary',
+    popular: false,
+    category: 'gehalt-steuern' as CategoryId,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];
