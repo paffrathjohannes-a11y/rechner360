@@ -10,6 +10,7 @@ import { calculatePkv, type PkvResult, type Berufsgruppe } from '@/lib/calculato
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { Shield, TrendingDown, TrendingUp, Minus, AlertTriangle } from 'lucide-react';
+import { EmailResultButton } from '@/components/calculator/email-result-button';
 
 const empfehlungStyles = {
   pkv: { bg: 'bg-accent-50/50 dark:bg-accent-900/10', border: 'border-accent-300 dark:border-accent-700', text: 'text-accent-600 dark:text-accent-400', icon: TrendingDown },
@@ -166,6 +167,14 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
                 </Card>
               );
             })()}
+
+            <div className="flex justify-center">
+              <EmailResultButton
+                calculatorName="PKV-Rechner"
+                subject="PKV vs. GKV Vergleich — Ihre Berechnung"
+                body={`Ihr PKV-Vergleich von rechner360.de:\n\nAlter: ${alter} | Berufsgruppe: ${berufsgruppe} | Brutto: ${formatCurrency(bruttoeinkommen)}/Jahr\n\nGKV (Ihr Anteil): ${formatCurrency(result.gkv_arbeitnehmer)}/Monat\nPKV (Ihr Anteil): ${formatCurrency(result.pkv_eigenanteil)}/Monat\nDifferenz: ${result.differenz <= 0 ? '-' : '+'}${formatCurrency(Math.abs(result.differenz))}/Monat\n\nEmpfehlung: ${result.empfehlung === 'pkv' ? 'PKV empfehlenswert' : result.empfehlung === 'gkv' ? 'GKV empfehlenswert' : 'Individuelle Beratung empfohlen'}\n\nBerechnet auf: https://www.rechner360.de/pkv-rechner`}
+              />
+            </div>
 
             {/* Detail-Tabelle */}
             <div className="space-y-3">

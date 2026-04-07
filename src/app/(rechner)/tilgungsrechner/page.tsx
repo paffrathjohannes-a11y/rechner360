@@ -4,6 +4,8 @@ import { TilgungsrechnerForm } from './tilgungsrechner-form';
 import { TILGUNGS_FAQS } from '@/data/content/tilgungs-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { ZinsTicker } from '@/components/calculator/zins-ticker';
+import { getCurrentRates } from '@/lib/rates/fetch-rates';
 
 export const metadata: Metadata = {
   title: 'Tilgungsrechner 2026 — Baufinanzierung & Tilgungsplan',
@@ -12,7 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/tilgungsrechner' },
 };
 
-export default function TilgungsrechnerPage() {
+export default async function TilgungsrechnerPage() {
+  const rates = await getCurrentRates();
+
   return (
     <CalculatorPageLayout
       slug="tilgungsrechner"
@@ -22,6 +26,7 @@ export default function TilgungsrechnerPage() {
       faqs={TILGUNGS_FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.tilgungsrechner.headline} offers={affiliateOffersBySlug.tilgungsrechner.offers} />}
     >
+      <ZinsTicker rates={rates} variant="baufi" className="mb-4" />
       <TilgungsrechnerForm />
     </CalculatorPageLayout>
   );

@@ -8,6 +8,7 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { calculateTilgung } from '@/lib/calculator/credit/tilgung';
 import { formatCurrency } from '@/lib/utils/format';
 import type { TilgungsResult } from '@/types/calculator';
+import { EmailResultButton } from '@/components/calculator/email-result-button';
 
 export function TilgungsrechnerForm() {
   const [darlehensbetrag, setDarlehensbetrag] = useState(300000);
@@ -104,6 +105,14 @@ export function TilgungsrechnerForm() {
                 </p>
                 <p className="text-sm text-text-muted">({result.gesamtlaufzeit_monate} Monate)</p>
               </Card>
+            </div>
+
+            <div className="flex justify-center">
+              <EmailResultButton
+                calculatorName="Tilgungsrechner"
+                subject={`Tilgungsplan: ${formatCurrency(darlehensbetrag)} Baufinanzierung`}
+                body={`Ihre Tilgungsberechnung von rechner360.de:\n\nDarlehensbetrag: ${formatCurrency(darlehensbetrag)}\nSollzins: ${zinssatz}% p.a.\nAnfängliche Tilgung: ${tilgung}%\nSondertilgung: ${formatCurrency(sondertilgung)}/Jahr\n\nMonatliche Rate: ${formatCurrency(result.monatliche_rate)}\nRestschuld nach ${zinsbindung} Jahren: ${formatCurrency(result.restschuld_nach_zinsbindung)}\nGesamtlaufzeit: ${laufzeitJahre} Jahre\nGezahlte Zinsen: ${formatCurrency(result.gezahlte_zinsen)}\n\nBerechnet auf: https://www.rechner360.de/tilgungsrechner`}
+              />
             </div>
 
             {/* Yearly Tilgungsplan */}

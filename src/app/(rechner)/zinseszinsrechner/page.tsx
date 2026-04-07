@@ -3,6 +3,8 @@ import { CalculatorPageLayout } from '@/components/calculator/calculator-page-la
 import { ZinseszinsForm } from './zinseszins-form';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { ZinsTicker } from '@/components/calculator/zins-ticker';
+import { getCurrentRates } from '@/lib/rates/fetch-rates';
 
 const FAQS = [
   { question: 'Was ist der Zinseszinseffekt?', answer: 'Beim Zinseszins werden nicht nur das Startkapital, sondern auch die bereits angefallenen Zinsen verzinst. Dadurch wächst das Vermögen exponentiell — je länger der Anlagezeitraum, desto stärker der Effekt. Albert Einstein soll ihn als „achtes Weltwunder" bezeichnet haben.' },
@@ -18,7 +20,9 @@ export const metadata: Metadata = {
   alternates: { canonical: '/zinseszinsrechner' },
 };
 
-export default function ZinseszinsrechnerPage() {
+export default async function ZinseszinsrechnerPage() {
+  const rates = await getCurrentRates();
+
   return (
     <CalculatorPageLayout
       slug="zinseszinsrechner"
@@ -28,6 +32,7 @@ export default function ZinseszinsrechnerPage() {
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.zinseszinsrechner.headline} offers={affiliateOffersBySlug.zinseszinsrechner.offers} />}
     >
+      <ZinsTicker rates={rates} variant="anlage" className="mb-4" />
       <ZinseszinsForm />
     </CalculatorPageLayout>
   );

@@ -10,6 +10,8 @@ import { calculateKredit } from '@/lib/calculator/credit/annuity';
 import { formatCurrency } from '@/lib/utils/format';
 import type { KreditInput, KreditResult, ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
+import { EmailResultButton } from '@/components/calculator/email-result-button';
+import { KreditComparison } from './kredit-comparison';
 
 type Verwendungszweck = 'frei' | 'auto' | 'renovierung' | 'umschuldung' | 'elektronik';
 
@@ -110,6 +112,14 @@ export function KreditrechnerForm() {
               </Card>
             </div>
 
+            <div className="flex justify-center">
+              <EmailResultButton
+                calculatorName="Kreditrechner"
+                subject={`Kreditberechnung: ${formatCurrency(darlehensbetrag)} Kredit`}
+                body={`Ihre Kreditberechnung von rechner360.de:\n\nDarlehensbetrag: ${formatCurrency(darlehensbetrag)}\nZinssatz: ${zinssatz}% p.a.\nLaufzeit: ${laufzeit} Monate\n\nMonatliche Rate: ${formatCurrency(result.monatliche_rate)}\nGesamtzinsen: ${formatCurrency(result.gesamtzinsen)}\nGesamtkosten: ${formatCurrency(result.gesamtkosten)}\n\nBerechnet auf: https://www.rechner360.de/kreditrechner`}
+              />
+            </div>
+
             {/* Chart */}
             <Card padding="lg">
               <ResultsChart
@@ -161,6 +171,13 @@ export function KreditrechnerForm() {
           </Card>
         )}
       </div>
+
+      {/* Comparison tool — full width below the grid */}
+      {result && (
+        <div className="lg:col-span-5 mt-6">
+          <KreditComparison />
+        </div>
+      )}
     </div>
   );
 }
