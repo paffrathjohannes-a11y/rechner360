@@ -15,6 +15,7 @@ import { RENTEN_PAGES } from '@/data/programmatic/renten-pages';
 import { GRUNDSTEUER_PAGES } from '@/data/programmatic/grundsteuer-pages';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
 import { ABFINDUNGS_PAGES } from '@/data/programmatic/abfindungs-pages';
+import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -129,6 +130,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...ABFINDUNGS_PAGES.map((p) => ({
       url: `${SITE_URL}/abfindungsrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...PFAENDUNGS_PAGES.map((p) => ({
+      url: `${SITE_URL}/pfaendungsrechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

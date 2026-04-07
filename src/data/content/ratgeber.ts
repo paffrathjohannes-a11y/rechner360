@@ -214,4 +214,33 @@ export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
     relatedRechner: 'rentenrechner',
     publishDate: '2026-04-07',
   },
+  {
+    slug: 'mindestlohn-2026',
+    title: 'Mindestlohn 2026 — Was Sie wissen müssen',
+    metaTitle: 'Mindestlohn 2026 — Höhe, Änderungen & Auswirkungen',
+    metaDescription: 'Mindestlohn 2026: Wie hoch ist er? Was bedeutet er für Minijob und Teilzeit? Alle Infos auf einen Blick.',
+    intro: 'Der gesetzliche Mindestlohn wird regelmäßig angepasst. Hier erfahren Sie, wie hoch er 2026 ist und was das für Ihr Einkommen bedeutet.',
+    sections: [
+      { title: 'Höhe des Mindestlohns 2026', content: 'Der gesetzliche Mindestlohn beträgt seit Januar 2025 <strong>12,82 € brutto pro Stunde</strong>. Eine weitere Erhöhung für 2026 steht noch aus — die Mindestlohnkommission gibt ihre Empfehlung typischerweise im Juni ab. Bei 40 Stunden/Woche entspricht der aktuelle Mindestlohn einem Monatsgehalt von ca. 2.222 € brutto.' },
+      { title: 'Minijob-Grenze', content: 'Die Minijob-Grenze ist dynamisch an den Mindestlohn gekoppelt: 10 Stunden × Mindestlohn × 52 Wochen ÷ 12 Monate. Aktuell liegt sie bei <strong>538 €/Monat</strong>. Bei einer Mindestlohnerhöhung steigt auch die Minijob-Grenze automatisch.' },
+      { title: 'Übergangsbereich (Midijob)', content: 'Der Übergangsbereich erstreckt sich von 538,01 € bis 2.000 €/Monat. In diesem Bereich zahlen Arbeitnehmer reduzierte Sozialversicherungsbeiträge, erwerben aber volle Rentenansprüche. Bei Erhöhung des Mindestlohns verschiebt sich auch diese Grenze.' },
+    ],
+    relatedRechner: 'stundenlohn-rechner',
+    publishDate: '2026-04-07',
+  },
+  {
+    slug: 'steuererklaerung-tipps',
+    title: 'Steuererklärung 2025 — Die wichtigsten Tipps',
+    metaTitle: 'Steuererklärung 2025 — 10 Tipps für mehr Rückerstattung',
+    metaDescription: 'Steuererklärung 2025: Fristen, Werbungskosten, Sonderausgaben und die besten Tipps für mehr Rückerstattung.',
+    intro: 'Die durchschnittliche Steuererstattung in Deutschland liegt bei über 1.000 €. Mit diesen Tipps holen Sie das Maximum raus.',
+    sections: [
+      { title: 'Fristen 2026 für die Steuererklärung 2025', content: 'Wer zur Abgabe verpflichtet ist, muss die Erklärung bis <strong>31. Juli 2026</strong> einreichen. Mit Steuerberater gilt eine verlängerte Frist bis <strong>28. Februar 2027</strong>. Freiwillige Abgabe (z.B. Arbeitnehmer in SK I ohne Nebeneinkünfte) ist bis zu 4 Jahre rückwirkend möglich.' },
+      { title: 'Werbungskosten — der Klassiker', content: 'Jeder Arbeitnehmer bekommt automatisch 1.230 € Werbungskostenpauschale. Erst wenn Ihre tatsächlichen Kosten darüber liegen, lohnt sich das Angeben. Typische Werbungskosten: Fahrtkosten (0,30 €/km einfache Strecke), Homeoffice-Pauschale (6 €/Tag, max. 1.260 €/Jahr), Arbeitsmittel, Fortbildungen, Fachliteratur.' },
+      { title: 'Sonderausgaben und außergewöhnliche Belastungen', content: 'Absetzbar sind u.a.: Kirchensteuer, Spenden (bis 20% des Einkommens), Kranken- und Pflegeversicherungsbeiträge, Riester-Beiträge. Bei außergewöhnlichen Belastungen (Krankheitskosten, Pflege) gilt eine zumutbare Eigenbelastung abhängig vom Einkommen.' },
+      { title: 'Handwerkerkosten und haushaltsnahe Dienstleistungen', content: '<strong>Handwerkerkosten</strong>: 20% der Arbeitskosten (max. 1.200 € Steuerermäßigung/Jahr). <strong>Haushaltsnahe Dienstleistungen</strong>: 20% der Kosten (max. 4.000 € Steuerermäßigung/Jahr). Gilt für: Reinigung, Gartenpflege, Kinderbetreuung, Pflegedienste. Wichtig: Nur per Überweisung bezahlen, keine Barzahlung!' },
+    ],
+    relatedRechner: 'brutto-netto-rechner',
+    publishDate: '2026-04-07',
+  },
 ];
