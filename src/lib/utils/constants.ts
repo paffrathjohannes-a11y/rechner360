@@ -108,6 +108,15 @@ export const RECHNER = [
     popular: false,
   },
   {
+    slug: 'rentenrechner',
+    title: 'Rentenrechner',
+    shortTitle: 'Rente',
+    description: 'Berechnen Sie Ihre voraussichtliche gesetzliche Rente mit Entgeltpunkten und Rentenlücke.',
+    icon: 'clock',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'grundsteuer-rechner',
     title: 'Grundsteuer Rechner',
     shortTitle: 'Grundsteuer',
