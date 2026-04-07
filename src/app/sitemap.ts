@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { RECHNER } from '@/lib/utils/constants';
 import { BRUTTO_NETTO_PAGES } from '@/data/programmatic/brutto-netto-pages';
 import { GEHALTS_PAGES } from '@/data/programmatic/gehalts-pages';
+import { BMI_PAGES } from '@/data/programmatic/bmi-pages';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 
@@ -29,6 +30,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    })),
+    ...BMI_PAGES.map((p) => ({
+      url: `${SITE_URL}/bmi-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
     ...GEHALTS_PAGES.map((p) => ({
       url: `${SITE_URL}/gehaltsrechner/${p.slug}`,
