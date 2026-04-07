@@ -29,7 +29,7 @@ export function TilgungsrechnerForm() {
   const laufzeitJahre = result ? Math.ceil(result.gesamtlaufzeit_monate / 12) : 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       {/* Form */}
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">

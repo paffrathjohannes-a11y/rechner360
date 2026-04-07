@@ -34,7 +34,7 @@ export function BmiForm() {
   const scalePosition = result ? Math.min(Math.max(((result.bmi - 10) / 35) * 100, 0), 100) : 0;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       {/* Form */}
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
@@ -96,7 +96,7 @@ export function BmiForm() {
             <Card padding="lg" className={cn(farbeMap[result.farbe].bg, farbeMap[result.farbe].border, 'border')}>
               <div className="text-center space-y-2">
                 <p className="text-sm text-text-secondary">Ihr BMI</p>
-                <p className={cn('text-5xl font-bold font-currency', farbeMap[result.farbe].text)}>
+                <p className={cn('text-4xl sm:text-5xl font-bold font-currency', farbeMap[result.farbe].text)}>
                   {result.bmi.toFixed(1).replace('.', ',')}
                 </p>
                 <p className={cn('text-lg font-semibold', farbeMap[result.farbe].text)}>

@@ -69,7 +69,7 @@ export function BruttoNettoForm() {
     : [];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       {/* Form */}
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
@@ -156,7 +156,7 @@ export function BruttoNettoForm() {
             <Card padding="lg" className="bg-accent-50/50 dark:bg-accent-900/10 border-accent-200 dark:border-accent-800">
               <div className="text-center">
                 <p className="text-sm text-text-secondary">Ihr Nettogehalt</p>
-                <p className="text-4xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">
+                <p className="text-3xl sm:text-4xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">
                   {formatCurrency(result.netto)}
                 </p>
                 <p className="text-sm text-text-muted mt-1">

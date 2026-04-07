@@ -61,7 +61,7 @@ export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initi
     : [];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Bruttogehalt (monatlich)" htmlFor="brutto">
@@ -86,7 +86,7 @@ export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initi
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
               <div className="text-center">
                 <p className="text-sm text-text-secondary">Ihr Nettogehalt</p>
-                <p className="text-4xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">
+                <p className="text-3xl sm:text-4xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">
                   {formatCurrency(result.netto)}
                 </p>
                 <p className="text-sm text-text-muted mt-1">

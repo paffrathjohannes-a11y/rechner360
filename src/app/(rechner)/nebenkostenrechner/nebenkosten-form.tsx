@@ -32,7 +32,7 @@ export function NebenkostenForm() {
   ] : [];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Kaufpreis" htmlFor="kaufpreis">
@@ -63,7 +63,7 @@ export function NebenkostenForm() {
             <Card padding="lg" className="border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10">
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Kaufnebenkosten</p>
-                <p className="text-4xl font-bold font-currency text-primary-600 dark:text-primary-400">{formatCurrency(result.nebenkosten_gesamt)}</p>
+                <p className="text-3xl sm:text-4xl font-bold font-currency text-primary-600 dark:text-primary-400">{formatCurrency(result.nebenkosten_gesamt)}</p>
                 <p className="text-sm text-text-muted">{result.nebenkosten_prozent}% des Kaufpreises &middot; Gesamt: {formatCurrency(result.gesamtkosten)}</p>
               </div>
             </Card>

@@ -87,7 +87,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex h-9 w-9 items-center justify-center rounded-lg text-text-secondary hover:text-text hover:bg-surface-raised transition-colors cursor-pointer"
+            className="lg:hidden flex h-11 w-11 items-center justify-center rounded-lg text-text-secondary hover:text-text hover:bg-surface-raised transition-colors cursor-pointer"
             aria-label={mobileOpen ? 'Men\u00fc schlie\u00dfen' : 'Men\u00fc \u00f6ffnen'}
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

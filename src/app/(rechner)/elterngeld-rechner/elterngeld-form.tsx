@@ -28,7 +28,7 @@ export function ElterngeldForm() {
   }, [netto, art, zwillinge, geschwister]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Nettoeinkommen vor Geburt (monatlich)" htmlFor="netto" tooltip="Durchschnittliches monatliches Nettoeinkommen der letzten 12 Monate vor der Geburt.">
@@ -57,7 +57,7 @@ export function ElterngeldForm() {
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Ihr monatliches Elterngeld</p>
-                <p className="text-4xl font-bold font-currency text-accent-600 dark:text-accent-400">
+                <p className="text-3xl sm:text-4xl font-bold font-currency text-accent-600 dark:text-accent-400">
                   {formatCurrency(result.monatlich)}
                 </p>
                 <p className="text-sm text-text-muted">
