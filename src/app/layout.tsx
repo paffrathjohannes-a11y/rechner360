@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { CookieBanner } from '@/components/layout/cookie-banner';
 import { Analytics } from '@/components/layout/analytics';
@@ -109,6 +110,7 @@ export default function RootLayout({
           {children}
           <CookieBanner />
           <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
