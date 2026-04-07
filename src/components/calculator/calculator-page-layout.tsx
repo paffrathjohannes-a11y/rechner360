@@ -9,6 +9,8 @@ import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { getCategoryForRechner } from '@/lib/utils/constants';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
+import { Sources } from '@/components/calculator/sources';
+import { sourcesBySlug } from '@/data/sources';
 
 interface FAQ {
   question: string;
@@ -104,6 +106,15 @@ export function CalculatorPageLayout({
           </div>
         );
       })()}
+
+      {/* Sources */}
+      {sourcesBySlug[slug] && sourcesBySlug[slug].sources.length > 0 && (
+        <Sources
+          items={sourcesBySlug[slug].sources}
+          disclaimer={sourcesBySlug[slug].disclaimer}
+          className="mt-8"
+        />
+      )}
 
       <RelatedCalculators currentSlug={slug} className="mt-8" />
     </div>
