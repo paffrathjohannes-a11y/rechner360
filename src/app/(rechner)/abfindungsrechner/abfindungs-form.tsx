@@ -1,0 +1,88 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Card } from '@/components/ui/card';
+import { Select } from '@/components/ui/select';
+import { Toggle } from '@/components/ui/toggle';
+import { CurrencyInput } from '@/components/calculator/currency-input';
+import { InputGroup } from '@/components/calculator/input-group';
+import { calculateAbfindung, type AbfindungResult } from '@/lib/calculator/tax/abfindung';
+import { STEUERKLASSEN } from '@/lib/utils/constants';
+import { formatCurrency } from '@/lib/utils/format';
+import type { BruttoNettoInput } from '@/types/calculator';
+
+export function AbfindungsForm() {
+  const [jahresbrutto, setJahresbrutto] = useState(45000);
+  const [abfindung, setAbfindung] = useState(25000);
+  const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
+  const [kirchensteuer, setKirchensteuer] = useState(false);
+  const [result, setResult] = useState<AbfindungResult | null>(null);
+
+  useEffect(() => {
+    if (jahresbrutto <= 0 || abfindung <= 0) { setResult(null); return; }
+    setResult(calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz: 0.09 }));
+  }, [jahresbrutto, abfindung, steuerklasse, kirchensteuer]);
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      <Card padding="lg" className="lg:col-span-2">
+        <div className="space-y-5">
+          <InputGroup label="Jahresbrutto (ohne Abfindung)" htmlFor="brutto" tooltip="Ihr regul&auml;res Jahresbruttoeinkommen ohne die Abfindung.">
+            <CurrencyInput id="brutto" value={jahresbrutto} onChange={setJahresbrutto} />
+          </InputGroup>
+          <InputGroup label="Abfindung (brutto)" htmlFor="abfindung">
+            <CurrencyInput id="abfindung" value={abfindung} onChange={setAbfindung} />
+          </InputGroup>
+          <InputGroup label="Steuerklasse" htmlFor="stkl">
+            <Select id="stkl" value={steuerklasse} onChange={(e) => setSteuerklasse(Number(e.target.value) as 1|2|3|4|5|6)}>
+              {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
+            </Select>
+          </InputGroup>
+          <Toggle checked={kirchensteuer} onChange={setKirchensteuer} label="Kirchensteuer (9%)" />
+          <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
+        </div>
+      </Card>
+
+      <div className="lg:col-span-3 space-y-6">
+        {result && (
+          <div className="animate-result-in space-y-6">
+            <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
+              <div className="text-center space-y-1">
+                <p className="text-sm text-text-secondary">Ihre Netto-Abfindung</p>
+                <p className="text-4xl font-bold font-currency text-accent-600 dark:text-accent-400">{formatCurrency(result.nettoAbfindung)}</p>
+                <p className="text-sm text-text-muted">von {formatCurrency(abfindung)} brutto ({(result.effektiverSteuersatzAbfindung * 100).toFixed(1).replace('.', ',')}% effektiver Steuersatz)</p>
+              </div>
+            </Card>
+
+            {result.ersparnisDurchFuenftel > 0 && (
+              <Card padding="md" className="bg-accent-50/20 dark:bg-accent-900/5 border-accent-200 dark:border-accent-800">
+                <p className="text-sm text-center">
+                  <span className="font-semibold text-accent-600">Ersparnis durch F&uuml;nftelregelung: {formatCurrency(result.ersparnisDurchFuenftel)}</span>
+                </p>
+              </Card>
+            )}
+
+            <Card padding="none">
+              <table className="w-full text-sm">
+                <tbody>
+                  <tr className="border-b border-border hover:bg-surface-raised transition-colors">
+                    <td className="px-4 py-3 text-text-secondary">Steuer ohne Abfindung</td>
+                    <td className="px-4 py-3 text-right font-currency text-text">{formatCurrency(result.steuerOhneAbfindung)}</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-surface-raised transition-colors">
+                    <td className="px-4 py-3 text-text-secondary">Steuer mit Abfindung (ohne F&uuml;nftelregelung)</td>
+                    <td className="px-4 py-3 text-right font-currency text-negative-500">{formatCurrency(result.steuerMitAbfindungOhneFuenftel)}</td>
+                  </tr>
+                  <tr className="border-b border-border hover:bg-surface-raised transition-colors bg-accent-50/10 dark:bg-accent-900/5">
+                    <td className="px-4 py-3 font-medium text-accent-600">Steuer mit F&uuml;nftelregelung</td>
+                    <td className="px-4 py-3 text-right font-currency font-medium text-accent-600">{formatCurrency(result.steuerMitFuenftel)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </Card>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'abfindungsrechner',
+    title: 'Abfindungsrechner',
+    shortTitle: 'Abfindung',
+    description: 'Berechnen Sie die Steuer auf Ihre Abfindung mit der F\u00fcnftelregelung und sehen Sie Ihre Netto-Abfindung.',
+    icon: 'banknote',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'inflationsrechner',
     title: 'Inflationsrechner',
     shortTitle: 'Inflation',
