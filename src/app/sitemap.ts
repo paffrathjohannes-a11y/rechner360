@@ -16,6 +16,8 @@ import { GRUNDSTEUER_PAGES } from '@/data/programmatic/grundsteuer-pages';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
 import { ABFINDUNGS_PAGES } from '@/data/programmatic/abfindungs-pages';
 import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
+import { BAUKOSTEN_PAGES } from '@/data/programmatic/baukosten-pages';
+import { BUERGERGELD_PAGES } from '@/data/programmatic/buergergeld-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
@@ -136,6 +138,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...PFAENDUNGS_PAGES.map((p) => ({
       url: `${SITE_URL}/pfaendungsrechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...BAUKOSTEN_PAGES.map((p) => ({
+      url: `${SITE_URL}/baukosten-rechner/${p.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+    ...BUERGERGELD_PAGES.map((p) => ({
+      url: `${SITE_URL}/buergergeld-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
