@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { MwstForm } from './mwst-form';
 
 const FAQS = [
@@ -21,17 +17,14 @@ export const metadata: Metadata = {
 
 export default function MwstRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'MwSt Rechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">MwSt Rechner</h1>
-        <p className="text-text-secondary text-lg">Mehrwertsteuer berechnen — Netto zu Brutto und zurück. 19% oder 7%.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="MwSt Rechner" url="/mwst-rechner" description="Mehrwertsteuer berechnen: Netto ↔ Brutto." category="FinanceApplication" />
+    <CalculatorPageLayout
+      slug="mwst-rechner"
+      title="MwSt Rechner"
+      subtitle="Mehrwertsteuer berechnen — Netto zu Brutto und zurück. 19% oder 7%."
+      jsonLd={{ name: 'MwSt Rechner', url: '/mwst-rechner', description: 'Mehrwertsteuer berechnen: Netto ↔ Brutto.' }}
+      faqs={FAQS}
+    >
       <MwstForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="mwst-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

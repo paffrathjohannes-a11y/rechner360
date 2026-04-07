@@ -1,31 +1,8 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, TrendingUp, Banknote, MapPin, Milestone, HardHat, Users, Scale, Flame, Receipt, Briefcase } from 'lucide-react';
-import { RECHNER } from '@/lib/utils/constants';
+import { ArrowRight } from 'lucide-react';
+import { RECHNER, getCategoryForRechner, getRechnerByCategory } from '@/lib/utils/constants';
+import { getIcon } from '@/lib/utils/icons';
 import { cn } from '@/lib/utils/cn';
-
-const iconMap: Record<string, typeof Calculator> = {
-  calculator: Calculator,
-  wallet: Wallet,
-  landmark: Landmark,
-  home: Home,
-  'heart-pulse': HeartPulse,
-  'baby': Baby,
-  'shield-check': ShieldCheck,
-  'percent': Percent,
-  'building': Building,
-  'trending-down': TrendingDown,
-  'banknote': Banknote,
-  'hard-hat': HardHat,
-  'users': Users,
-  'scale': Scale,
-  'flame': Flame,
-  'trending-up': TrendingUp,
-  'map-pin': MapPin,
-  'milestone': Milestone,
-  'receipt': Receipt,
-  'briefcase': Briefcase,
-  'arrow-up-right': ArrowUpRight,
-};
 
 interface RelatedCalculatorsProps {
   currentSlug: string;
@@ -33,14 +10,23 @@ interface RelatedCalculatorsProps {
 }
 
 export function RelatedCalculators({ currentSlug, className }: RelatedCalculatorsProps) {
-  const related = RECHNER.filter((r) => r.slug !== currentSlug);
+  const category = getCategoryForRechner(currentSlug);
+
+  // Same category first (excluding current), then popular from other categories
+  const sameCategory = category
+    ? getRechnerByCategory(category.id).filter((r) => r.slug !== currentSlug)
+    : [];
+  const otherPopular = RECHNER.filter(
+    (r) => r.slug !== currentSlug && r.category !== category?.id && r.popular,
+  );
+  const related = [...sameCategory, ...otherPopular].slice(0, 6);
 
   return (
     <section className={cn('space-y-4', className)}>
       <h2 className="text-xl font-bold text-text">Weitere Rechner</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {related.map((r) => {
-          const Icon = iconMap[r.icon] || Calculator;
+          const Icon = getIcon(r.icon);
           return (
             <Link
               key={r.slug}

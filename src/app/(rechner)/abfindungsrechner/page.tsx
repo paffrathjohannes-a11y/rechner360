@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { AbfindungsForm } from './abfindungs-form';
 
 const FAQS = [
@@ -14,25 +10,26 @@ const FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Abfindungsrechner 2026 — Netto-Abfindung mit F\u00fcnftelregelung',
-  description: 'Berechnen Sie Ihre Netto-Abfindung mit der F\u00fcnftelregelung. Steuerersparnis, effektiver Steuersatz und Vergleich.',
-  keywords: ['Abfindungsrechner', 'Abfindung Steuer', 'F\u00fcnftelregelung', 'Netto Abfindung', 'Abfindung berechnen'],
+  title: 'Abfindungsrechner 2026 — Netto-Abfindung mit Fünftelregelung',
+  description: 'Berechnen Sie Ihre Netto-Abfindung mit der Fünftelregelung. Steuerersparnis, effektiver Steuersatz und Vergleich.',
+  keywords: ['Abfindungsrechner', 'Abfindung Steuer', 'Fünftelregelung', 'Netto Abfindung', 'Abfindung berechnen'],
   alternates: { canonical: '/abfindungsrechner' },
 };
 
 export default function AbfindungsrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Abfindungsrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Abfindungsrechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie Ihre Netto-Abfindung mit der Fünftelregelung (§ 34 EStG).</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Abfindungsrechner 2026" url="/abfindungsrechner" description="Netto-Abfindung mit F\u00fcnftelregelung berechnen." />
+    <CalculatorPageLayout
+      slug="abfindungsrechner"
+      title="Abfindungsrechner 2026"
+      subtitle="Berechnen Sie Ihre Netto-Abfindung mit der Fünftelregelung (§ 34 EStG)."
+      jsonLd={{
+        name: 'Abfindungsrechner 2026',
+        url: '/abfindungsrechner',
+        description: 'Netto-Abfindung mit Fünftelregelung berechnen.',
+      }}
+      faqs={FAQS}
+    >
       <AbfindungsForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="abfindungsrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { GehaltserhoehungForm } from './gehaltserhoehung-form';
 
 const FAQS = [
@@ -22,17 +18,14 @@ export const metadata: Metadata = {
 
 export default function GehaltserhoehungRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Gehaltserhöhung Rechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Gehaltserhöhung Rechner</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie, wie viel von einer Gehaltserhöhung netto übrig bleibt.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Gehaltserhöhung Rechner" url="/gehaltserhoehung-rechner" description="Gehaltserhöhung: Wie viel bleibt netto?" />
+    <CalculatorPageLayout
+      slug="gehaltserhoehung-rechner"
+      title="Gehaltserhöhung Rechner"
+      subtitle="Berechnen Sie, wie viel von einer Gehaltserhöhung netto übrig bleibt."
+      jsonLd={{ name: 'Gehaltserhöhung Rechner', url: '/gehaltserhoehung-rechner', description: 'Gehaltserhöhung: Wie viel bleibt netto?' }}
+      faqs={FAQS}
+    >
       <GehaltserhoehungForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="gehaltserhoehung-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

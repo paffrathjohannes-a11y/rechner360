@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { BaukostenForm } from './baukosten-form';
 
 const FAQS = [
@@ -23,43 +19,40 @@ export const metadata: Metadata = {
 
 export default function BaukostenRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Baukosten Rechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Baukosten Rechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie die Baukosten für Ihr Haus — nach Ausstattung, Bauweise und Region.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Baukosten Rechner 2026" url="/baukosten-rechner" description="Hausbaukosten berechnen: pro m\u00b2, Massiv vs. Fertighaus, mit Keller und Nebenkosten." />
+    <CalculatorPageLayout
+      slug="baukosten-rechner"
+      title="Baukosten Rechner 2026"
+      subtitle="Berechnen Sie die Baukosten für Ihr Haus — nach Ausstattung, Bauweise und Region."
+      jsonLd={{ name: 'Baukosten Rechner 2026', url: '/baukosten-rechner', description: 'Hausbaukosten berechnen: pro m\u00b2, Massiv vs. Fertighaus, mit Keller und Nebenkosten.' }}
+      faqs={FAQS}
+      guideContent={
+        <section className="space-y-4 mt-12">
+          <h2 className="text-2xl font-bold text-text">Baukosten pro m² nach Ausstattung (2026)</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+              <thead>
+                <tr className="bg-surface-sunken">
+                  <th className="px-4 py-2 text-left text-text font-medium">Ausstattung</th>
+                  <th className="px-4 py-2 text-right text-text font-medium">Massivhaus</th>
+                  <th className="px-4 py-2 text-right text-text font-medium">Fertighaus</th>
+                </tr>
+              </thead>
+              <tbody className="text-text-secondary">
+                <tr className="border-t border-border"><td className="px-4 py-2">Einfach</td><td className="px-4 py-2 text-right font-currency">1.800 €/m²</td><td className="px-4 py-2 text-right font-currency">1.600 €/m²</td></tr>
+                <tr className="border-t border-border bg-accent-50/20 dark:bg-accent-900/5"><td className="px-4 py-2 font-medium">Mittel (Standard)</td><td className="px-4 py-2 text-right font-currency font-medium">2.200 €/m²</td><td className="px-4 py-2 text-right font-currency font-medium">2.000 €/m²</td></tr>
+                <tr className="border-t border-border"><td className="px-4 py-2">Gehoben</td><td className="px-4 py-2 text-right font-currency">2.800 €/m²</td><td className="px-4 py-2 text-right font-currency">2.500 €/m²</td></tr>
+                <tr className="border-t border-border"><td className="px-4 py-2">Luxus</td><td className="px-4 py-2 text-right font-currency">3.500 €/m²</td><td className="px-4 py-2 text-right font-currency">3.200 €/m²</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-text-muted">
+            Durchschnittswerte für Deutschland 2025/2026 inkl. KG 300+400 nach DIN 276.
+            Regionale Abweichungen: ländliche Gebiete ca. -15%, Großstädte ca. +25%.
+          </p>
+        </section>
+      }
+    >
       <BaukostenForm />
-
-      <section className="space-y-4 mt-12">
-        <h2 className="text-2xl font-bold text-text">Baukosten pro m² nach Ausstattung (2026)</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-            <thead>
-              <tr className="bg-surface-sunken">
-                <th className="px-4 py-2 text-left text-text font-medium">Ausstattung</th>
-                <th className="px-4 py-2 text-right text-text font-medium">Massivhaus</th>
-                <th className="px-4 py-2 text-right text-text font-medium">Fertighaus</th>
-              </tr>
-            </thead>
-            <tbody className="text-text-secondary">
-              <tr className="border-t border-border"><td className="px-4 py-2">Einfach</td><td className="px-4 py-2 text-right font-currency">1.800 €/m²</td><td className="px-4 py-2 text-right font-currency">1.600 €/m²</td></tr>
-              <tr className="border-t border-border bg-accent-50/20 dark:bg-accent-900/5"><td className="px-4 py-2 font-medium">Mittel (Standard)</td><td className="px-4 py-2 text-right font-currency font-medium">2.200 €/m²</td><td className="px-4 py-2 text-right font-currency font-medium">2.000 €/m²</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Gehoben</td><td className="px-4 py-2 text-right font-currency">2.800 €/m²</td><td className="px-4 py-2 text-right font-currency">2.500 €/m²</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Luxus</td><td className="px-4 py-2 text-right font-currency">3.500 €/m²</td><td className="px-4 py-2 text-right font-currency">3.200 €/m²</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-text-muted">
-          Durchschnittswerte für Deutschland 2025/2026 inkl. KG 300+400 nach DIN 276.
-          Regionale Abweichungen: ländliche Gebiete ca. -15%, Großstädte ca. +25%.
-        </p>
-      </section>
-
-      <FAQSection faqs={FAQS} className="mt-8" />
-      <RelatedCalculators currentSlug="baukosten-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

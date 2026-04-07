@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { ZinseszinsForm } from './zinseszins-form';
 
 const FAQS = [
@@ -22,17 +18,14 @@ export const metadata: Metadata = {
 
 export default function ZinseszinsrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Zinseszinsrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Zinseszinsrechner</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie, wie Ihr Geld durch Zinseszins und regelmäßiges Sparen wächst.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Zinseszinsrechner" url="/zinseszinsrechner" description="Zinseszins und Sparplan berechnen." />
+    <CalculatorPageLayout
+      slug="zinseszinsrechner"
+      title="Zinseszinsrechner"
+      subtitle="Berechnen Sie, wie Ihr Geld durch Zinseszins und regelmäßiges Sparen wächst."
+      jsonLd={{ name: 'Zinseszinsrechner', url: '/zinseszinsrechner', description: 'Zinseszins und Sparplan berechnen.' }}
+      faqs={FAQS}
+    >
       <ZinseszinsForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="zinseszinsrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

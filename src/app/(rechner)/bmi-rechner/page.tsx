@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { BmiForm } from './bmi-form';
 import { BMI_FAQS } from '@/data/content/bmi-guide';
 
@@ -23,88 +19,79 @@ export const metadata: Metadata = {
 
 export default function BmiRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'BMI Rechner' }]} />
+    <CalculatorPageLayout
+      slug="bmi-rechner"
+      title="BMI Rechner"
+      subtitle="Berechnen Sie Ihren Body-Mass-Index und erfahren Sie, ob Ihr Gewicht im gesunden Bereich liegt."
+      jsonLd={{
+        name: 'BMI Rechner',
+        url: '/bmi-rechner',
+        description: 'Kostenloser BMI Rechner. Body-Mass-Index berechnen mit WHO-Klassifikation und Idealgewicht.',
+      }}
+      faqs={BMI_FAQS}
+      guideContent={
+        <>
+          {/* BMI Tabelle */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-text">BMI Tabelle — WHO-Klassifikation</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
+                <thead>
+                  <tr className="bg-surface-sunken">
+                    <th className="px-4 py-2 text-left text-text font-medium">Kategorie</th>
+                    <th className="px-4 py-2 text-right text-text font-medium">BMI-Bereich</th>
+                  </tr>
+                </thead>
+                <tbody className="text-text-secondary">
+                  <tr className="border-t border-border"><td className="px-4 py-2">Starkes Untergewicht</td><td className="px-4 py-2 text-right font-currency">&lt; 16,0</td></tr>
+                  <tr className="border-t border-border"><td className="px-4 py-2">Untergewicht</td><td className="px-4 py-2 text-right font-currency">16,0 – 18,4</td></tr>
+                  <tr className="border-t border-border bg-accent-50/30 dark:bg-accent-900/10"><td className="px-4 py-2 font-medium text-accent-600">Normalgewicht</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">18,5 – 24,9</td></tr>
+                  <tr className="border-t border-border"><td className="px-4 py-2">Übergewicht (Präadipositas)</td><td className="px-4 py-2 text-right font-currency">25,0 – 29,9</td></tr>
+                  <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad I</td><td className="px-4 py-2 text-right font-currency">30,0 – 34,9</td></tr>
+                  <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad II</td><td className="px-4 py-2 text-right font-currency">35,0 – 39,9</td></tr>
+                  <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad III</td><td className="px-4 py-2 text-right font-currency">≥ 40,0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-xs text-text-muted">
+              Quelle: Weltgesundheitsorganisation (WHO). Der BMI ist ein grober Richtwert und berücksichtigt
+              nicht Muskelmasse, Körperbau oder Altersunterschiede. Für eine individuelle Beurteilung
+              konsultieren Sie bitte Ihren Arzt.
+            </p>
+          </section>
 
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">
-          BMI Rechner
-        </h1>
-        <p className="text-text-secondary text-lg">
-          Berechnen Sie Ihren Body-Mass-Index und erfahren Sie, ob Ihr Gewicht im gesunden Bereich liegt.
-        </p>
-        <TrustSignals compact className="mt-3" />
-      </div>
+          {/* Guide Content */}
+          <section className="space-y-4 mt-8">
+            <h2 className="text-2xl font-bold text-text">Was ist der BMI?</h2>
+            <div className="space-y-3 text-text-secondary leading-relaxed">
+              <p>
+                Der Body-Mass-Index (BMI) ist eine Maßzahl zur Bewertung des Körpergewichts
+                in Relation zur Körpergröße. Er wird berechnet, indem das Gewicht in
+                Kilogramm durch die Körpergröße in Metern zum Quadrat geteilt wird:
+                <strong className="text-text"> BMI = Gewicht (kg) ÷ Größe (m)²</strong>.
+              </p>
+              <p>
+                Ein BMI zwischen 18,5 und 24,9 gilt laut WHO als Normalgewicht. Werte darunter deuten
+                auf Untergewicht hin, Werte darüber auf Übergewicht. Ab einem BMI von 30
+                spricht man von Adipositas (Fettleibigkeit).
+              </p>
+            </div>
 
-      <WebApplicationJsonLd
-        name="BMI Rechner"
-        url="/bmi-rechner"
-        description="Kostenloser BMI Rechner. Body-Mass-Index berechnen mit WHO-Klassifikation und Idealgewicht."
-        category="HealthApplication"
-      />
-
+            <h2 className="text-2xl font-bold text-text mt-8">Grenzen des BMI</h2>
+            <div className="space-y-3 text-text-secondary leading-relaxed">
+              <p>
+                Der BMI berücksichtigt nicht die Körperzusammensetzung. Sportler mit hohem
+                Muskelanteil können einen hohen BMI haben, ohne übergewichtig zu sein.
+                Umgekehrt kann ein normaler BMI bei geringer Muskelmasse und hohem Körperfettanteil
+                täuschen. Für eine genauere Beurteilung können der Bauchumfang oder
+                die Bioimpedanzanalyse herangezogen werden.
+              </p>
+            </div>
+          </section>
+        </>
+      }
+    >
       <BmiForm />
-
-      {/* BMI Tabelle */}
-      <section className="space-y-4 mt-12">
-        <h2 className="text-2xl font-bold text-text">BMI Tabelle — WHO-Klassifikation</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
-            <thead>
-              <tr className="bg-surface-sunken">
-                <th className="px-4 py-2 text-left text-text font-medium">Kategorie</th>
-                <th className="px-4 py-2 text-right text-text font-medium">BMI-Bereich</th>
-              </tr>
-            </thead>
-            <tbody className="text-text-secondary">
-              <tr className="border-t border-border"><td className="px-4 py-2">Starkes Untergewicht</td><td className="px-4 py-2 text-right font-currency">&lt; 16,0</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Untergewicht</td><td className="px-4 py-2 text-right font-currency">16,0 – 18,4</td></tr>
-              <tr className="border-t border-border bg-accent-50/30 dark:bg-accent-900/10"><td className="px-4 py-2 font-medium text-accent-600">Normalgewicht</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">18,5 – 24,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Übergewicht (Präadipositas)</td><td className="px-4 py-2 text-right font-currency">25,0 – 29,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad I</td><td className="px-4 py-2 text-right font-currency">30,0 – 34,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad II</td><td className="px-4 py-2 text-right font-currency">35,0 – 39,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad III</td><td className="px-4 py-2 text-right font-currency">≥ 40,0</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-xs text-text-muted">
-          Quelle: Weltgesundheitsorganisation (WHO). Der BMI ist ein grober Richtwert und berücksichtigt
-          nicht Muskelmasse, Körperbau oder Altersunterschiede. Für eine individuelle Beurteilung
-          konsultieren Sie bitte Ihren Arzt.
-        </p>
-      </section>
-
-      {/* Guide Content */}
-      <section className="space-y-4 mt-8">
-        <h2 className="text-2xl font-bold text-text">Was ist der BMI?</h2>
-        <div className="space-y-3 text-text-secondary leading-relaxed">
-          <p>
-            Der Body-Mass-Index (BMI) ist eine Maßzahl zur Bewertung des Körpergewichts
-            in Relation zur Körpergröße. Er wird berechnet, indem das Gewicht in
-            Kilogramm durch die Körpergröße in Metern zum Quadrat geteilt wird:
-            <strong className="text-text"> BMI = Gewicht (kg) ÷ Größe (m)²</strong>.
-          </p>
-          <p>
-            Ein BMI zwischen 18,5 und 24,9 gilt laut WHO als Normalgewicht. Werte darunter deuten
-            auf Untergewicht hin, Werte darüber auf Übergewicht. Ab einem BMI von 30
-            spricht man von Adipositas (Fettleibigkeit).
-          </p>
-        </div>
-
-        <h2 className="text-2xl font-bold text-text mt-8">Grenzen des BMI</h2>
-        <div className="space-y-3 text-text-secondary leading-relaxed">
-          <p>
-            Der BMI berücksichtigt nicht die Körperzusammensetzung. Sportler mit hohem
-            Muskelanteil können einen hohen BMI haben, ohne übergewichtig zu sein.
-            Umgekehrt kann ein normaler BMI bei geringer Muskelmasse und hohem Körperfettanteil
-            täuschen. Für eine genauere Beurteilung können der Bauchumfang oder
-            die Bioimpedanzanalyse herangezogen werden.
-          </p>
-        </div>
-      </section>
-
-      <FAQSection faqs={BMI_FAQS} className="mt-8" />
-      <RelatedCalculators currentSlug="bmi-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

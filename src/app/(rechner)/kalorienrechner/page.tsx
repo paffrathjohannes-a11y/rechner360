@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { KalorienForm } from './kalorien-form';
 
 const FAQS = [
@@ -22,17 +18,14 @@ export const metadata: Metadata = {
 
 export default function KalorienrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Kalorienrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Kalorienrechner</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie Ihren täglichen Kalorienbedarf — Grundumsatz, Gesamtumsatz und Zielkalorien.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Kalorienrechner" url="/kalorienrechner" description="T\u00e4glichen Kalorienbedarf berechnen." category="HealthApplication" />
+    <CalculatorPageLayout
+      slug="kalorienrechner"
+      title="Kalorienrechner"
+      subtitle="Berechnen Sie Ihren täglichen Kalorienbedarf — Grundumsatz, Gesamtumsatz und Zielkalorien."
+      jsonLd={{ name: 'Kalorienrechner', url: '/kalorienrechner', description: 'T\u00e4glichen Kalorienbedarf berechnen.' }}
+      faqs={FAQS}
+    >
       <KalorienForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="kalorienrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

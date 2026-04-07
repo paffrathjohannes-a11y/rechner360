@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { RentenForm } from './renten-form';
 
 const FAQS = [
@@ -22,17 +18,18 @@ export const metadata: Metadata = {
 
 export default function RentenrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Rentenrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Rentenrechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie Ihre voraussichtliche gesetzliche Rente und die Rentenlücke.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Rentenrechner 2026" url="/rentenrechner" description="Gesetzliche Rente berechnen mit Entgeltpunkten und Rentenlücke." />
+    <CalculatorPageLayout
+      slug="rentenrechner"
+      title="Rentenrechner 2026"
+      subtitle="Berechnen Sie Ihre voraussichtliche gesetzliche Rente und die Rentenlücke."
+      jsonLd={{
+        name: 'Rentenrechner 2026',
+        url: '/rentenrechner',
+        description: 'Gesetzliche Rente berechnen mit Entgeltpunkten und Rentenlücke.',
+      }}
+      faqs={FAQS}
+    >
       <RentenForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="rentenrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { ProzentForm } from './prozent-form';
 
 const FAQS = [
@@ -22,44 +18,43 @@ export const metadata: Metadata = {
 
 export default function ProzentrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Prozentrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Prozentrechner</h1>
-        <p className="text-text-secondary text-lg">Prozente einfach berechnen — Anteil, Prozentsatz, Grundwert und prozentuale Veränderung.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Prozentrechner" url="/prozentrechner" description="Kostenloser Prozentrechner. Prozente berechnen leicht gemacht." category="UtilityApplication" />
+    <CalculatorPageLayout
+      slug="prozentrechner"
+      title="Prozentrechner"
+      subtitle="Prozente einfach berechnen — Anteil, Prozentsatz, Grundwert und prozentuale Veränderung."
+      jsonLd={{ name: 'Prozentrechner', url: '/prozentrechner', description: 'Kostenloser Prozentrechner. Prozente berechnen leicht gemacht.' }}
+      faqs={FAQS}
+      guideContent={
+        <>
+          <section className="space-y-4 mt-12">
+            <h2 className="text-2xl font-bold text-text">Prozentrechnung — die 4 Grundaufgaben</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-border p-4 space-y-2">
+                <h3 className="font-semibold text-text">1. Prozentwert</h3>
+                <p className="text-sm text-text-secondary">{'\u201eWie viel sind 25% von 200?\u201c'}</p>
+                <p className="text-sm font-currency text-primary-600">200 × 25 ÷ 100 = 50</p>
+              </div>
+              <div className="rounded-xl border border-border p-4 space-y-2">
+                <h3 className="font-semibold text-text">2. Prozentsatz</h3>
+                <p className="text-sm text-text-secondary">{'\u201e50 ist wie viel % von 200?\u201c'}</p>
+                <p className="text-sm font-currency text-primary-600">50 ÷ 200 × 100 = 25%</p>
+              </div>
+              <div className="rounded-xl border border-border p-4 space-y-2">
+                <h3 className="font-semibold text-text">3. Grundwert</h3>
+                <p className="text-sm text-text-secondary">{'\u201e50 sind 25% von was?\u201c'}</p>
+                <p className="text-sm font-currency text-primary-600">50 ÷ 25 × 100 = 200</p>
+              </div>
+              <div className="rounded-xl border border-border p-4 space-y-2">
+                <h3 className="font-semibold text-text">4. Prozentuale Veränderung</h3>
+                <p className="text-sm text-text-secondary">{'\u201eVon 80 auf 100 \u2014 wie viel %?\u201c'}</p>
+                <p className="text-sm font-currency text-primary-600">(100-80) ÷ 80 × 100 = +25%</p>
+              </div>
+            </div>
+          </section>
+        </>
+      }
+    >
       <ProzentForm />
-
-      <section className="space-y-4 mt-12">
-        <h2 className="text-2xl font-bold text-text">Prozentrechnung — die 4 Grundaufgaben</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-border p-4 space-y-2">
-            <h3 className="font-semibold text-text">1. Prozentwert</h3>
-            <p className="text-sm text-text-secondary">„Wie viel sind 25% von 200?"</p>
-            <p className="text-sm font-currency text-primary-600">200 × 25 ÷ 100 = 50</p>
-          </div>
-          <div className="rounded-xl border border-border p-4 space-y-2">
-            <h3 className="font-semibold text-text">2. Prozentsatz</h3>
-            <p className="text-sm text-text-secondary">„50 ist wie viel % von 200?"</p>
-            <p className="text-sm font-currency text-primary-600">50 ÷ 200 × 100 = 25%</p>
-          </div>
-          <div className="rounded-xl border border-border p-4 space-y-2">
-            <h3 className="font-semibold text-text">3. Grundwert</h3>
-            <p className="text-sm text-text-secondary">„50 sind 25% von was?"</p>
-            <p className="text-sm font-currency text-primary-600">50 ÷ 25 × 100 = 200</p>
-          </div>
-          <div className="rounded-xl border border-border p-4 space-y-2">
-            <h3 className="font-semibold text-text">4. Prozentuale Veränderung</h3>
-            <p className="text-sm text-text-secondary">„Von 80 auf 100 — wie viel %?"</p>
-            <p className="text-sm font-currency text-primary-600">(100-80) ÷ 80 × 100 = +25%</p>
-          </div>
-        </div>
-      </section>
-
-      <FAQSection faqs={FAQS} className="mt-8" />
-      <RelatedCalculators currentSlug="prozentrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

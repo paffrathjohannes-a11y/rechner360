@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { StundenlohnForm } from './stundenlohn-form';
 
 const FAQS = [
@@ -22,17 +18,14 @@ export const metadata: Metadata = {
 
 export default function StundenlohnRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Stundenlohn Rechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Stundenlohn Rechner</h1>
-        <p className="text-text-secondary text-lg">Rechnen Sie Stundenlohn, Monatsgehalt und Jahresgehalt ineinander um.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Stundenlohn Rechner" url="/stundenlohn-rechner" description="Stundenlohn in Monatsgehalt und Jahresgehalt umrechnen." />
+    <CalculatorPageLayout
+      slug="stundenlohn-rechner"
+      title="Stundenlohn Rechner"
+      subtitle="Rechnen Sie Stundenlohn, Monatsgehalt und Jahresgehalt ineinander um."
+      jsonLd={{ name: 'Stundenlohn Rechner', url: '/stundenlohn-rechner', description: 'Stundenlohn in Monatsgehalt und Jahresgehalt umrechnen.' }}
+      faqs={FAQS}
+    >
       <StundenlohnForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="stundenlohn-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

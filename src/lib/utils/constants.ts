@@ -34,6 +34,39 @@ export const STEUERKLASSEN = [
 
 export type SteuerklasseId = typeof STEUERKLASSEN[number]['id'];
 
+export const RECHNER_CATEGORIES = [
+  {
+    id: 'gehalt-steuern',
+    title: 'Gehalt & Steuern',
+    description: 'Brutto-Netto, Gehaltsvergleich, Stundenlohn und Abfindung berechnen.',
+    icon: 'wallet',
+    color: 'primary',
+  },
+  {
+    id: 'immobilien-finanzen',
+    title: 'Immobilien & Finanzen',
+    description: 'Kredit, Tilgung, Baukosten, Nebenkosten und Zinsen berechnen.',
+    icon: 'landmark',
+    color: 'accent',
+  },
+  {
+    id: 'vorsorge-soziales',
+    title: 'Vorsorge & Soziales',
+    description: 'Elterngeld, Rente, Unterhalt, Bürgergeld und Pfändung berechnen.',
+    icon: 'shield-check',
+    color: 'primary',
+  },
+  {
+    id: 'alltag-tools',
+    title: 'Alltag & Tools',
+    description: 'Prozent, MwSt, BMI, Kalorien und Inflation berechnen.',
+    icon: 'percent',
+    color: 'accent',
+  },
+] as const;
+
+export type CategoryId = typeof RECHNER_CATEGORIES[number]['id'];
+
 export const RECHNER = [
   {
     slug: 'brutto-netto-rechner',
@@ -43,6 +76,7 @@ export const RECHNER = [
     icon: 'calculator',
     color: 'primary',
     popular: true,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'gehaltserhoehung-rechner',
@@ -52,6 +86,7 @@ export const RECHNER = [
     icon: 'arrow-up-right',
     color: 'accent',
     popular: false,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'gehaltsrechner',
@@ -61,6 +96,7 @@ export const RECHNER = [
     icon: 'wallet',
     color: 'accent',
     popular: true,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'kreditrechner',
@@ -70,6 +106,7 @@ export const RECHNER = [
     icon: 'landmark',
     color: 'primary',
     popular: true,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'tilgungsrechner',
@@ -79,6 +116,7 @@ export const RECHNER = [
     icon: 'home',
     color: 'accent',
     popular: true,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'bmi-rechner',
@@ -88,15 +126,17 @@ export const RECHNER = [
     icon: 'heart-pulse',
     color: 'accent',
     popular: true,
+    category: 'alltag-tools' as CategoryId,
   },
   {
     slug: 'elterngeld-rechner',
     title: 'Elterngeld Rechner',
     shortTitle: 'Elterngeld',
-    description: 'Berechnen Sie Ihr Elterngeld — Basiselterngeld oder ElterngeldPlus mit Geschwisterbonus.',
+    description: 'Berechnen Sie Ihr Elterngeld \u2014 Basiselterngeld oder ElterngeldPlus mit Geschwisterbonus.',
     icon: 'baby',
     color: 'primary',
     popular: true,
+    category: 'vorsorge-soziales' as CategoryId,
   },
   {
     slug: 'prozentrechner',
@@ -106,6 +146,7 @@ export const RECHNER = [
     icon: 'percent',
     color: 'primary',
     popular: true,
+    category: 'alltag-tools' as CategoryId,
   },
   {
     slug: 'mwst-rechner',
@@ -115,33 +156,37 @@ export const RECHNER = [
     icon: 'receipt',
     color: 'primary',
     popular: false,
+    category: 'alltag-tools' as CategoryId,
   },
   {
     slug: 'stundenlohn-rechner',
     title: 'Stundenlohn Rechner',
     shortTitle: 'Stundenlohn',
-    description: 'Rechnen Sie Stundenlohn in Monatsgehalt und Jahresgehalt um — und umgekehrt.',
+    description: 'Rechnen Sie Stundenlohn in Monatsgehalt und Jahresgehalt um \u2014 und umgekehrt.',
     icon: 'briefcase',
     color: 'accent',
     popular: false,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'zinseszinsrechner',
     title: 'Zinseszinsrechner',
     shortTitle: 'Zinseszins',
-    description: 'Berechnen Sie, wie Ihr Geld durch Zinseszins wächst. Mit Sparrate, Laufzeit und Zinssatz.',
+    description: 'Berechnen Sie, wie Ihr Geld durch Zinseszins w\u00e4chst. Mit Sparrate, Laufzeit und Zinssatz.',
     icon: 'trending-up',
     color: 'accent',
     popular: false,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'rentenrechner',
     title: 'Rentenrechner',
     shortTitle: 'Rente',
-    description: 'Berechnen Sie Ihre voraussichtliche gesetzliche Rente mit Entgeltpunkten und Rentenlücke.',
+    description: 'Berechnen Sie Ihre voraussichtliche gesetzliche Rente mit Entgeltpunkten und Rentenl\u00fccke.',
     icon: 'milestone',
     color: 'accent',
     popular: false,
+    category: 'vorsorge-soziales' as CategoryId,
   },
   {
     slug: 'grundsteuer-rechner',
@@ -151,6 +196,7 @@ export const RECHNER = [
     icon: 'map-pin',
     color: 'primary',
     popular: false,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'unterhalt-rechner',
@@ -160,6 +206,7 @@ export const RECHNER = [
     icon: 'users',
     color: 'primary',
     popular: false,
+    category: 'vorsorge-soziales' as CategoryId,
   },
   {
     slug: 'baukosten-rechner',
@@ -169,6 +216,7 @@ export const RECHNER = [
     icon: 'hard-hat',
     color: 'accent',
     popular: false,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'abfindungsrechner',
@@ -178,6 +226,7 @@ export const RECHNER = [
     icon: 'banknote',
     color: 'accent',
     popular: false,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'inflationsrechner',
@@ -187,6 +236,7 @@ export const RECHNER = [
     icon: 'trending-down',
     color: 'primary',
     popular: false,
+    category: 'alltag-tools' as CategoryId,
   },
   {
     slug: 'kalorienrechner',
@@ -196,6 +246,7 @@ export const RECHNER = [
     icon: 'flame',
     color: 'accent',
     popular: false,
+    category: 'alltag-tools' as CategoryId,
   },
   {
     slug: 'pfaendungsrechner',
@@ -205,6 +256,7 @@ export const RECHNER = [
     icon: 'scale',
     color: 'primary',
     popular: false,
+    category: 'vorsorge-soziales' as CategoryId,
   },
   {
     slug: 'nebenkostenrechner',
@@ -214,6 +266,7 @@ export const RECHNER = [
     icon: 'building',
     color: 'accent',
     popular: false,
+    category: 'immobilien-finanzen' as CategoryId,
   },
   {
     slug: 'buergergeld-rechner',
@@ -223,7 +276,18 @@ export const RECHNER = [
     icon: 'shield-check',
     color: 'accent',
     popular: false,
+    category: 'vorsorge-soziales' as CategoryId,
   },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];
+
+export function getRechnerByCategory(categoryId: CategoryId) {
+  return RECHNER.filter((r) => r.category === categoryId);
+}
+
+export function getCategoryForRechner(slug: string) {
+  const rechner = RECHNER.find((r) => r.slug === slug);
+  if (!rechner) return undefined;
+  return RECHNER_CATEGORIES.find((c) => c.id === rechner.category);
+}

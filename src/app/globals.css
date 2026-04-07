@@ -21,7 +21,8 @@
   --text-inverse-color: #F8FAFC;
 
   --border-color: #E2E8F0;
-  --border-strong-color: #CBD5E1;
+  --border-strong-color: #B0BEC5;
+  --scrollbar-color: #94A3B8;
 }
 
 /* Dark mode overrides */
@@ -37,6 +38,7 @@
 
   --border-color: #1E293B;
   --border-strong-color: #334155;
+  --scrollbar-color: #334155;
 }
 
 @theme inline {
@@ -219,8 +221,35 @@ html {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border-strong-color); border-radius: 9999px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-color); border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted-color); }
+
+/* Hero entrance animation */
+.animate-hero-in {
+  animation: heroIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger delays for children */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 80ms; }
+.stagger-3 { animation-delay: 160ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 320ms; }
+
+/* Mega-menu stagger */
+.animate-menu-item {
+  animation: menuItemIn 200ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* Selection */
 ::selection { background-color: #BFDBFE; color: #1E3A8A; }

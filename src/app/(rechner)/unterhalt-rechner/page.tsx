@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { UnterhaltForm } from './unterhalt-form';
 
 const FAQS = [
@@ -14,25 +10,26 @@ const FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Unterhalt Rechner 2026 — Kindesunterhalt (D\u00fcsseldorfer Tabelle)',
-  description: 'Berechnen Sie den Kindesunterhalt nach der D\u00fcsseldorfer Tabelle. Mit Kindergeld-Anrechnung und Mangelfallpr\u00fcfung.',
-  keywords: ['Unterhalt Rechner', 'Kindesunterhalt', 'D\u00fcsseldorfer Tabelle', 'Unterhalt berechnen 2026'],
+  title: 'Unterhalt Rechner 2026 — Kindesunterhalt (Düsseldorfer Tabelle)',
+  description: 'Berechnen Sie den Kindesunterhalt nach der Düsseldorfer Tabelle. Mit Kindergeld-Anrechnung und Mangelfallprüfung.',
+  keywords: ['Unterhalt Rechner', 'Kindesunterhalt', 'Düsseldorfer Tabelle', 'Unterhalt berechnen 2026'],
   alternates: { canonical: '/unterhalt-rechner' },
 };
 
 export default function UnterhaltRechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Unterhalt Rechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Unterhalt Rechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie den Kindesunterhalt nach der Düsseldorfer Tabelle.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Unterhalt Rechner 2026" url="/unterhalt-rechner" description="Kindesunterhalt nach D\u00fcsseldorfer Tabelle berechnen." />
+    <CalculatorPageLayout
+      slug="unterhalt-rechner"
+      title="Unterhalt Rechner 2026"
+      subtitle="Berechnen Sie den Kindesunterhalt nach der Düsseldorfer Tabelle."
+      jsonLd={{
+        name: 'Unterhalt Rechner 2026',
+        url: '/unterhalt-rechner',
+        description: 'Kindesunterhalt nach Düsseldorfer Tabelle berechnen.',
+      }}
+      faqs={FAQS}
+    >
       <UnterhaltForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="unterhalt-rechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }

@@ -1,9 +1,5 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { TrustSignals } from '@/components/content/trust-signals';
-import { RelatedCalculators } from '@/components/content/related-calculators';
-import { FAQSection } from '@/components/content/faq-section';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { InflationsForm } from './inflations-form';
 
 const FAQS = [
@@ -15,24 +11,25 @@ const FAQS = [
 
 export const metadata: Metadata = {
   title: 'Inflationsrechner — Kaufkraftverlust berechnen',
-  description: 'Berechnen Sie den Kaufkraftverlust durch Inflation. Wie viel sind 1.000\u20ac in 10 Jahren noch wert?',
+  description: 'Berechnen Sie den Kaufkraftverlust durch Inflation. Wie viel sind 1.000€ in 10 Jahren noch wert?',
   keywords: ['Inflationsrechner', 'Kaufkraftverlust', 'Inflation berechnen', 'Kaufkraft Rechner'],
   alternates: { canonical: '/inflationsrechner' },
 };
 
 export default function InflationsrechnerPage() {
   return (
-    <div className="space-y-8">
-      <Breadcrumbs items={[{ label: 'Inflationsrechner' }]} />
-      <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Inflationsrechner</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie, wie Inflation den Wert Ihres Geldes über die Zeit verändert.</p>
-        <TrustSignals compact className="mt-3" />
-      </div>
-      <WebApplicationJsonLd name="Inflationsrechner" url="/inflationsrechner" description="Kaufkraftverlust durch Inflation berechnen." />
+    <CalculatorPageLayout
+      slug="inflationsrechner"
+      title="Inflationsrechner"
+      subtitle="Berechnen Sie, wie Inflation den Wert Ihres Geldes über die Zeit verändert."
+      jsonLd={{
+        name: 'Inflationsrechner',
+        url: '/inflationsrechner',
+        description: 'Kaufkraftverlust durch Inflation berechnen.',
+      }}
+      faqs={FAQS}
+    >
       <InflationsForm />
-      <FAQSection faqs={FAQS} className="mt-12" />
-      <RelatedCalculators currentSlug="inflationsrechner" className="mt-8" />
-    </div>
+    </CalculatorPageLayout>
   );
 }
