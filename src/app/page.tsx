@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, Banknote, HardHat, Users, ArrowRight, TrendingUp } from 'lucide-react';
+import { Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, Banknote, HardHat, Users, Scale, Flame, ArrowRight, TrendingUp } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
@@ -22,6 +22,8 @@ const iconMap: Record<string, typeof Calculator> = {
   'banknote': Banknote,
   'hard-hat': HardHat,
   'users': Users,
+  'scale': Scale,
+  'flame': Flame,
 };
 
 const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
