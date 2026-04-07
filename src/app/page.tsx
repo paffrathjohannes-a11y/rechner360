@@ -27,6 +27,8 @@ const iconMap: Record<string, typeof Calculator> = {
   'trending-up': TrendingUp,
   'map-pin': MapPin,
   'milestone': Milestone,
+  'receipt': Receipt,
+  'briefcase': Briefcase,
 };
 
 const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
