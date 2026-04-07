@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'nebenkostenrechner',
+    title: 'Nebenkostenrechner',
+    shortTitle: 'Nebenkosten',
+    description: 'Berechnen Sie die Kaufnebenkosten beim Immobilienkauf: Grunderwerbsteuer, Notar, Grundbuch und Makler.',
+    icon: 'building',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'buergergeld-rechner',
     title: 'B\u00fcrgergeld Rechner',
     shortTitle: 'B\u00fcrgergeld',
