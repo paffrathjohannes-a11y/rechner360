@@ -36,9 +36,14 @@ export function calculateGehaltserhoehung(
   bruttoAlt: number,
   bruttoNeu: number,
   steuerklasse: 1|2|3|4|5|6,
+  options?: { bundesland?: string; kirchensteuer?: boolean },
 ): GehaltserhoehungResult {
-  const vorher = calculateBruttoNetto({ ...DEFAULT_INPUT, brutto: bruttoAlt, steuerklasse });
-  const nachher = calculateBruttoNetto({ ...DEFAULT_INPUT, brutto: bruttoNeu, steuerklasse });
+  const overrides = {
+    ...(options?.bundesland ? { bundesland: options.bundesland } : {}),
+    ...(options?.kirchensteuer !== undefined ? { kirchensteuer: options.kirchensteuer } : {}),
+  };
+  const vorher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoAlt, steuerklasse } as BruttoNettoInput);
+  const nachher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoNeu, steuerklasse } as BruttoNettoInput);
 
   const bruttoDifferenz = Math.round((bruttoNeu - bruttoAlt) * 100) / 100;
   const nettoDifferenz = Math.round((nachher.netto - vorher.netto) * 100) / 100;

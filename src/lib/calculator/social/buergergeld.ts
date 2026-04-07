@@ -11,7 +11,8 @@ export interface BuergergeldInput {
   antragsteller: 'single' | 'paar';
   kinder: { alter: number }[];
   warmmiete: number; // Kosten der Unterkunft (KdU) inkl. Heizung
-  einkommen: number; // Bruttoeinkommen aus Erwerbstätigkeit
+  einkommen: number; // Bruttoeinkommen Person 1
+  einkommenPartner: number; // Bruttoeinkommen Person 2 (nur bei Paar)
   kindergeld: number; // pro Kind (wird als Einkommen angerechnet)
 }
 
@@ -76,7 +77,7 @@ function berechneFreibetrag(brutto: number, hatKinder: boolean): number {
 }
 
 export function calculateBuergergeld(input: BuergergeldInput): BuergergeldResult {
-  const { antragsteller, kinder, warmmiete, einkommen, kindergeld } = input;
+  const { antragsteller, kinder, warmmiete, einkommen, einkommenPartner = 0, kindergeld } = input;
 
   const aufschluesselung: { label: string; betrag: number }[] = [];
 
@@ -119,11 +120,14 @@ export function calculateBuergergeld(input: BuergergeldInput): BuergergeldResult
 
   const gesamtbedarf = regelbedarf + kdu;
 
-  // Einkommen anrechnen
+  // Einkommen anrechnen — jede Person hat eigenen Freibetrag
   const hatKinder = kinder.length > 0;
-  const freibetrag = berechneFreibetrag(einkommen, hatKinder);
+  const freibetrag1 = berechneFreibetrag(einkommen, hatKinder);
+  const freibetrag2 = antragsteller === 'paar' ? berechneFreibetrag(einkommenPartner, hatKinder) : 0;
+  const freibetrag = freibetrag1 + freibetrag2;
+  const gesamtEinkommen = einkommen + (antragsteller === 'paar' ? einkommenPartner : 0);
   const kindergeldGesamt = kindergeld * kinder.length;
-  const anrechenbares_einkommen = Math.max(0, einkommen - freibetrag) + kindergeldGesamt;
+  const anrechenbares_einkommen = Math.max(0, gesamtEinkommen - freibetrag) + kindergeldGesamt;
 
   const buergergeld = Math.max(0, Math.round(gesamtbedarf - anrechenbares_einkommen));
 

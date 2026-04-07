@@ -16,12 +16,13 @@ export function BuergergeldForm() {
   const [kinder, setKinder] = useState<{ alter: number }[]>([]);
   const [warmmiete, setWarmmiete] = useState(500);
   const [einkommen, setEinkommen] = useState(0);
+  const [einkommenPartner, setEinkommenPartner] = useState(0);
   const [kindergeld, setKindergeld] = useState(255);
   const [result, setResult] = useState<BuergergeldResult | null>(null);
 
   useEffect(() => {
-    setResult(calculateBuergergeld({ antragsteller, kinder, warmmiete, einkommen, kindergeld }));
-  }, [antragsteller, kinder, warmmiete, einkommen, kindergeld]);
+    setResult(calculateBuergergeld({ antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld }));
+  }, [antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld]);
 
   function addKind() {
     setKinder([...kinder, { alter: 3 }]);
@@ -72,9 +73,15 @@ export function BuergergeldForm() {
             <CurrencyInput id="miete" value={warmmiete} onChange={setWarmmiete} />
           </InputGroup>
 
-          <InputGroup label="Bruttoeinkommen (monatlich)" htmlFor="einkommen" tooltip="Bruttoeinkommen aus Erwerbstätigkeit. Freibeträge werden automatisch berechnet.">
+          <InputGroup label={antragsteller === 'paar' ? 'Bruttoeinkommen Person 1' : 'Bruttoeinkommen (monatlich)'} htmlFor="einkommen" tooltip="Bruttoeinkommen aus Erwerbstätigkeit. Freibeträge werden automatisch berechnet.">
             <CurrencyInput id="einkommen" value={einkommen} onChange={setEinkommen} />
           </InputGroup>
+
+          {antragsteller === 'paar' && (
+            <InputGroup label="Bruttoeinkommen Person 2" htmlFor="einkommen2" tooltip="Bruttoeinkommen des Partners. Eigener Freibetrag wird berechnet.">
+              <CurrencyInput id="einkommen2" value={einkommenPartner} onChange={setEinkommenPartner} />
+            </InputGroup>
+          )}
 
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>

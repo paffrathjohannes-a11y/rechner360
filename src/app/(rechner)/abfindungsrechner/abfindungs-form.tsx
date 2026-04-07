@@ -16,12 +16,13 @@ export function AbfindungsForm() {
   const [abfindung, setAbfindung] = useState(25000);
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
   const [kirchensteuer, setKirchensteuer] = useState(false);
+  const [kirchensteuerSatz, setKirchensteuerSatz] = useState(0.09);
   const [result, setResult] = useState<AbfindungResult | null>(null);
 
   useEffect(() => {
     if (jahresbrutto <= 0 || abfindung <= 0) { setResult(null); return; }
-    setResult(calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz: 0.09 }));
-  }, [jahresbrutto, abfindung, steuerklasse, kirchensteuer]);
+    setResult(calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz }));
+  }, [jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
@@ -38,7 +39,15 @@ export function AbfindungsForm() {
               {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
             </Select>
           </InputGroup>
-          <Toggle checked={kirchensteuer} onChange={setKirchensteuer} label="Kirchensteuer (9%)" />
+          <Toggle checked={kirchensteuer} onChange={setKirchensteuer} label="Kirchensteuer" />
+          {kirchensteuer && (
+            <InputGroup label="Kirchensteuersatz" htmlFor="kist" tooltip="Bayern und Baden-Württemberg: 8%. Alle anderen Bundesländer: 9%.">
+              <Select id="kist" value={kirchensteuerSatz} onChange={(e) => setKirchensteuerSatz(Number(e.target.value))}>
+                <option value={0.08}>8 % (Bayern, Baden-Württemberg)</option>
+                <option value={0.09}>9 % (alle anderen Bundesländer)</option>
+              </Select>
+            </InputGroup>
+          )}
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>

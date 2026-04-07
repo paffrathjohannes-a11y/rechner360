@@ -16,17 +16,25 @@ export function GrundsteuerForm() {
   const [baujahr, setBaujahr] = useState(1990);
   const [gebaeudeart, setGebaeudeart] = useState<'efh'|'dhh'|'rh'|'etw'|'mfh'>('efh');
   const [hebesatz, setHebesatz] = useState(400);
+  const [nutzung, setNutzung] = useState<'wohnen' | 'gewerbe'>('wohnen');
   const [result, setResult] = useState<GrundsteuerResult | null>(null);
 
   useEffect(() => {
     if (grundstueck <= 0 || wohnflaeche <= 0) { setResult(null); return; }
-    setResult(calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung: 'wohnen' }));
-  }, [grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz]);
+    setResult(calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung }));
+  }, [grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
+          <InputGroup label="Nutzung" htmlFor="nutzung" tooltip="Wohngrundstücke: Steuermesszahl 0,031%. Geschäftsgrundstücke: 0,034%.">
+            <Select id="nutzung" value={nutzung} onChange={(e) => setNutzung(e.target.value as 'wohnen' | 'gewerbe')}>
+              <option value="wohnen">Wohngrundstück</option>
+              <option value="gewerbe">Geschäftsgrundstück</option>
+            </Select>
+          </InputGroup>
+
           <InputGroup label="Grundstücksfläche (m²)" htmlFor="flaeche">
             <NumberInput id="flaeche" min={50} max={5000} value={grundstueck} onChange={setGrundstueck} />
           </InputGroup>

@@ -18,7 +18,7 @@ export function ProgrammaticBuergergeldForm({ typ }: Props) {
   const [result, setResult] = useState<BuergergeldResult | null>(null);
 
   useEffect(() => {
-    setResult(calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, kindergeld: 255 }));
+    setResult(calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 }));
   }, [warmmiete, einkommen]);
 
   return (

@@ -7,7 +7,7 @@ import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateGehaltserhoehung, type GehaltserhoehungResult } from '@/lib/calculator/tax/gehaltserhoehung';
-import { STEUERKLASSEN } from '@/lib/utils/constants';
+import { STEUERKLASSEN, BUNDESLAENDER } from '@/lib/utils/constants';
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 
@@ -15,12 +15,14 @@ export function GehaltserhoehungForm() {
   const [bruttoAlt, setBruttoAlt] = useState(3500);
   const [bruttoNeu, setBruttoNeu] = useState(4000);
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
+  const [bundesland, setBundesland] = useState('nw');
+  const [kirchensteuer, setKirchensteuer] = useState(false);
   const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
   useEffect(() => {
     if (bruttoAlt <= 0 || bruttoNeu <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse));
-  }, [bruttoAlt, bruttoNeu, steuerklasse]);
+    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer }));
+  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer]);
 
   return (
     <div className="space-y-6">
@@ -35,6 +37,19 @@ export function GehaltserhoehungForm() {
           <InputGroup label="Steuerklasse" htmlFor="sk">
             <Select id="sk" value={steuerklasse} onChange={(e) => setSteuerklasse(Number(e.target.value) as typeof steuerklasse)}>
               {STEUERKLASSEN.map((sk) => (<option key={sk.id} value={sk.id}>{sk.name}</option>))}
+            </Select>
+          </InputGroup>
+        </div>
+        <div className="grid grid-cols-2 gap-4 mt-4">
+          <InputGroup label="Bundesland" htmlFor="bl">
+            <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
+              {BUNDESLAENDER.map((bl) => (<option key={bl.id} value={bl.id}>{bl.name}</option>))}
+            </Select>
+          </InputGroup>
+          <InputGroup label="Kirchensteuer" htmlFor="kist">
+            <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
+              <option value="nein">Nein</option>
+              <option value="ja">Ja</option>
             </Select>
           </InputGroup>
         </div>
