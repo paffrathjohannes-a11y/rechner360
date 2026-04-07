@@ -104,23 +104,23 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
             {/* GKV vs PKV Vergleich */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md">
-                <p className="text-xs text-text-muted uppercase tracking-wide">GKV (Ihr Anteil)</p>
+                <p className="text-sm text-text-muted uppercase tracking-wide">GKV (Ihr Anteil)</p>
                 <p className="text-2xl font-bold font-currency text-primary-500 mt-1">
                   {formatCurrency(result.gkv_arbeitnehmer)}
                   <span className="text-sm font-normal text-text-muted"> /Monat</span>
                 </p>
-                <p className="text-xs text-text-muted mt-2">
+                <p className="text-sm text-text-muted mt-2">
                   AG-Anteil: {formatCurrency(result.gkv_arbeitgeber)}
                 </p>
               </Card>
               <Card padding="md">
-                <p className="text-xs text-text-muted uppercase tracking-wide">PKV (Ihr Anteil)</p>
+                <p className="text-sm text-text-muted uppercase tracking-wide">PKV (Ihr Anteil)</p>
                 <p className="text-2xl font-bold font-currency text-accent-500 mt-1">
                   {formatCurrency(result.pkv_eigenanteil)}
                   <span className="text-sm font-normal text-text-muted"> /Monat</span>
                 </p>
                 {result.pkv_ag_zuschuss > 0 && (
-                  <p className="text-xs text-text-muted mt-2">
+                  <p className="text-sm text-text-muted mt-2">
                     AG-Zuschuss: {formatCurrency(result.pkv_ag_zuschuss)}
                   </p>
                 )}
@@ -129,7 +129,7 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
 
             {/* Differenz */}
             <Card padding="md" className="text-center">
-              <p className="text-xs text-text-muted">
+              <p className="text-sm text-text-muted">
                 {result.differenz <= 0 ? 'Sie sparen mit PKV' : 'PKV-Mehrkosten'}
               </p>
               <p className={cn(

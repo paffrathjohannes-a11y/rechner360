@@ -97,7 +97,7 @@ export function AffiliateBox({
         </div>
       )}
 
-      <p className="text-[11px] text-text-muted">
+      <p className="text-xs text-text-muted">
         * Bei Abschluss über einen Link erhalten wir eine Provision. Für Sie entstehen keine Mehrkosten.
       </p>
     </Card>

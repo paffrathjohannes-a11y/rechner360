@@ -100,7 +100,7 @@ export function BaukostenForm() {
                     <tr key={i} className="border-b border-border last:border-b-0 hover:bg-surface-raised transition-colors">
                       <td className="px-4 py-3 text-text-secondary">{item.label}</td>
                       <td className="px-4 py-3 text-right font-currency font-medium text-text">{formatCurrency(item.betrag)}</td>
-                      <td className="px-4 py-3 text-right text-xs text-text-muted w-16">{item.prozent}%</td>
+                      <td className="px-4 py-3 text-right text-sm text-text-muted w-16">{item.prozent}%</td>
                     </tr>
                   ))}
                 </tbody>
@@ -108,7 +108,7 @@ export function BaukostenForm() {
                   <tr className="bg-primary-50/30 dark:bg-primary-900/10 border-t border-border">
                     <td className="px-4 py-3 font-bold text-primary-600">Gesamtkosten</td>
                     <td className="px-4 py-3 text-right font-currency font-bold text-primary-600">{formatCurrency(result.gesamtkosten)}</td>
-                    <td className="px-4 py-3 text-right text-xs text-text-muted">100%</td>
+                    <td className="px-4 py-3 text-right text-sm text-text-muted">100%</td>
                   </tr>
                 </tfoot>
               </table>

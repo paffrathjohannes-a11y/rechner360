@@ -50,8 +50,8 @@ export function ProgrammaticBaukostenForm({ wohnflaeche: initWf }: Props) {
               <p className="text-sm text-text-muted">{formatCurrency(result.baukostenProQm)}/m² · {wohnflaeche} m²</p>
             </Card>
             <div className="grid grid-cols-2 gap-4">
-              <Card padding="md" className="text-center"><p className="text-xs text-text-muted">Baukosten</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.baukostenGesamt)}</p></Card>
-              <Card padding="md" className="text-center"><p className="text-xs text-text-muted">Nebenkosten</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.baunebenkosten)}</p></Card>
+              <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Baukosten</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.baukostenGesamt)}</p></Card>
+              <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Nebenkosten</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.baunebenkosten)}</p></Card>
             </div>
           </div>
         )}

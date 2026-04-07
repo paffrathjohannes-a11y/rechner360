@@ -36,10 +36,10 @@ export function ProgrammaticStundenlohnForm({ stundenlohn: initSl }: Props) {
       </Card>
       {result && (
         <div className="animate-result-in grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <Card padding="md" className="text-center"><p className="text-xs text-text-muted">Tag</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.tagesgehalt)}</p></Card>
-          <Card padding="md" className="text-center"><p className="text-xs text-text-muted">Woche</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.wochengehalt)}</p></Card>
-          <Card padding="md" className="text-center border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10"><p className="text-xs text-text-muted">Monat</p><p className="text-xl font-bold font-currency text-primary-600 dark:text-primary-400 mt-1">{formatCurrency(result.monatsgehalt)}</p></Card>
-          <Card padding="md" className="text-center"><p className="text-xs text-text-muted">Jahr</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.jahresgehalt)}</p></Card>
+          <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Tag</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.tagesgehalt)}</p></Card>
+          <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Woche</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.wochengehalt)}</p></Card>
+          <Card padding="md" className="text-center border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10"><p className="text-sm text-text-muted">Monat</p><p className="text-xl font-bold font-currency text-primary-600 dark:text-primary-400 mt-1">{formatCurrency(result.monatsgehalt)}</p></Card>
+          <Card padding="md" className="text-center"><p className="text-sm text-text-muted">Jahr</p><p className="text-xl font-bold font-currency text-text mt-1">{formatCurrency(result.jahresgehalt)}</p></Card>
         </div>
       )}
     </div>

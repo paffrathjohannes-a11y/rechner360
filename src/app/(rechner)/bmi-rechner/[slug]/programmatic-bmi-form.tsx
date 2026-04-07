@@ -52,11 +52,11 @@ export function ProgrammaticBmiForm({ gewicht: initG, groesse: initH }: Props) {
             </Card>
             <div className="grid grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Idealgewicht</p>
+                <p className="text-sm text-text-muted">Idealgewicht</p>
                 <p className="text-lg font-bold font-currency text-accent-500 mt-1">{result.idealgewichtMin.toFixed(1).replace('.', ',')} – {result.idealgewichtMax.toFixed(1).replace('.', ',')} kg</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">{result.differenz > 0 ? 'Zu viel' : result.differenz < 0 ? 'Zu wenig' : 'Ideal'}</p>
+                <p className="text-sm text-text-muted">{result.differenz > 0 ? 'Zu viel' : result.differenz < 0 ? 'Zu wenig' : 'Ideal'}</p>
                 <p className={cn('text-lg font-bold font-currency mt-1', result.differenz === 0 ? 'text-accent-500' : 'text-warning-500')}>
                   {result.differenz === 0 ? 'Perfekt' : `${result.differenz > 0 ? '+' : ''}${result.differenz.toFixed(1).replace('.', ',')} kg`}
                 </p>

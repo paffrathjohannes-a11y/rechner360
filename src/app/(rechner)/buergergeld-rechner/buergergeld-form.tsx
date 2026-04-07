@@ -117,8 +117,8 @@ export function BuergergeldForm() {
                   )}
                   {result.freibetrag > 0 && (
                     <tr className="border-t border-border">
-                      <td className="px-4 py-3 text-xs text-text-muted pl-8">davon Freibetrag</td>
-                      <td className="px-4 py-3 text-right font-currency text-xs text-text-muted">{formatCurrency(result.freibetrag)}</td>
+                      <td className="px-4 py-3 text-sm text-text-muted pl-8">davon Freibetrag</td>
+                      <td className="px-4 py-3 text-right font-currency text-sm text-text-muted">{formatCurrency(result.freibetrag)}</td>
                     </tr>
                   )}
                   <tr className="bg-accent-50/30 dark:bg-accent-900/10 border-t border-border">

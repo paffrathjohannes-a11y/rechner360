@@ -42,7 +42,7 @@ export function TrustSignals({ className, compact = false }: TrustSignalsProps) 
           </div>
           <div>
             <p className="text-sm font-medium text-text">{s.label}</p>
-            <p className="text-xs text-text-muted">{s.sublabel}</p>
+            <p className="text-sm text-text-muted">{s.sublabel}</p>
           </div>
         </div>
       ))}

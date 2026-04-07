@@ -74,29 +74,29 @@ export function TilgungsrechnerForm() {
             {/* Key Figures */}
             <div className="grid grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Monatliche Rate</p>
+                <p className="text-sm text-text-muted">Monatliche Rate</p>
                 <p className="text-2xl font-bold font-currency text-accent-500 mt-1">
                   {formatCurrency(result.monatliche_rate)}
                 </p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Restschuld nach {zinsbindung} J.</p>
+                <p className="text-sm text-text-muted">Restschuld nach {zinsbindung} J.</p>
                 <p className="text-2xl font-bold font-currency text-warning-500 mt-1">
                   {formatCurrency(result.restschuld_nach_zinsbindung)}
                 </p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Gezahlte Zinsen (gesamt)</p>
+                <p className="text-sm text-text-muted">Gezahlte Zinsen (gesamt)</p>
                 <p className="text-xl font-bold font-currency text-text mt-1">
                   {formatCurrency(result.gezahlte_zinsen)}
                 </p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Gesamtlaufzeit</p>
+                <p className="text-sm text-text-muted">Gesamtlaufzeit</p>
                 <p className="text-xl font-bold text-text mt-1">
                   {laufzeitJahre} Jahre
                 </p>
-                <p className="text-xs text-text-muted">({result.gesamtlaufzeit_monate} Monate)</p>
+                <p className="text-sm text-text-muted">({result.gesamtlaufzeit_monate} Monate)</p>
               </Card>
             </div>
 

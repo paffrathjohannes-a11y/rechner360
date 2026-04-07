@@ -47,11 +47,11 @@ export function ProgrammaticKalorienForm({ gewicht: initG, geschlecht: initS }: 
             </Card>
             <div className="grid grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Grundumsatz</p>
+                <p className="text-sm text-text-muted">Grundumsatz</p>
                 <p className="text-2xl font-bold text-text mt-1">{result.grundumsatz.toLocaleString('de-DE')} kcal</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Zum Abnehmen (-20%)</p>
+                <p className="text-sm text-text-muted">Zum Abnehmen (-20%)</p>
                 <p className="text-2xl font-bold text-negative-500 mt-1">{Math.round(result.gesamtumsatz * 0.8).toLocaleString('de-DE')} kcal</p>
               </Card>
             </div>

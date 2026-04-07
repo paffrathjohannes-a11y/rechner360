@@ -119,7 +119,7 @@ export function GehaltsrechnerForm() {
             </div>
           </Card>
 
-          <p className="text-xs text-text-muted mt-2">
+          <p className="text-sm text-text-muted mt-2">
             Alle Angaben für 2026, ohne Kirchensteuer, kinderlos über 23, KV-Zusatzbeitrag 2,9%.
           </p>
         </div>

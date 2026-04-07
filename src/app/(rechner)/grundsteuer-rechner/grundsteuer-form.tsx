@@ -97,7 +97,7 @@ export function GrundsteuerForm() {
               </table>
             </Card>
 
-            <p className="text-xs text-text-muted">
+            <p className="text-sm text-text-muted">
               Hinweis: Dies ist eine vereinfachte Berechnung nach dem Bundesmodell. Die tatsächliche Grundsteuer kann abweichen.
               Bayern, Baden-Württemberg, Hamburg, Hessen und Niedersachsen nutzen eigene Ländermodelle.
             </p>

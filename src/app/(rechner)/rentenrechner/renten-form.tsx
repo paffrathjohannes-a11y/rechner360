@@ -78,19 +78,19 @@ export function RentenForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Entgeltpunkte</p>
+                <p className="text-sm text-text-muted">Entgeltpunkte</p>
                 <p className="text-2xl font-bold text-text mt-1">{result.entgeltpunkteGesamt}</p>
-                <p className="text-xs text-text-muted">gesamt</p>
+                <p className="text-sm text-text-muted">gesamt</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Noch {result.restjahre} Jahre</p>
+                <p className="text-sm text-text-muted">Noch {result.restjahre} Jahre</p>
                 <p className="text-2xl font-bold text-primary-500 mt-1">{renteneintritt}</p>
-                <p className="text-xs text-text-muted">Renteneintritt</p>
+                <p className="text-sm text-text-muted">Renteneintritt</p>
               </Card>
               <Card padding="md" className="text-center border-negative-200 dark:border-negative-800 bg-negative-50/30 dark:bg-negative-900/10">
-                <p className="text-xs text-text-muted">Rentenlücke</p>
+                <p className="text-sm text-text-muted">Rentenlücke</p>
                 <p className="text-2xl font-bold font-currency text-negative-500 mt-1">{formatCurrency(result.rentenluecke)}</p>
-                <p className="text-xs text-text-muted">pro Monat</p>
+                <p className="text-sm text-text-muted">pro Monat</p>
               </Card>
             </div>
 

@@ -51,14 +51,14 @@ export function InflationsForm() {
           <div className="animate-result-in space-y-6">
             <div className="grid grid-cols-2 gap-4">
               <Card padding="md" className="text-center border-negative-200 dark:border-negative-800 bg-negative-50/30 dark:bg-negative-900/10">
-                <p className="text-xs text-text-muted">Kaufkraft in {jahre} Jahren</p>
+                <p className="text-sm text-text-muted">Kaufkraft in {jahre} Jahren</p>
                 <p className="text-2xl font-bold font-currency text-negative-600 dark:text-negative-400 mt-1">{formatCurrency(result.kaufkraft)}</p>
-                <p className="text-xs text-text-muted">von heute {formatCurrency(betrag)}</p>
+                <p className="text-sm text-text-muted">von heute {formatCurrency(betrag)}</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Wertverlust</p>
+                <p className="text-sm text-text-muted">Wertverlust</p>
                 <p className="text-2xl font-bold font-currency text-warning-500 mt-1">-{formatCurrency(result.wertverlust)}</p>
-                <p className="text-xs text-text-muted">({result.wertverlustProzent}%)</p>
+                <p className="text-sm text-text-muted">({result.wertverlustProzent}%)</p>
               </Card>
             </div>
 

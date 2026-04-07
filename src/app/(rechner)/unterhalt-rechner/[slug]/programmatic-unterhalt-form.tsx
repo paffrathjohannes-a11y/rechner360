@@ -37,7 +37,7 @@ export function ProgrammaticUnterhaltForm({ netto: initNetto }: Props) {
             {kinderAlter.map((alter, i) => (
               <div key={i} className="flex items-center gap-2">
                 <NumberInput min={0} max={25} value={alter} onChange={(v) => { const a = [...kinderAlter]; a[i] = v; setKinderAlter(a); }} className="flex-1" />
-                <span className="text-xs text-text-muted">Jahre</span>
+                <span className="text-sm text-text-muted">Jahre</span>
                 {kinderAlter.length > 1 && <button type="button" onClick={() => setKinderAlter(kinderAlter.filter((_, idx) => idx !== i))} className="p-2 text-text-muted hover:text-negative-500 cursor-pointer"><Minus className="h-4 w-4" /></button>}
               </div>
             ))}

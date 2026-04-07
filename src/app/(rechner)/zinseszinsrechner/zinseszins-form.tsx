@@ -66,15 +66,15 @@ export function ZinseszinsForm() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Eingezahlt</p>
+                <p className="text-sm text-text-muted">Eingezahlt</p>
                 <p className="text-xl font-bold font-currency text-primary-500 mt-1">{formatCurrency(result.eingezahlt)}</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Zinsen / Rendite</p>
+                <p className="text-sm text-text-muted">Zinsen / Rendite</p>
                 <p className="text-xl font-bold font-currency text-accent-500 mt-1">{formatCurrency(result.zinsen)}</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Rendite gesamt</p>
+                <p className="text-sm text-text-muted">Rendite gesamt</p>
                 <p className="text-xl font-bold text-text mt-1">+{result.renditeGesamt}%</p>
               </Card>
             </div>

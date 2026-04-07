@@ -142,14 +142,14 @@ export function BmiForm() {
             {/* Details */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Idealgewicht</p>
+                <p className="text-sm text-text-muted">Idealgewicht</p>
                 <p className="text-lg font-bold font-currency text-accent-500 mt-1">
                   {result.idealgewichtMin.toFixed(1).replace('.', ',')} – {result.idealgewichtMax.toFixed(1).replace('.', ',')} kg
                 </p>
-                <p className="text-xs text-text-muted">BMI 18,5 – 24,9</p>
+                <p className="text-sm text-text-muted">BMI 18,5 – 24,9</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">
+                <p className="text-sm text-text-muted">
                   {result.differenz > 0 ? 'Zu viel' : result.differenz < 0 ? 'Zu wenig' : 'Im Idealbereich'}
                 </p>
                 <p className={cn(
@@ -161,7 +161,7 @@ export function BmiForm() {
                     : `${result.differenz > 0 ? '+' : ''}${result.differenz.toFixed(1).replace('.', ',')} kg`
                   }
                 </p>
-                <p className="text-xs text-text-muted">
+                <p className="text-sm text-text-muted">
                   {result.differenz > 0 ? 'bis Idealgewicht' : result.differenz < 0 ? 'bis Idealgewicht' : ''}
                 </p>
               </Card>

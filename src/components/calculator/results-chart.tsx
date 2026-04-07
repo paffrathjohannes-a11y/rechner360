@@ -72,7 +72,7 @@ export function ResultsChart({
         {(centerLabel || centerValue) && (
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             {centerLabel && (
-              <span className="text-xs text-text-muted">{centerLabel}</span>
+              <span className="text-sm text-text-muted">{centerLabel}</span>
             )}
             {centerValue && (
               <span className="text-lg font-semibold font-currency text-text">
@@ -91,8 +91,8 @@ export function ResultsChart({
               className="h-2.5 w-2.5 rounded-full shrink-0"
               style={{ backgroundColor: segment.color }}
             />
-            <span className="text-xs text-text-secondary">{segment.label}</span>
-            <span className="text-xs font-currency text-text-muted">
+            <span className="text-sm text-text-secondary">{segment.label}</span>
+            <span className="text-sm font-currency text-text-muted">
               {formatCurrency(segment.value)}
             </span>
           </div>

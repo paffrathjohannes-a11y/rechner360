@@ -44,9 +44,9 @@ export function ProzentForm() {
           </InputGroup>
         </div>
         <div className="rounded-lg bg-primary-50/50 dark:bg-primary-900/10 p-3 text-center">
-          <p className="text-xs text-text-muted">Ergebnis</p>
+          <p className="text-sm text-text-muted">Ergebnis</p>
           <p className="text-2xl font-bold font-currency text-primary-600 dark:text-primary-400">{r1.ergebnis}</p>
-          <p className="text-xs text-text-muted mt-1">{r1.formel}</p>
+          <p className="text-sm text-text-muted mt-1">{r1.formel}</p>
         </div>
       </Card>
 
@@ -63,9 +63,9 @@ export function ProzentForm() {
           </InputGroup>
         </div>
         <div className="rounded-lg bg-accent-50/50 dark:bg-accent-900/10 p-3 text-center">
-          <p className="text-xs text-text-muted">Ergebnis</p>
+          <p className="text-sm text-text-muted">Ergebnis</p>
           <p className="text-2xl font-bold font-currency text-accent-600 dark:text-accent-400">{r2.ergebnis}%</p>
-          <p className="text-xs text-text-muted mt-1">{r2.formel}</p>
+          <p className="text-sm text-text-muted mt-1">{r2.formel}</p>
         </div>
       </Card>
 
@@ -83,9 +83,9 @@ export function ProzentForm() {
           <span className="pb-2.5 text-text-muted font-medium">% von ?</span>
         </div>
         <div className="rounded-lg bg-warning-50/50 dark:bg-warning-500/10 p-3 text-center">
-          <p className="text-xs text-text-muted">Grundwert</p>
+          <p className="text-sm text-text-muted">Grundwert</p>
           <p className="text-2xl font-bold font-currency text-warning-600 dark:text-warning-400">{r3.ergebnis}</p>
-          <p className="text-xs text-text-muted mt-1">{r3.formel}</p>
+          <p className="text-sm text-text-muted mt-1">{r3.formel}</p>
         </div>
       </Card>
 
@@ -105,14 +105,14 @@ export function ProzentForm() {
           'rounded-lg p-3 text-center',
           r4.ergebnis >= 0 ? 'bg-accent-50/50 dark:bg-accent-900/10' : 'bg-negative-50/50 dark:bg-negative-900/10',
         )}>
-          <p className="text-xs text-text-muted">Veränderung</p>
+          <p className="text-sm text-text-muted">Veränderung</p>
           <p className={cn(
             'text-2xl font-bold font-currency',
             r4.ergebnis >= 0 ? 'text-accent-600 dark:text-accent-400' : 'text-negative-600 dark:text-negative-400',
           )}>
             {r4.ergebnis >= 0 ? '+' : ''}{r4.ergebnis}%
           </p>
-          <p className="text-xs text-text-muted mt-1">{r4.erklaerung}</p>
+          <p className="text-sm text-text-muted mt-1">{r4.erklaerung}</p>
         </div>
       </Card>
     </div>

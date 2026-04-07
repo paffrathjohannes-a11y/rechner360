@@ -46,15 +46,15 @@ export function MwstForm() {
         <div className="animate-result-in">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Card padding="lg" className="text-center">
-              <p className="text-xs text-text-muted">Nettobetrag</p>
+              <p className="text-sm text-text-muted">Nettobetrag</p>
               <p className="text-2xl font-bold font-currency text-text mt-1">{formatCurrency(result.netto)}</p>
             </Card>
             <Card padding="lg" className="text-center border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10">
-              <p className="text-xs text-text-muted">{steuersatz}% MwSt</p>
+              <p className="text-sm text-text-muted">{steuersatz}% MwSt</p>
               <p className="text-2xl font-bold font-currency text-primary-600 dark:text-primary-400 mt-1">{formatCurrency(result.mwst)}</p>
             </Card>
             <Card padding="lg" className="text-center">
-              <p className="text-xs text-text-muted">Bruttobetrag</p>
+              <p className="text-sm text-text-muted">Bruttobetrag</p>
               <p className="text-2xl font-bold font-currency text-text mt-1">{formatCurrency(result.brutto)}</p>
             </Card>
           </div>

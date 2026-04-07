@@ -70,19 +70,19 @@ export function KreditrechnerForm() {
             {/* Key Figures */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Monatliche Rate</p>
+                <p className="text-sm text-text-muted">Monatliche Rate</p>
                 <p className="text-2xl font-bold font-currency text-accent-500 mt-1">
                   {formatCurrency(result.monatliche_rate)}
                 </p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Gesamtzinsen</p>
+                <p className="text-sm text-text-muted">Gesamtzinsen</p>
                 <p className="text-2xl font-bold font-currency text-warning-500 mt-1">
                   {formatCurrency(result.gesamtzinsen)}
                 </p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Gesamtkosten</p>
+                <p className="text-sm text-text-muted">Gesamtkosten</p>
                 <p className="text-2xl font-bold font-currency text-text mt-1">
                   {formatCurrency(result.gesamtkosten)}
                 </p>

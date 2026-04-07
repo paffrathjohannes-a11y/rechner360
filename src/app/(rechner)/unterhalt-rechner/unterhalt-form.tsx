@@ -45,7 +45,7 @@ export function UnterhaltForm() {
               <div key={i} className="flex items-center gap-2">
                 <span className="text-sm text-text-muted w-16">Kind {i + 1}</span>
                 <NumberInput min={0} max={25} value={alter} onChange={(v) => updateAlter(i, v)} className="flex-1" />
-                <span className="text-xs text-text-muted">Jahre</span>
+                <span className="text-sm text-text-muted">Jahre</span>
                 {kinderAlter.length > 1 && (
                   <button type="button" onClick={() => removeKind(i)} className="p-2 text-text-muted hover:text-negative-500 cursor-pointer"><Minus className="h-4 w-4" /></button>
                 )}
