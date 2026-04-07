@@ -71,6 +71,15 @@ export const RECHNER = [
     color: 'accent',
     popular: true,
   },
+  {
+    slug: 'bmi-rechner',
+    title: 'BMI Rechner',
+    shortTitle: 'BMI',
+    description: 'Berechnen Sie Ihren Body-Mass-Index und erfahren Sie, ob Ihr Gewicht im gesunden Bereich liegt.',
+    icon: 'heart-pulse',
+    color: 'accent',
+    popular: true,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];
