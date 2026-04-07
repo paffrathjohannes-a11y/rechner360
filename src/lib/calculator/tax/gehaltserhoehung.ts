@@ -36,7 +36,7 @@ export function calculateGehaltserhoehung(
   bruttoAlt: number,
   bruttoNeu: number,
   steuerklasse: 1|2|3|4|5|6,
-  options?: { bundesland?: string; kirchensteuer?: boolean; pvKinder?: number; firmenwagenAntrieb?: string; firmenwagenListenpreis?: number },
+  options?: { bundesland?: string; kirchensteuer?: boolean; pvKinder?: number; firmenwagenAntrieb?: string; firmenwagenListenpreis?: number; kinderfreibetraege?: number; kvZusatzbeitrag?: number },
 ): GehaltserhoehungResult {
   const overrides = {
     ...(options?.bundesland ? { bundesland: options.bundesland } : {}),
@@ -44,6 +44,8 @@ export function calculateGehaltserhoehung(
     ...(options?.pvKinder !== undefined ? { pflegeversicherung_kinder: options.pvKinder } : {}),
     ...(options?.firmenwagenAntrieb ? { firmenwagen_antrieb: options.firmenwagenAntrieb } : {}),
     ...(options?.firmenwagenListenpreis !== undefined ? { firmenwagen_listenpreis: options.firmenwagenListenpreis } : {}),
+    ...(options?.kinderfreibetraege !== undefined ? { kinderfreibetraege: options.kinderfreibetraege } : {}),
+    ...(options?.kvZusatzbeitrag !== undefined ? { kv_zusatzbeitrag: options.kvZusatzbeitrag } : {}),
   };
   const vorher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoAlt, steuerklasse } as BruttoNettoInput);
   const nachher = calculateBruttoNetto({ ...DEFAULT_INPUT, ...overrides, brutto: bruttoNeu, steuerklasse } as BruttoNettoInput);

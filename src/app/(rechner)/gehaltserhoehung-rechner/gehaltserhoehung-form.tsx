@@ -18,14 +18,16 @@ export function GehaltserhoehungForm() {
   const [bundesland, setBundesland] = useState('nw');
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [pvKinder, setPvKinder] = useState(0);
+  const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
+  const [kvZusatzbeitrag, setKvZusatzbeitrag] = useState(2.9);
   const [fwAntrieb, setFwAntrieb] = useState('kein');
   const [fwPreis, setFwPreis] = useState(0);
   const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
   useEffect(() => {
     if (bruttoAlt <= 0 || bruttoNeu <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder, firmenwagenAntrieb: fwAntrieb, firmenwagenListenpreis: fwPreis }));
-  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder, fwAntrieb, fwPreis]);
+    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder, kinderfreibetraege, kvZusatzbeitrag, firmenwagenAntrieb: fwAntrieb, firmenwagenListenpreis: fwPreis }));
+  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder, kinderfreibetraege, kvZusatzbeitrag, fwAntrieb, fwPreis]);
 
   return (
     <div className="space-y-6">
@@ -53,6 +55,22 @@ export function GehaltserhoehungForm() {
             <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
               <option value="nein">Nein</option>
               <option value="ja">Ja</option>
+            </Select>
+          </InputGroup>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+          <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Anzahl laut Lohnsteuerkarte. Jedes Kind = 0,5 oder 1,0 je nach Steuerklasse.">
+            <Select id="kfb" value={kinderfreibetraege} onChange={(e) => setKinderfreibetraege(Number(e.target.value))}>
+              {[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5].map((v) => (
+                <option key={v} value={v}>{v}</option>
+              ))}
+            </Select>
+          </InputGroup>
+          <InputGroup label="KV-Zusatzbeitrag (%)" htmlFor="kvz" tooltip="Durchschnitt 2026: 2,9%. Variiert je nach Krankenkasse.">
+            <Select id="kvz" value={kvZusatzbeitrag} onChange={(e) => setKvZusatzbeitrag(Number(e.target.value))}>
+              {[1.0, 1.5, 1.7, 1.9, 2.1, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5].map((v) => (
+                <option key={v} value={v}>{v.toFixed(1).replace('.', ',')} %</option>
+              ))}
             </Select>
           </InputGroup>
         </div>
