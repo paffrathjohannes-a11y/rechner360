@@ -28,7 +28,7 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
   const [bruttoeinkommen, setBruttoeinkommen] = useState(initialBrutto);
   const [berufsgruppe, setBerufsgruppe] = useState<Berufsgruppe>(initialBerufsgruppe);
   const [kinder, setKinder] = useState(0);
-  const [zusatzbeitrag, setZusatzbeitrag] = useState(1.7);
+  const [zusatzbeitrag, setZusatzbeitrag] = useState(2.9);
   const [result, setResult] = useState<PkvResult | null>(null);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
             </Select>
           </InputGroup>
 
-          <InputGroup label="GKV-Zusatzbeitrag (%)" htmlFor="zusatz" tooltip="Durchschnittlicher Zusatzbeitrag 2026: 1,7 %. Variiert je nach Krankenkasse.">
+          <InputGroup label="GKV-Zusatzbeitrag (%)" htmlFor="zusatz" tooltip="Durchschnittlicher Zusatzbeitrag 2026: 2,9 %. Variiert je nach Krankenkasse (2,2–4,3 %).">
             <Select id="zusatz" value={zusatzbeitrag} onChange={(e) => setZusatzbeitrag(Number(e.target.value))}>
               {[0.5, 0.8, 1.0, 1.2, 1.4, 1.5, 1.7, 1.9, 2.0, 2.3, 2.5].map((v) => (
                 <option key={v} value={v}>{v.toFixed(1).replace('.', ',')} %</option>

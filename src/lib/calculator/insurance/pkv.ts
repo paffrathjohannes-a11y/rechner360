@@ -17,7 +17,7 @@ export interface PkvInput {
   bruttoeinkommen: number; // Jahresbrutto
   berufsgruppe: Berufsgruppe;
   kinder: number;
-  zusatzbeitrag: number; // Prozent, z.B. 1.7
+  zusatzbeitrag: number; // Prozent, z.B. 2.9 (Durchschnitt 2026)
 }
 
 export interface PkvResult {

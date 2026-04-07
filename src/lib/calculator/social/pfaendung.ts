@@ -1,10 +1,12 @@
 /**
- * Pfändungsrechner — Pfändungsfreigrenzen 2025/2026
+ * Pfändungsrechner — Pfändungsfreigrenzen ab 01.07.2025
  *
- * Basiert auf § 850c ZPO und der Pfändungsfreigrenzenbekanntmachung.
- * Die Pfändungstabelle wird alle 2 Jahre angepasst (zuletzt 01.07.2023).
+ * Basiert auf § 850c ZPO und der Pfändungsfreigrenzenbekanntmachung 2025.
+ * Quelle: BGBl. 2025 I Nr. 110
+ * Gültig: 01.07.2025 – 30.06.2026
  *
- * Vereinfachte Berechnung basierend auf den Grundfreibeträgen.
+ * Pfändungsquote: Vom Mehrbetrag über der Freigrenze werden 70% gepfändet.
+ * Ab Obergrenze: voll pfändbar.
  */
 
 export interface PfaendungInput {
@@ -19,24 +21,22 @@ export interface PfaendungResult {
   anteilPfaendbar: number; // Prozent
 }
 
-// Pfändungsfreigrenzen ab 01.07.2023 (monatlich, netto)
-// Grundfreibetrag + Erhöhung pro unterhaltspflichtige Person
-const GRUNDFREIBETRAG = 1402.28; // monatlich
+// Pfändungsfreigrenzen ab 01.07.2025 (monatlich, netto)
+const GRUNDFREIBETRAG = 1559.99; // monatlich (aufgerundet von 1555 €)
 const ERHOEHUNG_PRO_PERSON = [
-  0,       // 0 Personen
-  527.76,  // 1. Person
-  294.02,  // 2. Person
-  294.02,  // 3. Person
-  294.02,  // 4. Person
-  294.02,  // 5. Person
+  0,        // 0 Personen
+  585.23,   // 1. unterhaltspflichtige Person
+  326.04,   // 2. Person
+  326.04,   // 3. Person
+  326.04,   // 4. Person
+  326.04,   // 5. Person
 ];
 
-// Oberhalb Pfändungsfreigrenze: gestaffelte Pfändung
-// Bis 4298,81€ (bei 0 Unterhaltspflichten):
-// Vom Mehrbetrag werden 30% nicht gepfändet (70% pfändbar)
-// Ab Obergrenze: voll pfändbar
-const PFAENDUNGSQUOTE = 0.70; // 70% des Mehrbetrags über Freigrenze pfändbar
-const OBERGRENZE_BASIS = 4298.81;
+// Obergrenze: darüber voll pfändbar
+const OBERGRENZE_BASIS = 4767.00; // bei 0 Unterhaltspflichten
+
+// Pfändungsquote des Mehrbetrags über Freigrenze
+const PFAENDUNGSQUOTE = 0.70;
 
 export function calculatePfaendung(input: PfaendungInput): PfaendungResult {
   const { nettoEinkommen, unterhaltspflichten } = input;
@@ -50,16 +50,17 @@ export function calculatePfaendung(input: PfaendungInput): PfaendungResult {
 
   let pfaendbarerBetrag: number;
 
-  if (nettoEinkommen <= freigrenze) {
+  if (nettoEinkommen <= 0) {
+    pfaendbarerBetrag = 0;
+  } else if (nettoEinkommen <= freigrenze) {
     pfaendbarerBetrag = 0;
   } else {
     const mehrbetrag = nettoEinkommen - freigrenze;
-    // Vereinfacht: 70% des Mehrbetrags über der Freigrenze ist pfändbar
-    // (tatsächlich wird in 10€-Schritten gerechnet, hier vereinfacht)
+    // 70% des Mehrbetrags über der Freigrenze ist pfändbar
     pfaendbarerBetrag = Math.round(mehrbetrag * PFAENDUNGSQUOTE * 100) / 100;
   }
 
-  const verbleibendesBetrag = Math.round((nettoEinkommen - pfaendbarerBetrag) * 100) / 100;
+  const verbleibendesBetrag = Math.max(0, Math.round((nettoEinkommen - pfaendbarerBetrag) * 100) / 100);
   const anteilPfaendbar = nettoEinkommen > 0 ? Math.round((pfaendbarerBetrag / nettoEinkommen) * 10000) / 100 : 0;
 
   return {

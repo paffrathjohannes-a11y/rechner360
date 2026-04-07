@@ -11,38 +11,46 @@ import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 
 export function ElterngeldForm() {
-  const [netto, setNetto] = useState(2000);
+  const [brutto, setBrutto] = useState(3500);
+  const [teilzeitBrutto, setTeilzeitBrutto] = useState(0);
   const [art, setArt] = useState<'basis' | 'plus'>('basis');
+  const [partnermonate, setPartnermonate] = useState(false);
   const [zwillinge, setZwillinge] = useState(false);
   const [geschwister, setGeschwister] = useState(false);
   const [result, setResult] = useState<ElterngeldResult | null>(null);
 
   useEffect(() => {
     setResult(calculateElterngeld({
-      nettoEinkommen: netto,
-      arbeitsstundenNachGeburt: 0,
+      bruttoEinkommen: brutto,
+      teilzeitBrutto,
       elterngeldArt: art,
+      partnermonate,
       zwillinge,
       geschwisterbonus: geschwister,
     }));
-  }, [netto, art, zwillinge, geschwister]);
+  }, [brutto, teilzeitBrutto, art, partnermonate, zwillinge, geschwister]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Nettoeinkommen vor Geburt (monatlich)" htmlFor="netto" tooltip="Durchschnittliches monatliches Nettoeinkommen der letzten 12 Monate vor der Geburt.">
-            <CurrencyInput id="netto" value={netto} onChange={setNetto} placeholder="z.B. 2.000" />
+          <InputGroup label="Bruttoeinkommen vor Geburt (monatlich)" htmlFor="brutto" tooltip="Durchschnittliches Bruttogehalt der letzten 12 Monate vor der Geburt. Das Elterngeld-Netto wird automatisch berechnet.">
+            <CurrencyInput id="brutto" value={brutto} onChange={setBrutto} placeholder="z.B. 3.500" />
           </InputGroup>
 
           <InputGroup label="Elterngeld-Art" htmlFor="art">
             <Select id="art" value={art} onChange={(e) => setArt(e.target.value as 'basis' | 'plus')}>
-              <option value="basis">Basiselterngeld (12 Monate)</option>
-              <option value="plus">ElterngeldPlus (24 Monate)</option>
+              <option value="basis">Basiselterngeld ({partnermonate ? '14' : '12'} Monate)</option>
+              <option value="plus">ElterngeldPlus ({partnermonate ? '28' : '24'} Monate)</option>
             </Select>
           </InputGroup>
 
+          <InputGroup label="Einkommen während Elternzeit (brutto)" htmlFor="teilzeit" tooltip="Falls Sie in Teilzeit arbeiten (max. 32h/Woche). 0 = nicht erwerbstätig. Mindert das Elterngeld, aber Sie behalten das Teilzeitgehalt zusätzlich.">
+            <CurrencyInput id="teilzeit" value={teilzeitBrutto} onChange={setTeilzeitBrutto} placeholder="0 = nicht erwerbstätig" />
+          </InputGroup>
+
           <div className="space-y-3">
+            <Toggle checked={partnermonate} onChange={setPartnermonate} label="Partnermonate (+2 bzw. +4)" />
             <Toggle checked={zwillinge} onChange={setZwillinge} label="Mehrlingsgeburt (Zwillinge+)" />
             <Toggle checked={geschwister} onChange={setGeschwister} label="Geschwisterbonus" />
           </div>
@@ -66,22 +74,36 @@ export function ElterngeldForm() {
               </div>
             </Card>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <Card padding="md" className="text-center">
+                <p className="text-sm text-text-muted">Elterngeld-Netto</p>
+                <p className="text-xl font-bold font-currency text-primary-500 mt-1">
+                  {formatCurrency(result.elterngeldNetto)}
+                </p>
+                <p className="text-xs text-text-muted mt-1">berechnet aus Brutto</p>
+              </Card>
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Ersatzrate</p>
-                <p className="text-2xl font-bold text-primary-500 mt-1">
+                <p className="text-xl font-bold text-text mt-1">
                   {(result.ersatzrate * 100).toFixed(0)}%
                 </p>
-                <p className="text-sm text-text-muted">des Nettoeinkommens</p>
               </Card>
               <Card padding="md" className="text-center">
                 <p className="text-sm text-text-muted">Gesamtbetrag</p>
-                <p className="text-2xl font-bold font-currency text-text mt-1">
+                <p className="text-xl font-bold font-currency text-text mt-1">
                   {formatCurrency(result.gesamt)}
                 </p>
-                <p className="text-sm text-text-muted">{result.laufzeitMonate} Monate</p>
+                <p className="text-xs text-text-muted mt-1">{result.laufzeitMonate} Monate</p>
               </Card>
             </div>
+
+            {result.teilzeitNetto > 0 && (
+              <Card padding="md" className="bg-surface-raised">
+                <p className="text-sm text-text-secondary text-center">
+                  Ihr Teilzeit-Netto ({formatCurrency(result.teilzeitNetto)}/Mo) wird bei der Berechnung berücksichtigt. Das Elterngeld basiert auf der Differenz zum Einkommen vor der Geburt.
+                </p>
+              </Card>
+            )}
 
             {(result.mehrlingszuschlag > 0 || result.geschwisterbonus > 0) && (
               <Card padding="md" className="bg-surface-raised">
@@ -105,7 +127,7 @@ export function ElterngeldForm() {
             {(result.mindestbetrag || result.hoechstbetrag) && (
               <p className="text-xs text-text-muted text-center">
                 {result.mindestbetrag && 'Es gilt der Mindestbetrag.'}
-                {result.hoechstbetrag && 'Es gilt der H\u00f6chstbetrag.'}
+                {result.hoechstbetrag && 'Es gilt der Höchstbetrag.'}
               </p>
             )}
           </div>

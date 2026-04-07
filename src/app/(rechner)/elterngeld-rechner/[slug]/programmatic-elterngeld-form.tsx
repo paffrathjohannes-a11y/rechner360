@@ -11,20 +11,22 @@ import { formatCurrency } from '@/lib/utils/format';
 interface Props { netto: number; }
 
 export function ProgrammaticElterngeldForm({ netto: initNetto }: Props) {
-  const [netto, setNetto] = useState(initNetto);
+  // Legacy: programmatic pages pass Netto, we estimate Brutto as Netto / 0.6
+  const estimatedBrutto = Math.round(initNetto / 0.6);
+  const [brutto, setBrutto] = useState(estimatedBrutto);
   const [art, setArt] = useState<'basis' | 'plus'>('basis');
   const [result, setResult] = useState<ElterngeldResult | null>(null);
 
   useEffect(() => {
-    setResult(calculateElterngeld({ nettoEinkommen: netto, arbeitsstundenNachGeburt: 0, elterngeldArt: art, zwillinge: false, geschwisterbonus: false }));
-  }, [netto, art]);
+    setResult(calculateElterngeld({ bruttoEinkommen: brutto, teilzeitBrutto: 0, elterngeldArt: art, partnermonate: false, zwillinge: false, geschwisterbonus: false }));
+  }, [brutto, art]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Nettoeinkommen" htmlFor="netto">
-            <CurrencyInput id="netto" value={netto} onChange={setNetto} />
+          <InputGroup label="Bruttoeinkommen" htmlFor="brutto">
+            <CurrencyInput id="brutto" value={brutto} onChange={setBrutto} />
           </InputGroup>
           <InputGroup label="Elterngeld-Art" htmlFor="art">
             <Select id="art" value={art} onChange={(e) => setArt(e.target.value as 'basis' | 'plus')}>
