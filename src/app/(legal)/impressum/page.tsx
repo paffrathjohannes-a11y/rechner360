@@ -67,7 +67,7 @@ export default function ImpressumPage() {
         der unverbindlichen Information. Sie ersetzen keine professionelle Steuer-, Finanz- oder
         Rechtsberatung. Trotz sorgfältiger Prüfung übernehmen wir keine Haftung
         für die Richtigkeit der Berechnungsergebnisse. Die Lohnsteuerberechnung basiert auf
-        dem Programmablaufplan (PAP) 2026 des Bundesministeriums der Finanzen.
+        dem offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026.
       </p>
 
       <h2>Streitschlichtung</h2>

@@ -76,7 +76,7 @@ export default function HomePage() {
 
               <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
                 Brutto-Netto, Gehalt, Kredit und mehr — berechnen Sie alles in Sekunden.
-                Aktuell gemäß BMF-Programmablaufplan 2026, völlig kostenlos und ohne Registrierung.
+                Aktuell nach den offiziellen Steuerformeln 2026, völlig kostenlos und ohne Registrierung.
               </p>
 
               {/* Quick Calc Chips */}

@@ -94,7 +94,7 @@ export function Footer() {
             Die Berechnungen ersetzen keine professionelle Steuer- oder Finanzberatung.
           </p>
           <p className="text-xs text-text-muted">
-            Stand: {currentYear} · Letzte Aktualisierung gemäß BMF-PAP {currentYear}
+            Stand: {currentYear} · Letzte Aktualisierung der Steuerformeln {currentYear}
           </p>
         </div>
       </div>

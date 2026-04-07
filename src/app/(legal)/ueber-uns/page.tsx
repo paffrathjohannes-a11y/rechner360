@@ -12,7 +12,7 @@ export default function UeberUnsPage() {
 
       <p>
         rechner360.de bietet kostenlose, präzise Online-Rechner für Finanzen,
-        Steuern und mehr. Unsere Berechnungen basieren auf dem offiziellen Programmablaufplan
+        Steuern und mehr. Unsere Berechnungen basieren auf den offiziellen Berechnungsformeln
         (PAP) 2026 des Bundesministeriums der Finanzen und den aktuellen Sozialversicherungssätzen.
       </p>
 
@@ -20,7 +20,7 @@ export default function UeberUnsPage() {
       <ul>
         <li>
           <strong>Präzision:</strong> Alle Steuerberechnungen basieren auf dem offiziellen
-          BMF-Programmablaufplan. Wir validieren unsere Ergebnisse regelmäßig gegen
+          offiziellen Steuerformeln. Wir validieren unsere Ergebnisse regelmäßig gegen
           den BMF-Steuerrechner.
         </li>
         <li>

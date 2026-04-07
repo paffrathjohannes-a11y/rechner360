@@ -10,7 +10,7 @@ import { BRUTTO_NETTO_FAQS } from '@/data/content/brutto-netto-guide';
 export const metadata: Metadata = {
   title: 'Brutto Netto Rechner 2026 — Kostenlos & Aktuell',
   description:
-    'Berechnen Sie schnell und genau, wie viel Netto von Ihrem Bruttogehalt übrig bleibt. Aktuell für 2026 gemäß BMF-Programmablaufplan. Kostenlos, ohne Registrierung.',
+    'Berechnen Sie schnell und genau, wie viel Netto von Ihrem Bruttogehalt übrig bleibt. Aktuell für 2026 nach den offiziellen Steuerformeln. Kostenlos, ohne Registrierung.',
   keywords: [
     'Brutto Netto Rechner',
     'Brutto Netto Rechner 2026',
@@ -37,7 +37,7 @@ export default function BruttoNettoRechnerPage() {
           Brutto Netto Rechner 2026
         </h1>
         <p className="text-text-secondary text-lg">
-          Berechnen Sie Ihr Nettogehalt — aktuell gemäß BMF-Programmablaufplan 2026.
+          Berechnen Sie Ihr Nettogehalt — aktuell nach den offiziellen Steuerformeln 2026.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>
@@ -57,7 +57,7 @@ export default function BruttoNettoRechnerPage() {
           <p>
             Unser Brutto Netto Rechner berechnet präzise, wie viel von Ihrem Bruttogehalt nach Abzug aller Steuern
             und Sozialversicherungsbeiträge übrig bleibt. Die Berechnung basiert auf dem offiziellen
-            Programmablaufplan (PAP) 2026 des Bundesministeriums der Finanzen und berücksichtigt alle aktuellen
+            offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026 und berücksichtigt alle aktuellen
             Steuer- und Sozialversicherungsparameter.
           </p>
           <p>

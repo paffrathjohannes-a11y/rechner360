@@ -70,7 +70,7 @@ export default async function BruttoNettoSlugPage({
           {page.h1}
         </h1>
         <p className="text-text-secondary">
-          Berechnung für 2026 gemäß BMF-Programmablaufplan — alle Steuern und Sozialabgaben auf einen Blick.
+          Berechnung für 2026 nach den offiziellen Steuerformeln — alle Steuern und Sozialabgaben auf einen Blick.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>

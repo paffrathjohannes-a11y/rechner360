@@ -2,10 +2,10 @@ import { Shield, RefreshCw, Zap, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
 const signals = [
-  { icon: RefreshCw, label: 'Aktuell 2026', sublabel: 'Gem. BMF-PAP' },
+  { icon: RefreshCw, label: 'Aktuell 2026', sublabel: 'Neuste Steuerwerte' },
   { icon: Zap, label: '100% kostenlos', sublabel: 'Ohne Registrierung' },
-  { icon: Shield, label: 'Geprüfte Genauigkeit', sublabel: 'BMF-validiert' },
-  { icon: Lock, label: 'DSGVO-konform', sublabel: 'Keine Datenspeicherung' },
+  { icon: Shield, label: 'Geprüfte Ergebnisse', sublabel: 'Offiziell geprüft' },
+  { icon: Lock, label: 'Datenschutz', sublabel: 'Keine Datenspeicherung' },
 ] as const;
 
 interface TrustSignalsProps {
