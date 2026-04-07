@@ -7,7 +7,8 @@ import { OrganizationJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
 import { CategorySection } from '@/components/home/category-section';
 import { CalculatorSearch } from '@/components/search/calculator-search';
-import { RECHNER, RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
+import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { cn } from '@/lib/utils/cn';
 
 const quickCalcs = [
@@ -88,6 +89,11 @@ export default function HomePage() {
               calculators={getRechnerByCategory(cat.id)}
             />
           ))}
+        </div>
+
+        {/* Native Ad — between categories and trust signals */}
+        <div className="mx-auto max-w-[var(--container-max)] px-4 sm:px-6 lg:px-8">
+          <NativeAdSlot format="horizontal" />
         </div>
 
         {/* Trust Signals */}

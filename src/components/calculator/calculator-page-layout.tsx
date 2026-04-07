@@ -4,6 +4,7 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { getCategoryForRechner } from '@/lib/utils/constants';
 
 interface FAQ {
@@ -51,10 +52,18 @@ export function CalculatorPageLayout({
 
       {children}
 
+      {/* Ad: after calculator results, before guide content */}
+      <NativeAdSlot format="horizontal" className="mt-10" />
+
       {guideContent && <div className="mt-12">{guideContent}</div>}
 
       {faqs && faqs.length > 0 && (
         <FAQSection faqs={faqs} className="mt-8" />
+      )}
+
+      {/* Ad: after FAQ, before related calculators */}
+      {faqs && faqs.length > 0 && (
+        <NativeAdSlot format="horizontal" className="mt-4" />
       )}
 
       <RelatedCalculators currentSlug={slug} className="mt-8" />

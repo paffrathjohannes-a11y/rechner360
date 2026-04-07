@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { CookieBanner } from '@/components/layout/cookie-banner';
 import { Analytics } from '@/components/layout/analytics';
+import { AdsenseScript } from '@/components/ads/adsense-script';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/utils/constants';
 import './globals.css';
 
@@ -109,6 +110,7 @@ export default function RootLayout({
           {children}
           <CookieBanner />
           <Analytics />
+          <AdsenseScript />
         </ThemeProvider>
       </body>
     </html>
