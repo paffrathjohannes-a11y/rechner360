@@ -90,6 +90,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'prozentrechner',
+    title: 'Prozentrechner',
+    shortTitle: 'Prozent',
+    description: 'Prozente berechnen: Anteil, Prozentsatz, Grundwert und prozentuale Ver\u00e4nderung.',
+    icon: 'percent',
+    color: 'primary',
+    popular: true,
+  },
+  {
     slug: 'buergergeld-rechner',
     title: 'B\u00fcrgergeld Rechner',
     shortTitle: 'B\u00fcrgergeld',
