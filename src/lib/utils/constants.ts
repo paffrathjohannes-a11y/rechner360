@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'inflationsrechner',
+    title: 'Inflationsrechner',
+    shortTitle: 'Inflation',
+    description: 'Berechnen Sie den Kaufkraftverlust durch Inflation \u00fcber beliebige Zeitr\u00e4ume.',
+    icon: 'trending-down',
+    color: 'warning' as const,
+    popular: false,
+  },
+  {
     slug: 'nebenkostenrechner',
     title: 'Nebenkostenrechner',
     shortTitle: 'Nebenkosten',
