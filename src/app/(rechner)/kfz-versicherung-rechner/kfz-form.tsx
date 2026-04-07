@@ -9,7 +9,6 @@ import { calculateKfz, type KfzResult, type Fahrzeugtyp } from '@/lib/calculator
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { Car, Shield, ShieldCheck, ShieldAlert, Lightbulb } from 'lucide-react';
-import { EmailResultButton } from '@/components/calculator/email-result-button';
 
 const versicherungStyles = {
   haftpflicht: { text: 'text-primary-500', icon: Shield },
@@ -137,13 +136,6 @@ export function KfzForm({ initialFahrzeugtyp = 'kompakt', initialAlter = 35 }: K
               </div>
             </Card>
 
-            <div className="flex justify-center">
-              <EmailResultButton
-                calculatorName="Kfz-Versicherung"
-                subject={`Kfz-Versicherung: ${fahrzeugtyp} — Ihre Berechnung`}
-                body={`Ihre Kfz-Versicherungsberechnung von rechner360.de:\n\nFahrzeugtyp: ${fahrzeugtyp} | EZ: ${erstzulassung} | SF ${sfKlasse}\n\nHaftpflicht: ${formatCurrency(result.haftpflicht)}/Jahr\nTeilkasko: ${formatCurrency(result.teilkasko)}/Jahr\nVollkasko: ${formatCurrency(result.vollkasko)}/Jahr\n\nEmpfehlung: ${result.empfehlung}\n\nBerechnet auf: https://www.rechner360.de/kfz-versicherung-rechner`}
-              />
-            </div>
 
             {/* Spartipp */}
             <Card padding="md" className="bg-warning-50/30 dark:bg-warning-500/5 border-warning-200 dark:border-warning-800">

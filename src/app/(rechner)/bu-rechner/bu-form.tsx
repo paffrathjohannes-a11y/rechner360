@@ -10,7 +10,6 @@ import { calculateBu, BERUFSGRUPPE_LABEL, type BuResult, type Berufsgruppe } fro
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { ShieldCheck, AlertTriangle, Info } from 'lucide-react';
-import { EmailResultButton } from '@/components/calculator/email-result-button';
 
 interface BuFormProps {
   initialAlter?: number;
@@ -124,13 +123,6 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
               </div>
             </Card>
 
-            <div className="flex justify-center">
-              <EmailResultButton
-                calculatorName="BU-Rechner"
-                subject="Berufsunfähigkeitsversicherung — Ihre Berechnung"
-                body={`Ihre BU-Berechnung von rechner360.de:\n\nAlter: ${alter} | Beruf: ${berufsgruppe} | Netto: ${formatCurrency(nettoeinkommen)}\n\nMonatsbeitrag: ${formatCurrency(result.monatsbeitrag)}\nBU-Rente: ${formatCurrency(result.buRente)}/Monat\nAbsicherungsgrad: ${result.absicherungsgrad}% vom Netto\nLaufzeit: ${result.laufzeitJahre} Jahre\n\nBerechnet auf: https://www.rechner360.de/bu-rechner`}
-              />
-            </div>
 
             {/* Detailtabelle */}
             <div className="space-y-3">
