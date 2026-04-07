@@ -1,14 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  typescript: {
-    // TypeScript errors don't block deployment
-    // We fix them but they shouldn't prevent builds
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // TypeScript and ESLint errors block builds — no silent failures in production
 };
 
 export default nextConfig;

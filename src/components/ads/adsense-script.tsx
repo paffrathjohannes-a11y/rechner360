@@ -16,12 +16,15 @@ export function AdsenseScript() {
       setConsent(localStorage.getItem('rechner360_cookie_consent') === 'accepted');
     };
 
-    window.addEventListener('storage', (e) => {
+    const handleStorage = (e: StorageEvent) => {
       if (e.key === 'rechner360_cookie_consent') handleConsent();
-    });
+    };
+
+    window.addEventListener('storage', handleStorage);
     window.addEventListener('cookie-consent-change', handleConsent);
 
     return () => {
+      window.removeEventListener('storage', handleStorage);
       window.removeEventListener('cookie-consent-change', handleConsent);
     };
   }, []);
