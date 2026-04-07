@@ -30,7 +30,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-primary-50/50 to-surface dark:from-primary-950/20 dark:to-surface">
-          <div className="mx-auto max-w-[var(--container-max)] px-4 py-16 sm:py-20 lg:py-24 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[var(--container-max)] px-4 py-10 sm:py-14 lg:py-16 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl text-center">
               <div className="animate-hero-in stagger-1">
                 <Badge variant="default" className="mb-4">
@@ -89,7 +89,7 @@ export default function HomePage() {
         </section>
 
         {/* Category Sections */}
-        <div className="mx-auto max-w-[var(--container-max)] px-4 py-16 sm:px-6 lg:px-8 space-y-16">
+        <div className="mx-auto max-w-[var(--container-max)] px-4 py-10 sm:px-6 lg:px-8 space-y-12">
           {RECHNER_CATEGORIES.map((cat) => (
             <CategorySection
               key={cat.id}
