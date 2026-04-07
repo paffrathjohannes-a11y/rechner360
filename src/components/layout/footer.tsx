@@ -20,8 +20,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-text-secondary leading-relaxed">
-              Kostenlose Online-Rechner f&uuml;r Finanzen, Steuern und mehr.
-              Pr&auml;zise, aktuell und DSGVO-konform.
+              Kostenlose Online-Rechner für Finanzen, Steuern und mehr.
+              Präzise, aktuell und DSGVO-konform.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link href="/ueber-uns" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
-                  &Uuml;ber uns
+                  Über uns
                 </Link>
               </li>
               <li>
@@ -81,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/datenschutz" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
-                  Datenschutzerkl&auml;rung
+                  Datenschutzerklärung
                 </Link>
               </li>
             </ul>
@@ -90,11 +90,11 @@ export function Footer() {
 
         <div className="mt-10 border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-text-muted">
-            &copy; {currentYear} {SITE_NAME}. Alle Angaben ohne Gew&auml;hr.
+            &copy; {currentYear} {SITE_NAME}. Alle Angaben ohne Gewähr.
             Die Berechnungen ersetzen keine professionelle Steuer- oder Finanzberatung.
           </p>
           <p className="text-xs text-text-muted">
-            Stand: {currentYear} &middot; Letzte Aktualisierung gem&auml;&szlig; BMF-PAP {currentYear}
+            Stand: {currentYear} · Letzte Aktualisierung gemäß BMF-PAP {currentYear}
           </p>
         </div>
       </div>

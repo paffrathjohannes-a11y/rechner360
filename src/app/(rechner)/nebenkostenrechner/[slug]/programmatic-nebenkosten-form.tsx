@@ -36,7 +36,7 @@ export function ProgrammaticNebenkostenForm({ bundesland }: Props) {
             <Card padding="lg" className="border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10 text-center">
               <p className="text-sm text-text-secondary">Kaufnebenkosten</p>
               <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.nebenkosten_gesamt)}</p>
-              <p className="text-sm text-text-muted">{result.nebenkosten_prozent}% &middot; Gesamt: {formatCurrency(result.gesamtkosten)}</p>
+              <p className="text-sm text-text-muted">{result.nebenkosten_prozent}% · Gesamt: {formatCurrency(result.gesamtkosten)}</p>
             </Card>
             <Card padding="none">
               <table className="w-full text-sm">

@@ -90,7 +90,7 @@ export function BruttoNettoForm() {
             >
               {STEUERKLASSEN.map((sk) => (
                 <option key={sk.id} value={sk.id}>
-                  {sk.name} &mdash; {sk.description}
+                  {sk.name} — {sk.description}
                 </option>
               ))}
             </Select>
@@ -176,7 +176,7 @@ export function BruttoNettoForm() {
 
             {/* Breakdown */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-text">Aufschl&uuml;sselung der Abz&uuml;ge</h3>
+              <h3 className="text-lg font-semibold text-text">Aufschlüsselung der Abzüge</h3>
               <BreakdownTable
                 items={breakdownItems}
                 totalLabel="Nettolohn"
@@ -188,11 +188,11 @@ export function BruttoNettoForm() {
             <Card padding="md" className="bg-surface-raised">
               <h4 className="text-sm font-semibold text-text mb-2">Arbeitgeberkosten</h4>
               <p className="text-sm text-text-secondary">
-                Gesamtkosten f&uuml;r den Arbeitgeber:{' '}
+                Gesamtkosten für den Arbeitgeber:{' '}
                 <span className="font-currency font-semibold text-text">
                   {formatCurrency(result.ag_kosten_gesamt)}
                 </span>
-                {' '}/&nbsp;Monat
+                {' '}/ Monat
               </p>
             </Card>
           </div>

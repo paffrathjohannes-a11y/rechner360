@@ -30,7 +30,7 @@ export function FAQSection({ faqs, className }: FAQSectionProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <h2 className="text-2xl font-bold text-text">
-        H&auml;ufig gestellte Fragen
+        Häufig gestellte Fragen
       </h2>
       <Accordion>
         {faqs.map((faq, i) => (

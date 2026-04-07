@@ -60,18 +60,18 @@ export default function HomePage() {
             <div className="mx-auto max-w-3xl text-center">
               <Badge variant="default" className="mb-4">
                 <TrendingUp className="mr-1 h-3 w-3" />
-                Aktualisiert f&uuml;r 2026
+                Aktualisiert für 2026
               </Badge>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text">
                 Alle Rechner.{' '}
                 <span className="text-primary-600">Kostenlos.</span>{' '}
-                <span className="text-accent-600">Pr&auml;zise.</span>
+                <span className="text-accent-600">Präzise.</span>
               </h1>
 
               <p className="mt-4 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
-                Brutto-Netto, Gehalt, Kredit und mehr &mdash; berechnen Sie alles in Sekunden.
-                Aktuell gem&auml;&szlig; BMF-Programmablaufplan 2026, v&ouml;llig kostenlos und ohne Registrierung.
+                Brutto-Netto, Gehalt, Kredit und mehr — berechnen Sie alles in Sekunden.
+                Aktuell gemäß BMF-Programmablaufplan 2026, völlig kostenlos und ohne Registrierung.
               </p>
 
               {/* Quick Calc Chips */}

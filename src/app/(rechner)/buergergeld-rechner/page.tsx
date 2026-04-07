@@ -19,15 +19,15 @@ export default function BuergergeldRechnerPage() {
     <div className="space-y-8">
       <Breadcrumbs items={[{ label: 'B\u00fcrgergeld Rechner' }]} />
       <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">B&uuml;rgergeld Rechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie Ihren B&uuml;rgergeld-Anspruch mit Regelbedarf, Kosten der Unterkunft und Freibetr&auml;gen.</p>
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Bürgergeld Rechner 2026</h1>
+        <p className="text-text-secondary text-lg">Berechnen Sie Ihren Bürgergeld-Anspruch mit Regelbedarf, Kosten der Unterkunft und Freibeträgen.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name="B\u00fcrgergeld Rechner 2026" url="/buergergeld-rechner" description="Kostenloser B\u00fcrgergeld Rechner 2026." />
       <BuergergeldForm />
 
       <section className="space-y-4 mt-12">
-        <h2 className="text-2xl font-bold text-text">B&uuml;rgergeld Regels&auml;tze 2025/2026</h2>
+        <h2 className="text-2xl font-bold text-text">Bürgergeld Regelsätze 2025/2026</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
             <thead>
@@ -37,17 +37,17 @@ export default function BuergergeldRechnerPage() {
               </tr>
             </thead>
             <tbody className="text-text-secondary">
-              <tr className="border-t border-border"><td className="px-4 py-2">Alleinstehende / Alleinerziehende</td><td className="px-4 py-2 text-right font-currency">563 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Partner in Bedarfsgemeinschaft</td><td className="px-4 py-2 text-right font-currency">506 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Jugendliche (14-17 Jahre)</td><td className="px-4 py-2 text-right font-currency">471 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Kinder (6-13 Jahre)</td><td className="px-4 py-2 text-right font-currency">390 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Kinder (0-5 Jahre)</td><td className="px-4 py-2 text-right font-currency">357 &euro;</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Alleinstehende / Alleinerziehende</td><td className="px-4 py-2 text-right font-currency">563 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Partner in Bedarfsgemeinschaft</td><td className="px-4 py-2 text-right font-currency">506 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Jugendliche (14-17 Jahre)</td><td className="px-4 py-2 text-right font-currency">471 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Kinder (6-13 Jahre)</td><td className="px-4 py-2 text-right font-currency">390 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Kinder (0-5 Jahre)</td><td className="px-4 py-2 text-right font-currency">357 €</td></tr>
             </tbody>
           </table>
         </div>
         <p className="text-xs text-text-muted">
-          Zus&auml;tzlich zum Regelbedarf werden die Kosten der Unterkunft (Miete + Heizung) in angemessener
-          H&ouml;he &uuml;bernommen. Die angemessene H&ouml;he richtet sich nach dem &ouml;rtlichen Mietspiegel.
+          Zusätzlich zum Regelbedarf werden die Kosten der Unterkunft (Miete + Heizung) in angemessener
+          Höhe übernommen. Die angemessene Höhe richtet sich nach dem örtlichen Mietspiegel.
         </p>
       </section>
 

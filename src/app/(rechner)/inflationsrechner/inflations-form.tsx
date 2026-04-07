@@ -28,7 +28,7 @@ export function InflationsForm() {
           <InputGroup label="Betrag" htmlFor="betrag">
             <CurrencyInput id="betrag" value={betrag} onChange={setBetrag} placeholder="z.B. 10.000" />
           </InputGroup>
-          <InputGroup label="Inflationsrate (% p.a.)" htmlFor="rate" tooltip="Durchschnittliche j&auml;hrliche Inflationsrate. Langfristiger Durchschnitt in Deutschland: ca. 2-3%.">
+          <InputGroup label="Inflationsrate (% p.a.)" htmlFor="rate" tooltip="Durchschnittliche jährliche Inflationsrate. Langfristiger Durchschnitt in Deutschland: ca. 2-3%.">
             <Select id="rate" value={rate} onChange={(e) => setRate(Number(e.target.value))}>
               {[1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8, 10].map((v) => (
                 <option key={v} value={v}>{typeof v === 'number' && v % 1 !== 0 ? v.toFixed(1).replace('.', ',') : v} %</option>
@@ -65,7 +65,7 @@ export function InflationsForm() {
             <Card padding="md" className="bg-surface-raised">
               <p className="text-sm text-text-secondary">
                 Um in {jahre} Jahren die gleiche Kaufkraft wie heute {formatCurrency(betrag)} zu haben,
-                ben&ouml;tigen Sie dann <span className="font-currency font-bold text-text">{formatCurrency(result.benoetigtFuerGleicheKaufkraft)}</span>.
+                benötigen Sie dann <span className="font-currency font-bold text-text">{formatCurrency(result.benoetigtFuerGleicheKaufkraft)}</span>.
               </p>
             </Card>
 
@@ -77,7 +77,7 @@ export function InflationsForm() {
                     <tr className="border-b border-border bg-surface-sunken">
                       <th className="px-4 py-2 text-left text-text-secondary font-medium">Jahr</th>
                       <th className="px-4 py-2 text-right text-text-secondary font-medium">Kaufkraft</th>
-                      <th className="px-4 py-2 text-right text-text-secondary font-medium">Ben&ouml;tigter Betrag</th>
+                      <th className="px-4 py-2 text-right text-text-secondary font-medium">Benötigter Betrag</th>
                     </tr>
                   </thead>
                   <tbody>

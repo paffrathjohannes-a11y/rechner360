@@ -53,7 +53,7 @@ export function UnterhaltForm() {
             ))}
           </div>
 
-          <Toggle checked={kindergeld} onChange={setKindergeld} label="Kindergeld anrechnen (h&auml;lftig)" />
+          <Toggle checked={kindergeld} onChange={setKindergeld} label="Kindergeld anrechnen (hälftig)" />
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
         </div>
       </Card>
@@ -65,7 +65,7 @@ export function UnterhaltForm() {
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Gesamter Zahlbetrag</p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.gesamtUnterhalt)}</p>
-                <p className="text-sm text-text-muted">monatlich &middot; Einkommensgruppe {result.einkommensgruppe}</p>
+                <p className="text-sm text-text-muted">monatlich · Einkommensgruppe {result.einkommensgruppe}</p>
               </div>
             </Card>
 
@@ -75,7 +75,7 @@ export function UnterhaltForm() {
                   <AlertTriangle className="h-5 w-5 text-warning-500 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-sm font-semibold text-warning-600">Mangelfall</p>
-                    <p className="text-sm text-text-secondary">Nach Abzug des Unterhalts verbleibt weniger als der Selbstbehalt von {formatCurrency(result.selbstbehalt)}. Der Unterhalt muss ggf. gek&uuml;rzt werden.</p>
+                    <p className="text-sm text-text-secondary">Nach Abzug des Unterhalts verbleibt weniger als der Selbstbehalt von {formatCurrency(result.selbstbehalt)}. Der Unterhalt muss ggf. gekürzt werden.</p>
                   </div>
                 </div>
               </Card>
@@ -118,7 +118,7 @@ export function UnterhaltForm() {
                 </span>
               </div>
               <div className="flex justify-between text-sm mt-1">
-                <span className="text-text-muted">Selbstbehalt (Erwerbst&auml;tige)</span>
+                <span className="text-text-muted">Selbstbehalt (Erwerbstätige)</span>
                 <span className="font-currency text-text-muted">{formatCurrency(result.selbstbehalt)}</span>
               </div>
             </Card>

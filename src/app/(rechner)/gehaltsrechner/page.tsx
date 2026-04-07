@@ -23,7 +23,7 @@ export default function GehaltsrechnerPage() {
           Gehaltsrechner 2026
         </h1>
         <p className="text-text-secondary text-lg">
-          Vergleichen Sie Ihr Nettogehalt &uuml;ber alle Steuerklassen auf einen Blick.
+          Vergleichen Sie Ihr Nettogehalt über alle Steuerklassen auf einen Blick.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>

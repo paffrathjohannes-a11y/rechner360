@@ -47,8 +47,8 @@ export function CookieBanner() {
         <div className="space-y-3">
           <p className="text-sm text-text leading-relaxed">
             Wir verwenden Cookies, um die Nutzung unserer Website zu analysieren.
-            Ihre Berechnungsdaten werden <strong>nicht</strong> gespeichert oder &uuml;bermittelt &mdash;
-            alle Berechnungen laufen ausschlie&szlig;lich in Ihrem Browser.{' '}
+            Ihre Berechnungsdaten werden <strong>nicht</strong> gespeichert oder übermittelt —
+            alle Berechnungen laufen ausschließlich in Ihrem Browser.{' '}
             <Link href="/datenschutz" className="text-primary-600 hover:underline">
               Mehr erfahren
             </Link>

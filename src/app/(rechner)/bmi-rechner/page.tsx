@@ -47,7 +47,7 @@ export default function BmiRechnerPage() {
 
       {/* BMI Tabelle */}
       <section className="space-y-4 mt-12">
-        <h2 className="text-2xl font-bold text-text">BMI Tabelle &mdash; WHO-Klassifikation</h2>
+        <h2 className="text-2xl font-bold text-text">BMI Tabelle — WHO-Klassifikation</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
             <thead>
@@ -58,18 +58,18 @@ export default function BmiRechnerPage() {
             </thead>
             <tbody className="text-text-secondary">
               <tr className="border-t border-border"><td className="px-4 py-2">Starkes Untergewicht</td><td className="px-4 py-2 text-right font-currency">&lt; 16,0</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Untergewicht</td><td className="px-4 py-2 text-right font-currency">16,0 &ndash; 18,4</td></tr>
-              <tr className="border-t border-border bg-accent-50/30 dark:bg-accent-900/10"><td className="px-4 py-2 font-medium text-accent-600">Normalgewicht</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">18,5 &ndash; 24,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">&Uuml;bergewicht (Pr&auml;adipositas)</td><td className="px-4 py-2 text-right font-currency">25,0 &ndash; 29,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad I</td><td className="px-4 py-2 text-right font-currency">30,0 &ndash; 34,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad II</td><td className="px-4 py-2 text-right font-currency">35,0 &ndash; 39,9</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad III</td><td className="px-4 py-2 text-right font-currency">&ge; 40,0</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Untergewicht</td><td className="px-4 py-2 text-right font-currency">16,0 – 18,4</td></tr>
+              <tr className="border-t border-border bg-accent-50/30 dark:bg-accent-900/10"><td className="px-4 py-2 font-medium text-accent-600">Normalgewicht</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">18,5 – 24,9</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Übergewicht (Präadipositas)</td><td className="px-4 py-2 text-right font-currency">25,0 – 29,9</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad I</td><td className="px-4 py-2 text-right font-currency">30,0 – 34,9</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad II</td><td className="px-4 py-2 text-right font-currency">35,0 – 39,9</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Adipositas Grad III</td><td className="px-4 py-2 text-right font-currency">≥ 40,0</td></tr>
             </tbody>
           </table>
         </div>
         <p className="text-xs text-text-muted">
-          Quelle: Weltgesundheitsorganisation (WHO). Der BMI ist ein grober Richtwert und ber&uuml;cksichtigt
-          nicht Muskelmasse, K&ouml;rperbau oder Altersunterschiede. F&uuml;r eine individuelle Beurteilung
+          Quelle: Weltgesundheitsorganisation (WHO). Der BMI ist ein grober Richtwert und berücksichtigt
+          nicht Muskelmasse, Körperbau oder Altersunterschiede. Für eine individuelle Beurteilung
           konsultieren Sie bitte Ihren Arzt.
         </p>
       </section>
@@ -79,14 +79,14 @@ export default function BmiRechnerPage() {
         <h2 className="text-2xl font-bold text-text">Was ist der BMI?</h2>
         <div className="space-y-3 text-text-secondary leading-relaxed">
           <p>
-            Der Body-Mass-Index (BMI) ist eine Ma&szlig;zahl zur Bewertung des K&ouml;rpergewichts
-            in Relation zur K&ouml;rpergr&ouml;&szlig;e. Er wird berechnet, indem das Gewicht in
-            Kilogramm durch die K&ouml;rpergr&ouml;&szlig;e in Metern zum Quadrat geteilt wird:
-            <strong className="text-text"> BMI = Gewicht (kg) &divide; Gr&ouml;&szlig;e (m)&sup2;</strong>.
+            Der Body-Mass-Index (BMI) ist eine Maßzahl zur Bewertung des Körpergewichts
+            in Relation zur Körpergröße. Er wird berechnet, indem das Gewicht in
+            Kilogramm durch die Körpergröße in Metern zum Quadrat geteilt wird:
+            <strong className="text-text"> BMI = Gewicht (kg) ÷ Größe (m)²</strong>.
           </p>
           <p>
             Ein BMI zwischen 18,5 und 24,9 gilt laut WHO als Normalgewicht. Werte darunter deuten
-            auf Untergewicht hin, Werte dar&uuml;ber auf &Uuml;bergewicht. Ab einem BMI von 30
+            auf Untergewicht hin, Werte darüber auf Übergewicht. Ab einem BMI von 30
             spricht man von Adipositas (Fettleibigkeit).
           </p>
         </div>
@@ -94,10 +94,10 @@ export default function BmiRechnerPage() {
         <h2 className="text-2xl font-bold text-text mt-8">Grenzen des BMI</h2>
         <div className="space-y-3 text-text-secondary leading-relaxed">
           <p>
-            Der BMI ber&uuml;cksichtigt nicht die K&ouml;rperzusammensetzung. Sportler mit hohem
-            Muskelanteil k&ouml;nnen einen hohen BMI haben, ohne &uuml;bergewichtig zu sein.
-            Umgekehrt kann ein normaler BMI bei geringer Muskelmasse und hohem K&ouml;rperfettanteil
-            t&auml;uschen. F&uuml;r eine genauere Beurteilung k&ouml;nnen der Bauchumfang oder
+            Der BMI berücksichtigt nicht die Körperzusammensetzung. Sportler mit hohem
+            Muskelanteil können einen hohen BMI haben, ohne übergewichtig zu sein.
+            Umgekehrt kann ein normaler BMI bei geringer Muskelmasse und hohem Körperfettanteil
+            täuschen. Für eine genauere Beurteilung können der Bauchumfang oder
             die Bioimpedanzanalyse herangezogen werden.
           </p>
         </div>

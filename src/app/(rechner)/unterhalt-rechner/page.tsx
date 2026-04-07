@@ -7,10 +7,10 @@ import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { UnterhaltForm } from './unterhalt-form';
 
 const FAQS = [
-  { question: 'Was ist die D&uuml;sseldorfer Tabelle?', answer: 'Die D&uuml;sseldorfer Tabelle ist eine Leitlinie des OLG D&uuml;sseldorf zur Bemessung des Kindesunterhalts. Sie wird j&auml;hrlich aktualisiert und von allen Familiengerichten in Deutschland als Orientierung genutzt. Die Tabelle staffelt den Unterhalt nach Einkommen des Unterhaltspflichtigen und Alter des Kindes.' },
-  { question: 'Wie wird der Unterhalt berechnet?', answer: 'Der Kindesunterhalt richtet sich nach dem bereinigten Nettoeinkommen des Unterhaltspflichtigen und dem Alter des Kindes. Vom Tabellenunterhalt wird das h&auml;lftige Kindergeld (bei Minderj&auml;hrigen) abgezogen. Bei Vollj&auml;hrigen wird das volle Kindergeld angerechnet.' },
-  { question: 'Was ist der Selbstbehalt?', answer: 'Der Selbstbehalt ist der Betrag, der dem Unterhaltspflichtigen mindestens verbleiben muss. F&uuml;r Erwerbst&auml;tige betr&auml;gt er 1.450 &euro; (2025), f&uuml;r Nicht-Erwerbst&auml;tige 1.200 &euro;. Reicht das Einkommen nicht f&uuml;r den vollen Unterhalt, liegt ein Mangelfall vor.' },
-  { question: 'Wird Kindergeld auf den Unterhalt angerechnet?', answer: 'Ja. Bei minderj&auml;hrigen Kindern wird das h&auml;lftige Kindergeld (127,50 &euro;) vom Tabellenunterhalt abgezogen. Bei vollj&auml;hrigen Kindern wird das volle Kindergeld (255 &euro;) angerechnet. Der verbleibende Betrag ist der Zahlbetrag.' },
+  { question: 'Was ist die Düsseldorfer Tabelle?', answer: 'Die Düsseldorfer Tabelle ist eine Leitlinie des OLG Düsseldorf zur Bemessung des Kindesunterhalts. Sie wird jährlich aktualisiert und von allen Familiengerichten in Deutschland als Orientierung genutzt. Die Tabelle staffelt den Unterhalt nach Einkommen des Unterhaltspflichtigen und Alter des Kindes.' },
+  { question: 'Wie wird der Unterhalt berechnet?', answer: 'Der Kindesunterhalt richtet sich nach dem bereinigten Nettoeinkommen des Unterhaltspflichtigen und dem Alter des Kindes. Vom Tabellenunterhalt wird das hälftige Kindergeld (bei Minderjährigen) abgezogen. Bei Volljährigen wird das volle Kindergeld angerechnet.' },
+  { question: 'Was ist der Selbstbehalt?', answer: 'Der Selbstbehalt ist der Betrag, der dem Unterhaltspflichtigen mindestens verbleiben muss. Für Erwerbstätige beträgt er 1.450 € (2025), für Nicht-Erwerbstätige 1.200 €. Reicht das Einkommen nicht für den vollen Unterhalt, liegt ein Mangelfall vor.' },
+  { question: 'Wird Kindergeld auf den Unterhalt angerechnet?', answer: 'Ja. Bei minderjährigen Kindern wird das hälftige Kindergeld (127,50 €) vom Tabellenunterhalt abgezogen. Bei volljährigen Kindern wird das volle Kindergeld (255 €) angerechnet. Der verbleibende Betrag ist der Zahlbetrag.' },
 ];
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function UnterhaltRechnerPage() {
       <Breadcrumbs items={[{ label: 'Unterhalt Rechner' }]} />
       <div className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Unterhalt Rechner 2026</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie den Kindesunterhalt nach der D&uuml;sseldorfer Tabelle.</p>
+        <p className="text-text-secondary text-lg">Berechnen Sie den Kindesunterhalt nach der Düsseldorfer Tabelle.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name="Unterhalt Rechner 2026" url="/unterhalt-rechner" description="Kindesunterhalt nach D\u00fcsseldorfer Tabelle berechnen." />

@@ -70,7 +70,7 @@ export default async function BruttoNettoSlugPage({
           {page.h1}
         </h1>
         <p className="text-text-secondary">
-          Berechnung f&uuml;r 2026 gem&auml;&szlig; BMF-Programmablaufplan &mdash; alle Steuern und Sozialabgaben auf einen Blick.
+          Berechnung für 2026 gemäß BMF-Programmablaufplan — alle Steuern und Sozialabgaben auf einen Blick.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>
@@ -90,7 +90,7 @@ export default async function BruttoNettoSlugPage({
             href={`/brutto-netto-rechner/${prevPage.slug}`}
             className="text-sm text-primary-600 hover:underline"
           >
-            &larr; {prevPage.brutto.toLocaleString('de-DE')} &euro; brutto
+            ← {prevPage.brutto.toLocaleString('de-DE')} € brutto
           </a>
         )}
         {nextPage && (
@@ -98,7 +98,7 @@ export default async function BruttoNettoSlugPage({
             href={`/brutto-netto-rechner/${nextPage.slug}`}
             className="text-sm text-primary-600 hover:underline ml-auto"
           >
-            {nextPage.brutto.toLocaleString('de-DE')} &euro; brutto &rarr;
+            {nextPage.brutto.toLocaleString('de-DE')} € brutto →
           </a>
         )}
       </div>

@@ -61,7 +61,7 @@ export function ElterngeldForm() {
                   {formatCurrency(result.monatlich)}
                 </p>
                 <p className="text-sm text-text-muted">
-                  f&uuml;r {result.laufzeitMonate} Monate &middot; Gesamt: {formatCurrency(result.gesamt)}
+                  für {result.laufzeitMonate} Monate · Gesamt: {formatCurrency(result.gesamt)}
                 </p>
               </div>
             </Card>

@@ -7,10 +7,10 @@ import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { KalorienForm } from './kalorien-form';
 
 const FAQS = [
-  { question: 'Was ist der Grundumsatz?', answer: 'Der Grundumsatz ist die Energiemenge, die Ihr K&ouml;rper im Ruhezustand ben&ouml;tigt, um lebenswichtige Funktionen aufrechtzuerhalten (Atmung, Herzschlag, Gehirnaktivit&auml;t). Er macht ca. 60-70% des Gesamtenergieverbrauchs aus.' },
-  { question: 'Was ist der Gesamtumsatz?', answer: 'Der Gesamtumsatz (TDEE) ist der Grundumsatz multipliziert mit dem Aktivit&auml;tsfaktor. Er gibt an, wie viele Kalorien Sie t&auml;glich verbrauchen &mdash; inklusive Bewegung, Sport und Alltagsaktivit&auml;ten.' },
-  { question: 'Wie viel Kaloriendefizit zum Abnehmen?', answer: 'Ein moderates Defizit von 500 kcal/Tag f&uuml;hrt zu ca. 0,5 kg Gewichtsverlust pro Woche. Unser Rechner empfiehlt ein 20%-Defizit, was einem gesunden und nachhaltigen Abnehmen entspricht. Vermeiden Sie Defizite &uuml;ber 1.000 kcal/Tag.' },
-  { question: 'Welche Formel wird verwendet?', answer: 'Wir verwenden die Mifflin-St Jeor Formel, die als genaueste Methode zur Berechnung des Grundumsatzes gilt. Sie ber&uuml;cksichtigt Gewicht, Gr&ouml;&szlig;e, Alter und Geschlecht.' },
+  { question: 'Was ist der Grundumsatz?', answer: 'Der Grundumsatz ist die Energiemenge, die Ihr Körper im Ruhezustand benötigt, um lebenswichtige Funktionen aufrechtzuerhalten (Atmung, Herzschlag, Gehirnaktivität). Er macht ca. 60-70% des Gesamtenergieverbrauchs aus.' },
+  { question: 'Was ist der Gesamtumsatz?', answer: 'Der Gesamtumsatz (TDEE) ist der Grundumsatz multipliziert mit dem Aktivitätsfaktor. Er gibt an, wie viele Kalorien Sie täglich verbrauchen — inklusive Bewegung, Sport und Alltagsaktivitäten.' },
+  { question: 'Wie viel Kaloriendefizit zum Abnehmen?', answer: 'Ein moderates Defizit von 500 kcal/Tag führt zu ca. 0,5 kg Gewichtsverlust pro Woche. Unser Rechner empfiehlt ein 20%-Defizit, was einem gesunden und nachhaltigen Abnehmen entspricht. Vermeiden Sie Defizite über 1.000 kcal/Tag.' },
+  { question: 'Welche Formel wird verwendet?', answer: 'Wir verwenden die Mifflin-St Jeor Formel, die als genaueste Methode zur Berechnung des Grundumsatzes gilt. Sie berücksichtigt Gewicht, Größe, Alter und Geschlecht.' },
 ];
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function KalorienrechnerPage() {
       <Breadcrumbs items={[{ label: 'Kalorienrechner' }]} />
       <div className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Kalorienrechner</h1>
-        <p className="text-text-secondary text-lg">Berechnen Sie Ihren t&auml;glichen Kalorienbedarf &mdash; Grundumsatz, Gesamtumsatz und Zielkalorien.</p>
+        <p className="text-text-secondary text-lg">Berechnen Sie Ihren täglichen Kalorienbedarf — Grundumsatz, Gesamtumsatz und Zielkalorien.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name="Kalorienrechner" url="/kalorienrechner" description="T\u00e4glichen Kalorienbedarf berechnen." category="HealthApplication" />

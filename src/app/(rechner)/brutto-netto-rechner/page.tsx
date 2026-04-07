@@ -37,7 +37,7 @@ export default function BruttoNettoRechnerPage() {
           Brutto Netto Rechner 2026
         </h1>
         <p className="text-text-secondary text-lg">
-          Berechnen Sie Ihr Nettogehalt &mdash; aktuell gem&auml;&szlig; BMF-Programmablaufplan 2026.
+          Berechnen Sie Ihr Nettogehalt — aktuell gemäß BMF-Programmablaufplan 2026.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>
@@ -55,32 +55,32 @@ export default function BruttoNettoRechnerPage() {
         <h2 className="text-2xl font-bold text-text">So funktioniert der Brutto Netto Rechner</h2>
         <div className="space-y-3 text-text-secondary leading-relaxed">
           <p>
-            Unser Brutto Netto Rechner berechnet pr&auml;zise, wie viel von Ihrem Bruttogehalt nach Abzug aller Steuern
-            und Sozialversicherungsbeitr&auml;ge &uuml;brig bleibt. Die Berechnung basiert auf dem offiziellen
-            Programmablaufplan (PAP) 2026 des Bundesministeriums der Finanzen und ber&uuml;cksichtigt alle aktuellen
+            Unser Brutto Netto Rechner berechnet präzise, wie viel von Ihrem Bruttogehalt nach Abzug aller Steuern
+            und Sozialversicherungsbeiträge übrig bleibt. Die Berechnung basiert auf dem offiziellen
+            Programmablaufplan (PAP) 2026 des Bundesministeriums der Finanzen und berücksichtigt alle aktuellen
             Steuer- und Sozialversicherungsparameter.
           </p>
           <p>
-            Vom Bruttogehalt werden zun&auml;chst die Lohnsteuer (abh&auml;ngig von Steuerklasse und Einkommen), ggf.
-            der Solidarit&auml;tszuschlag und die Kirchensteuer abgezogen. Zus&auml;tzlich fallen Beitr&auml;ge zur
+            Vom Bruttogehalt werden zunächst die Lohnsteuer (abhängig von Steuerklasse und Einkommen), ggf.
+            der Solidaritätszuschlag und die Kirchensteuer abgezogen. Zusätzlich fallen Beiträge zur
             Krankenversicherung (14,6% + Zusatzbeitrag), Rentenversicherung (18,6%), Arbeitslosenversicherung (2,6%)
-            und Pflegeversicherung (3,6% + ggf. Kinderlosenzuschlag) an &mdash; jeweils h&auml;lftig von Arbeitnehmer
+            und Pflegeversicherung (3,6% + ggf. Kinderlosenzuschlag) an — jeweils hälftig von Arbeitnehmer
             und Arbeitgeber getragen.
           </p>
         </div>
 
-        <h2 className="text-2xl font-bold text-text mt-8">Steuerklassen im &Uuml;berblick</h2>
+        <h2 className="text-2xl font-bold text-text mt-8">Steuerklassen im Überblick</h2>
         <div className="space-y-3 text-text-secondary leading-relaxed">
           <p>
-            In Deutschland gibt es sechs Steuerklassen. <strong className="text-text">Steuerklasse I</strong> gilt f&uuml;r Ledige,
-            <strong className="text-text"> Steuerklasse II</strong> f&uuml;r Alleinerziehende mit Entlastungsbetrag (4.260 &euro;).
+            In Deutschland gibt es sechs Steuerklassen. <strong className="text-text">Steuerklasse I</strong> gilt für Ledige,
+            <strong className="text-text"> Steuerklasse II</strong> für Alleinerziehende mit Entlastungsbetrag (4.260 €).
             <strong className="text-text"> Steuerklasse III</strong> (Splitting) und <strong className="text-text">Steuerklasse V</strong> sind
-            f&uuml;r Ehepaare mit unterschiedlichem Einkommen. <strong className="text-text">Steuerklasse IV</strong> ist f&uuml;r
-            Ehepaare mit &auml;hnlichem Einkommen. <strong className="text-text">Steuerklasse VI</strong> gilt f&uuml;r Zweit- und Nebenjobs.
+            für Ehepaare mit unterschiedlichem Einkommen. <strong className="text-text">Steuerklasse IV</strong> ist für
+            Ehepaare mit ähnlichem Einkommen. <strong className="text-text">Steuerklasse VI</strong> gilt für Zweit- und Nebenjobs.
           </p>
         </div>
 
-        <h2 className="text-2xl font-bold text-text mt-8">Sozialversicherung 2026 &mdash; die wichtigsten Werte</h2>
+        <h2 className="text-2xl font-bold text-text mt-8">Sozialversicherung 2026 — die wichtigsten Werte</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border border-border rounded-lg overflow-hidden">
             <thead>
@@ -91,10 +91,10 @@ export default function BruttoNettoRechnerPage() {
               </tr>
             </thead>
             <tbody className="text-text-secondary">
-              <tr className="border-t border-border"><td className="px-4 py-2">Krankenversicherung</td><td className="px-4 py-2 text-right font-currency">14,6% + Zusatz</td><td className="px-4 py-2 text-right font-currency">5.812,50 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Rentenversicherung</td><td className="px-4 py-2 text-right font-currency">18,6%</td><td className="px-4 py-2 text-right font-currency">8.450 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Arbeitslosenversicherung</td><td className="px-4 py-2 text-right font-currency">2,6%</td><td className="px-4 py-2 text-right font-currency">8.450 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Pflegeversicherung</td><td className="px-4 py-2 text-right font-currency">3,6% + ggf. 0,6%</td><td className="px-4 py-2 text-right font-currency">5.812,50 &euro;</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Krankenversicherung</td><td className="px-4 py-2 text-right font-currency">14,6% + Zusatz</td><td className="px-4 py-2 text-right font-currency">5.812,50 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Rentenversicherung</td><td className="px-4 py-2 text-right font-currency">18,6%</td><td className="px-4 py-2 text-right font-currency">8.450 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Arbeitslosenversicherung</td><td className="px-4 py-2 text-right font-currency">2,6%</td><td className="px-4 py-2 text-right font-currency">8.450 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Pflegeversicherung</td><td className="px-4 py-2 text-right font-currency">3,6% + ggf. 0,6%</td><td className="px-4 py-2 text-right font-currency">5.812,50 €</td></tr>
             </tbody>
           </table>
         </div>

@@ -23,7 +23,7 @@ export default function KreditrechnerPage() {
           Kreditrechner 2026
         </h1>
         <p className="text-text-secondary text-lg">
-          Berechnen Sie monatliche Rate, Gesamtkosten und Zinsen f&uuml;r Ihren Kredit.
+          Berechnen Sie monatliche Rate, Gesamtkosten und Zinsen für Ihren Kredit.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>

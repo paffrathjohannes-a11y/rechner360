@@ -46,11 +46,11 @@ export function PfaendungsForm() {
           <div className="animate-result-in space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Pf&auml;ndungsfreigrenze</p>
+                <p className="text-xs text-text-muted">Pfändungsfreigrenze</p>
                 <p className="text-xl font-bold font-currency text-accent-500 mt-1">{formatCurrency(result.pfaendungsfreigrenze)}</p>
               </Card>
               <Card padding="md" className="text-center">
-                <p className="text-xs text-text-muted">Pf&auml;ndbarer Betrag</p>
+                <p className="text-xs text-text-muted">Pfändbarer Betrag</p>
                 <p className="text-xl font-bold font-currency text-negative-500 mt-1">{formatCurrency(result.pfaendbarerBetrag)}</p>
                 <p className="text-xs text-text-muted">({result.anteilPfaendbar}%)</p>
               </Card>
@@ -77,10 +77,10 @@ export function PfaendungsForm() {
               </div>
               <div className="flex justify-between mt-2 text-xs text-text-muted">
                 <span className="flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-accent-500" /> Pf&auml;ndungsfrei
+                  <span className="h-2 w-2 rounded-full bg-accent-500" /> Pfändungsfrei
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-negative-500" /> Pf&auml;ndbar
+                  <span className="h-2 w-2 rounded-full bg-negative-500" /> Pfändbar
                 </span>
               </div>
             </Card>

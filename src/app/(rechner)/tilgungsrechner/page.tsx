@@ -23,7 +23,7 @@ export default function TilgungsrechnerPage() {
           Tilgungsrechner 2026
         </h1>
         <p className="text-text-secondary text-lg">
-          Erstellen Sie einen detaillierten Tilgungsplan f&uuml;r Ihre Baufinanzierung.
+          Erstellen Sie einen detaillierten Tilgungsplan für Ihre Baufinanzierung.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>

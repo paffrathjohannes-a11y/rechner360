@@ -35,7 +35,7 @@ export default async function GehaltsSlugPage({ params }: { params: Promise<{ sl
       <Breadcrumbs items={[{ label: 'Gehaltsrechner', href: '/gehaltsrechner' }, { label: page.title }]} />
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">{page.h1}</h1>
-        <p className="text-text-secondary">Vergleich aller Steuerklassen bei {page.brutto.toLocaleString('de-DE')} &euro; brutto &mdash; aktuell f&uuml;r 2026.</p>
+        <p className="text-text-secondary">Vergleich aller Steuerklassen bei {page.brutto.toLocaleString('de-DE')} € brutto — aktuell für 2026.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/gehaltsrechner/${page.slug}`} description={page.metaDescription} />

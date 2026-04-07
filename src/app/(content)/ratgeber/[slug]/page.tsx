@@ -47,7 +47,7 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
           <p className="text-sm text-text-secondary">
             Passender Rechner:{' '}
             <Link href={`/${artikel.relatedRechner}`} className="font-medium text-primary-600 hover:underline">
-              Jetzt berechnen &rarr;
+              Jetzt berechnen →
             </Link>
           </p>
         </div>

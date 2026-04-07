@@ -31,7 +31,7 @@ export default async function NebenkostenSlugPage({ params }: { params: Promise<
       <Breadcrumbs items={[{ label: 'Nebenkostenrechner', href: '/nebenkostenrechner' }, { label: page.title }]} />
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">{page.h1}</h1>
-        <p className="text-text-secondary">Berechnen Sie die Kaufnebenkosten f&uuml;r Immobilien in {page.bundeslandName}.</p>
+        <p className="text-text-secondary">Berechnen Sie die Kaufnebenkosten für Immobilien in {page.bundeslandName}.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/nebenkostenrechner/${page.slug}`} description={page.metaDescription} />

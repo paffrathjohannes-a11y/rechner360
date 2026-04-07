@@ -49,7 +49,7 @@ export function BmiForm() {
             />
           </InputGroup>
 
-          <InputGroup label="Gr&ouml;&szlig;e (cm)" htmlFor="groesse">
+          <InputGroup label="Größe (cm)" htmlFor="groesse">
             <Input
               id="groesse"
               type="number"
@@ -77,7 +77,7 @@ export function BmiForm() {
               value={geschlecht}
               onChange={(e) => setGeschlecht(e.target.value as 'mann' | 'frau')}
             >
-              <option value="mann">M&auml;nnlich</option>
+              <option value="mann">Männlich</option>
               <option value="frau">Weiblich</option>
             </Select>
           </InputGroup>
@@ -147,9 +147,9 @@ export function BmiForm() {
               <Card padding="md" className="text-center">
                 <p className="text-xs text-text-muted">Idealgewicht</p>
                 <p className="text-lg font-bold font-currency text-accent-500 mt-1">
-                  {result.idealgewichtMin.toFixed(1).replace('.', ',')} &ndash; {result.idealgewichtMax.toFixed(1).replace('.', ',')} kg
+                  {result.idealgewichtMin.toFixed(1).replace('.', ',')} – {result.idealgewichtMax.toFixed(1).replace('.', ',')} kg
                 </p>
-                <p className="text-xs text-text-muted">BMI 18,5 &ndash; 24,9</p>
+                <p className="text-xs text-text-muted">BMI 18,5 – 24,9</p>
               </Card>
               <Card padding="md" className="text-center">
                 <p className="text-xs text-text-muted">

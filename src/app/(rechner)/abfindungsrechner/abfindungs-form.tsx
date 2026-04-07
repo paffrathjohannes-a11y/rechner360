@@ -27,7 +27,7 @@ export function AbfindungsForm() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Jahresbrutto (ohne Abfindung)" htmlFor="brutto" tooltip="Ihr regul&auml;res Jahresbruttoeinkommen ohne die Abfindung.">
+          <InputGroup label="Jahresbrutto (ohne Abfindung)" htmlFor="brutto" tooltip="Ihr reguläres Jahresbruttoeinkommen ohne die Abfindung.">
             <CurrencyInput id="brutto" value={jahresbrutto} onChange={setJahresbrutto} />
           </InputGroup>
           <InputGroup label="Abfindung (brutto)" htmlFor="abfindung">
@@ -57,7 +57,7 @@ export function AbfindungsForm() {
             {result.ersparnisDurchFuenftel > 0 && (
               <Card padding="md" className="bg-accent-50/20 dark:bg-accent-900/5 border-accent-200 dark:border-accent-800">
                 <p className="text-sm text-center">
-                  <span className="font-semibold text-accent-600">Ersparnis durch F&uuml;nftelregelung: {formatCurrency(result.ersparnisDurchFuenftel)}</span>
+                  <span className="font-semibold text-accent-600">Ersparnis durch Fünftelregelung: {formatCurrency(result.ersparnisDurchFuenftel)}</span>
                 </p>
               </Card>
             )}
@@ -70,11 +70,11 @@ export function AbfindungsForm() {
                     <td className="px-4 py-3 text-right font-currency text-text">{formatCurrency(result.steuerOhneAbfindung)}</td>
                   </tr>
                   <tr className="border-b border-border hover:bg-surface-raised transition-colors">
-                    <td className="px-4 py-3 text-text-secondary">Steuer mit Abfindung (ohne F&uuml;nftelregelung)</td>
+                    <td className="px-4 py-3 text-text-secondary">Steuer mit Abfindung (ohne Fünftelregelung)</td>
                     <td className="px-4 py-3 text-right font-currency text-negative-500">{formatCurrency(result.steuerMitAbfindungOhneFuenftel)}</td>
                   </tr>
                   <tr className="border-b border-border hover:bg-surface-raised transition-colors bg-accent-50/10 dark:bg-accent-900/5">
-                    <td className="px-4 py-3 font-medium text-accent-600">Steuer mit F&uuml;nftelregelung</td>
+                    <td className="px-4 py-3 font-medium text-accent-600">Steuer mit Fünftelregelung</td>
                     <td className="px-4 py-3 text-right font-currency font-medium text-accent-600">{formatCurrency(result.steuerMitFuenftel)}</td>
                   </tr>
                 </tbody>

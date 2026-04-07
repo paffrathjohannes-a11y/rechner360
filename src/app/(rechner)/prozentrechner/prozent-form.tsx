@@ -91,12 +91,12 @@ export function ProzentForm() {
 
       {/* Modus 4 */}
       <Card padding="lg" className="space-y-4">
-        <h3 className="text-base font-semibold text-text">Prozentuale Ver&auml;nderung</h3>
+        <h3 className="text-base font-semibold text-text">Prozentuale Veränderung</h3>
         <div className="flex items-end gap-2">
           <InputGroup label="Alter Wert" htmlFor="m4a" className="flex-1">
             <Input id="m4a" type="number" value={m4_alt} onChange={(e) => setM4Alt(Number(e.target.value))} />
           </InputGroup>
-          <span className="pb-2.5 text-text-muted font-medium">&rarr;</span>
+          <span className="pb-2.5 text-text-muted font-medium">→</span>
           <InputGroup label="Neuer Wert" htmlFor="m4n" className="flex-1">
             <Input id="m4n" type="number" value={m4_neu} onChange={(e) => setM4Neu(Number(e.target.value))} />
           </InputGroup>
@@ -105,7 +105,7 @@ export function ProzentForm() {
           'rounded-lg p-3 text-center',
           r4.ergebnis >= 0 ? 'bg-accent-50/50 dark:bg-accent-900/10' : 'bg-negative-50/50 dark:bg-negative-900/10',
         )}>
-          <p className="text-xs text-text-muted">Ver&auml;nderung</p>
+          <p className="text-xs text-text-muted">Veränderung</p>
           <p className={cn(
             'text-2xl font-bold font-currency',
             r4.ergebnis >= 0 ? 'text-accent-600 dark:text-accent-400' : 'text-negative-600 dark:text-negative-400',

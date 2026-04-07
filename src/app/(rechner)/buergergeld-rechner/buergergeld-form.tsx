@@ -68,11 +68,11 @@ export function BuergergeldForm() {
             ))}
           </div>
 
-          <InputGroup label="Warmmiete (inkl. Heizung)" htmlFor="miete" tooltip="Gesamtkosten f&uuml;r Unterkunft inkl. Nebenkosten und Heizung.">
+          <InputGroup label="Warmmiete (inkl. Heizung)" htmlFor="miete" tooltip="Gesamtkosten für Unterkunft inkl. Nebenkosten und Heizung.">
             <CurrencyInput id="miete" value={warmmiete} onChange={setWarmmiete} />
           </InputGroup>
 
-          <InputGroup label="Bruttoeinkommen (monatlich)" htmlFor="einkommen" tooltip="Bruttoeinkommen aus Erwerbst&auml;tigkeit. Freibetr&auml;ge werden automatisch berechnet.">
+          <InputGroup label="Bruttoeinkommen (monatlich)" htmlFor="einkommen" tooltip="Bruttoeinkommen aus Erwerbstätigkeit. Freibeträge werden automatisch berechnet.">
             <CurrencyInput id="einkommen" value={einkommen} onChange={setEinkommen} />
           </InputGroup>
 
@@ -85,7 +85,7 @@ export function BuergergeldForm() {
           <div className="animate-result-in space-y-6">
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
               <div className="text-center space-y-1">
-                <p className="text-sm text-text-secondary">Ihr B&uuml;rgergeld-Anspruch</p>
+                <p className="text-sm text-text-secondary">Ihr Bürgergeld-Anspruch</p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400">
                   {formatCurrency(result.buergergeld)}
                 </p>
@@ -122,7 +122,7 @@ export function BuergergeldForm() {
                     </tr>
                   )}
                   <tr className="bg-accent-50/30 dark:bg-accent-900/10 border-t border-border">
-                    <td className="px-4 py-3 font-bold text-accent-600 dark:text-accent-400">B&uuml;rgergeld-Anspruch</td>
+                    <td className="px-4 py-3 font-bold text-accent-600 dark:text-accent-400">Bürgergeld-Anspruch</td>
                     <td className="px-4 py-3 text-right font-currency font-bold text-accent-600 dark:text-accent-400">{formatCurrency(result.buergergeld)}</td>
                   </tr>
                 </tfoot>

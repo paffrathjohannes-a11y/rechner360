@@ -7,10 +7,10 @@ import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { NebenkostenForm } from './nebenkosten-form';
 
 const FAQS = [
-  { question: 'Wie hoch sind die Kaufnebenkosten?', answer: 'Die Kaufnebenkosten betragen je nach Bundesland und Maklerkosten zwischen 7% und 15% des Kaufpreises. Die gr&ouml;&szlig;ten Posten sind Grunderwerbsteuer (3,5-6,5%), Notar (ca. 1,5%) und ggf. Makler (ca. 3-3,57%).' },
-  { question: 'Welches Bundesland hat die niedrigste Grunderwerbsteuer?', answer: 'Bayern hat mit 3,5% die niedrigste Grunderwerbsteuer in Deutschland. Am h&ouml;chsten ist sie in Brandenburg, NRW, Saarland und Schleswig-Holstein mit jeweils 6,5%.' },
-  { question: 'Kann man Kaufnebenkosten finanzieren?', answer: 'Banken erwarten in der Regel, dass die Kaufnebenkosten aus Eigenkapital finanziert werden. Eine Finanzierung der Nebenkosten (110%-Finanzierung) ist m&ouml;glich, f&uuml;hrt aber zu deutlich h&ouml;heren Zinsen und wird von vielen Banken abgelehnt.' },
-  { question: 'Wer zahlt den Makler?', answer: 'Seit Dezember 2020 gilt das Bestellerprinzip beim Kauf: Die Maklerkosten werden in der Regel h&auml;lftig zwischen K&auml;ufer und Verk&auml;ufer geteilt. Der hier berechnete Betrag ist der K&auml;uferanteil.' },
+  { question: 'Wie hoch sind die Kaufnebenkosten?', answer: 'Die Kaufnebenkosten betragen je nach Bundesland und Maklerkosten zwischen 7% und 15% des Kaufpreises. Die größten Posten sind Grunderwerbsteuer (3,5-6,5%), Notar (ca. 1,5%) und ggf. Makler (ca. 3-3,57%).' },
+  { question: 'Welches Bundesland hat die niedrigste Grunderwerbsteuer?', answer: 'Bayern hat mit 3,5% die niedrigste Grunderwerbsteuer in Deutschland. Am höchsten ist sie in Brandenburg, NRW, Saarland und Schleswig-Holstein mit jeweils 6,5%.' },
+  { question: 'Kann man Kaufnebenkosten finanzieren?', answer: 'Banken erwarten in der Regel, dass die Kaufnebenkosten aus Eigenkapital finanziert werden. Eine Finanzierung der Nebenkosten (110%-Finanzierung) ist möglich, führt aber zu deutlich höheren Zinsen und wird von vielen Banken abgelehnt.' },
+  { question: 'Wer zahlt den Makler?', answer: 'Seit Dezember 2020 gilt das Bestellerprinzip beim Kauf: Die Maklerkosten werden in der Regel hälftig zwischen Käufer und Verkäufer geteilt. Der hier berechnete Betrag ist der Käuferanteil.' },
 ];
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ export default function NebenkostenrechnerPage() {
             <thead><tr className="bg-surface-sunken"><th className="px-4 py-2 text-left text-text font-medium">Bundesland</th><th className="px-4 py-2 text-right text-text font-medium">Steuersatz</th></tr></thead>
             <tbody className="text-text-secondary">
               <tr className="border-t border-border bg-accent-50/20 dark:bg-accent-900/5"><td className="px-4 py-2 font-medium text-accent-600">Bayern</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">3,5%</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">Baden-W&uuml;rttemberg, Bremen, Niedersachsen, Rheinland-Pfalz, Sachsen-Anhalt, Th&uuml;ringen</td><td className="px-4 py-2 text-right font-currency">5,0%</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">Baden-Württemberg, Bremen, Niedersachsen, Rheinland-Pfalz, Sachsen-Anhalt, Thüringen</td><td className="px-4 py-2 text-right font-currency">5,0%</td></tr>
               <tr className="border-t border-border"><td className="px-4 py-2">Hamburg, Sachsen</td><td className="px-4 py-2 text-right font-currency">5,5%</td></tr>
               <tr className="border-t border-border"><td className="px-4 py-2">Berlin, Hessen, Mecklenburg-Vorpommern</td><td className="px-4 py-2 text-right font-currency">6,0%</td></tr>
               <tr className="border-t border-border"><td className="px-4 py-2">Brandenburg, NRW, Saarland, Schleswig-Holstein</td><td className="px-4 py-2 text-right font-currency">6,5%</td></tr>

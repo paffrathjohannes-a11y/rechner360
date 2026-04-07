@@ -30,7 +30,7 @@ export function KalorienForm() {
           <InputGroup label="Gewicht (kg)" htmlFor="gewicht">
             <Input id="gewicht" type="number" min={30} max={300} value={gewicht} onChange={(e) => setGewicht(Number(e.target.value))} />
           </InputGroup>
-          <InputGroup label="Gr&ouml;&szlig;e (cm)" htmlFor="groesse">
+          <InputGroup label="Größe (cm)" htmlFor="groesse">
             <Input id="groesse" type="number" min={100} max={250} value={groesse} onChange={(e) => setGroesse(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Alter" htmlFor="alter">
@@ -38,11 +38,11 @@ export function KalorienForm() {
           </InputGroup>
           <InputGroup label="Geschlecht" htmlFor="geschlecht">
             <Select id="geschlecht" value={geschlecht} onChange={(e) => setGeschlecht(e.target.value as 'mann' | 'frau')}>
-              <option value="mann">M&auml;nnlich</option>
+              <option value="mann">Männlich</option>
               <option value="frau">Weiblich</option>
             </Select>
           </InputGroup>
-          <InputGroup label="Aktivit&auml;t" htmlFor="aktivitaet">
+          <InputGroup label="Aktivität" htmlFor="aktivitaet">
             <Select id="aktivitaet" value={aktivitaet} onChange={(e) => setAktivitaet(e.target.value as typeof aktivitaet)}>
               <option value="sitzend">Sitzend (kaum Bewegung)</option>
               <option value="leicht">Leicht aktiv (1-3x Sport/Woche)</option>
@@ -96,7 +96,7 @@ export function KalorienForm() {
               <Card padding="md" className="text-center">
                 <p className="text-xs text-text-muted">Gesamtumsatz (TDEE)</p>
                 <p className="text-2xl font-bold text-primary-500 mt-1">{result.gesamtumsatz.toLocaleString('de-DE')} kcal</p>
-                <p className="text-xs text-text-muted">Faktor &times;{result.aktivitaetsFaktor}</p>
+                <p className="text-xs text-text-muted">Faktor ×{result.aktivitaetsFaktor}</p>
               </Card>
             </div>
 
@@ -104,7 +104,7 @@ export function KalorienForm() {
               <Card padding="md" className="bg-surface-raised">
                 <p className="text-sm text-text-secondary">
                   Mit einem Defizit von {Math.abs(result.differenz).toLocaleString('de-DE')} kcal/Tag
-                  k&ouml;nnen Sie ca. <strong className="text-text">{(Math.abs(result.differenz) * 7 / 7700).toFixed(1).replace('.', ',')} kg pro Woche</strong> abnehmen.
+                  können Sie ca. <strong className="text-text">{(Math.abs(result.differenz) * 7 / 7700).toFixed(1).replace('.', ',')} kg pro Woche</strong> abnehmen.
                 </p>
               </Card>
             )}

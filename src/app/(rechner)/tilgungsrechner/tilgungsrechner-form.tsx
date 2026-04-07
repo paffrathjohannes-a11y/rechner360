@@ -103,7 +103,7 @@ export function TilgungsrechnerForm() {
             {/* Yearly Tilgungsplan */}
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-text">
-                Tilgungsplan (j&auml;hrlich, Zinsbindung {zinsbindung} Jahre)
+                Tilgungsplan (jährlich, Zinsbindung {zinsbindung} Jahre)
               </h3>
               <Card padding="none">
                 <div className="overflow-x-auto">

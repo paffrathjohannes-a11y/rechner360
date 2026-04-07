@@ -40,7 +40,7 @@ export function BaukostenForm() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
-          <InputGroup label="Wohnfl&auml;che (m&sup2;)" htmlFor="flaeche">
+          <InputGroup label="Wohnfläche (m²)" htmlFor="flaeche">
             <Input id="flaeche" type="number" min={50} max={500} value={wohnflaeche} onChange={(e) => setWohnflaeche(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Ausstattung" htmlFor="ausstattung">
@@ -57,11 +57,11 @@ export function BaukostenForm() {
               <option value="fertighaus">Fertighaus</option>
             </Select>
           </InputGroup>
-          <InputGroup label="Region" htmlFor="region" tooltip="Beeinflusst die Baukosten: l&auml;ndlich ca. -15%, Gro&szlig;stadt ca. +25%.">
+          <InputGroup label="Region" htmlFor="region" tooltip="Beeinflusst die Baukosten: ländlich ca. -15%, Großstadt ca. +25%.">
             <Select id="region" value={region} onChange={(e) => setRegion(e.target.value as typeof region)}>
-              <option value="guenstig">L&auml;ndlich / g&uuml;nstig (-15%)</option>
+              <option value="guenstig">Ländlich / günstig (-15%)</option>
               <option value="mittel">Durchschnitt</option>
-              <option value="teuer">Gro&szlig;stadt / teuer (+25%)</option>
+              <option value="teuer">Großstadt / teuer (+25%)</option>
             </Select>
           </InputGroup>
           <div className="space-y-3">
@@ -75,7 +75,7 @@ export function BaukostenForm() {
               <option value="doppelgarage">Doppelgarage</option>
             </Select>
           </InputGroup>
-          <InputGroup label="Grundst&uuml;ckspreis" htmlFor="grundstueck">
+          <InputGroup label="Grundstückspreis" htmlFor="grundstueck">
             <CurrencyInput id="grundstueck" value={grundstueck} onChange={setGrundstueck} />
           </InputGroup>
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
@@ -89,7 +89,7 @@ export function BaukostenForm() {
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Gesamtkosten Hausbau</p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.gesamtkosten)}</p>
-                <p className="text-sm text-text-muted">Baukosten: {formatCurrency(result.baukostenProQm)}/m&sup2; &middot; {wohnflaeche} m&sup2; {bauweise === 'massiv' ? 'Massiv' : 'Fertig'}</p>
+                <p className="text-sm text-text-muted">Baukosten: {formatCurrency(result.baukostenProQm)}/m² · {wohnflaeche} m² {bauweise === 'massiv' ? 'Massiv' : 'Fertig'}</p>
               </div>
             </Card>
 

@@ -22,7 +22,7 @@ export default function ElterngeldRechnerPage() {
       <div className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">Elterngeld Rechner 2026</h1>
         <p className="text-text-secondary text-lg">
-          Berechnen Sie Ihr Elterngeld &mdash; Basiselterngeld oder ElterngeldPlus mit Geschwisterbonus.
+          Berechnen Sie Ihr Elterngeld — Basiselterngeld oder ElterngeldPlus mit Geschwisterbonus.
         </p>
         <TrustSignals compact className="mt-3" />
       </div>
@@ -34,19 +34,19 @@ export default function ElterngeldRechnerPage() {
         <div className="space-y-3 text-text-secondary leading-relaxed">
           <p>
             Das Elterngeld ersetzt einen Teil des wegfallenden Einkommens nach der Geburt eines Kindes.
-            Die H&ouml;he richtet sich nach dem durchschnittlichen monatlichen Nettoeinkommen der letzten
+            Die Höhe richtet sich nach dem durchschnittlichen monatlichen Nettoeinkommen der letzten
             12 Monate vor der Geburt.
           </p>
           <p>
-            Die <strong className="text-text">Ersatzrate</strong> betr&auml;gt grunds&auml;tzlich 65-67%
-            des Nettoeinkommens. Bei niedrigem Einkommen (unter 1.000 &euro;) steigt die Ersatzrate
+            Die <strong className="text-text">Ersatzrate</strong> beträgt grundsätzlich 65-67%
+            des Nettoeinkommens. Bei niedrigem Einkommen (unter 1.000 €) steigt die Ersatzrate
             schrittweise auf bis zu 100%. Das <strong className="text-text">Basiselterngeld</strong> liegt
-            zwischen 300 &euro; und 1.800 &euro; monatlich f&uuml;r bis zu 12 Monate (14 mit Partnermonaten).
+            zwischen 300 € und 1.800 € monatlich für bis zu 12 Monate (14 mit Partnermonaten).
           </p>
           <p>
-            <strong className="text-text">ElterngeldPlus</strong> betr&auml;gt die H&auml;lfte des
-            Basiselterngelds (150-900 &euro;), wird aber doppelt so lang gezahlt (bis zu 24 Monate).
-            Es lohnt sich besonders f&uuml;r Eltern, die nach der Geburt in Teilzeit arbeiten m&ouml;chten.
+            <strong className="text-text">ElterngeldPlus</strong> beträgt die Hälfte des
+            Basiselterngelds (150-900 €), wird aber doppelt so lang gezahlt (bis zu 24 Monate).
+            Es lohnt sich besonders für Eltern, die nach der Geburt in Teilzeit arbeiten möchten.
           </p>
         </div>
 
@@ -62,11 +62,11 @@ export default function ElterngeldRechnerPage() {
               </tr>
             </thead>
             <tbody className="text-text-secondary">
-              <tr className="border-t border-border"><td className="px-4 py-2">0 &euro;</td><td className="px-4 py-2 text-right">—</td><td className="px-4 py-2 text-right font-currency">300 &euro;</td><td className="px-4 py-2 text-right font-currency">150 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">500 &euro;</td><td className="px-4 py-2 text-right">92%</td><td className="px-4 py-2 text-right font-currency">460 &euro;</td><td className="px-4 py-2 text-right font-currency">230 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">1.000 &euro;</td><td className="px-4 py-2 text-right">67%</td><td className="px-4 py-2 text-right font-currency">670 &euro;</td><td className="px-4 py-2 text-right font-currency">335 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">2.000 &euro;</td><td className="px-4 py-2 text-right">65%</td><td className="px-4 py-2 text-right font-currency">1.300 &euro;</td><td className="px-4 py-2 text-right font-currency">650 &euro;</td></tr>
-              <tr className="border-t border-border"><td className="px-4 py-2">3.000 &euro;</td><td className="px-4 py-2 text-right">60%</td><td className="px-4 py-2 text-right font-currency">1.800 &euro;</td><td className="px-4 py-2 text-right font-currency">900 &euro;</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">0 €</td><td className="px-4 py-2 text-right">—</td><td className="px-4 py-2 text-right font-currency">300 €</td><td className="px-4 py-2 text-right font-currency">150 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">500 €</td><td className="px-4 py-2 text-right">92%</td><td className="px-4 py-2 text-right font-currency">460 €</td><td className="px-4 py-2 text-right font-currency">230 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">1.000 €</td><td className="px-4 py-2 text-right">67%</td><td className="px-4 py-2 text-right font-currency">670 €</td><td className="px-4 py-2 text-right font-currency">335 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">2.000 €</td><td className="px-4 py-2 text-right">65%</td><td className="px-4 py-2 text-right font-currency">1.300 €</td><td className="px-4 py-2 text-right font-currency">650 €</td></tr>
+              <tr className="border-t border-border"><td className="px-4 py-2">3.000 €</td><td className="px-4 py-2 text-right">60%</td><td className="px-4 py-2 text-right font-currency">1.800 €</td><td className="px-4 py-2 text-right font-currency">900 €</td></tr>
             </tbody>
           </table>
         </div>

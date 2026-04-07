@@ -45,7 +45,7 @@ export function NebenkostenForm() {
           </InputGroup>
           <Toggle checked={makler} onChange={setMakler} label="Mit Makler" />
           {makler && (
-            <InputGroup label="Maklerkosten (K&auml;uferanteil %)" htmlFor="maklerSatz">
+            <InputGroup label="Maklerkosten (Käuferanteil %)" htmlFor="maklerSatz">
               <Select id="maklerSatz" value={maklerSatz} onChange={(e) => setMaklerSatz(Number(e.target.value))}>
                 {[1.785, 2.38, 3.0, 3.57, 4.76].map((v) => (
                   <option key={v} value={v}>{v.toFixed(2).replace('.', ',')}% inkl. MwSt</option>
@@ -64,7 +64,7 @@ export function NebenkostenForm() {
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Kaufnebenkosten</p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.nebenkosten_gesamt)}</p>
-                <p className="text-sm text-text-muted">{result.nebenkosten_prozent}% des Kaufpreises &middot; Gesamt: {formatCurrency(result.gesamtkosten)}</p>
+                <p className="text-sm text-text-muted">{result.nebenkosten_prozent}% des Kaufpreises · Gesamt: {formatCurrency(result.gesamtkosten)}</p>
               </div>
             </Card>
 

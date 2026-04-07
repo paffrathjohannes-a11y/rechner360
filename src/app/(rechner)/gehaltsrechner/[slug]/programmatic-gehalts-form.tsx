@@ -59,7 +59,7 @@ export function ProgrammaticGehaltsForm({ brutto: initialBrutto }: Props) {
                     <th className="px-4 py-3 text-left font-medium text-text-secondary">Steuerklasse</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Lohnsteuer</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">SV-Beitrag</th>
-                    <th className="px-4 py-3 text-right font-medium text-text-secondary hidden sm:table-cell">Abz&uuml;ge</th>
+                    <th className="px-4 py-3 text-right font-medium text-text-secondary hidden sm:table-cell">Abzüge</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Netto</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary hidden md:table-cell">AG-Kosten</th>
                   </tr>
