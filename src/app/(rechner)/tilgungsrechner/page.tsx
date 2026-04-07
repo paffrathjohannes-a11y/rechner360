@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { TilgungsrechnerForm } from './tilgungsrechner-form';
+import { TILGUNGS_FAQS } from '@/data/content/tilgungs-guide';
 
 export const metadata: Metadata = {
   title: 'Tilgungsrechner 2026 — Baufinanzierung & Tilgungsplan',
@@ -31,7 +33,8 @@ export default function TilgungsrechnerPage() {
         description="Kostenloser Tilgungsrechner 2026. Detaillierter Tilgungsplan mit Restschuld und Gesamtkosten."
       />
       <TilgungsrechnerForm />
-      <RelatedCalculators currentSlug="tilgungsrechner" className="mt-12" />
+      <FAQSection faqs={TILGUNGS_FAQS} className="mt-12" />
+      <RelatedCalculators currentSlug="tilgungsrechner" className="mt-8" />
     </div>
   );
 }

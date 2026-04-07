@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { KreditrechnerForm } from './kreditrechner-form';
+import { KREDIT_FAQS } from '@/data/content/kredit-guide';
 
 export const metadata: Metadata = {
   title: 'Kreditrechner 2026 — Monatliche Rate & Gesamtkosten',
@@ -31,7 +33,8 @@ export default function KreditrechnerPage() {
         description="Kostenloser Kreditrechner 2026. Monatliche Rate, Gesamtkosten und detaillierter Tilgungsplan."
       />
       <KreditrechnerForm />
-      <RelatedCalculators currentSlug="kreditrechner" className="mt-12" />
+      <FAQSection faqs={KREDIT_FAQS} className="mt-12" />
+      <RelatedCalculators currentSlug="kreditrechner" className="mt-8" />
     </div>
   );
 }

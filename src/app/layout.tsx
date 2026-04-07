@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { CookieBanner } from '@/components/layout/cookie-banner';
+import { Analytics } from '@/components/layout/analytics';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/utils/constants';
 import './globals.css';
 
@@ -102,6 +103,7 @@ export default function RootLayout({
         >
           {children}
           <CookieBanner />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

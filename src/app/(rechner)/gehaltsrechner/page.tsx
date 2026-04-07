@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { GehaltsrechnerForm } from './gehaltsrechner-form';
+import { GEHALTS_FAQS } from '@/data/content/gehalts-guide';
 
 export const metadata: Metadata = {
   title: 'Gehaltsrechner 2026 — Netto-Vergleich aller Steuerklassen',
@@ -31,7 +33,8 @@ export default function GehaltsrechnerPage() {
         description="Kostenloser Gehaltsrechner 2026 mit Steuerklassen-Vergleich und Arbeitgeberkosten."
       />
       <GehaltsrechnerForm />
-      <RelatedCalculators currentSlug="gehaltsrechner" className="mt-12" />
+      <FAQSection faqs={GEHALTS_FAQS} className="mt-12" />
+      <RelatedCalculators currentSlug="gehaltsrechner" className="mt-8" />
     </div>
   );
 }
