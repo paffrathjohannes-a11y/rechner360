@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, TrendingUp, Banknote, MapPin, HardHat, Users, Scale, Flame } from 'lucide-react';
+import { ArrowRight, Calculator, Wallet, Landmark, Home, HeartPulse, Baby, ShieldCheck, Percent, Building, TrendingDown, TrendingUp, Banknote, MapPin, HardHat, Users, Scale, Flame, Milestone, Receipt, Briefcase } from 'lucide-react';
 import { RECHNER } from '@/lib/utils/constants';
 import { cn } from '@/lib/utils/cn';
 

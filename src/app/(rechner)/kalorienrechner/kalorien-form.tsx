@@ -28,13 +28,13 @@ export function KalorienForm() {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Gewicht (kg)" htmlFor="gewicht">
-            <Input id="gewicht" type="number" min={30} max={300} value={gewicht} onChange={setGewicht} />
+            <Input id="gewicht" type="number" min={30} max={300} value={gewicht} onChange={(e) => setGewicht(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Größe (cm)" htmlFor="groesse">
-            <Input id="groesse" type="number" min={100} max={250} value={groesse} onChange={setGroesse} />
+            <Input id="groesse" type="number" min={100} max={250} value={groesse} onChange={(e) => setGroesse(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Alter" htmlFor="alter">
-            <Input id="alter" type="number" min={10} max={100} value={alter} onChange={setAlter} />
+            <Input id="alter" type="number" min={10} max={100} value={alter} onChange={(e) => setAlter(Number(e.target.value))} />
           </InputGroup>
           <InputGroup label="Geschlecht" htmlFor="geschlecht">
             <Select id="geschlecht" value={geschlecht} onChange={(e) => setGeschlecht(e.target.value as 'mann' | 'frau')}>

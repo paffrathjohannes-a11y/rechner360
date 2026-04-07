@@ -26,8 +26,8 @@ export function ProgrammaticRentenForm({ jahresbrutto: initB }: Props) {
       <Card padding="lg" className="lg:col-span-2">
         <div className="space-y-5">
           <InputGroup label="Jahresbrutto" htmlFor="b"><CurrencyInput id="b" value={brutto} onChange={setBrutto} /></InputGroup>
-          <InputGroup label="Aktuelles Alter" htmlFor="a"><Input id="a" type="number" min={18} max={66} value={alter} onChange={setAlter} /></InputGroup>
-          <InputGroup label="Bisherige Berufsjahre" htmlFor="bj"><Input id="bj" type="number" min={0} max={50} value={berufsjahre} onChange={setBerufsjahre} /></InputGroup>
+          <InputGroup label="Aktuelles Alter" htmlFor="a"><Input id="a" type="number" min={18} max={66} value={alter} onChange={(e) => setAlter(Number(e.target.value))} /></InputGroup>
+          <InputGroup label="Bisherige Berufsjahre" htmlFor="bj"><Input id="bj" type="number" min={0} max={50} value={berufsjahre} onChange={(e) => setBerufsjahre(Number(e.target.value))} /></InputGroup>
         </div>
       </Card>
       <div className="lg:col-span-3 space-y-6">
