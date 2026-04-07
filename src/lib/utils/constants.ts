@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'zinseszinsrechner',
+    title: 'Zinseszinsrechner',
+    shortTitle: 'Zinseszins',
+    description: 'Berechnen Sie, wie Ihr Geld durch Zinseszins wächst. Mit Sparrate, Laufzeit und Zinssatz.',
+    icon: 'trending-up',
+    color: 'accent',
+    popular: false,
+  },
+  {
     slug: 'unterhalt-rechner',
     title: 'Unterhalt Rechner',
     shortTitle: 'Unterhalt',
