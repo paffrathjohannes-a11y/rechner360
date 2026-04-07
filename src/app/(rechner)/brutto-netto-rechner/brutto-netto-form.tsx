@@ -135,6 +135,18 @@ export function BruttoNettoForm() {
             </Select>
           </InputGroup>
 
+          <InputGroup label="Kinder (für Pflegeversicherung)" htmlFor="pvk" tooltip="Anzahl Ihrer Kinder. Ab 2 Kindern sinkt der PV-Beitrag. Kinderlose ab 23 zahlen 0,6% Zuschlag.">
+            <Select
+              id="pvk"
+              value={input.pflegeversicherung_kinder}
+              onChange={(e) => updateInput('pflegeversicherung_kinder', Number(e.target.value))}
+            >
+              {[0, 1, 2, 3, 4, 5].map((v) => (
+                <option key={v} value={v}>{v === 0 ? 'Keine Kinder (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+              ))}
+            </Select>
+          </InputGroup>
+
           <InputGroup label="KV-Zusatzbeitrag (%)" htmlFor="kvz" tooltip="Durchschnittlicher Zusatzbeitrag 2026: 2,9%. Variiert je nach Krankenkasse.">
             <Select
               id="kvz"

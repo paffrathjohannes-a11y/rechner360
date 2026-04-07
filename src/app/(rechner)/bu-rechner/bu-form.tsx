@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -25,6 +25,7 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
   const [laufzeit, setLaufzeit] = useState(67);
   const [raucher, setRaucher] = useState(false);
   const [result, setResult] = useState<BuResult | null>(null);
+  const manualBuRente = useRef(false);
 
   useEffect(() => {
     if (alter > 0 && nettoeinkommen > 0 && buRente > 0) {
@@ -34,8 +35,15 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
 
   // Update BU-Rente wenn Netto sich ändert (nur wenn User nicht manuell geändert hat)
   useEffect(() => {
-    setBuRente(Math.round(nettoeinkommen * 0.75 / 50) * 50);
+    if (!manualBuRente.current) {
+      setBuRente(Math.round(nettoeinkommen * 0.75 / 50) * 50);
+    }
   }, [nettoeinkommen]);
+
+  const handleBuRenteChange = (value: number) => {
+    manualBuRente.current = true;
+    setBuRente(value);
+  };
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
@@ -58,7 +66,7 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
           </InputGroup>
 
           <InputGroup label="Gewünschte BU-Rente (monatlich)" htmlFor="rente" tooltip="Empfohlen: 75-80% des Nettoeinkommens.">
-            <CurrencyInput id="rente" value={buRente} onChange={setBuRente} placeholder="z.B. 1.875" />
+            <CurrencyInput id="rente" value={buRente} onChange={handleBuRenteChange} placeholder="z.B. 1.875" />
           </InputGroup>
 
           <InputGroup label="Absicherung bis Alter" htmlFor="laufzeit">

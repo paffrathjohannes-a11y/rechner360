@@ -34,6 +34,7 @@ const STEUERKLASSEN_IDS = [1, 2, 3, 4, 5, 6] as const;
 export function GehaltsrechnerForm() {
   const [brutto, setBrutto] = useState(4000);
   const [bundesland, setBundesland] = useState('nw');
+  const [pvKinder, setPvKinder] = useState(0);
   const [results, setResults] = useState<(BruttoNettoResult & { steuerklasse: number })[]>([]);
 
   useEffect(() => {
@@ -44,12 +45,13 @@ export function GehaltsrechnerForm() {
         ...defaultInput,
         brutto,
         bundesland,
+        pflegeversicherung_kinder: pvKinder,
         steuerklasse: sk,
       });
       return { ...r, steuerklasse: sk };
     });
     setResults(newResults);
-  }, [brutto, bundesland]);
+  }, [brutto, bundesland, pvKinder]);
 
   return (
     <div className="space-y-6">
@@ -63,6 +65,13 @@ export function GehaltsrechnerForm() {
             <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
               {BUNDESLAENDER.map((bl) => (
                 <option key={bl.id} value={bl.id}>{bl.name}</option>
+              ))}
+            </Select>
+          </InputGroup>
+          <InputGroup label="Kinder (Pflegeversicherung)" htmlFor="pvk">
+            <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
+              {[0, 1, 2, 3, 4, 5].map((v) => (
+                <option key={v} value={v}>{v === 0 ? 'Keine (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
               ))}
             </Select>
           </InputGroup>

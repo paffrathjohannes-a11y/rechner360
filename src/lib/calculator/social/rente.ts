@@ -34,8 +34,12 @@ export function calculateRente(input: RenteInput): RenteResult {
 
   const restjahre = Math.max(0, renteneintrittsalter - alter);
 
-  // Bisherige Entgeltpunkte (vereinfacht: durchschnittlich)
-  const bisherigePunkte = berufsjahre * (aktuellesBrutto / DURCHSCHNITTSEINKOMMEN);
+  // Bisherige Entgeltpunkte (progressives Modell: Gehalt startete bei 60% des aktuellen)
+  // Annahme: Gehalt stieg linear von 60% auf 100% über die Berufsjahre
+  const startAnteil = 0.6;
+  const durchschnittlicherAnteil = berufsjahre > 0 ? (startAnteil + 1.0) / 2 : 1.0; // Mittelwert 0.6..1.0 = 0.8
+  const durchschnittsGehalt = aktuellesBrutto * durchschnittlicherAnteil;
+  const bisherigePunkte = berufsjahre * (durchschnittsGehalt / DURCHSCHNITTSEINKOMMEN);
 
   // Künftige Entgeltpunkte (mit Gehaltssteigerung)
   let kuenftigePunkte = 0;
@@ -47,11 +51,14 @@ export function calculateRente(input: RenteInput): RenteResult {
 
   const entgeltpunkteGesamt = Math.round((bisherigePunkte + kuenftigePunkte) * 100) / 100;
 
-  // Zugangsfaktor (Abschlag bei Frührente: 0,3% pro Monat vor 67)
+  // Zugangsfaktor (Abschlag bei Frührente: 0,3% pro Monat vor 67, Zuschlag: 0,5% pro Monat nach 67)
   let zugangsfaktor = 1.0;
   if (renteneintrittsalter < REGELALTERSGRENZE) {
     const monateVorher = (REGELALTERSGRENZE - renteneintrittsalter) * 12;
     zugangsfaktor = Math.max(0.7, 1.0 - monateVorher * 0.003);
+  } else if (renteneintrittsalter > REGELALTERSGRENZE) {
+    const monateNachher = (renteneintrittsalter - REGELALTERSGRENZE) * 12;
+    zugangsfaktor = 1.0 + monateNachher * 0.005;
   }
   zugangsfaktor = Math.round(zugangsfaktor * 1000) / 1000;
 

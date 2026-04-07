@@ -64,18 +64,20 @@ export function calculatePkv(input: PkvInput): PkvResult {
   // ─── GKV-Berechnung ───
   const beitragspflichtig = Math.min(monatsbrutto, BBG_KV_MONAT);
 
-  // KV-Satz: 14,6 % + Zusatzbeitrag, hälftig geteilt
+  // KV-Satz: 14,6 % + Zusatzbeitrag
   const kvSatzGesamt = (14.6 + zusatzbeitrag) / 100;
-  const kvAN = beitragspflichtig * kvSatzGesamt / 2;
-  const kvAG = beitragspflichtig * kvSatzGesamt / 2;
+  // Selbstständige tragen den vollen Beitrag allein (kein AG-Anteil)
+  const isSelbststaendig = berufsgruppe === 'selbststaendig';
+  const kvAN = isSelbststaendig ? beitragspflichtig * kvSatzGesamt : beitragspflichtig * kvSatzGesamt / 2;
+  const kvAG = isSelbststaendig ? 0 : beitragspflichtig * kvSatzGesamt / 2;
 
-  // PV-Satz: 3,6 % hälftig + ggf. Kinderlosenzuschlag (0,6 % voll AN)
-  const pvBasis = beitragspflichtig * 0.036 / 2;
+  // PV-Satz: 3,6 % + ggf. Kinderlosenzuschlag (0,6 % voll AN)
+  const pvBasis = isSelbststaendig ? beitragspflichtig * 0.036 : beitragspflichtig * 0.036 / 2;
   const pvZuschlag = (kinder === 0 && alter >= 23) ? beitragspflichtig * 0.006 : 0;
   // Ab 2. Kind: Abschlag von 0,25 % pro Kind (max. 5 Kinder), voll AN
   const pvKinderAbschlag = kinder >= 2 ? beitragspflichtig * Math.min(kinder - 1, 4) * 0.0025 : 0;
   const pvAN = pvBasis + pvZuschlag - pvKinderAbschlag;
-  const pvAG = pvBasis;
+  const pvAG = isSelbststaendig ? 0 : beitragspflichtig * 0.036 / 2;
 
   const gkvAN = Math.round((kvAN + pvAN) * 100) / 100;
   const gkvAG = Math.round((kvAG + pvAG) * 100) / 100;

@@ -17,12 +17,13 @@ export function GehaltserhoehungForm() {
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
   const [bundesland, setBundesland] = useState('nw');
   const [kirchensteuer, setKirchensteuer] = useState(false);
+  const [pvKinder, setPvKinder] = useState(0);
   const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
   useEffect(() => {
     if (bruttoAlt <= 0 || bruttoNeu <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer }));
-  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer]);
+    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder }));
+  }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder]);
 
   return (
     <div className="space-y-6">
@@ -50,6 +51,15 @@ export function GehaltserhoehungForm() {
             <Select id="kist" value={kirchensteuer ? 'ja' : 'nein'} onChange={(e) => setKirchensteuer(e.target.value === 'ja')}>
               <option value="nein">Nein</option>
               <option value="ja">Ja</option>
+            </Select>
+          </InputGroup>
+        </div>
+        <div className="grid grid-cols-1 gap-4 mt-4">
+          <InputGroup label="Kinder (Pflegeversicherung)" htmlFor="pvk" tooltip="Kinderlose ab 23 zahlen 0,6% Zuschlag. Ab 2 Kindern sinkt der PV-Beitrag.">
+            <Select id="pvk" value={pvKinder} onChange={(e) => setPvKinder(Number(e.target.value))}>
+              {[0, 1, 2, 3, 4, 5].map((v) => (
+                <option key={v} value={v}>{v === 0 ? 'Keine (Zuschlag 0,6%)' : `${v} ${v === 1 ? 'Kind' : 'Kinder'}`}</option>
+              ))}
             </Select>
           </InputGroup>
         </div>

@@ -115,7 +115,7 @@ export function KfzForm({ initialFahrzeugtyp = 'kompakt', initialAlter = 35 }: K
                       <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-accent-500 text-white text-xs px-2 py-0.5 rounded-full font-medium">Empfohlen</span>
                     )}
                     <Icon className={cn('w-5 h-5 mx-auto mb-2', style.text)} />
-                    <p className="text-sm text-text-muted capitalize">{typ}</p>
+                    <p className="text-sm text-text-muted">{typ === 'haftpflicht' ? 'Haftpflicht' : typ === 'teilkasko' ? 'Haftpflicht + Teilkasko' : 'Haftpflicht + Vollkasko'}</p>
                     <p className={cn('text-2xl font-bold font-currency mt-1', style.text)}>
                       {formatCurrency(wert)}
                     </p>
