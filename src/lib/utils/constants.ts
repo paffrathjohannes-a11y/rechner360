@@ -89,6 +89,15 @@ export const RECHNER = [
     color: 'primary',
     popular: true,
   },
+  {
+    slug: 'buergergeld-rechner',
+    title: 'B\u00fcrgergeld Rechner',
+    shortTitle: 'B\u00fcrgergeld',
+    description: 'Berechnen Sie Ihren B\u00fcrgergeld-Anspruch mit Regelbedarf, Kosten der Unterkunft und Freibetr\u00e4gen.',
+    icon: 'shield-check',
+    color: 'accent',
+    popular: false,
+  },
 ] as const;
 
 export type RechnerSlug = typeof RECHNER[number]['slug'];
