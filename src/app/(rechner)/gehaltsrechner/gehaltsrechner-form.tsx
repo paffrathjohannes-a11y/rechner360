@@ -77,9 +77,9 @@ export function GehaltsrechnerForm() {
                     <th className="px-4 py-3 text-left font-medium text-text-secondary">Steuerklasse</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Lohnsteuer</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">SV-Beitrag</th>
-                    <th className="px-4 py-3 text-right font-medium text-text-secondary">Abz&uuml;ge</th>
+                    <th className="px-4 py-3 text-right font-medium text-text-secondary hidden sm:table-cell">Abz&uuml;ge</th>
                     <th className="px-4 py-3 text-right font-medium text-text-secondary">Netto</th>
-                    <th className="px-4 py-3 text-right font-medium text-text-secondary">AG-Kosten</th>
+                    <th className="px-4 py-3 text-right font-medium text-text-secondary hidden md:table-cell">AG-Kosten</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -100,13 +100,13 @@ export function GehaltsrechnerForm() {
                       <td className="px-4 py-3 text-right font-currency text-warning-500">
                         {formatCurrency(r.sozialversicherung_gesamt)}
                       </td>
-                      <td className="px-4 py-3 text-right font-currency text-text-secondary">
+                      <td className="px-4 py-3 text-right font-currency text-text-secondary hidden sm:table-cell">
                         {formatCurrency(r.abzuege_gesamt)}
                       </td>
                       <td className="px-4 py-3 text-right font-currency font-bold text-accent-500">
                         {formatCurrency(r.netto)}
                       </td>
-                      <td className="px-4 py-3 text-right font-currency text-text-muted">
+                      <td className="px-4 py-3 text-right font-currency text-text-muted hidden md:table-cell">
                         {formatCurrency(r.ag_kosten_gesamt)}
                       </td>
                     </tr>

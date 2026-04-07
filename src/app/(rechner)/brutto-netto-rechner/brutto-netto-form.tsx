@@ -156,7 +156,7 @@ export function BruttoNettoForm() {
             <Card padding="lg" className="bg-accent-50/50 dark:bg-accent-900/10 border-accent-200 dark:border-accent-800">
               <div className="text-center">
                 <p className="text-sm text-text-secondary">Ihr Nettogehalt</p>
-                <p className="text-3xl sm:text-4xl font-bold font-currency text-accent-600 dark:text-accent-400 mt-1">
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400 mt-1">
                   {formatCurrency(result.netto)}
                 </p>
                 <p className="text-sm text-text-muted mt-1">

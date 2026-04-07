@@ -96,7 +96,7 @@ export function BmiForm() {
             <Card padding="lg" className={cn(farbeMap[result.farbe].bg, farbeMap[result.farbe].border, 'border')}>
               <div className="text-center space-y-2">
                 <p className="text-sm text-text-secondary">Ihr BMI</p>
-                <p className={cn('text-4xl sm:text-5xl font-bold font-currency', farbeMap[result.farbe].text)}>
+                <p className={cn('text-3xl sm:text-4xl lg:text-5xl font-bold font-currency truncate', farbeMap[result.farbe].text)}>
                   {result.bmi.toFixed(1).replace('.', ',')}
                 </p>
                 <p className={cn('text-lg font-semibold', farbeMap[result.farbe].text)}>

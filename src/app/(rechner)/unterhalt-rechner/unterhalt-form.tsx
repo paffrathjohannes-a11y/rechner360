@@ -64,7 +64,7 @@ export function UnterhaltForm() {
             <Card padding="lg" className="border-primary-200 dark:border-primary-800 bg-primary-50/30 dark:bg-primary-900/10">
               <div className="text-center space-y-1">
                 <p className="text-sm text-text-secondary">Gesamter Zahlbetrag</p>
-                <p className="text-3xl sm:text-4xl font-bold font-currency text-primary-600 dark:text-primary-400">{formatCurrency(result.gesamtUnterhalt)}</p>
+                <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-primary-600 dark:text-primary-400">{formatCurrency(result.gesamtUnterhalt)}</p>
                 <p className="text-sm text-text-muted">monatlich &middot; Einkommensgruppe {result.einkommensgruppe}</p>
               </div>
             </Card>
