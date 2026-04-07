@@ -45,9 +45,9 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
     description: artikel.metaDescription,
     datePublished: artikel.publishDate,
     dateModified: artikel.publishDate,
-    author: { '@type': 'Organization', name: 'rechner360.de', url: 'https://rechner360.de' },
-    publisher: { '@type': 'Organization', name: 'rechner360.de', url: 'https://rechner360.de' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://rechner360.de/ratgeber/${artikel.slug}` },
+    author: { '@type': 'Organization', name: 'rechner360.de', url: 'https://www.rechner360.de' },
+    publisher: { '@type': 'Organization', name: 'rechner360.de', url: 'https://www.rechner360.de' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.rechner360.de/ratgeber/${artikel.slug}` },
   };
 
   return (

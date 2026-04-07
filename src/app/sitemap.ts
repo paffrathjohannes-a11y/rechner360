@@ -8,7 +8,7 @@ import { KFZ_PAGES } from '@/data/programmatic/kfz-pages';
 import { BU_PAGES } from '@/data/programmatic/bu-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
-const SITE_URL = 'https://rechner360.de';
+const SITE_URL = 'https://www.rechner360.de';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();

@@ -1,5 +1,5 @@
 export const SITE_NAME = 'rechner360.de';
-export const SITE_URL = 'https://rechner360.de';
+export const SITE_URL = 'https://www.rechner360.de';
 export const SITE_DESCRIPTION = 'Kostenlose Online-Rechner für Finanzen, Steuern und mehr. Aktuell 2026, präzise und DSGVO-konform.';
 
 export const BUNDESLAENDER = [

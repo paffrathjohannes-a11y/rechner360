@@ -6,9 +6,15 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/', '/_next/', '/public/'],
+      },
+      {
+        // Aggressive bots: block to save server resources
+        userAgent: ['AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot'],
+        disallow: '/',
       },
     ],
-    sitemap: 'https://rechner360.de/sitemap.xml',
+    sitemap: 'https://www.rechner360.de/sitemap.xml',
+    host: 'https://www.rechner360.de',
   };
 }
