@@ -55,7 +55,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
           onFocus={handleFocus}
           onBlur={handleBlur}
           className={cn(
-            'flex h-10 w-full rounded-lg border bg-surface pl-3 pr-10 py-2 text-sm font-currency',
+            'flex h-10 w-full rounded-lg border bg-surface pl-3 pr-10 py-2 text-base sm:text-sm font-currency',
             'transition-colors duration-150',
             'placeholder:text-text-muted',
             'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
