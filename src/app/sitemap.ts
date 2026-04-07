@@ -1,24 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { RECHNER } from '@/lib/utils/constants';
-import { BRUTTO_NETTO_PAGES } from '@/data/programmatic/brutto-netto-pages';
-import { GEHALTS_PAGES } from '@/data/programmatic/gehalts-pages';
-import { BMI_PAGES } from '@/data/programmatic/bmi-pages';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
-import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
-import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
-import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
-import { UNTERHALT_PAGES } from '@/data/programmatic/unterhalt-pages';
-import { STUNDENLOHN_PAGES } from '@/data/programmatic/stundenlohn-pages';
-import { MWST_PAGES } from '@/data/programmatic/mwst-pages';
-import { RENTEN_PAGES } from '@/data/programmatic/renten-pages';
-import { GRUNDSTEUER_PAGES } from '@/data/programmatic/grundsteuer-pages';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
-import { ABFINDUNGS_PAGES } from '@/data/programmatic/abfindungs-pages';
-import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
-import { BAUKOSTEN_PAGES } from '@/data/programmatic/baukosten-pages';
-import { BUERGERGELD_PAGES } from '@/data/programmatic/buergergeld-pages';
-import { ERBSCHAFTSTEUER_PAGES } from '@/data/programmatic/erbschaftsteuer-pages';
 import { PKV_PAGES } from '@/data/programmatic/pkv-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
@@ -47,25 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  // Nur programmatische Seiten mit unique Content (Intro + FAQs) in die Sitemap
   const programmaticPages: MetadataRoute.Sitemap = [
-    ...BRUTTO_NETTO_PAGES.map((p) => ({
-      url: `${SITE_URL}/brutto-netto-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...BMI_PAGES.map((p) => ({
-      url: `${SITE_URL}/bmi-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })),
-    ...GEHALTS_PAGES.map((p) => ({
-      url: `${SITE_URL}/gehaltsrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
     ...KREDIT_PAGES.map((p) => ({
       url: `${SITE_URL}/kreditrechner/${p.slug}`,
       lastModified: now,
@@ -78,86 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-    ...ELTERNGELD_PAGES.map((p) => ({
-      url: `${SITE_URL}/elterngeld-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...NEBENKOSTEN_PAGES.map((p) => ({
-      url: `${SITE_URL}/nebenkostenrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...UNTERHALT_PAGES.map((p) => ({
-      url: `${SITE_URL}/unterhalt-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...KALORIEN_PAGES.map((p) => ({
-      url: `${SITE_URL}/kalorienrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })),
-    ...STUNDENLOHN_PAGES.map((p) => ({
-      url: `${SITE_URL}/stundenlohn-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...MWST_PAGES.map((p) => ({
-      url: `${SITE_URL}/mwst-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...RENTEN_PAGES.map((p) => ({
-      url: `${SITE_URL}/rentenrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...GRUNDSTEUER_PAGES.map((p) => ({
-      url: `${SITE_URL}/grundsteuer-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
     ...ZINSESZINS_PAGES.map((p) => ({
       url: `${SITE_URL}/zinseszinsrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...ABFINDUNGS_PAGES.map((p) => ({
-      url: `${SITE_URL}/abfindungsrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...PFAENDUNGS_PAGES.map((p) => ({
-      url: `${SITE_URL}/pfaendungsrechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...BAUKOSTEN_PAGES.map((p) => ({
-      url: `${SITE_URL}/baukosten-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...BUERGERGELD_PAGES.map((p) => ({
-      url: `${SITE_URL}/buergergeld-rechner/${p.slug}`,
-      lastModified: now,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-    ...ERBSCHAFTSTEUER_PAGES.map((p) => ({
-      url: `${SITE_URL}/erbschaftsteuer-rechner/${p.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.7,

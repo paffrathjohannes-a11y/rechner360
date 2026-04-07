@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { ProgrammaticKreditForm } from './programmatic-kredit-form';
 
@@ -35,10 +37,13 @@ export default async function KreditSlugPage({ params }: { params: Promise<{ slu
       <Breadcrumbs items={[{ label: 'Kreditrechner', href: '/kreditrechner' }, { label: page.title }]} />
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">{page.h1}</h1>
+        <p className="text-text-secondary leading-relaxed">{page.intro}</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/kreditrechner/${page.slug}`} description={page.metaDescription} />
       <ProgrammaticKreditForm betrag={page.betrag} zinssatz={page.zinssatz} />
+      <NativeAdSlot format="horizontal" className="mt-10" />
+      {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="kreditrechner" className="mt-8" />
     </div>
   );

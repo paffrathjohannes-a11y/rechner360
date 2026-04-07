@@ -17,7 +17,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   return params.then(({ slug }) => {
     const page = KALORIEN_PAGES.find((p) => p.slug === slug);
     if (!page) return {};
-    return { title: page.metaTitle, description: page.metaDescription, alternates: { canonical: `/kalorienrechner/${page.slug}` } };
+    return { robots: { index: false, follow: true }, title: page.metaTitle, description: page.metaDescription, alternates: { canonical: `/kalorienrechner/${page.slug}` } };
   });
 }
 

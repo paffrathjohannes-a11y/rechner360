@@ -23,6 +23,7 @@ export function generateMetadata({
     if (!page) return {};
 
     return {
+      robots: { index: false, follow: true },
       title: page.metaTitle,
       description: page.metaDescription,
       alternates: {

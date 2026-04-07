@@ -18,6 +18,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
     const page = BMI_PAGES.find((p) => p.slug === slug);
     if (!page) return {};
     return {
+      robots: { index: false, follow: true },
       title: page.metaTitle,
       description: page.metaDescription,
       alternates: { canonical: `/bmi-rechner/${page.slug}` },
