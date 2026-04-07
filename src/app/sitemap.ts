@@ -8,6 +8,7 @@ import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
 import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
 import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
+import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 
 const SITE_URL = 'https://rechner360.de';
 
@@ -25,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/impressum`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/datenschutz`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/ueber-uns`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/ratgeber`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
+    ...RATGEBER_ARTIKEL.map((a) => ({
+      url: `${SITE_URL}/ratgeber/${a.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
   ];
 
   const programmaticPages: MetadataRoute.Sitemap = [
