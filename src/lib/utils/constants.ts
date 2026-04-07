@@ -112,7 +112,7 @@ export const RECHNER = [
     title: 'Rentenrechner',
     shortTitle: 'Rente',
     description: 'Berechnen Sie Ihre voraussichtliche gesetzliche Rente mit Entgeltpunkten und Rentenlücke.',
-    icon: 'timer',
+    icon: 'hourglass',
     color: 'accent',
     popular: false,
   },
