@@ -99,6 +99,15 @@ export const RECHNER = [
     popular: true,
   },
   {
+    slug: 'unterhalt-rechner',
+    title: 'Unterhalt Rechner',
+    shortTitle: 'Unterhalt',
+    description: 'Berechnen Sie den Kindesunterhalt nach der D\u00fcsseldorfer Tabelle 2025/2026.',
+    icon: 'users',
+    color: 'primary',
+    popular: false,
+  },
+  {
     slug: 'baukosten-rechner',
     title: 'Baukosten Rechner',
     shortTitle: 'Baukosten',
