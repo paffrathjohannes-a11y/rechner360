@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
 import { ProgrammaticZinseszinsForm } from './programmatic-zinseszins-form';
 
@@ -33,7 +32,6 @@ export default async function ZinseszinsSlugPage({ params }: { params: Promise<{
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/zinseszinsrechner/${page.slug}`} description={page.metaDescription} />
       <ProgrammaticZinseszinsForm sparrate={page.sparrate} />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="zinseszinsrechner" className="mt-8" />
     </div>

@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { KFZ_PAGES } from '@/data/programmatic/kfz-pages';
 import { KfzForm } from '../kfz-form';
 import type { Fahrzeugtyp } from '@/lib/calculator/insurance/kfz';
@@ -39,7 +38,6 @@ export default async function KfzSlugPage({ params }: { params: Promise<{ slug: 
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/kfz-versicherung-rechner/${page.slug}`} description={page.metaDescription} />
       <KfzForm initialFahrzeugtyp={(page.prefillValues.fahrzeugtyp as Fahrzeugtyp) || 'kompakt'} initialAlter={(page.prefillValues.alter as number) || 35} />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="kfz-versicherung-rechner" className="mt-8" />
     </div>

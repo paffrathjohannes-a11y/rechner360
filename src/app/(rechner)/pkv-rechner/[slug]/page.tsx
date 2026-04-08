@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { PKV_PAGES } from '@/data/programmatic/pkv-pages';
 import { ProgrammaticPkvForm } from './programmatic-pkv-form';
 import type { Berufsgruppe } from '@/lib/calculator/insurance/pkv';
@@ -47,7 +46,6 @@ export default async function PkvSlugPage({ params }: { params: Promise<{ slug: 
         brutto={page.prefillValues.bruttoeinkommen as number}
         berufsgruppe={page.prefillValues.berufsgruppe as Berufsgruppe}
       />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="pkv-rechner" className="mt-8" />
     </div>

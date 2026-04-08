@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { BU_PAGES } from '@/data/programmatic/bu-pages';
 import { BuForm } from '../bu-form';
 import type { Berufsgruppe } from '@/lib/calculator/insurance/bu';
@@ -39,7 +38,6 @@ export default async function BuSlugPage({ params }: { params: Promise<{ slug: s
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/bu-rechner/${page.slug}`} description={page.metaDescription} />
       <BuForm initialAlter={(page.prefillValues.alter as number) || 30} initialBerufsgruppe={(page.prefillValues.berufsgruppe as Berufsgruppe) || 'buero'} />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="bu-rechner" className="mt-8" />
     </div>

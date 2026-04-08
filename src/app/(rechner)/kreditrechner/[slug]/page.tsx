@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { ProgrammaticKreditForm } from './programmatic-kredit-form';
 
@@ -42,7 +41,6 @@ export default async function KreditSlugPage({ params }: { params: Promise<{ slu
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/kreditrechner/${page.slug}`} description={page.metaDescription} />
       <ProgrammaticKreditForm betrag={page.betrag} zinssatz={page.zinssatz} />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="kreditrechner" className="mt-8" />
     </div>

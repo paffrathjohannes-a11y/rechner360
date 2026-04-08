@@ -5,7 +5,6 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
-import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ProgrammaticTilgungsForm } from './programmatic-tilgungs-form';
 
@@ -42,7 +41,6 @@ export default async function TilgungsSlugPage({ params }: { params: Promise<{ s
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/tilgungsrechner/${page.slug}`} description={page.metaDescription} />
       <ProgrammaticTilgungsForm betrag={page.betrag} tilgung={page.tilgung} />
-      <NativeAdSlot format="horizontal" className="mt-10" />
       {page.faqs.length > 0 && <FAQSection faqs={page.faqs} className="mt-8" />}
       <RelatedCalculators currentSlug="tilgungsrechner" className="mt-8" />
     </div>
