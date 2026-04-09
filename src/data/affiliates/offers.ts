@@ -1,8 +1,7 @@
 import type { AffiliateOffer } from '@/components/ads/affiliate-box';
 
 // ─────────────────────────────────────────────────────────────
-// Nur genehmigte Partner — aktuell: CHECK24 via Awin
-// Weitere Partner aktivieren sobald genehmigt (Smava, Verivox, etc.)
+// Genehmigte Partner: CHECK24 (9364) + Verivox (14797) via Awin
 // ─────────────────────────────────────────────────────────────
 
 const AWIN_ID = '2845164';
@@ -97,19 +96,71 @@ const check24BU: AffiliateOffer = {
   highlight: true,
 };
 
+// ─── Verivox Produkte ──────────────────────────────────────
+
+const verivoxStrom: AffiliateOffer = {
+  partner: 'verivox',
+  product: 'strom',
+  title: 'Verivox Stromvergleich',
+  description: 'Über 1.000 Stromanbieter vergleichen — Wechsel in 5 Minuten, bis zu 850 € sparen.',
+  cta: 'Strom vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Fstromvergleich%2F`,
+  badge: 'Tipp',
+};
+
+const verivoxGas: AffiliateOffer = {
+  partner: 'verivox',
+  product: 'gas',
+  title: 'Verivox Gasvergleich',
+  description: 'Gasanbieter vergleichen und wechseln — schnell, einfach und kostenlos.',
+  cta: 'Gas vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Fgasvergleich%2F`,
+  badge: 'Tipp',
+};
+
+const verivoxKredit: AffiliateOffer = {
+  partner: 'verivox',
+  product: 'kredit',
+  title: 'Verivox Kreditvergleich',
+  description: 'Kredite von über 400 Banken vergleichen — günstiger Zinssatz ab 1,99 %.',
+  cta: 'Kredit vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Fkredit%2F`,
+  badge: 'Tipp',
+};
+
+const verivoxKFZ: AffiliateOffer = {
+  partner: 'verivox',
+  product: 'kfz',
+  title: 'Verivox Kfz-Versicherung',
+  description: 'Kfz-Versicherung vergleichen — über 300 Tarife, Wechsel in Minuten.',
+  cta: 'Kfz vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Fkfz-versicherung%2F`,
+  badge: 'Tipp',
+};
+
+const verivoxDSL: AffiliateOffer = {
+  partner: 'verivox',
+  product: 'dsl',
+  title: 'Verivox Internetvergleich',
+  description: 'DSL, Kabel & Glasfaser vergleichen — die besten Tarife in deiner Region.',
+  cta: 'Internet vergleichen',
+  url: `https://www.awin1.com/cread.php?awinmid=14797&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.verivox.de%2Finternet%2F`,
+  badge: 'Tipp',
+};
+
 // ═══════════════════════════════════════════════════════════════
-// Offers pro Rechner-Slug — nur genehmigte Partner (CHECK24)
+// Offers pro Rechner-Slug — CHECK24 + Verivox
 // ═══════════════════════════════════════════════════════════════
 
 export const affiliateOffersBySlug: Record<string, { headline: string; offers: AffiliateOffer[] }> = {
   // Immobilien & Finanzen
   kreditrechner: {
     headline: 'Kredite vergleichen & sparen',
-    offers: [check24Kredit],
+    offers: [check24Kredit, verivoxKredit],
   },
   tilgungsrechner: {
     headline: 'Baufinanzierung vergleichen',
-    offers: [check24Baufi],
+    offers: [check24Baufi, verivoxKredit],
   },
   'baukosten-rechner': {
     headline: 'Handwerker & Finanzierung finden',
@@ -117,7 +168,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   },
   nebenkostenrechner: {
     headline: 'Nebenkosten senken',
-    offers: [check24Strom],
+    offers: [check24Strom, verivoxStrom, verivoxGas],
   },
 
   // Gehalt & Steuern
@@ -157,7 +208,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   },
   'kfz-versicherung-rechner': {
     headline: 'Kfz-Versicherung vergleichen',
-    offers: [check24KFZ],
+    offers: [check24KFZ, verivoxKFZ],
   },
   'bu-rechner': {
     headline: 'BU-Versicherung vergleichen',
@@ -175,6 +226,40 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   },
   zinseszinsrechner: {
     headline: 'Finanzen vergleichen',
-    offers: [check24Kredit, check24Baufi],
+    offers: [check24Kredit, verivoxKredit],
+  },
+
+  // Allgemeine Spar-Tipps für Rechner ohne spezifischen Partner
+  'bmi-rechner': {
+    headline: 'Nebenkosten senken',
+    offers: [verivoxStrom, verivoxDSL],
+  },
+  'buergergeld-rechner': {
+    headline: 'Kosten senken & sparen',
+    offers: [verivoxStrom, verivoxGas],
+  },
+  'gehaltserhoehung-rechner': {
+    headline: 'Ausgaben optimieren',
+    offers: [verivoxStrom, verivoxDSL],
+  },
+  kalorienrechner: {
+    headline: 'Nebenkosten senken',
+    offers: [verivoxStrom, verivoxDSL],
+  },
+  pfaendungsrechner: {
+    headline: 'Kosten senken & sparen',
+    offers: [verivoxStrom, verivoxGas],
+  },
+  prozentrechner: {
+    headline: 'Nebenkosten senken',
+    offers: [verivoxStrom, verivoxDSL],
+  },
+  'stundenlohn-rechner': {
+    headline: 'Ausgaben optimieren',
+    offers: [verivoxStrom, verivoxGas],
+  },
+  'unterhalt-rechner': {
+    headline: 'Kosten senken & sparen',
+    offers: [verivoxStrom, verivoxGas],
   },
 };
