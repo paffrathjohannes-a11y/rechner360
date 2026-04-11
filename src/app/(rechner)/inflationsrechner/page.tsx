@@ -9,6 +9,9 @@ const FAQS = [
   { question: 'Wie hoch ist die aktuelle Inflation in Deutschland?', answer: 'Die Inflationsrate in Deutschland lag 2024 bei ca. 2,2% und 2023 bei ca. 5,9%. Die EZB strebt langfristig eine Inflationsrate von 2% an. Die aktuellen Werte veröffentlicht das Statistische Bundesamt monatlich.' },
   { question: 'Wie wirkt sich Inflation auf Ersparnisse aus?', answer: 'Bei 3% Inflation verliert Geld auf dem Girokonto (0% Zinsen) jährlich 3% an Kaufkraft. Nach 10 Jahren sind 10.000 € nur noch ca. 7.440 € wert. Nur wenn die Rendite über der Inflation liegt, wächst die reale Kaufkraft.' },
   { question: 'Was schützt vor Inflation?', answer: 'Sachwerte wie Immobilien, Aktien und Gold gelten als Inflationsschutz, da ihr Wert tendenziell mit dem Preisniveau steigt. Auch inflationsindexierte Anleihen und breit gestreute ETFs können helfen, die Kaufkraft zu erhalten.' },
+  { question: 'Was ist der Unterschied zwischen Inflation und Deflation?', answer: 'Inflation bedeutet steigende Preise und sinkende Kaufkraft. Deflation ist das Gegenteil: fallende Preise. Deflation klingt positiv, kann aber eine Wirtschaftskrise verstärken, weil Verbraucher Käufe aufschieben und Unternehmen weniger investieren.' },
+  { question: 'Was ist die Kerninflation?', answer: 'Die Kerninflation ist die Inflationsrate ohne schwankungsanfällige Komponenten wie Energie und Lebensmittel. Sie zeigt den zugrunde liegenden Preistrend und wird von Zentralbanken als wichtiger Indikator für die Geldpolitik genutzt.' },
+  { question: 'Wie wird die Inflationsrate berechnet?', answer: 'Das Statistische Bundesamt misst die Preisentwicklung eines Warenkorbs mit ca. 700 Gütern und Dienstleistungen. Die prozentuale Veränderung zum Vorjahr ergibt die Inflationsrate. Der Warenkorb wird regelmäßig an das Konsumverhalten angepasst.' },
 ];
 
 export const metadata: Metadata = {

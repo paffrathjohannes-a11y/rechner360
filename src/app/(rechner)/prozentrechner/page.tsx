@@ -7,6 +7,9 @@ const FAQS = [
   { question: 'Wie berechnet man die prozentuale Veränderung?', answer: 'Prozentuale Veränderung = (Neuer Wert - Alter Wert) ÷ Alter Wert × 100. Beispiel: Von 80 auf 100 = (100-80) ÷ 80 × 100 = 25% Zunahme.' },
   { question: 'Was ist der Unterschied zwischen Prozentpunkt und Prozent?', answer: 'Ein Prozentpunkt ist die absolute Differenz zwischen zwei Prozentwerten. Beispiel: Von 10% auf 15% sind 5 Prozentpunkte Unterschied, aber 50% mehr (relativ gesehen).' },
   { question: 'Wie rechne ich Mehrwertsteuer?', answer: 'Netto + 19% MwSt: Netto × 1,19 = Brutto. Brutto zu Netto: Brutto ÷ 1,19 = Netto. Bei 7% MwSt entsprechend mit 1,07.' },
+  { question: 'Wie berechne ich einen Rabatt in Prozent?', answer: 'Rabatt in Prozent = (Alter Preis - Neuer Preis) ÷ Alter Preis × 100. Beispiel: Von 80 € auf 60 € = (80-60) ÷ 80 × 100 = 25% Rabatt.' },
+  { question: 'Wie berechne ich den Grundwert aus Prozentwert und Prozentsatz?', answer: 'Grundwert = Prozentwert ÷ Prozentsatz × 100. Beispiel: 30 sind 20% von welchem Wert? 30 ÷ 20 × 100 = 150.' },
+  { question: 'Wie berechne ich Prozent im Kopf?', answer: '10% = durch 10 teilen. 5% = die Hälfte von 10%. 1% = durch 100 teilen. 25% = durch 4 teilen. 50% = halbieren. Kombinieren Sie diese Werte für beliebige Prozentsätze, z.B. 15% = 10% + 5%.' },
 ];
 
 export const metadata: Metadata = {

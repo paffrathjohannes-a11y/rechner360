@@ -7,6 +7,9 @@ const FAQS = [
   { question: 'Wie erhöht sich die Freigrenze bei Unterhaltspflichten?', answer: 'Für die erste unterhaltspflichtige Person erhöht sich die Freigrenze um 527,76 €, für jede weitere Person um jeweils 294,02 €. Bei einer Person mit 2 Unterhaltspflichten liegt die Freigrenze somit bei ca. 2.224 €.' },
   { question: 'Wird das gesamte Einkommen über der Freigrenze gepfändet?', answer: 'Nein. Vom Einkommen über der Freigrenze werden ca. 70% gepfändet, 30% verbleiben beim Schuldner. Ab einer bestimmten Obergrenze (ca. 4.299 € bei 0 Unterhaltspflichten) wird das gesamte Mehreinkommen gepfändet.' },
   { question: 'Wann werden die Pfändungsfreigrenzen angepasst?', answer: 'Die Pfändungsfreigrenzen werden alle zwei Jahre zum 1. Juli angepasst, basierend auf dem steuerlichen Grundfreibetrag. Die letzte Anpassung erfolgte am 01.07.2023. Die nächste Anpassung ist für 01.07.2025 vorgesehen.' },
+  { question: 'Was ist ein P-Konto und wie schützt es mein Geld?', answer: 'Ein Pfändungsschutzkonto (P-Konto) schützt automatisch einen Grundfreibetrag von 1.402,28 € pro Monat vor Kontopfändung. Jede Bank muss ein bestehendes Girokonto kostenfrei in ein P-Konto umwandeln. Höhere Freibeträge sind mit Bescheinigung möglich.' },
+  { question: 'Wird Weihnachtsgeld gepfändet?', answer: 'Weihnachtsgeld ist bis zur Hälfte des monatlichen Arbeitseinkommens, maximal 500 €, unpfändbar (§ 850a Nr. 4 ZPO). Darüber hinausgehende Beträge werden zum regulären Einkommen addiert und sind nach der Pfändungstabelle pfändbar.' },
+  { question: 'Kann Arbeitslosengeld gepfändet werden?', answer: 'Ja, Arbeitslosengeld I ist grundsätzlich pfändbar und wird wie Arbeitseinkommen behandelt. Die gleichen Pfändungsfreigrenzen gelten. Arbeitslosengeld II (Bürgergeld) ist hingegen unpfändbar, da es das Existenzminimum sichert.' },
 ];
 
 export const metadata: Metadata = {

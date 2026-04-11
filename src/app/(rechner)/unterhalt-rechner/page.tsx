@@ -7,6 +7,9 @@ const FAQS = [
   { question: 'Wie wird der Unterhalt berechnet?', answer: 'Der Kindesunterhalt richtet sich nach dem bereinigten Nettoeinkommen des Unterhaltspflichtigen und dem Alter des Kindes. Vom Tabellenunterhalt wird das hälftige Kindergeld (bei Minderjährigen) abgezogen. Bei Volljährigen wird das volle Kindergeld angerechnet.' },
   { question: 'Was ist der Selbstbehalt?', answer: 'Der Selbstbehalt ist der Betrag, der dem Unterhaltspflichtigen mindestens verbleiben muss. Für Erwerbstätige beträgt er 1.450 € (2025), für Nicht-Erwerbstätige 1.200 €. Reicht das Einkommen nicht für den vollen Unterhalt, liegt ein Mangelfall vor.' },
   { question: 'Wird Kindergeld auf den Unterhalt angerechnet?', answer: 'Ja. Bei minderjährigen Kindern wird das hälftige Kindergeld (127,50 €) vom Tabellenunterhalt abgezogen. Bei volljährigen Kindern wird das volle Kindergeld (255 €) angerechnet. Der verbleibende Betrag ist der Zahlbetrag.' },
+  { question: 'Was ist bereinigtes Nettoeinkommen?', answer: 'Vom Nettoeinkommen werden berufsbedingte Aufwendungen (5% Pauschale oder Nachweis), Schulden und weitere Belastungen abgezogen. Das bereinigte Netto bestimmt die Einkommensgruppe in der Düsseldorfer Tabelle.' },
+  { question: 'Was passiert bei einem Mangelfall?', answer: 'Ein Mangelfall liegt vor, wenn das Einkommen nicht für den vollen Unterhalt aller Berechtigten reicht. Dann wird der verfügbare Betrag anteilig auf die Kinder verteilt. Minderjährige Kinder haben Vorrang vor volljährigen.' },
+  { question: 'Muss ich Unterhalt auch während der Ausbildung zahlen?', answer: 'Ja, Eltern schulden ihren Kindern Unterhalt bis zum Abschluss der ersten Berufsausbildung oder des Erststudiums. Bei einer Ausbildungsvergütung wird diese abzüglich 100 € ausbildungsbedingtem Mehrbedarf angerechnet.' },
 ];
 
 export const metadata: Metadata = {

@@ -9,6 +9,9 @@ const FAQS = [
   { question: 'Welches Bundesland hat die niedrigste Grunderwerbsteuer?', answer: 'Bayern hat mit 3,5% die niedrigste Grunderwerbsteuer in Deutschland. Am höchsten ist sie in Brandenburg, NRW, Saarland und Schleswig-Holstein mit jeweils 6,5%.' },
   { question: 'Kann man Kaufnebenkosten finanzieren?', answer: 'Banken erwarten in der Regel, dass die Kaufnebenkosten aus Eigenkapital finanziert werden. Eine Finanzierung der Nebenkosten (110%-Finanzierung) ist möglich, führt aber zu deutlich höheren Zinsen und wird von vielen Banken abgelehnt.' },
   { question: 'Wer zahlt den Makler?', answer: 'Seit Dezember 2020 gilt das Bestellerprinzip beim Kauf: Die Maklerkosten werden in der Regel hälftig zwischen Käufer und Verkäufer geteilt. Der hier berechnete Betrag ist der Käuferanteil.' },
+  { question: 'Kann man die Grunderwerbsteuer umgehen?', answer: 'Legal lässt sich die Grunderwerbsteuer nur bei Übertragungen zwischen Ehepartnern, Verwandten in gerader Linie (Eltern, Kinder) oder bei Erbschaften vermeiden. Beim regulären Immobilienkauf ist sie nicht vermeidbar.' },
+  { question: 'Was kosten Notar und Grundbuch genau?', answer: 'Die Notarkosten liegen bei ca. 1,0-1,5% des Kaufpreises, die Grundbuchkosten bei ca. 0,5%. Beide Gebühren sind gesetzlich geregelt (GNotKG) und nicht verhandelbar. Bei einem Kaufpreis von 300.000 € fallen ca. 4.500-6.000 € an.' },
+  { question: 'Sind Kaufnebenkosten steuerlich absetzbar?', answer: 'Bei selbstgenutzten Immobilien sind Kaufnebenkosten nicht absetzbar. Bei vermieteten Objekten können Grunderwerbsteuer, Notar- und Grundbuchkosten als Anschaffungsnebenkosten über die Abschreibung (AfA) geltend gemacht werden.' },
 ];
 
 export const metadata: Metadata = {

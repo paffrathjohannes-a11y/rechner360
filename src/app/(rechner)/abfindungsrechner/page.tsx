@@ -9,6 +9,9 @@ const FAQS = [
   { question: 'Wie viel Steuer zahlt man auf eine Abfindung?', answer: 'Der effektive Steuersatz auf eine Abfindung hängt vom regulären Einkommen und der Höhe der Abfindung ab. Bei einem Jahresgehalt von 40.000 € und 20.000 € Abfindung liegt der effektive Steuersatz dank Fünftelregelung typischerweise bei 15-25%.' },
   { question: 'Muss der Arbeitgeber die Fünftelregelung anwenden?', answer: 'Seit 2025 wendet der Arbeitgeber die Fünftelregelung nicht mehr im Lohnsteuerabzug an. Die Vergünstigung wird erst über die Einkommensteuererklärung gewährt. Der Arbeitgeber führt zunächst die volle Steuer ab.' },
   { question: 'Ist eine Abfindung sozialversicherungspflichtig?', answer: 'Nein, auf Abfindungen fallen keine Sozialversicherungsbeiträge an. Es wird nur Lohnsteuer (ggf. mit Fünftelregelung), Solidaritätszuschlag und ggf. Kirchensteuer fällig.' },
+  { question: 'Wie hoch ist die übliche Abfindung?', answer: 'Die Faustformel lautet: 0,5 Bruttomonatsgehälter pro Beschäftigungsjahr. Bei 10 Jahren und 4.000 € Bruttogehalt wären das 20.000 €. Gesetzlich gibt es aber keinen festen Anspruch — die Höhe ist Verhandlungssache.' },
+  { question: 'Hat man einen Anspruch auf Abfindung?', answer: 'Einen generellen gesetzlichen Anspruch gibt es nicht. Ausnahmen: Abfindungsangebot im Kündigungsschutzprozess (§ 1a KSchG), Sozialplan, Aufhebungsvertrag oder gerichtlicher Vergleich. In der Praxis werden die meisten Abfindungen verhandelt.' },
+  { question: 'Wirkt sich eine Abfindung auf das Arbeitslosengeld aus?', answer: 'Eine Abfindung führt nicht automatisch zu einer Sperrzeit beim Arbeitslosengeld. Kritisch wird es, wenn die Kündigungsfrist nicht eingehalten wird — dann kann die Agentur für Arbeit das ALG I um die verkürzte Frist ruhen lassen.' },
 ];
 
 export const metadata: Metadata = {
