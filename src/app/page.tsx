@@ -2,7 +2,7 @@ import { TrendingUp } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
-import { OrganizationJsonLd } from '@/components/seo/json-ld';
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
 import { CategorySection } from '@/components/home/category-section';
 import { CalculatorSearch } from '@/components/search/calculator-search';
@@ -15,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <OrganizationJsonLd />
+      <WebSiteJsonLd />
       <Header />
 
       <main className="flex-1">

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { SITE_URL } from '@/lib/utils/constants';
 
 interface BreadcrumbItem {
   label: string;
@@ -21,13 +22,13 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Startseite',
-        item: 'https://rechner360.de',
+        item: SITE_URL,
       },
       ...items.map((item, i) => ({
         '@type': 'ListItem',
         position: i + 2,
         name: item.label,
-        ...(item.href ? { item: `https://rechner360.de${item.href}` } : {}),
+        ...(item.href ? { item: `${SITE_URL}${item.href}` } : {}),
       })),
     ],
   };
