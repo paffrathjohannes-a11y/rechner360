@@ -445,4 +445,139 @@ export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
     relatedRechner: 'rentenrechner',
     publishDate: '2026-04-07',
   },
+  {
+    slug: 'pkv-gkv-vergleich',
+    title: 'PKV oder GKV? So entscheiden Sie richtig 2026',
+    metaTitle: 'PKV vs. GKV Vergleich 2026 — Wann lohnt sich die Private?',
+    metaDescription: 'PKV oder GKV? Vergleich der Kosten, Leistungen und Voraussetzungen. Erfahren Sie, wann sich ein Wechsel in die private Krankenversicherung lohnt.',
+    intro: 'Die Entscheidung zwischen gesetzlicher (GKV) und privater Krankenversicherung (PKV) hat langfristige finanzielle Folgen. Wir erklären die Unterschiede, Voraussetzungen und für wen sich die PKV wirklich lohnt.',
+    sections: [
+      {
+        title: 'Wer darf in die PKV wechseln?',
+        content: 'Angestellte dürfen in die PKV, wenn ihr Bruttojahresgehalt die <strong>Versicherungspflichtgrenze</strong> von 73.800 € (2026) überschreitet — und zwar ein ganzes Kalenderjahr lang. Selbstständige und Beamte können unabhängig vom Einkommen in die PKV wechseln. Beamte erhalten Beihilfe vom Dienstherrn und versichern nur den Restanteil privat, was die PKV besonders günstig macht.',
+      },
+      {
+        title: 'PKV vs. GKV — die wichtigsten Unterschiede',
+        content: '<strong>Beitragsberechnung:</strong> Die GKV berechnet Beiträge nach Einkommen (14,6% + Zusatzbeitrag). Die PKV kalkuliert nach Alter, Gesundheit und Leistungsumfang — unabhängig vom Einkommen. <strong>Leistungen:</strong> Die GKV bietet einen gesetzlichen Leistungskatalog. Die PKV ermöglicht individuelle Tarife mit Chefarztbehandlung, Einbettzimmer und Zahnersatz. <strong>Familienversicherung:</strong> In der GKV sind Kinder und nicht erwerbstätige Ehepartner kostenlos mitversichert. In der PKV zahlt jedes Familienmitglied einen eigenen Beitrag.',
+      },
+      {
+        title: 'Wann lohnt sich die PKV finanziell?',
+        content: 'Die PKV lohnt sich vor allem für: <strong>Gutverdiener ohne Kinder</strong> (niedriger Einstiegstarif, keine Familienversicherung nötig), <strong>Beamte</strong> (Beihilfe deckt 50-80%), <strong>Selbstständige</strong> mit stabilem Einkommen. Weniger geeignet ist die PKV für Familien mit vielen Kindern, Angestellte knapp über der Pflichtgrenze und Personen mit Vorerkrankungen. Nutzen Sie unseren PKV Rechner für einen individuellen Vergleich.',
+      },
+      {
+        title: 'Beitragsentwicklung im Alter',
+        content: 'PKV-Beiträge steigen im Alter — das ist der größte Nachteil. Moderne Tarife bilden <strong>Altersrückstellungen</strong>, die den Anstieg abfedern. Trotzdem sollten Sie mit Beitragssteigerungen von 2-3% pro Jahr rechnen. Ein Wechsel zurück in die GKV ist ab 55 nahezu unmöglich. Tipp: Wählen Sie einen Tarif mit hoher Selbstbeteiligung (z.B. 600 €/Jahr), um die Beiträge niedrig zu halten.',
+      },
+    ],
+    relatedRechner: 'pkv-rechner',
+    publishDate: '2026-04-11',
+  },
+  {
+    slug: 'kfz-versicherung-wechseln',
+    title: 'Kfz-Versicherung wechseln — So sparen Sie bis zu 50%',
+    metaTitle: 'Kfz-Versicherung wechseln 2026 — Fristen, Tipps & Vergleich',
+    metaDescription: 'Kfz-Versicherung wechseln und sparen. Kündigungsfristen, Sonderkündigungsrecht und die besten Tipps für günstigere Tarife 2026.',
+    intro: 'Die Kfz-Versicherung ist einer der größten laufenden Posten für Autobesitzer. Ein jährlicher Vergleich lohnt sich fast immer — Einsparungen von 200-500 € pro Jahr sind keine Seltenheit.',
+    sections: [
+      {
+        title: 'Kündigungsfristen und Stichtag',
+        content: 'Die meisten Kfz-Versicherungen laufen vom 01.01. bis 31.12. Die Kündigungsfrist beträgt <strong>einen Monat</strong> zum Vertragsende — der Stichtag ist also der <strong>30. November</strong>. Die Kündigung muss schriftlich erfolgen und bis zu diesem Datum beim Versicherer eingegangen sein. Tipp: Kündigen Sie per Einschreiben oder Fax mit Sendebestätigung.',
+      },
+      {
+        title: 'Sonderkündigungsrecht nutzen',
+        content: 'Sie können Ihre Kfz-Versicherung außerordentlich kündigen bei: <strong>Beitragserhöhung</strong> ohne Leistungsverbesserung (4 Wochen nach Mitteilung), <strong>nach einem Schadensfall</strong> (4 Wochen nach Regulierung) oder <strong>bei Fahrzeugwechsel</strong>. Das Sonderkündigungsrecht ermöglicht einen sofortigen Wechsel unabhängig vom regulären Stichtag.',
+      },
+      {
+        title: 'Was beeinflusst den Beitrag?',
+        content: '<strong>Schadenfreiheitsklasse (SF-Klasse):</strong> Der wichtigste Faktor. Pro schadenfreiem Jahr steigen Sie eine Klasse auf — bis zu SF 35 mit über 30% Rabatt. <strong>Typklasse:</strong> Je nach Fahrzeugmodell unterschiedlich. SUVs und Sportwagen sind teurer. <strong>Regionalklasse:</strong> Großstädte sind teurer als ländliche Gebiete. <strong>Jährliche Fahrleistung:</strong> Weniger Kilometer = günstigerer Beitrag. <strong>Selbstbeteiligung:</strong> 300 € SB in der Vollkasko und 150 € in der Teilkasko senken den Beitrag erheblich.',
+      },
+      {
+        title: 'Haftpflicht, Teilkasko oder Vollkasko?',
+        content: '<strong>Kfz-Haftpflicht</strong> ist gesetzlich vorgeschrieben und deckt Schäden an Dritten ab. <strong>Teilkasko</strong> schützt zusätzlich vor Diebstahl, Glasbruch, Sturm und Wildunfall — empfehlenswert für Fahrzeuge bis ca. 10 Jahre. <strong>Vollkasko</strong> deckt auch selbst verschuldete Unfälle und Vandalismus — sinnvoll bei Neuwagen und Leasingfahrzeugen. Faustregel: Vollkasko für die ersten 3-5 Jahre, danach Teilkasko.',
+      },
+    ],
+    relatedRechner: 'kfz-versicherung-rechner',
+    publishDate: '2026-04-11',
+  },
+  {
+    slug: 'abfindung-steuern-sparen',
+    title: 'Abfindung versteuern — So nutzen Sie die Fünftelregelung',
+    metaTitle: 'Abfindung Steuern 2026 — Fünftelregelung & Netto berechnen',
+    metaDescription: 'Abfindung versteuern mit der Fünftelregelung. So berechnen Sie die Steuer auf Ihre Abfindung und sparen bares Geld. Mit Beispielrechnung.',
+    intro: 'Eine Abfindung ist kein Geschenk vom Arbeitgeber — das Finanzamt kassiert kräftig mit. Dank der Fünftelregelung lässt sich die Steuerlast aber oft deutlich senken. Wir erklären, wie das funktioniert.',
+    sections: [
+      {
+        title: 'So funktioniert die Fünftelregelung',
+        content: 'Die Fünftelregelung nach § 34 EStG glättet die Steuerprogression: Die Abfindung wird rechnerisch auf <strong>5 Jahre verteilt</strong>. Das Finanzamt berechnet die Steuer auf ein Fünftel der Abfindung, multipliziert das Ergebnis mit 5 und vergleicht es mit der normalen Besteuerung. Der niedrigere Betrag wird angesetzt. Seit 2025 wird die Fünftelregelung nicht mehr vom Arbeitgeber, sondern erst über die <strong>Einkommensteuererklärung</strong> gewährt.',
+      },
+      {
+        title: 'Beispielrechnung: Abfindung 30.000 €',
+        content: 'Angenommen Sie verdienen 45.000 € brutto/Jahr und erhalten 30.000 € Abfindung. <strong>Ohne Fünftelregelung:</strong> Die gesamten 75.000 € werden als Einkommen versteuert — Steuerlast auf die Abfindung ca. 9.800 €. <strong>Mit Fünftelregelung:</strong> Nur 6.000 € (ein Fünftel) werden zum Einkommen addiert, die Mehrsteuer wird ×5 genommen — Steuerlast ca. 7.200 €. <strong>Ersparnis: ca. 2.600 €.</strong> Je höher die Abfindung im Verhältnis zum Gehalt, desto größer die Ersparnis.',
+      },
+      {
+        title: 'Strategien zur Steueroptimierung',
+        content: '<strong>Auszahlung ins Folgejahr verschieben:</strong> Wenn Sie Ende des Jahres gekündigt werden, verhandeln Sie eine Auszahlung im Januar — dann ist das reguläre Jahreseinkommen niedriger und die Fünftelregelung wirkt stärker. <strong>Einzahlung in die Altersvorsorge:</strong> Teile der Abfindung in eine betriebliche Altersvorsorge oder Rürup-Rente einzahlen. Diese Beiträge sind steuerlich absetzbar. <strong>Dispojahr nutzen:</strong> Ein Jahr ohne Einkommen (z.B. Sabbatical) minimiert die Steuerlast auf die Abfindung erheblich.',
+      },
+      {
+        title: 'Abfindung und Arbeitslosengeld',
+        content: 'Eine Abfindung führt <strong>nicht</strong> automatisch zur Sperrzeit beim Arbeitslosengeld. Voraussetzung: Die Kündigung ging vom Arbeitgeber aus und die Kündigungsfrist wurde eingehalten. Bei einem Aufhebungsvertrag droht eine 12-wöchige Sperrzeit, es sei denn der Arbeitgeber hätte ohnehin betriebsbedingt gekündigt. Tipp: Lassen Sie den Aufhebungsvertrag so formulieren, dass eine drohende betriebsbedingte Kündigung dokumentiert wird.',
+      },
+    ],
+    relatedRechner: 'abfindungsrechner',
+    publishDate: '2026-04-11',
+  },
+  {
+    slug: 'erbschaftsteuer-freibetraege',
+    title: 'Erbschaftsteuer Freibeträge 2026 — Alle Steuerklassen erklärt',
+    metaTitle: 'Erbschaftsteuer Freibeträge 2026 — Tabelle & Steuerklassen',
+    metaDescription: 'Erbschaftsteuer Freibeträge 2026: Übersicht aller Steuerklassen, Freibeträge und Steuersätze. Erfahren Sie, wie Sie Erbschaftsteuer sparen können.',
+    intro: 'Ob Immobilie, Geldvermögen oder Unternehmensnachfolge — bei einer Erbschaft oder Schenkung kann erheblich Erbschaftsteuer anfallen. Die Höhe der Freibeträge hängt vom Verwandtschaftsgrad ab.',
+    sections: [
+      {
+        title: 'Freibeträge nach Verwandtschaftsgrad',
+        content: 'Die Freibeträge gelten sowohl für Erbschaften als auch Schenkungen: <strong>Ehepartner/Lebenspartner:</strong> 500.000 €. <strong>Kinder:</strong> 400.000 € pro Elternteil. <strong>Enkelkinder:</strong> 200.000 €. <strong>Eltern und Großeltern (bei Erbschaft):</strong> 100.000 €. <strong>Geschwister, Nichten, Neffen:</strong> 20.000 €. <strong>Nicht verwandte Personen:</strong> 20.000 €. Alles über dem Freibetrag wird nach der jeweiligen Steuerklasse besteuert.',
+      },
+      {
+        title: 'Die drei Erbschaftsteuerklassen',
+        content: '<strong>Steuerklasse I</strong> (7-30%): Ehepartner, Kinder, Enkelkinder, Eltern (bei Erbschaft). <strong>Steuerklasse II</strong> (15-43%): Geschwister, Nichten/Neffen, Schwiegereltern, Schwiegerkinder, geschiedene Ehepartner, Eltern (bei Schenkung). <strong>Steuerklasse III</strong> (30-50%): Alle übrigen Personen, z.B. Freunde, nicht verwandte Partner. Je niedriger die Steuerklasse, desto günstiger die Steuersätze.',
+      },
+      {
+        title: 'Immobilien vererben — Sonderregeln',
+        content: 'Für selbstgenutzte Immobilien gibt es eine <strong>komplette Steuerbefreiung</strong>: Ehepartner erben das Familienheim steuerfrei, wenn sie es mindestens 10 Jahre selbst bewohnen. Für Kinder gilt die Befreiung bis 200 m² Wohnfläche. Bei vermieteten Immobilien wird nur <strong>90% des Verkehrswerts</strong> angesetzt (10% Abschlag). Die Immobilienbewertung erfolgt nach dem Ertragswert- oder Sachwertverfahren.',
+      },
+      {
+        title: 'Schenkung zu Lebzeiten als Steuerstrategie',
+        content: 'Die Freibeträge erneuern sich alle <strong>10 Jahre</strong>. Durch gestaffelte Schenkungen zu Lebzeiten können Eltern große Vermögen steuerfrei übertragen: Ein Ehepaar kann pro Kind alle 10 Jahre 800.000 € (2 × 400.000 €) steuerfrei schenken. Bei zwei Kindern über 30 Jahre sind das 4,8 Millionen € — komplett steuerfrei. Beginnen Sie daher frühzeitig mit der Nachlassplanung.',
+      },
+    ],
+    relatedRechner: 'erbschaftsteuer-rechner',
+    publishDate: '2026-04-11',
+  },
+  {
+    slug: 'gehaltsvergleich-deutschland',
+    title: 'Durchschnittsgehalt Deutschland 2026 — So stehen Sie im Vergleich',
+    metaTitle: 'Durchschnittsgehalt Deutschland 2026 — Gehalt nach Branche & Region',
+    metaDescription: 'Durchschnittsgehalt Deutschland 2026: Verdienen Sie genug? Gehälter nach Branche, Region und Berufserfahrung im Vergleich.',
+    intro: 'Was verdient Deutschland? Das Durchschnittsgehalt liegt 2026 bei ca. 45.800 € brutto im Jahr. Doch die Unterschiede nach Branche, Region und Qualifikation sind enorm.',
+    sections: [
+      {
+        title: 'Durchschnittsgehalt und Median',
+        content: 'Das <strong>Durchschnittsgehalt</strong> (arithmetisches Mittel) liegt bei ca. 45.800 € brutto/Jahr. Der <strong>Median</strong> (50% verdienen mehr, 50% weniger) liegt bei ca. 40.500 €. Der Median ist aussagekräftiger, da Spitzengehälter den Durchschnitt nach oben verzerren. Das entspricht einem Monatsgehalt von ca. 3.375 € brutto (Median) bzw. nach Steuern und Sozialabgaben ca. 2.200-2.500 € netto je nach Steuerklasse.',
+      },
+      {
+        title: 'Gehalt nach Branche',
+        content: 'Die bestverdienenden Branchen in Deutschland: <strong>Banken/Versicherungen:</strong> ca. 64.000 €, <strong>Pharmaindustrie:</strong> ca. 60.000 €, <strong>IT/Technologie:</strong> ca. 58.000 €, <strong>Automobilindustrie:</strong> ca. 56.000 €, <strong>Maschinenbau:</strong> ca. 54.000 €. Am unteren Ende: Gastronomie (ca. 28.000 €), Einzelhandel (ca. 32.000 €) und Pflege (ca. 36.000 €). Innerhalb einer Branche variieren Gehälter stark nach Position und Unternehmensgröße.',
+      },
+      {
+        title: 'Gehaltsunterschiede nach Bundesland',
+        content: 'Das <strong>West-Ost-Gefälle</strong> besteht weiter: In Hessen (höchstes Durchschnittsgehalt, ca. 52.000 €) verdient man rund 30% mehr als in Mecklenburg-Vorpommern (ca. 37.000 €). Topverdiener-Bundesländer: Hessen, Bayern, Baden-Württemberg, Hamburg. Die Lebenshaltungskosten sind in diesen Regionen allerdings ebenfalls höher — besonders Mieten in München, Frankfurt und Hamburg.',
+      },
+      {
+        title: 'Einflussfaktoren auf das Gehalt',
+        content: '<strong>Berufserfahrung:</strong> Mit 10+ Jahren steigt das Gehalt im Schnitt um 30-50% gegenüber dem Einstieg. <strong>Abschluss:</strong> Akademiker verdienen im Schnitt 17.000 € mehr pro Jahr als Nicht-Akademiker. Ein Master bringt ca. 4.000 € mehr als ein Bachelor. <strong>Unternehmensgröße:</strong> Konzerne (5.000+ Mitarbeiter) zahlen 20-30% mehr als KMUs. <strong>Verhandlung:</strong> Wer gut verhandelt, verdient 5-15% mehr — nutzen Sie unseren Gehaltsrechner, um Ihr Marktwert-Gehalt zu berechnen.',
+      },
+    ],
+    relatedRechner: 'gehaltsrechner',
+    publishDate: '2026-04-11',
+  },
 ];
