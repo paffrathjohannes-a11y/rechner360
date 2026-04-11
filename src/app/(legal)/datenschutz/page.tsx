@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Datenschutzerkl\u00e4rung',
@@ -46,7 +47,11 @@ export default function DatenschutzPage() {
       <h3>Berechnungen und Datenspeicherung</h3>
       <p>
         <strong>Alle Berechnungen auf rechner360.de werden ausschließlich in Ihrem Browser
-        (clientseitig) durchgeführt.</strong> Es werden keine Eingabedaten wie Gehalt,
+        (clientseitig) durchgeführt.</strong> Das gilt für alle unsere Rechner — vom{' '}
+        <Link href="/brutto-netto-rechner">Brutto Netto Rechner</Link> über den{' '}
+        <Link href="/kreditrechner">Kreditrechner</Link> bis zum{' '}
+        <Link href="/elterngeld-rechner">Elterngeld Rechner</Link>.
+        Es werden keine Eingabedaten wie Gehalt,
         Steuerklasse oder Kreditbeträge an unsere Server übermittelt oder gespeichert.
         Ihre finanziellen Daten verlassen zu keinem Zeitpunkt Ihr Endgerät.
       </p>

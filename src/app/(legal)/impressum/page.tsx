@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -63,11 +64,15 @@ export default function ImpressumPage() {
 
       <h2>Hinweis zu den Berechnungen</h2>
       <p>
-        Die auf rechner360.de bereitgestellten Rechner und Berechnungen dienen ausschließlich
+        Die auf rechner360.de bereitgestellten Rechner — darunter
+        der <Link href="/brutto-netto-rechner">Brutto Netto Rechner</Link>,{' '}
+        <Link href="/kreditrechner">Kreditrechner</Link> und{' '}
+        <Link href="/gehaltsrechner">Gehaltsrechner</Link> — dienen ausschließlich
         der unverbindlichen Information. Sie ersetzen keine professionelle Steuer-, Finanz- oder
         Rechtsberatung. Trotz sorgfältiger Prüfung übernehmen wir keine Haftung
         für die Richtigkeit der Berechnungsergebnisse. Die Lohnsteuerberechnung basiert auf
         dem offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026.
+        Eine Übersicht aller Rechner finden Sie auf unserer <Link href="/">Startseite</Link>.
       </p>
 
       <h2>Streitschlichtung</h2>
