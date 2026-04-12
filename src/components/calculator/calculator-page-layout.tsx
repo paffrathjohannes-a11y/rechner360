@@ -6,6 +6,7 @@ import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { getCategoryForRechner } from '@/lib/utils/constants';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 import { Sources } from '@/components/calculator/sources';
@@ -62,6 +63,9 @@ export function CalculatorPageLayout({
       {affiliateSection && <div className="mt-8">{affiliateSection}</div>}
 
       {guideContent && <div className="mt-12">{guideContent}</div>}
+
+      {/* Ad placement — between guide content and FAQ for natural reading flow */}
+      <NativeAdSlot format="horizontal" className="mt-8" />
 
       {faqs && faqs.length > 0 && (
         <FAQSection faqs={faqs} className="mt-8" />

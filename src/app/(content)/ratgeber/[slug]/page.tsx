@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 import '@/app/(legal)/legal.css';
 
@@ -61,6 +62,9 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
           {new Date(artikel.publishDate).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
         <p className="text-lg leading-relaxed mb-8">{artikel.intro}</p>
+
+        {/* Ad placement — after intro, before article sections */}
+        <NativeAdSlot format="horizontal" className="my-8" />
 
         {artikel.sections.map((section, i) => (
           <div key={i}>
