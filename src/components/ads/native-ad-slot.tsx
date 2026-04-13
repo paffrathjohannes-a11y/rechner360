@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 type AdFormat = 'horizontal' | 'rectangle' | 'vertical';
@@ -19,7 +19,8 @@ const formatStyles: Record<AdFormat, string> = {
 
 export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeAdSlotProps) {
   const [consent, setConsent] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const [adFilled, setAdFilled] = useState<boolean | null>(null);
+  const pushed = useRef(false);
   const adRef = useRef<HTMLDivElement>(null);
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || '';
 
@@ -35,22 +36,64 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
     return () => window.removeEventListener('cookie-consent-change', handleConsent);
   }, []);
 
-  useEffect(() => {
-    if (!consent || !clientId || loaded) return;
-
+  const tryPush = useCallback(() => {
+    if (pushed.current) return;
     try {
       const adsbygoogle = (window as unknown as Record<string, unknown[]>).adsbygoogle;
       if (adsbygoogle) {
         adsbygoogle.push({});
-        setLoaded(true);
+        pushed.current = true;
       }
     } catch {
-      // AdSense not loaded yet, will retry when script loads
+      // AdSense not ready yet
     }
-  }, [consent, clientId, loaded]);
+  }, []);
 
-  // Don't render anything if no consent or no client ID
-  if (!consent || !clientId) return null;
+  useEffect(() => {
+    if (!consent || !clientId) return;
+
+    // Try immediately
+    tryPush();
+
+    // If script hasn't loaded yet, wait for it
+    if (!pushed.current) {
+      const interval = setInterval(() => {
+        tryPush();
+        if (pushed.current) clearInterval(interval);
+      }, 500);
+      // Give up after 10s
+      const timeout = setTimeout(() => {
+        clearInterval(interval);
+        if (!pushed.current) setAdFilled(false);
+      }, 10000);
+      return () => { clearInterval(interval); clearTimeout(timeout); };
+    }
+  }, [consent, clientId, tryPush]);
+
+  // Observe whether AdSense actually filled the slot
+  useEffect(() => {
+    if (!pushed.current || !adRef.current) return;
+
+    const checkFilled = () => {
+      const ins = adRef.current?.querySelector('ins.adsbygoogle');
+      if (!ins) return;
+      const status = ins.getAttribute('data-ad-status');
+      if (status === 'filled') setAdFilled(true);
+      else if (status === 'unfilled') setAdFilled(false);
+    };
+
+    // Check periodically for the ad status
+    const interval = setInterval(checkFilled, 1000);
+    const timeout = setTimeout(() => {
+      clearInterval(interval);
+      if (adFilled === null) setAdFilled(false);
+    }, 8000);
+
+    return () => { clearInterval(interval); clearTimeout(timeout); };
+  }, [consent, clientId, adFilled]);
+
+  // Don't render anything if no consent, no client ID, or ad confirmed unfilled
+  if (!consent || !clientId || adFilled === false) return null;
 
   return (
     <div
@@ -58,22 +101,25 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
       className={cn(
         'relative overflow-hidden rounded-xl border border-border bg-surface-sunken/50',
         'transition-all duration-300',
+        adFilled === null && 'opacity-0 max-h-0',
+        adFilled === true && 'opacity-100',
         formatStyles[format],
         className,
       )}
     >
-      {/* Subtle "Anzeige" label — blends with design */}
-      <div className="absolute top-2 right-3 z-10">
-        <span className="text-[10px] font-medium text-text-muted/60 uppercase tracking-wider">
-          Anzeige
-        </span>
-      </div>
+      {adFilled && (
+        <div className="absolute top-2 right-3 z-10">
+          <span className="text-[10px] font-medium text-text-muted/60 uppercase tracking-wider">
+            Anzeige
+          </span>
+        </div>
+      )}
 
       <ins
         className="adsbygoogle"
         style={{ display: 'block', width: '100%', height: '100%' }}
         data-ad-client={clientId}
-        data-ad-slot={slot}
+        {...(slot ? { 'data-ad-slot': slot } : {})}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />

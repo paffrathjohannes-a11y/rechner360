@@ -1,6 +1,5 @@
 'use client';
 
-import Script from 'next/script';
 import { useEffect, useState } from 'react';
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || '';
@@ -29,13 +28,17 @@ export function AdsenseScript() {
     };
   }, []);
 
-  if (!consent || !ADSENSE_CLIENT_ID) return null;
+  useEffect(() => {
+    if (!consent || !ADSENSE_CLIENT_ID) return;
+    // Avoid duplicate script injection
+    if (document.querySelector('script[src*="adsbygoogle.js"]')) return;
 
-  return (
-    <Script
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-      crossOrigin="anonymous"
-      strategy="lazyOnload"
-    />
-  );
+    const script = document.createElement('script');
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`;
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    document.head.appendChild(script);
+  }, [consent]);
+
+  return null;
 }
