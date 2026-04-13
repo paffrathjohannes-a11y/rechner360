@@ -109,6 +109,9 @@ export const sourcesBySlug: Record<string, SourceData> = {
     disclaimer: 'Orientierungswerte. Echte BU-Beiträge hängen von Ihrer individuellen Gesundheitsprüfung ab. Lassen Sie sich unverbindlich beraten.',
   },
 
+  'einkommensteuer-rechner': {
+    sources: ['§32a EStG (Einkommensteuertarif 2026)', 'BMF Programmablaufplan 2026 (IV C 5 - S 2361/00025/016/028)', 'Solidaritätszuschlaggesetz'],
+  },
   'wohngeld-rechner': {
     sources: ['§19 WoGG (Wohngeldformel)', 'Anlage 2 WoGG (Koeffizienten)', '§12 WoGG (Höchstbeträge, Heizkosten, Klimakomponente)', 'Wohngeldverordnung (Mietstufen)'],
     disclaimer: 'Orientierungswert. Die tatsächliche Wohngeldhöhe kann abweichen, da individuelle Freibeträge und Abzüge berücksichtigt werden. Für den verbindlichen Bescheid wenden Sie sich an Ihre Wohngeldstelle.',

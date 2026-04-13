@@ -1,6 +1,6 @@
 export const SITE_NAME = 'rechner360.de';
 export const SITE_URL = 'https://www.rechner360.de';
-export const SITE_DESCRIPTION = '27 kostenlose Online-Rechner für Finanzen, Steuern und Versicherungen. Keine Registrierung, keine Daten gespeichert — alles läuft in Ihrem Browser. Aktuell 2026.';
+export const SITE_DESCRIPTION = '28 kostenlose Online-Rechner für Finanzen, Steuern und Versicherungen. Keine Registrierung, keine Daten gespeichert — alles läuft in Ihrem Browser. Aktuell 2026.';
 
 export const BUNDESLAENDER = [
   { id: 'bw', name: 'Baden-Württemberg', kirchensteuer: 0.08 },
@@ -317,6 +317,16 @@ export const RECHNER = [
     color: 'accent',
     popular: true,
     category: 'vorsorge-soziales' as CategoryId,
+  },
+  {
+    slug: 'einkommensteuer-rechner',
+    title: 'Einkommensteuerrechner',
+    shortTitle: 'Einkommensteuer',
+    description: 'Berechnen Sie Ihre Einkommensteuer 2026 mit Grenzsteuersatz, Solidaritätszuschlag und Kirchensteuer.',
+    icon: 'receipt',
+    color: 'primary',
+    popular: true,
+    category: 'gehalt-steuern' as CategoryId,
   },
   {
     slug: 'wohngeld-rechner',
