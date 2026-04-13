@@ -270,9 +270,9 @@ export const RECHNER = [
   },
   {
     slug: 'buergergeld-rechner',
-    title: 'B\u00fcrgergeld Rechner',
-    shortTitle: 'B\u00fcrgergeld',
-    description: 'Berechnen Sie Ihren B\u00fcrgergeld-Anspruch mit Regelbedarf, Kosten der Unterkunft und Freibetr\u00e4gen.',
+    title: 'Grundsicherung Rechner',
+    shortTitle: 'Grundsicherung',
+    description: 'Berechnen Sie Ihren Grundsicherungs-Anspruch 2026 (ehem. B\u00fcrgergeld) mit Regelbedarf, Kosten der Unterkunft und Freibetr\u00e4gen.',
     icon: 'shield-check',
     color: 'accent',
     popular: false,

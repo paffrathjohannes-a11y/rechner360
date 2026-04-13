@@ -85,7 +85,7 @@ export const sourcesBySlug: Record<string, SourceData> = {
     sources: ['Düsseldorfer Tabelle 2025/2026', '§ 1612a BGB (Mindestunterhalt)'],
   },
   'buergergeld-rechner': {
-    sources: ['SGB II (Bürgergeld)', 'Regelbedarfsstufen 2025', 'Freibeträge § 11b SGB II'],
+    sources: ['SGB II (Grundsicherung für Arbeitsuchende)', 'Regelbedarfsstufen 2026', 'Freibeträge § 11b SGB II', 'Bundestag-Beschluss Neue Grundsicherung (März 2026)'],
   },
   pfaendungsrechner: {
     sources: ['§ 850c ZPO', 'Pfändungsfreigrenzenbekanntmachung ab 01.07.2025 (BGBl. 2025 I Nr. 110)'],

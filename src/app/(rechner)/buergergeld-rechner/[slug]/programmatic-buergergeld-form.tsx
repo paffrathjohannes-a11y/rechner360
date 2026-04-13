@@ -33,7 +33,7 @@ export function ProgrammaticBuergergeldForm({ typ }: Props) {
         {result && (
           <div className="animate-result-in space-y-4">
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10 text-center">
-              <p className="text-sm text-text-secondary">Bürgergeld-Anspruch</p>
+              <p className="text-sm text-text-secondary">Grundsicherungs-Anspruch</p>
               <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400">{formatCurrency(result.buergergeld)}</p>
               <p className="text-sm text-text-muted">monatlich</p>
             </Card>
@@ -46,7 +46,7 @@ export function ProgrammaticBuergergeldForm({ typ }: Props) {
                 </tbody>
                 <tfoot>
                   <tr className="bg-surface-sunken"><td className="px-3 py-2 font-bold text-text">Gesamtbedarf</td><td className="px-3 py-2 text-right font-currency font-bold text-text">{formatCurrency(result.gesamtbedarf)}</td></tr>
-                  <tr className="bg-accent-50/30 dark:bg-accent-900/10"><td className="px-3 py-2 font-bold text-accent-600">Bürgergeld</td><td className="px-3 py-2 text-right font-currency font-bold text-accent-600">{formatCurrency(result.buergergeld)}</td></tr>
+                  <tr className="bg-accent-50/30 dark:bg-accent-900/10"><td className="px-3 py-2 font-bold text-accent-600">Grundsicherung</td><td className="px-3 py-2 text-right font-currency font-bold text-accent-600">{formatCurrency(result.buergergeld)}</td></tr>
                 </tfoot>
               </table>
             </Card>
