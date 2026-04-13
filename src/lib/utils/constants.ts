@@ -1,6 +1,6 @@
 export const SITE_NAME = 'rechner360.de';
 export const SITE_URL = 'https://www.rechner360.de';
-export const SITE_DESCRIPTION = '26 kostenlose Online-Rechner für Finanzen, Steuern und Versicherungen. Keine Registrierung, keine Daten gespeichert — alles läuft in Ihrem Browser. Aktuell 2026.';
+export const SITE_DESCRIPTION = '27 kostenlose Online-Rechner für Finanzen, Steuern und Versicherungen. Keine Registrierung, keine Daten gespeichert — alles läuft in Ihrem Browser. Aktuell 2026.';
 
 export const BUNDESLAENDER = [
   { id: 'bw', name: 'Baden-Württemberg', kirchensteuer: 0.08 },
@@ -315,6 +315,16 @@ export const RECHNER = [
     description: 'Berechnen Sie den Beitrag für Ihre Berufsunfähigkeitsversicherung nach Alter und Beruf.',
     icon: 'shield-check',
     color: 'accent',
+    popular: true,
+    category: 'vorsorge-soziales' as CategoryId,
+  },
+  {
+    slug: 'wohngeld-rechner',
+    title: 'Wohngeldrechner',
+    shortTitle: 'Wohngeld',
+    description: 'Berechnen Sie Ihr Wohngeld 2026 mit Wohngeld-Plus, Heizkosten-Entlastung und Klimakomponente.',
+    icon: 'home',
+    color: 'primary',
     popular: true,
     category: 'vorsorge-soziales' as CategoryId,
   },
