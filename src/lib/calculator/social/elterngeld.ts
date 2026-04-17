@@ -75,8 +75,29 @@ function berechneErsatzrate(netto: number): number {
   return 0.65;
 }
 
+// §1 Abs. 8 BEEG: Kein Elterngeldanspruch, wenn das zu versteuernde Einkommen
+// im Kalenderjahr vor der Geburt > 200.000 € (bei Paaren gemeinsam)
+// bzw. > 150.000 € (Alleinerziehende) lag. Wir schätzen zvE ≈ 12·Brutto.
+const EINKOMMENSGRENZE_JAHR = 200_000;
+
 export function calculateElterngeld(input: ElterngeldInput): ElterngeldResult {
   const { bruttoEinkommen, teilzeitBrutto, elterngeldArt, partnermonate, zwillinge, geschwisterbonus } = input;
+
+  // Einkommensgrenze prüfen — über 200k kein Anspruch
+  if (bruttoEinkommen * 12 > EINKOMMENSGRENZE_JAHR) {
+    return {
+      elterngeldNetto: 0,
+      teilzeitNetto: 0,
+      monatlich: 0,
+      laufzeitMonate: 0,
+      gesamt: 0,
+      ersatzrate: 0,
+      mindestbetrag: false,
+      hoechstbetrag: false,
+      mehrlingszuschlag: 0,
+      geschwisterbonus: 0,
+    };
+  }
 
   const elterngeldNetto = berechneElterngeldNetto(bruttoEinkommen);
   const teilzeitNetto = berechneElterngeldNetto(teilzeitBrutto);

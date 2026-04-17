@@ -2,10 +2,10 @@
  * PKV vs. GKV Vergleichsrechner 2026
  *
  * GKV-Beitragssätze 2026:
- * - Krankenversicherung: 14,6 % + Zusatzbeitrag (Ø 1,7 %) = 16,3 %
+ * - Krankenversicherung: 14,6 % + durchschnittlicher Zusatzbeitrag 2,9 % = 17,5 %
  * - Pflegeversicherung: 3,6 % (+ 0,6 % Zuschlag für Kinderlose ab 23)
  * - Beitragsbemessungsgrenze KV: 69.750 €/Jahr (5.812,50 €/Monat)
- * - Versicherungspflichtgrenze: 73.800 €/Jahr (6.150 €/Monat)
+ * - Versicherungspflichtgrenze 2026: 77.400 €/Jahr (6.450 €/Monat)
  *
  * PKV-Beiträge sind altersabhängig und pauschal geschätzt.
  */
@@ -36,8 +36,8 @@ export interface PkvResult {
 
 // Beitragsbemessungsgrenze KV 2026
 const BBG_KV_MONAT = 5812.50;
-// Versicherungspflichtgrenze 2026
-const VPFLICHT_JAHR = 73800;
+// Versicherungspflichtgrenze 2026: 77.400 €/Jahr (6.450 €/Monat)
+const VPFLICHT_JAHR = 77400;
 
 // PKV-Basisbeiträge nach Alter (monatlich, Durchschnitt für guten Tarif)
 const PKV_BASIS: Record<number, number> = {

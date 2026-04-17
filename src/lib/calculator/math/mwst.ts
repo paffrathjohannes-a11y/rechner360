@@ -22,6 +22,9 @@ export function bruttoZuNetto(brutto: number, steuersatz: number): MwstResult {
 
 export function mwstAusBetrag(betrag: number, steuersatz: number): MwstResult {
   // betrag = MwSt-Anteil → Netto und Brutto berechnen
+  if (steuersatz <= 0) {
+    return { netto: 0, mwst: 0, brutto: 0, steuersatz };
+  }
   const netto = Math.round(betrag / steuersatz * 100 * 100) / 100;
   return { netto, mwst: betrag, brutto: Math.round((netto + betrag) * 100) / 100, steuersatz };
 }

@@ -85,8 +85,11 @@ export interface EinkommensteuerResult {
 export function calculateEinkommensteuer(input: EinkommensteuerInput): EinkommensteuerResult {
   const { zvE, steuerklasse, kirchensteuer, bundesland, kinderfreibetraege } = input;
 
-  // Kinderfreibetrag abziehen (6.828€ pro Kind, 2026)
-  const kinderfreibetrag = kinderfreibetraege * 6828;
+  // Kinderfreibetrag abziehen (§32 Abs. 6 EStG):
+  //   Existenzminimum: 6.826 €  +  BEA: 2.928 €  =  9.754 € pro vollem Freibetrag (2026).
+  //   Bei halben Freibeträgen (Einzelveranlagung) entsprechend 4.877 €.
+  //   Die Eingabe ist die Anzahl der (ggf. halben) Freibeträge aus dem UI-Select.
+  const kinderfreibetrag = kinderfreibetraege * 9754;
   const zvEBereinigt = Math.max(0, zvE - kinderfreibetrag);
 
   // Splitting (SK III) oder Grundtarif

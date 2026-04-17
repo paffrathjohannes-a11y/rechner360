@@ -25,9 +25,13 @@ export interface RenteResult {
   restjahre: number;
 }
 
-const DURCHSCHNITTSEINKOMMEN = 45358; // 2026 geschätzt
-const RENTENWERT = 39.32; // € pro Entgeltpunkt (West, 2025/2026)
+// Vorläufiges Durchschnittsentgelt 2026 laut Bundeskabinettsbeschluss
+// (SV-Rechengrößen-Verordnung 2026): 51.944 €.
+const DURCHSCHNITTSEINKOMMEN = 51944;
+const RENTENWERT = 39.32; // € pro Entgeltpunkt, bundeseinheitlich seit 2024
 const REGELALTERSGRENZE = 67; // Ab Jahrgang 1964
+// Beitragsbemessungsgrenze RV 2026: 101.400 € — darüber werden keine Entgeltpunkte erworben
+const BBG_RV_JAHR = 101400;
 
 export function calculateRente(input: RenteInput): RenteResult {
   const { aktuellesBrutto, alter, berufsjahre, renteneintrittsalter, gehaltsSteigerung } = input;
@@ -39,13 +43,16 @@ export function calculateRente(input: RenteInput): RenteResult {
   const startAnteil = 0.6;
   const durchschnittlicherAnteil = berufsjahre > 0 ? (startAnteil + 1.0) / 2 : 1.0; // Mittelwert 0.6..1.0 = 0.8
   const durchschnittsGehalt = aktuellesBrutto * durchschnittlicherAnteil;
-  const bisherigePunkte = berufsjahre * (durchschnittsGehalt / DURCHSCHNITTSEINKOMMEN);
+  // Gehalt über BBG bringt keine weiteren Entgeltpunkte (§70 SGB VI).
+  const bemessungsGehaltBisher = Math.min(durchschnittsGehalt, BBG_RV_JAHR);
+  const bisherigePunkte = berufsjahre * (bemessungsGehaltBisher / DURCHSCHNITTSEINKOMMEN);
 
   // Künftige Entgeltpunkte (mit Gehaltssteigerung)
   let kuenftigePunkte = 0;
   let gehalt = aktuellesBrutto;
   for (let j = 0; j < restjahre; j++) {
-    kuenftigePunkte += gehalt / DURCHSCHNITTSEINKOMMEN;
+    // Auch künftig: Beitragsbemessungsgrenze deckelt die EP-Erwerbung.
+    kuenftigePunkte += Math.min(gehalt, BBG_RV_JAHR) / DURCHSCHNITTSEINKOMMEN;
     gehalt *= (1 + gehaltsSteigerung / 100);
   }
 

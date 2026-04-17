@@ -57,11 +57,15 @@ function berechneFreibetrag(brutto: number, hatKinder: boolean): number {
 
   let freibetrag = 100;
 
+  // §11b Abs. 3 SGB II:
+  //   100-520 €: 20 %
+  //   520-1000 €: 30 %
+  //   1000-1200 € (1500 € mit Kind): 10 %
   if (brutto > 100 && brutto <= 520) {
     freibetrag += (brutto - 100) * 0.20;
   } else if (brutto > 520 && brutto <= 1000) {
     freibetrag += 420 * 0.20;
-    freibetrag += (brutto - 520) * 0.30; // korrigiert: 520-1000 = 30%
+    freibetrag += (brutto - 520) * 0.30;
   } else if (brutto > 1000) {
     freibetrag += 420 * 0.20;
     freibetrag += 480 * 0.30;
@@ -105,9 +109,13 @@ export function calculateBuergergeld(input: BuergergeldInput): BuergergeldResult
     } else if (alter <= 13) {
       kinderBedarf = REGELSAETZE.kind_6_13;
       label = `Kind ${i + 1} (6-13 Jahre)`;
-    } else {
+    } else if (alter <= 17) {
       kinderBedarf = REGELSAETZE.jugendlich;
       label = `Kind ${i + 1} (14-17 Jahre)`;
+    } else {
+      // Volljährige im Haushalt der Eltern → Regelbedarfsstufe 3 (u25)
+      kinderBedarf = REGELSAETZE.u25;
+      label = `Kind ${i + 1} (ab 18 Jahre, Haushalt Eltern)`;
     }
 
     regelbedarf += kinderBedarf;

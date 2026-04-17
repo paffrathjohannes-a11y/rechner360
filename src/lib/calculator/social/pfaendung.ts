@@ -21,8 +21,10 @@ export interface PfaendungResult {
   anteilPfaendbar: number; // Prozent
 }
 
-// Pfändungsfreigrenzen ab 01.07.2025 (monatlich, netto)
-const GRUNDFREIBETRAG = 1559.99; // monatlich (aufgerundet von 1555 €)
+// Pfändungsfreigrenzen ab 01.07.2025 (monatlich, netto).
+// Grundbetrag laut §850c Abs. 1 ZPO / Pfändungsfreigrenzenbekanntmachung 2025:
+// 1.560,00 € monatlich, gültig bis 30.06.2026.
+const GRUNDFREIBETRAG = 1560.00;
 const ERHOEHUNG_PRO_PERSON = [
   0,        // 0 Personen
   585.23,   // 1. unterhaltspflichtige Person
