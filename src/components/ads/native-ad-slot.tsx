@@ -94,10 +94,17 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
 
   // Ohne ClientID gibt es nichts zu rendern (Build-Zeit-Ausschluss).
   if (!clientId) return null;
-  // Kein Consent oder Ad nachweislich leer → kompakt verstecken via `hidden`,
-  // damit kein Layout-Flip beim späteren Consent entsteht. Das Element bleibt
-  // im DOM, `hidden` macht es display:none (kein CLS-Impact beim Toggle).
-  const hideCompletely = !consent || adFilled === false;
+  // Wir verstecken den Slot in drei Fällen komplett (display:none):
+  //   1. kein Consent
+  //   2. Ad nachweislich leer (adFilled === false)
+  //   3. Ad noch nicht bestätigt geladen (adFilled === null)
+  // Grund: AdSense reserviert via `ins.adsbygoogle` bereits ~280 px Höhe
+  // BEVOR es den Ad tatsächlich lädt — würden wir das rendern, sähen
+  // Besucher auf neuen/unmonetarisierten Seiten eine ~8 Sekunden lange
+  // leere Box (bis der 8-Sekunden-Polling-Timeout adFilled=false setzt).
+  // Der CLS entsteht jetzt nur noch dann, wenn tatsächlich eine Ad kommt
+  // — und das ist besser als dauerhaft sichtbare leere Platzhalter.
+  const hideCompletely = !consent || adFilled !== true;
 
   return (
     <div
@@ -107,7 +114,6 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
       className={cn(
         'relative overflow-hidden rounded-xl border border-border bg-surface-sunken/50',
         'transition-opacity duration-300',
-        // Höhe IMMER reservieren, solange sichtbar — verhindert CLS beim Einblenden
         formatStyles[format],
         adFilled === true ? 'opacity-100' : 'opacity-0',
         className,
