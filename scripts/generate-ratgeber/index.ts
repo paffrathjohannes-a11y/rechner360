@@ -5,18 +5,19 @@
  * Ablauf:
  *   1. Lädt alle existierenden Slugs (kuratiert + generiert) → Deduplizierung
  *   2. Wählt Thema aus dem Pool, gewichtet nach Saison / Urgency
- *   3. Ruft Claude API mit strukturiertem Prompt
+ *   3. Ruft OpenAI API (gpt-4o) mit strukturiertem Prompt + response_format=json_object
  *   4. Validiert die JSON-Antwort gegen das `RatgeberArtikel`-Schema
  *   5. Schreibt Artikel in `src/data/content/ratgeber-generated.json`
  *
- * Der Commit + Push passiert im übergeordneten GitHub-Actions-Workflow.
+ * Der Commit + Push passiert im übergeordneten Wrapper-Script (Server) oder
+ * im GitHub-Actions-Workflow.
  *
- * Lokaler Test:  ANTHROPIC_API_KEY=… npx tsx scripts/generate-ratgeber/index.ts
+ * Lokaler Test:  OPENAI_API_KEY=… npx tsx scripts/generate-ratgeber/index.ts
  * Dry-Run:       DRY_RUN=1 npx tsx scripts/generate-ratgeber/index.ts
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 import { RATGEBER_TOPICS, pickTopic } from './topics';
 import { buildSystemPrompt, buildUserPrompt } from './prompt';
 import { sanitizeArticleHtml } from '../../src/lib/content/sanitize';
@@ -127,9 +128,9 @@ function isoToday(): string {
 // ─── Main ─────────────────────────────────────────────────────────────────
 
 async function main() {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    console.error('FEHLER: ANTHROPIC_API_KEY nicht gesetzt');
+    console.error('FEHLER: OPENAI_API_KEY nicht gesetzt');
     process.exit(1);
   }
 
@@ -172,27 +173,33 @@ async function main() {
     return;
   }
 
-  const client = new Anthropic({ apiKey });
+  const client = new OpenAI({ apiKey });
   const today = isoToday();
 
   // Bis zu 2 Retries bei JSON-Parse- oder Validierungsfehlern
   let lastError: unknown = null;
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      console.log(`→ Claude API Call (Versuch ${attempt}/3)…`);
-      const response = await client.messages.create({
-        model: 'claude-sonnet-4-6',
+      console.log(`→ OpenAI API Call (gpt-4o, Versuch ${attempt}/3)…`);
+      const response = await client.chat.completions.create({
+        // gpt-4o > gpt-4o-mini — laut User-Feedback ist mini für strukturierten
+        // deutschen Fachcontent zu fehleranfällig (siehe feedback_report_ai_model).
+        model: 'gpt-4o',
         max_tokens: 4096,
-        system: buildSystemPrompt(),
-        messages: [{ role: 'user', content: buildUserPrompt(topic, today) }],
+        // response_format erzwingt strikt gültiges JSON → kein Markdown-Fence-Parsing nötig.
+        response_format: { type: 'json_object' },
+        messages: [
+          { role: 'system', content: buildSystemPrompt() },
+          { role: 'user', content: buildUserPrompt(topic, today) },
+        ],
       });
 
-      const firstBlock = response.content[0];
-      if (!firstBlock || firstBlock.type !== 'text') {
-        throw new Error(`Unerwarteter Response-Block: ${firstBlock?.type}`);
+      const rawText = response.choices[0]?.message?.content;
+      if (!rawText) {
+        throw new Error('Leere Response von OpenAI');
       }
 
-      const jsonRaw = extractJson(firstBlock.text);
+      const jsonRaw = extractJson(rawText);
       const article = validateArticle(jsonRaw);
 
       // Slug-Kollision? Dann mit Counter-Suffix.

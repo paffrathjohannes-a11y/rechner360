@@ -6,7 +6,7 @@ Erstellt automatisiert Blog-Artikel (Ratgeber) für rechner360.de per Claude API
 
 - Läuft als GitHub-Actions-Cron **Mo/Mi/Fr um 07:15 MEZ** (siehe `.github/workflows/generate-ratgeber.yml`).
 - Wählt ein Thema aus dem Pool `scripts/generate-ratgeber/topics.ts` — saisonale Themen im aktuellen Monat werden bevorzugt.
-- Ruft **Claude Sonnet 4.6** mit strukturiertem System-Prompt auf.
+- Ruft **OpenAI gpt-4o** mit strukturiertem System-Prompt auf.
 - Validiert die JSON-Response gegen das `RatgeberArtikel`-Schema.
 - Hängt den neuen Artikel an `src/data/content/ratgeber-generated.json` an.
 - Committet + pusht — Vercel deployt automatisch. Artikel sind sofort unter `/ratgeber/<slug>` live und stehen in der Sitemap.
@@ -42,7 +42,7 @@ Im rechner360-Repo unter **Settings → Secrets and variables → Actions → Ne
 
 | Name | Wert |
 |---|---|
-| `ANTHROPIC_API_KEY` | Dein Anthropic-API-Key (beginnt mit `sk-ant-…`) |
+| `OPENAI_API_KEY` | Dein OpenAI-API-Key (beginnt mit `sk-ant-…`) |
 
 ### 3. Branch-Protection anpassen (falls aktiv)
 
@@ -62,7 +62,7 @@ Nach ~30–60 Sekunden sollte ein neuer Commit auf main liegen.
 DRY_RUN=1 npx tsx scripts/generate-ratgeber/index.ts
 
 # Echter Lauf — schreibt in ratgeber-generated.json und brauch den Key
-ANTHROPIC_API_KEY=sk-ant-… npx tsx scripts/generate-ratgeber/index.ts
+OPENAI_API_KEY=sk-ant-… npx tsx scripts/generate-ratgeber/index.ts
 ```
 
 ## Themen-Pool erweitern
@@ -101,8 +101,8 @@ Falls ein Artikel nicht passt:
 
 ## Kosten
 
-Pro Artikel ~3.000 Output-Tokens bei Claude Sonnet 4.6 ≈ **~0,05 € pro Artikel**.
-Bei 3 Artikeln/Woche: ca. **0,60 € pro Monat**.
+Pro Artikel ~3.000 Output-Tokens bei gpt-4o ≈ **~0,03 € pro Artikel**.
+Bei 3 Artikeln/Woche: ca. **0,40 € pro Monat**.
 
 ## Erweiterungsideen
 
