@@ -21,7 +21,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
       robots: { index: false, follow: true },
       title: page.metaTitle,
       description: page.metaDescription,
-      alternates: { canonical: `/bmi-rechner/${page.slug}` },
+      alternates: { canonical: `/bmi-rechner` },
     };
   });
 }

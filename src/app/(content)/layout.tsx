@@ -5,7 +5,7 @@ export default function ContentLayout({ children }: { children: React.ReactNode 
   return (
     <>
       <Header />
-      <main className="flex-1 mx-auto w-full max-w-[var(--container-content)] px-4 py-12 sm:px-6">
+      <main id="main-content" className="flex-1 mx-auto w-full max-w-[var(--container-content)] px-4 py-12 sm:px-6">
         {children}
       </main>
       <Footer />

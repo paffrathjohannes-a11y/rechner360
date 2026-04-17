@@ -92,18 +92,24 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
     return () => { clearInterval(interval); clearTimeout(timeout); };
   }, [consent, clientId, adFilled]);
 
-  // Don't render anything if no consent, no client ID, or ad confirmed unfilled
-  if (!consent || !clientId || adFilled === false) return null;
+  // Ohne ClientID gibt es nichts zu rendern (Build-Zeit-Ausschluss).
+  if (!clientId) return null;
+  // Kein Consent oder Ad nachweislich leer → kompakt verstecken via `hidden`,
+  // damit kein Layout-Flip beim späteren Consent entsteht. Das Element bleibt
+  // im DOM, `hidden` macht es display:none (kein CLS-Impact beim Toggle).
+  const hideCompletely = !consent || adFilled === false;
 
   return (
     <div
       ref={adRef}
+      hidden={hideCompletely}
+      aria-hidden={adFilled !== true}
       className={cn(
         'relative overflow-hidden rounded-xl border border-border bg-surface-sunken/50',
-        'transition-all duration-300',
-        adFilled === null && 'opacity-0 max-h-0',
-        adFilled === true && 'opacity-100',
+        'transition-opacity duration-300',
+        // Höhe IMMER reservieren, solange sichtbar — verhindert CLS beim Einblenden
         formatStyles[format],
+        adFilled === true ? 'opacity-100' : 'opacity-0',
         className,
       )}
     >

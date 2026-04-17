@@ -126,7 +126,7 @@ export function CalculatorSearch({ variant, onSelect }: CalculatorSearchProps) {
         <Search className={cn('shrink-0 text-text-muted', isHero ? 'h-5 w-5' : 'h-4 w-4')} />
         <input
           ref={inputRef}
-          type="text"
+          type="search"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -135,6 +135,8 @@ export function CalculatorSearch({ variant, onSelect }: CalculatorSearchProps) {
           onFocus={() => { if (results.length > 0) setIsOpen(true); }}
           onKeyDown={handleKeyDown}
           placeholder="Rechner suchen..."
+          aria-label="Rechner suchen"
+          role="searchbox"
           className={cn(
             'flex-1 bg-transparent outline-none text-text placeholder:text-text-muted',
             isHero ? 'text-base' : 'text-sm',

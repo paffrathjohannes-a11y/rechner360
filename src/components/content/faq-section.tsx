@@ -1,6 +1,7 @@
 import { Accordion, AccordionItem } from '@/components/ui/accordion';
 import type { FAQ } from '@/types/content';
 import { cn } from '@/lib/utils/cn';
+import { sanitizeArticleHtml } from '@/lib/content/sanitize';
 
 interface FAQSectionProps {
   faqs: FAQ[];
@@ -35,7 +36,8 @@ export function FAQSection({ faqs, className }: FAQSectionProps) {
       <Accordion>
         {faqs.map((faq, i) => (
           <AccordionItem key={i} title={faq.question}>
-            <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
+            {/* sanitize gegen XSS aus AI- oder Redaktions-Content. Whitelist: strong/em/u/br. */}
+            <div dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(faq.answer) }} />
           </AccordionItem>
         ))}
       </Accordion>

@@ -9,7 +9,12 @@ export interface RatgeberArtikel {
   publishDate: string;
 }
 
-export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
+/**
+ * Kuratierte Ratgeber-Artikel — handgeschrieben, höchste Qualität.
+ * Diese werden zusammen mit AI-generierten Artikeln (ratgeber-generated.json)
+ * zu `RATGEBER_ARTIKEL` gemerged (siehe unten).
+ */
+export const RATGEBER_CURATED: RatgeberArtikel[] = [
   {
     slug: 'steuerklasse-wechseln',
     title: 'Steuerklasse wechseln \u2014 So geht\u2019s 2026',
@@ -596,3 +601,16 @@ export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
     publishDate: '2026-04-11',
   },
 ];
+
+// ─── AI-generierte Artikel ─────────────────────────────────────────────────
+// Werden vom GitHub-Actions-Workflow `.github/workflows/generate-ratgeber.yml`
+// per Claude API erstellt und in `ratgeber-generated.json` abgelegt.
+// Kuratierte + generierte Artikel werden nach Datum (neueste zuerst) gemerged.
+import ratgeberGenerated from './ratgeber-generated.json';
+
+export const RATGEBER_GENERATED: RatgeberArtikel[] = ratgeberGenerated as RatgeberArtikel[];
+
+export const RATGEBER_ARTIKEL: RatgeberArtikel[] = [
+  ...RATGEBER_CURATED,
+  ...RATGEBER_GENERATED,
+].sort((a, b) => b.publishDate.localeCompare(a.publishDate));

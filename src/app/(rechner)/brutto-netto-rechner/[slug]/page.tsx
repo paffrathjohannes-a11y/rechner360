@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
+import { FAQSection } from '@/components/content/faq-section';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { BRUTTO_NETTO_PAGES } from '@/data/programmatic/brutto-netto-pages';
 import { ProgrammaticBNRForm } from './programmatic-bnr-form';
@@ -22,8 +23,13 @@ export function generateMetadata({
     const page = BRUTTO_NETTO_PAGES.find((p) => p.slug === slug);
     if (!page) return {};
 
+    // Jede Seite hat einen unique Intro + FAQs → indexierbar.
+    // Canonical zeigt auf SICH SELBST, damit Google die Seite als
+    // vollwertige URL behandelt (kein Content-Consolidation mehr).
     return {
-      robots: { index: false, follow: true },
+      robots: page.indexable
+        ? { index: true, follow: true }
+        : { index: false, follow: true },
       title: page.metaTitle,
       description: page.metaDescription,
       alternates: {
@@ -47,15 +53,13 @@ export default async function BruttoNettoSlugPage({
   const page = BRUTTO_NETTO_PAGES.find((p) => p.slug === slug);
   if (!page) notFound();
 
-  // Find adjacent pages for internal linking
-  const sameSk = BRUTTO_NETTO_PAGES.filter(
-    (p) => p.steuerklasse === page.steuerklasse && p.slug !== page.slug,
-  );
-  const idx = sameSk.findIndex(
-    (p) => p.brutto > page.brutto,
-  );
-  const prevPage = sameSk[Math.max(0, idx - 2)];
-  const nextPage = sameSk[idx];
+  // Internal Linking: jeweils zwei Nachbarn in derselben Steuerklasse
+  const sameSk = BRUTTO_NETTO_PAGES
+    .filter((p) => p.steuerklasse === page.steuerklasse && p.slug !== page.slug)
+    .sort((a, b) => a.brutto - b.brutto);
+  const sameSkIdxAfter = sameSk.findIndex((p) => p.brutto > page.brutto);
+  const prevPage = sameSkIdxAfter > 0 ? sameSk[sameSkIdxAfter - 1] : undefined;
+  const nextPage = sameSkIdxAfter >= 0 ? sameSk[sameSkIdxAfter] : undefined;
 
   return (
     <div className="space-y-8">
@@ -82,27 +86,37 @@ export default async function BruttoNettoSlugPage({
         description={page.metaDescription}
       />
 
+      {/* Unique, kontextueller Einleitungstext — hebt die Seite aus Thin-Content heraus */}
+      <section className="rounded-xl border border-border bg-surface-raised/50 p-5 sm:p-6">
+        <p className="text-text-secondary leading-relaxed">{page.intro}</p>
+      </section>
+
       <ProgrammaticBNRForm brutto={page.brutto} steuerklasse={page.steuerklasse} />
 
-      {/* Internal linking to adjacent values */}
-      <div className="flex flex-wrap gap-2 mt-6">
-        {prevPage && (
-          <a
-            href={`/brutto-netto-rechner/${prevPage.slug}`}
-            className="text-sm text-primary-600 hover:underline"
-          >
-            ← {prevPage.brutto.toLocaleString('de-DE')} € brutto
-          </a>
-        )}
-        {nextPage && (
-          <a
-            href={`/brutto-netto-rechner/${nextPage.slug}`}
-            className="text-sm text-primary-600 hover:underline ml-auto"
-          >
-            {nextPage.brutto.toLocaleString('de-DE')} € brutto →
-          </a>
-        )}
-      </div>
+      {/* Nachbar-Navigation innerhalb derselben Steuerklasse — verteilt Crawl-Tiefe */}
+      {(prevPage || nextPage) && (
+        <nav aria-label="Weitere Beträge" className="flex flex-wrap gap-2 mt-6">
+          {prevPage && (
+            <a
+              href={`/brutto-netto-rechner/${prevPage.slug}`}
+              className="text-sm text-primary-600 hover:underline"
+            >
+              ← {prevPage.brutto.toLocaleString('de-DE')} € brutto
+            </a>
+          )}
+          {nextPage && (
+            <a
+              href={`/brutto-netto-rechner/${nextPage.slug}`}
+              className="text-sm text-primary-600 hover:underline ml-auto"
+            >
+              {nextPage.brutto.toLocaleString('de-DE')} € brutto →
+            </a>
+          )}
+        </nav>
+      )}
+
+      {/* FAQPage-Schema wird in FAQSection selbst als JSON-LD ausgegeben */}
+      <FAQSection faqs={page.faqs} className="mt-8" />
 
       <RelatedCalculators currentSlug="brutto-netto-rechner" className="mt-8" />
     </div>

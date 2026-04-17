@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
 import { EinkommensteuerForm } from './einkommensteuer-form';
 import { EINKOMMENSTEUER_FAQS } from '@/data/content/einkommensteuer-guide';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 export const metadata: Metadata = {
   title: 'Einkommensteuerrechner 2026 — Steuer berechnen',
@@ -22,6 +24,7 @@ export default function EinkommensteuerRechnerPage() {
         description: 'Kostenloser Einkommensteuerrechner 2026.',
       }}
       faqs={EINKOMMENSTEUER_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['einkommensteuer-rechner'].headline} offers={affiliateOffersBySlug['einkommensteuer-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

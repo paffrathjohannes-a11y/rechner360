@@ -17,7 +17,9 @@
 
   --text-color: #0F172A;
   --text-secondary-color: #475569;
-  --text-muted-color: #64748B;
+  /* #64748B (Kontrast 4.0:1 auf Weiß) verfehlt WCAG AA 4.5:1 knapp.
+     #52606D ergibt ~5.2:1 und bleibt deutlich heller als text-secondary. */
+  --text-muted-color: #52606D;
   --text-inverse-color: #F8FAFC;
 
   --border-color: #E2E8F0;
@@ -33,7 +35,9 @@
 
   --text-color: #F1F5F9;
   --text-secondary-color: #94A3B8;
-  --text-muted-color: #7C8BA1;
+  /* #7C8BA1 (Kontrast ~4.2:1 auf #0B1120) knapp unter AA.
+     #A0AEC0 ergibt ~5.5:1. */
+  --text-muted-color: #A0AEC0;
   --text-inverse-color: #0F172A;
 
   --border-color: #1E293B;
@@ -254,3 +258,16 @@ html {
 /* Selection */
 ::selection { background-color: #BFDBFE; color: #1E3A8A; }
 .dark ::selection { background-color: #1E40AF; color: #DBEAFE; }
+
+/* Respektiere Reduced-Motion-Präferenz: Keine dekorativen Animationen,
+   keine ruckeligen Transitionen. WCAG 2.3.3 + vestibular-freundlich. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -14,7 +14,7 @@ const FAQS = [
 
 export const metadata: Metadata = {
   title: 'Stundenlohn Rechner — Gehalt umrechnen',
-  description: 'Stundenlohn in Monatsgehalt und Jahresgehalt umrechnen — und umgekehrt. Mit variabler Wochenarbeitszeit.',
+  description: 'Stundenlohn in Monats- und Jahresgehalt umrechnen — auch umgekehrt. Mit Wochenarbeitszeit, Urlaubstagen und Feiertagen. Aktuell 2026.',
   keywords: ['Stundenlohn Rechner', 'Stundenlohn berechnen', 'Monatsgehalt in Stundenlohn', 'Gehalt umrechnen'],
   alternates: { canonical: '/stundenlohn-rechner' },
 };
@@ -27,6 +27,40 @@ export default function StundenlohnRechnerPage() {
       subtitle="Rechnen Sie Stundenlohn, Monatsgehalt und Jahresgehalt ineinander um."
       jsonLd={{ name: 'Stundenlohn Rechner', url: '/stundenlohn-rechner', description: 'Stundenlohn in Monatsgehalt und Jahresgehalt umrechnen.' }}
       faqs={FAQS}
+      guideContent={
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-text">Stundenlohn, Monatsgehalt, Jahresgehalt — alle Formeln</h2>
+          <p className="text-text-secondary leading-relaxed">
+            Der Stundenlohn ist die zentrale Verhandlungsgröße in vielen Branchen. Ob Sie ein neues Stellenangebot
+            bewerten oder als Freelancer kalkulieren — mit dem Rechner wandeln Sie Stundenlohn, Monatsgehalt und
+            Jahresgehalt direkt ineinander um. Die Formel ist simpel: Das Jahr hat 52 Wochen, der Monat also
+            im Schnitt 4,33 Wochen.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Die Standardformeln</h3>
+          <ul className="space-y-2 text-text-secondary">
+            <li><strong>Stundenlohn → Monatsgehalt:</strong> Stundenlohn × Wochenstunden × 52 ÷ 12</li>
+            <li><strong>Monatsgehalt → Stundenlohn:</strong> Monatsgehalt ÷ (Wochenstunden × 52 ÷ 12)</li>
+            <li><strong>Jahresgehalt → Stundenlohn:</strong> Jahresgehalt ÷ (Wochenstunden × 52)</li>
+          </ul>
+          <p className="text-text-secondary leading-relaxed">
+            Bei einer 40-Stunden-Woche entspricht das monatlich 173,33 Stunden, bei 38,5 Stunden 166,83, bei 35 Stunden 151,67.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Mindestlohn 2026 und typische Gehälter</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Der gesetzliche Mindestlohn wurde 2025 auf <strong>12,82 €/Stunde</strong> erhöht. Bei Vollzeit (40h)
+            entspricht das rund 2.222 € brutto pro Monat. Der deutsche Durchschnitts-Stundenlohn liegt bei etwa
+            25 € brutto, in tariflich gut organisierten Industriezweigen (Chemie, Metall, Pharma) oft deutlich darüber.
+            Ab ca. 30 €/Stunde gilt das Einkommen als überdurchschnittlich.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Urlaub und Feiertage berücksichtigen</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Die klassische Formel ignoriert Urlaub und Feiertage — in Deutschland also rund 30 bezahlte Freitage. Der
+            Rechner oben bietet optional eine Korrektur: Wenn Sie Ihren <strong>effektiven Stundenlohn</strong> wissen
+            wollen (also den Betrag, den Sie pro tatsächlich gearbeiteter Stunde bekommen), berücksichtigen Sie die
+            Urlaubstage. Das Ergebnis liegt üblicherweise 10–12 % über dem nominalen Stundenlohn.
+          </p>
+        </section>
+      }
     >
       <StundenlohnForm />
     </CalculatorPageLayout>

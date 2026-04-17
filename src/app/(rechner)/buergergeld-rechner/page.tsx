@@ -4,8 +4,8 @@ import { BuergergeldForm } from './buergergeld-form';
 import { BUERGERGELD_FAQS } from '@/data/content/buergergeld-guide';
 
 export const metadata: Metadata = {
-  title: 'Grundsicherung Rechner 2026 (ehem. Bürgergeld) — Anspruch berechnen',
-  description: 'Berechnen Sie Ihren Grundsicherungs-Anspruch 2026 kostenlos. Ab 01.07.2026 ersetzt die Neue Grundsicherung das Bürgergeld. Regelbedarf, Kosten der Unterkunft und Freibeträge.',
+  title: 'Bürgergeld-Rechner 2026 — Anspruch & Höhe berechnen',
+  description: 'Bürgergeld-Anspruch 2026 kostenlos berechnen. Regelbedarf, Kosten der Unterkunft, Einkommensfreibeträge — mit Familiensituation und Einkommen.',
   keywords: ['Grundsicherung Rechner', 'Grundsicherung 2026', 'Bürgergeld Nachfolger', 'Grundsicherungsgeld berechnen', 'Neue Grundsicherung'],
   alternates: { canonical: '/buergergeld-rechner' },
 };

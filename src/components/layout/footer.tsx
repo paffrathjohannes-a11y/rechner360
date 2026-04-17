@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import { Calculator } from 'lucide-react';
 import { RECHNER_CATEGORIES, getRechnerByCategory, SITE_NAME } from '@/lib/utils/constants';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+
+// WISO-Partner-URL für die dezente Footer-Platzierung
+const WISO_FOOTER_OFFER = affiliateOffersBySlug.homepage.offers[0];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -73,7 +77,22 @@ export function Footer() {
           })}
         </div>
 
-        <div className="mt-10 border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        {/* Dezenter Partner-Hinweis oberhalb der Copyright-Zeile.
+            Als Affiliate-Link mit Kennzeichnung (Anzeige/TMG). */}
+        <div className="mt-10 border-t border-border pt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-text-muted">
+          <span>In Zusammenarbeit mit:</span>
+          <a
+            href={WISO_FOOTER_OFFER.url}
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+            className="font-medium text-text-secondary hover:text-primary-600 transition-colors"
+          >
+            {WISO_FOOTER_OFFER.title}
+          </a>
+          <span className="text-text-muted/70">(Anzeige)</span>
+        </div>
+
+        <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-text-muted">
             &copy; {currentYear} {SITE_NAME}. Alle Angaben ohne Gewähr.
             Die Berechnungen ersetzen keine professionelle Steuer- oder Finanzberatung.

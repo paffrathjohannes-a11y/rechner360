@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -41,11 +41,20 @@ export function CookieBanner() {
   const [analytics, setAnalytics] = useState(true);
   const [marketing, setMarketing] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const primaryButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setMounted(true);
     if (!getStoredConsent()) setShow(true);
   }, []);
+
+  // Nach Einblendung Fokus auf den primären Button setzen — Keyboard-Nutzer
+  // müssen nicht erst durch das gesamte Dokument tabben, um den Banner zu erreichen.
+  useEffect(() => {
+    if (show && primaryButtonRef.current) {
+      primaryButtonRef.current.focus();
+    }
+  }, [show]);
 
   function handleAcceptAll() {
     saveConsent({ necessary: true, analytics: true, marketing: true });
@@ -65,12 +74,20 @@ export function CookieBanner() {
   if (!mounted || !show) return null;
 
   return (
-    <div className="fixed bottom-0 inset-x-0 z-[100] p-3 sm:p-4 animate-result-in">
+    <div
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="cookie-banner-title"
+      aria-describedby="cookie-banner-desc"
+      className="fixed bottom-0 inset-x-0 z-[100] p-3 sm:p-4 animate-result-in"
+    >
       <div className="mx-auto max-w-xl rounded-2xl border border-border bg-surface p-4 sm:p-5 shadow-xl">
+        {/* Versteckter Titel für Screenreader, macht den Dialog aria-konform */}
+        <h2 id="cookie-banner-title" className="sr-only">Cookie-Einstellungen</h2>
         {!showDetails ? (
           /* ─── Kompakte Ansicht ─── */
           <div className="space-y-3">
-            <p className="text-sm text-text leading-relaxed">
+            <p id="cookie-banner-desc" className="text-sm text-text leading-relaxed">
               Wir nutzen Cookies für Analyse und Werbung. Berechnungen laufen nur in Ihrem Browser.{' '}
               <Link href="/datenschutz" className="text-primary-600 hover:underline">Datenschutz</Link>
             </p>
@@ -78,7 +95,7 @@ export function CookieBanner() {
               <Button onClick={handleDeclineAll} variant="secondary" size="sm" className="flex-1">
                 Ablehnen
               </Button>
-              <Button onClick={handleAcceptAll} variant="primary" size="sm" className="flex-1">
+              <Button ref={primaryButtonRef} onClick={handleAcceptAll} variant="primary" size="sm" className="flex-1">
                 Akzeptieren
               </Button>
             </div>

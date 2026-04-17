@@ -57,7 +57,14 @@ export function CalculatorPageLayout({
 
       <WebApplicationJsonLd {...jsonLd} />
 
-      {children}
+      {/*
+        aria-live="polite" announced Ergebnis-Aktualisierungen für Screenreader,
+        ohne Input-Eingaben zu unterbrechen. aria-atomic="false" meldet nur den
+        geänderten Text, nicht den gesamten Subtree.
+      */}
+      <div aria-live="polite" aria-atomic="false">
+        {children}
+      </div>
 
       {/* Affiliate recommendations — natural next step after results */}
       {affiliateSection && <div className="mt-8">{affiliateSection}</div>}

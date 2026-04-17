@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   return params.then(({ slug }) => {
     const page = BUERGERGELD_PAGES.find((p) => p.slug === slug);
     if (!page) return {};
-    return { robots: { index: false, follow: true }, title: page.metaTitle, description: page.metaDescription, alternates: { canonical: `/buergergeld-rechner/${page.slug}` } };
+    return { robots: { index: false, follow: true }, title: page.metaTitle, description: page.metaDescription, alternates: { canonical: `/buergergeld-rechner` } };
   });
 }
 

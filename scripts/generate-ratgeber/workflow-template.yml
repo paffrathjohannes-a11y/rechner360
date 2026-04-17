@@ -1,0 +1,68 @@
+name: Ratgeber-Artikel generieren
+
+on:
+  # Mo/Mi/Fr 06:15 UTC (07:15 MEZ / 08:15 MESZ) — 15 Minuten Offset,
+  # damit wir nicht exakt zur vollen Stunde laufen und die Fleet-Spitze vermeiden.
+  schedule:
+    - cron: '15 6 * * 1,3,5'
+  # Manueller Trigger für Tests und Nachzieher.
+  workflow_dispatch:
+
+# Die Action muss auf main committen dürfen.
+permissions:
+  contents: write
+
+# Parallele Runs vermeiden — sonst könnten zwei Artikel gleichzeitig in die JSON
+# schreiben und einer würde überschrieben.
+concurrency:
+  group: ratgeber-generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Wir brauchen Schreibrechte und die History für den Commit
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Ratgeber-Artikel
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npx tsx scripts/generate-ratgeber/index.ts
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet src/data/content/ratgeber-generated.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit & Push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "rechner360-bot"
+          git config user.email "bot@rechner360.de"
+          # Titel des neu generierten Artikels aus dem JSON ziehen (letzter Eintrag)
+          TITLE=$(node -e "const a=require('./src/data/content/ratgeber-generated.json'); console.log(a[a.length-1].title)")
+          git add src/data/content/ratgeber-generated.json
+          git commit -m "ratgeber: neuer Artikel — ${TITLE}
+
+          Automatisch generiert per GitHub Actions (Claude Sonnet 4.6)."
+          git push

@@ -16,7 +16,7 @@ const FAQS = [
 
 export const metadata: Metadata = {
   title: 'Inflationsrechner — Kaufkraftverlust berechnen',
-  description: 'Berechnen Sie den Kaufkraftverlust durch Inflation. Wie viel sind 1.000€ in 10 Jahren noch wert?',
+  description: 'Kaufkraftverlust durch Inflation 2026 berechnen. Wie viel sind 1.000 € in 10 Jahren noch wert? Mit EZB-Zielrate, Sparplan-Vergleich und realer Rendite.',
   keywords: ['Inflationsrechner', 'Kaufkraftverlust', 'Inflation berechnen', 'Kaufkraft Rechner'],
   alternates: { canonical: '/inflationsrechner' },
 };

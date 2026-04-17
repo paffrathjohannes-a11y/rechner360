@@ -1,4 +1,9 @@
-import { SITE_NAME, SITE_URL } from '@/lib/utils/constants';
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/utils/constants';
+
+// `/icon` wird von `src/app/icon.tsx` zur Build-Zeit generiert und ist
+// unter `/icon.png` als Brand-Asset abrufbar. Bis ein echtes Logo im
+// public-Ordner liegt, nutzen wir diese URL als verifizierbares Bild.
+const BRAND_LOGO_URL = `${SITE_URL}/icon.png`;
 
 interface WebApplicationJsonLdProps {
   name: string;
@@ -17,6 +22,8 @@ export function WebApplicationJsonLd({ name, url, description, category = 'Finan
     applicationCategory: category,
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript',
+    inLanguage: 'de-DE',
+    isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -38,16 +45,16 @@ export function WebApplicationJsonLd({ name, url, description, category = 'Finan
 }
 
 export function WebSiteJsonLd() {
+  // SearchAction entfernt: Die Seite hat keinen serverseitigen /?q= Endpoint,
+  // der echte Such-Ergebnisse rendert. Google aktiviert das Sitelinks-Searchbox-
+  // Feature nur bei funktionalen Endpunkten — leere Ziele schaden dem Signal.
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
+    description: SITE_DESCRIPTION,
+    inLanguage: 'de-DE',
   };
 
   return (
@@ -59,13 +66,16 @@ export function WebSiteJsonLd() {
 }
 
 export function OrganizationJsonLd() {
+  // `sameAs` bleibt bewusst leer, bis verifizierte externe Profile vorliegen
+  // (Wikidata, LinkedIn-Company, X/Twitter). Leere Arrays sind valide Schema.org —
+  // besser als falsche oder nicht-verifizierte Links.
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
-    sameAs: [],
+    logo: BRAND_LOGO_URL,
+    description: SITE_DESCRIPTION,
   };
 
   return (

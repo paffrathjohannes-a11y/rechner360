@@ -9,6 +9,8 @@ import { CalculatorSearch } from '@/components/search/calculator-search';
 import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
 import { UsageCounter } from '@/components/home/usage-counter';
 import { HeroCalculator } from '@/components/home/hero-calculator';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
 
 export default function HomePage() {
@@ -18,7 +20,7 @@ export default function HomePage() {
       <WebSiteJsonLd />
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero */}
         <section className="relative overflow-hidden border-b border-border bg-gradient-to-b from-primary-50/50 to-surface dark:from-primary-950/20 dark:to-surface">
           <div className="mx-auto max-w-[var(--container-max)] px-4 py-10 sm:py-14 lg:py-16 sm:px-6 lg:px-8">
@@ -74,6 +76,14 @@ export default function HomePage() {
             />
           ))}
         </div>
+
+        {/* Homepage Partner-Platzierung */}
+        <section className="mx-auto max-w-[var(--container-max)] px-4 pb-12 sm:px-6 lg:px-8">
+          <AffiliateBox
+            headline={affiliateOffersBySlug.homepage.headline}
+            offers={affiliateOffersBySlug.homepage.offers}
+          />
+        </section>
 
         {/* Trust Signals */}
         <section className="mx-auto max-w-[var(--container-max)] px-4 pb-16 sm:px-6 lg:px-8">

@@ -96,6 +96,31 @@ const check24BU: AffiliateOffer = {
   highlight: true,
 };
 
+// ─── WISO (Buhl Data) Produkte ─────────────────────────────
+// WISO Steuer-Software von Buhl Data — AWIN-MID 17387, freigeschaltet 04/2026.
+const WISO_AWIN_MID = '17387';
+
+const wisoSteuer: AffiliateOffer = {
+  partner: 'wiso',
+  product: 'steuer',
+  title: 'WISO Steuer 2026',
+  description: 'Die Steuererklärung einfach selbst machen. Im Schnitt 1.674 € Rückerstattung. ELSTER-Versand inklusive.',
+  cta: 'WISO Steuer starten',
+  url: `https://www.awin1.com/cread.php?awinmid=${WISO_AWIN_MID}&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.buhl.de%2Fwiso-steuer%2F`,
+  badge: 'Bestseller',
+  highlight: true,
+};
+
+const wisoMeinGeld: AffiliateOffer = {
+  partner: 'wiso',
+  product: 'finanzen',
+  title: 'WISO Mein Geld',
+  description: 'Finanzen, Konten und Depots zentral verwalten. Mit automatischer Transaktions-Kategorisierung.',
+  cta: 'Finanzen im Griff',
+  url: `https://www.awin1.com/cread.php?awinmid=${WISO_AWIN_MID}&awinaffid=${AWIN_ID}&ued=https%3A%2F%2Fwww.buhl.de%2Fwiso-mein-geld%2F`,
+  badge: 'Tipp',
+};
+
 // ─── Verivox Produkte ──────────────────────────────────────
 
 const verivoxStrom: AffiliateOffer = {
@@ -177,28 +202,28 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     offers: [check24Steuer],
   },
   'brutto-netto-rechner': {
-    headline: 'Mehr Netto vom Brutto',
-    offers: [check24Steuer],
+    headline: 'Steuererklärung schnell erledigen',
+    offers: [wisoSteuer, check24Steuer],
   },
   gehaltsrechner: {
-    headline: 'Gehalt optimieren',
-    offers: [check24Steuer],
+    headline: 'Gehalt optimieren & Steuern sparen',
+    offers: [wisoSteuer, check24Steuer],
   },
   abfindungsrechner: {
     headline: 'Abfindung richtig versteuern',
-    offers: [check24Steuer],
+    offers: [wisoSteuer, check24Steuer],
   },
   'erbschaftsteuer-rechner': {
     headline: 'Erbschaft richtig versteuern',
-    offers: [check24Steuer],
+    offers: [wisoSteuer, check24Steuer],
   },
   'mwst-rechner': {
-    headline: 'Buchhaltung vereinfachen',
-    offers: [check24Steuer],
+    headline: 'Buchhaltung & Steuer vereinfachen',
+    offers: [wisoSteuer, check24Steuer],
   },
   'elterngeld-rechner': {
     headline: 'Finanzen für junge Familien',
-    offers: [check24Steuer],
+    offers: [wisoSteuer, check24Steuer],
   },
 
   // Versicherung
@@ -239,8 +264,26 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     offers: [verivoxStrom, verivoxGas],
   },
   'gehaltserhoehung-rechner': {
-    headline: 'Ausgaben optimieren',
-    offers: [verivoxStrom, verivoxDSL],
+    headline: 'Gehaltserhöhung steueroptimal nutzen',
+    offers: [wisoSteuer, check24Steuer],
+  },
+  'einkommensteuer-rechner': {
+    headline: 'Steuererklärung 2026 selber machen',
+    offers: [wisoSteuer, check24Steuer],
+  },
+
+  // Globale Platzierungen (Homepage, Ratgeber-Sidebar): prominente Bestseller.
+  homepage: {
+    headline: 'Steuererklärung clever erledigen',
+    offers: [wisoSteuer, check24Steuer],
+  },
+  'ratgeber-steuer': {
+    headline: 'Passende Software für Ihre Steuererklärung',
+    offers: [wisoSteuer],
+  },
+  'ratgeber-altersvorsorge': {
+    headline: 'Finanzen und Vorsorge im Blick',
+    offers: [wisoMeinGeld, wisoSteuer],
   },
   kalorienrechner: {
     headline: 'Nebenkosten senken',

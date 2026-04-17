@@ -6,15 +6,17 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/', '/public/'],
+        // Next.js serviert den public-Ordner direkt unter `/` — eine Regel
+        // für `/public/` würde nichts treffen. `/_next/` hält interne Assets
+        // vom Crawl fern, `/api/` ist präventiv für spätere Routes.
+        disallow: ['/api/', '/_next/'],
       },
       {
-        // Aggressive bots: block to save server resources
+        // Aggressive Bots blocken — schützt Crawl-Budget und Server-Ressourcen
         userAgent: ['AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot'],
         disallow: '/',
       },
     ],
     sitemap: 'https://www.rechner360.de/sitemap.xml',
-    host: 'https://www.rechner360.de',
   };
 }

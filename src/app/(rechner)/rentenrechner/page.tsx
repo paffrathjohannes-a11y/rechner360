@@ -34,6 +34,38 @@ export default function RentenrechnerPage() {
       }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.rentenrechner.headline} offers={affiliateOffersBySlug.rentenrechner.offers} />}
+      guideContent={
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-text">Gesetzliche Rente 2026 — Formel und Stellschrauben</h2>
+          <p className="text-text-secondary leading-relaxed">
+            Die deutsche Rentenformel ist überraschend transparent: <strong>Monatsrente = Entgeltpunkte × Zugangsfaktor × Rentenwert</strong>.
+            Jeder dieser drei Faktoren ist beeinflussbar. Der Rentenwert ist politisch gesetzt (2026: 39,32 €), die
+            Entgeltpunkte sammeln Sie über Ihre Einzahlungen, der Zugangsfaktor hängt vom Renteneintrittsalter ab.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Entgeltpunkte verstehen</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Entgeltpunkte messen Ihr Einkommen relativ zum Durchschnittslohn aller Versicherten. Wer 2026 genau das
+            vorläufige Durchschnittsentgelt von 51.944 € verdient, bekommt einen Punkt. Wer doppelt so viel verdient,
+            zwei Punkte — aber nur bis zur Beitragsbemessungsgrenze von 101.400 €. Alles darüber bringt keine
+            zusätzlichen Punkte. Nach 45 Jahren mit Durchschnittsverdienst summieren sich 45 Punkte zu einer Bruttorente
+            von rund 1.770 € monatlich.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Zugangsfaktor: Abschlag oder Bonus</h3>
+          <ul className="space-y-2 text-text-secondary">
+            <li><strong>Regelaltersgrenze:</strong> Für Jahrgang 1964 und jünger gilt das Renteneintrittsalter 67.</li>
+            <li><strong>Früher Rente (Abschlag):</strong> Pro Monat vor 67 minus 0,3 %. Zwei Jahre früher kostet damit 7,2 % der Rente — lebenslang.</li>
+            <li><strong>Später Rente (Bonus):</strong> Pro Monat nach 67 plus 0,5 %. Ein Jahr länger ergibt +6 %. Für Vermögende oft rentabler als jeder Kapitalmarkt.</li>
+          </ul>
+          <h3 className="text-lg font-semibold text-text pt-2">Die Rentenlücke realistisch einschätzen</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Die gesetzliche Rente ersetzt aktuell ca. 48 % des vorherigen Nettoeinkommens (Rentenniveau). Von dieser
+            Bruttorente werden zusätzlich Kranken- und Pflegeversicherung sowie Steuern abgezogen — netto bleiben oft
+            nur 40–45 %. Wer im Alter seinen Lebensstandard halten will, braucht typischerweise 70–80 % des letzten
+            Nettos — also eine private Ergänzung von 25–35 %. Je früher Sie mit Vorsorge beginnen, desto stärker wirkt
+            der Zinseszinseffekt.
+          </p>
+        </section>
+      }
     >
       <RentenForm />
     </CalculatorPageLayout>

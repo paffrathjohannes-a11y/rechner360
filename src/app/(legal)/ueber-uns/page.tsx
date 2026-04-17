@@ -4,6 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: '\u00dcber uns',
   description: 'Erfahren Sie mehr \u00fcber rechner360.de \u2014 kostenlose, pr\u00e4zise Online-Rechner f\u00fcr Deutschland.',
+  alternates: { canonical: '/ueber-uns' },
 };
 
 export default function UeberUnsPage() {

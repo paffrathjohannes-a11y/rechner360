@@ -84,9 +84,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: SITE_URL,
-    languages: {
-      'de-DE': SITE_URL,
-    },
+    // Kein `languages`-Hreflang: Wir haben nur deutsche Inhalte und im Root
+    // gesetzte Hreflang-Einträge werden von Next.js an alle Unterseiten
+    // weitervererbt — ohne seitenspezifisches Override würde jede Seite
+    // fälschlich auf die Root-URL zeigen (bekannter App-Router-Bug).
   },
 };
 
@@ -102,6 +103,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-dvh flex flex-col antialiased">
+        {/* Skip-Link für Tastatur- und Screenreader-Nutzer (WCAG 2.4.1). */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[1000] focus:rounded-lg focus:bg-primary-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
+        >
+          Zum Hauptinhalt springen
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

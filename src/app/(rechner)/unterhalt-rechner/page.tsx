@@ -31,6 +31,45 @@ export default function UnterhaltRechnerPage() {
         description: 'Kindesunterhalt nach Düsseldorfer Tabelle berechnen.',
       }}
       faqs={FAQS}
+      guideContent={
+        <section className="space-y-4">
+          <h2 className="text-2xl font-bold text-text">Kindesunterhalt nach der Düsseldorfer Tabelle 2026</h2>
+          <p className="text-text-secondary leading-relaxed">
+            Die <strong>Düsseldorfer Tabelle</strong> ist zwar kein Gesetz, wird aber von allen deutschen Familiengerichten
+            als Leitlinie zur Bemessung des Kindesunterhalts angewendet. Sie teilt das bereinigte Nettoeinkommen des
+            Unterhaltspflichtigen in 15 Einkommensgruppen und staffelt den Unterhalt nach Alter der Kinder (0–5, 6–11,
+            12–17, 18+). Der Rechner oben ermittelt den <strong>Zahlbetrag</strong> — also die Summe, die tatsächlich
+            monatlich zu überweisen ist, nach Abzug des anzurechnenden Kindergelds.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Bereinigtes Nettoeinkommen — was zählt</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Ausgangspunkt ist das monatliche Nettoeinkommen. Davon werden als berufsbedingte Aufwendungen pauschal 5 %
+            abgezogen (oder höhere Kosten nach Nachweis), dazu kommen Zins- und Tilgungsleistungen für selbstgenutztes
+            Wohneigentum sowie bestimmte Schulden und Belastungen. Das Ergebnis bestimmt Ihre Einkommensgruppe in der
+            Tabelle.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Kindergeld-Anrechnung</h3>
+          <ul className="space-y-2 text-text-secondary">
+            <li><strong>Minderjährige Kinder:</strong> Das <em>hälftige</em> Kindergeld (127,50 €) wird vom Tabellenunterhalt abgezogen. Grund: Beide Elternteile teilen sich die Bar- und Betreuungsunterhalts-Pflicht.</li>
+            <li><strong>Volljährige Kinder (Ausbildung / Studium):</strong> Das <em>volle</em> Kindergeld (255 €) wird angerechnet — sie sind selbst Empfänger des Kindergelds, das auf ihren Unterhaltsanspruch angerechnet wird.</li>
+          </ul>
+          <h3 className="text-lg font-semibold text-text pt-2">Selbstbehalt und Mangelfall</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Der Unterhaltspflichtige muss mindestens seinen <strong>Selbstbehalt</strong> behalten dürfen — 1.450 € bei
+            Erwerbstätigen, 1.200 € bei Nicht-Erwerbstätigen (Stand Düsseldorfer Tabelle 2025/2026). Reicht das
+            Einkommen nicht für den vollen Unterhalt aller berechtigten Kinder, liegt ein <strong>Mangelfall</strong> vor.
+            Minderjährige und privilegierte volljährige Kinder bis 21 (bei allgemeinbildender Schule im Elternhaus)
+            haben Vorrang. Der verbleibende Betrag wird anteilig verteilt.
+          </p>
+          <h3 className="text-lg font-semibold text-text pt-2">Wann ist eine Anpassung fällig?</h3>
+          <p className="text-text-secondary leading-relaxed">
+            Die Düsseldorfer Tabelle wird typischerweise jährlich zum 1. Januar aktualisiert. Zusätzlich können
+            Einkommensänderungen (Jobwechsel, Arbeitslosigkeit, Gehaltserhöhung) ein Anpassungsverfahren auslösen —
+            in beide Richtungen. Für die rechtssichere Neufestsetzung ist meist eine Jugendamtsurkunde oder ein
+            gerichtlicher Beschluss nötig.
+          </p>
+        </section>
+      }
     >
       <UnterhaltForm />
     </CalculatorPageLayout>

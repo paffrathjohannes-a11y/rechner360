@@ -28,10 +28,22 @@ const defaultInput: Omit<BruttoNettoInput, 'brutto' | 'steuerklasse'> = {
   firmenwagen_antrieb: 'kein',
 };
 
+// LCP-Optimierung: Default-Netto zur Modul-Ladezeit vorberechnen, damit der
+// SSR-Output bereits einen Wert enthält. Ohne diese Konstante blinkt das
+// Ergebnis bei Hydration von "—" auf den tatsächlichen Betrag.
+const DEFAULT_BRUTTO = 3500;
+const DEFAULT_STEUERKLASSE: 1 = 1;
+const DEFAULT_NETTO = calculateBruttoNetto({
+  ...defaultInput,
+  brutto: DEFAULT_BRUTTO,
+  steuerklasse: DEFAULT_STEUERKLASSE,
+}).netto;
+
 export function HeroCalculator() {
-  const [brutto, setBrutto] = useState(3500);
-  const [steuerklasse, setSteuerklasse] = useState<1 | 2 | 3 | 4 | 5 | 6>(1);
-  const [netto, setNetto] = useState(0);
+  const [brutto, setBrutto] = useState(DEFAULT_BRUTTO);
+  const [steuerklasse, setSteuerklasse] = useState<1 | 2 | 3 | 4 | 5 | 6>(DEFAULT_STEUERKLASSE);
+  // Mit vorberechnetem Default startet die UI ohne "—"-Flash → stabilerer LCP.
+  const [netto, setNetto] = useState(DEFAULT_NETTO);
 
   useEffect(() => {
     if (brutto <= 0) { setNetto(0); return; }
