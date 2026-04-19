@@ -128,6 +128,25 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
                 __html: `<p>${sanitizeArticleHtml(section.content)}</p>`,
               }}
             />
+            {/* Mid-Article Rechner-CTA: nach der ~Mitte des Artikels einen
+                auffälligen Link zum passenden Rechner. Treibt Conversion
+                vom "Recherche"-Modus in den "Selber ausprobieren"-Modus.
+                SEO-Vorteil: zusätzlicher Internal Link Ratgeber → Rechner
+                mit kontextuellem Anchor-Text. */}
+            {i === Math.floor(artikel.sections.length / 2) - 1 && (
+              <div className="not-prose my-8 rounded-xl border-2 border-accent-500/30 bg-accent-50/40 dark:bg-accent-900/10 p-5">
+                <p className="text-sm text-text-secondary mb-1">
+                  💡 Lust auf eine konkrete Zahl?
+                </p>
+                <Link
+                  href={`/${artikel.relatedRechner}`}
+                  className="group inline-flex items-center gap-2 text-accent-600 hover:text-accent-700 font-semibold text-lg"
+                >
+                  Jetzt {artikel.relatedRechner.replace(/-rechner$/, '').replace(/-/g, ' ')}-Rechner öffnen
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            )}
           </div>
         ))}
 

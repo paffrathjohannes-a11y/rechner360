@@ -271,3 +271,41 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* ─── Print Styles: saubere PDF-Export-Ansicht ─────────────────────────
+   Alle dekorativen und monetarisierenden Elemente ausblenden. Übrig
+   bleiben nur Rechner-Form, Ergebnis, Aufschlüsselung und Breadcrumb. */
+@media print {
+  header[role="banner"],
+  footer,
+  nav[aria-label="Navigation pfad"],
+  .adsbygoogle,
+  ins.adsbygoogle,
+  [class*="sticky-desktop-ad"],
+  /* Native Ad Slots und Affiliate Boxes */
+  section:has(ins.adsbygoogle),
+  /* Hide "Weitere Rechner" und Ratgeber-Links — irrelevant im PDF */
+  section:has(h2:is(:first-child)):last-of-type,
+  .print\:hidden {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .bg-accent-50\/50, .bg-accent-900\/10, .bg-surface, .bg-surface-raised,
+  .bg-surface-sunken {
+    background: white !important;
+  }
+  .border-accent-200, .border-accent-800, .border-border {
+    border-color: #ccc !important;
+  }
+  .text-accent-600, .text-accent-400, .text-accent-500 {
+    color: black !important;
+  }
+  a { color: black !important; text-decoration: none !important; }
+  /* URL am Seitenende zeigen */
+  @page {
+    margin: 1.5cm 1cm 2cm 1cm;
+  }
+}

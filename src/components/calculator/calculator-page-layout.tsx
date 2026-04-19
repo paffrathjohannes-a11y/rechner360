@@ -15,6 +15,7 @@ import { getCategoryForRechner } from '@/lib/utils/constants';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 import { Sources } from '@/components/calculator/sources';
 import { sourcesBySlug } from '@/data/sources';
+import { PrintButton } from '@/components/calculator/print-button';
 
 interface FAQ {
   question: string;
@@ -72,7 +73,10 @@ export function CalculatorPageLayout({
       <Breadcrumbs items={breadcrumbItems} />
 
       <div className="space-y-2">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">{title}</h1>
+        <div className="flex items-start justify-between gap-4">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-text">{title}</h1>
+          <PrintButton className="shrink-0 mt-2" />
+        </div>
         <p className="text-text-secondary text-lg">{subtitle}</p>
         <TrustSignals compact className="mt-3" />
       </div>

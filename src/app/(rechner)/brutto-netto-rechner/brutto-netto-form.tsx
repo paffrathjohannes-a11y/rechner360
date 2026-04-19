@@ -41,8 +41,14 @@ export function BruttoNettoForm() {
   const [input, setInput] = useState<BruttoNettoInput>(defaultInput);
   const [result, setResult] = useState<BruttoNettoResult | null>(() => calculateBruttoNetto(defaultInput));
   const [period, setPeriod] = useState<'month' | 'year'>('month');
+  const [compareSk, setCompareSk] = useState<BruttoNettoInput['steuerklasse'] | null>(null);
   useTrackCalculator('brutto-netto-rechner', result !== null);
   const factor = period === 'year' ? 12 : 1;
+
+  // Compare-Szenario: gleiche Eingaben, aber mit abweichender Steuerklasse
+  const compareResult = compareSk && compareSk !== input.steuerklasse && result
+    ? calculateBruttoNetto({ ...input, steuerklasse: compareSk })
+    : null;
 
   // URL-State: aus Query-Params nach Mount übernehmen (SSR-safe).
   const urlOverrides = useUrlStateRead<{
@@ -263,6 +269,53 @@ export function BruttoNettoForm() {
                 </span>
                 {' '}/ {period === 'year' ? 'Jahr' : 'Monat'}
               </p>
+            </Card>
+
+            {/* Vergleich mit anderer Steuerklasse — z.B. für Paare die
+                zwischen III/V vs. IV/IV wechseln wollen. */}
+            <Card padding="md" className="print:hidden">
+              <div className="flex flex-wrap items-center gap-3">
+                <label htmlFor="compare-sk" className="text-sm font-semibold text-text">
+                  Vergleich mit Steuerklasse:
+                </label>
+                <Select
+                  id="compare-sk"
+                  value={compareSk ?? ''}
+                  onChange={(e) => setCompareSk(e.target.value ? (Number(e.target.value) as BruttoNettoInput['steuerklasse']) : null)}
+                  className="w-auto"
+                >
+                  <option value="">— nicht vergleichen —</option>
+                  {STEUERKLASSEN.filter((sk) => sk.id !== input.steuerklasse).map((sk) => (
+                    <option key={sk.id} value={sk.id}>
+                      {sk.name}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              {compareResult && (
+                <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div className="rounded-lg bg-surface p-3">
+                    <p className="text-text-muted text-xs">Steuerklasse {input.steuerklasse} (aktuell)</p>
+                    <p className="text-lg font-semibold font-currency text-text">
+                      {formatCurrency(result.netto * factor)}
+                    </p>
+                  </div>
+                  <div className="rounded-lg bg-accent-50/40 dark:bg-accent-900/10 p-3">
+                    <p className="text-text-muted text-xs">Steuerklasse {compareSk}</p>
+                    <p className="text-lg font-semibold font-currency text-accent-600">
+                      {formatCurrency(compareResult.netto * factor)}
+                    </p>
+                    <p className="text-xs mt-1 text-text-secondary">
+                      Δ {' '}
+                      <span className={compareResult.netto > result.netto ? 'text-success-600 font-semibold' : 'text-warning-600 font-semibold'}>
+                        {compareResult.netto > result.netto ? '+' : ''}
+                        {formatCurrency((compareResult.netto - result.netto) * factor)}
+                      </span>
+                      {' '}/ {period === 'year' ? 'Jahr' : 'Monat'}
+                    </p>
+                  </div>
+                </div>
+              )}
             </Card>
           </div>
         ) : (
