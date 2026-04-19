@@ -7,6 +7,7 @@ import { Select } from '@/components/ui/select';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateBmi, type BmiResult } from '@/lib/calculator/health/bmi';
 import { cn } from '@/lib/utils/cn';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 const farbeMap = {
   accent: { bg: 'bg-accent-50/50 dark:bg-accent-900/10', border: 'border-accent-200 dark:border-accent-800', text: 'text-accent-600 dark:text-accent-400' },
@@ -21,6 +22,25 @@ export function BmiForm() {
   const [alter, setAlter] = useState(30);
   const [geschlecht, setGeschlecht] = useState<'mann' | 'frau'>('mann');
   const [result, setResult] = useState<BmiResult | null>(null);
+
+  // URL-State: ?g=175&w=75&a=30&s=m
+  const urlOverrides = useUrlStateRead<{
+    g: number; w: number; a: number; s: string;
+  }>({ g: parsers.int, w: parsers.int, a: parsers.int, s: parsers.str });
+  useEffect(() => {
+    if (urlOverrides.g !== undefined && urlOverrides.g > 0) setGroesse(urlOverrides.g);
+    if (urlOverrides.w !== undefined && urlOverrides.w > 0) setGewicht(urlOverrides.w);
+    if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
+    if (urlOverrides.s === 'm' || urlOverrides.s === 'f') {
+      setGeschlecht(urlOverrides.s === 'm' ? 'mann' : 'frau');
+    }
+  }, [urlOverrides]);
+  useUrlStateSync({
+    g: groesse !== 175 ? groesse : null,
+    w: gewicht !== 75 ? gewicht : null,
+    a: alter !== 30 ? alter : null,
+    s: geschlecht !== 'mann' ? (geschlecht === 'frau' ? 'f' : null) : null,
+  });
 
   useEffect(() => {
     if (gewicht > 0 && groesse > 0 && alter > 0) {

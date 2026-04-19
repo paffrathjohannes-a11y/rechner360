@@ -10,6 +10,7 @@ import { calculateBruttoNetto } from '@/lib/calculator/brutto-netto';
 import { formatCurrency } from '@/lib/utils/format';
 import type { BruttoNettoInput, BruttoNettoResult } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 const defaultInput: Omit<BruttoNettoInput, 'steuerklasse'> = {
   brutto: 4000,
@@ -39,6 +40,21 @@ export function GehaltsrechnerForm() {
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
   const [kvZusatzbeitrag, setKvZusatzbeitrag] = useState(2.9);
   const [results, setResults] = useState<(BruttoNettoResult & { steuerklasse: number })[]>([]);
+
+  // URL-State: ?b=4000&bl=nw&ks=1
+  const urlOverrides = useUrlStateRead<{ b: number; bl: string; ks: boolean }>({
+    b: parsers.int, bl: parsers.str, ks: parsers.bool,
+  });
+  useEffect(() => {
+    if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBrutto(urlOverrides.b);
+    if (urlOverrides.bl) setBundesland(urlOverrides.bl);
+    if (urlOverrides.ks !== undefined) setKirchensteuer(urlOverrides.ks);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    b: brutto !== 4000 ? brutto : null,
+    bl: bundesland !== 'nw' ? bundesland : null,
+    ks: kirchensteuer ? 1 : null,
+  });
 
   useEffect(() => {
     if (brutto <= 0) { setResults([]); return; }

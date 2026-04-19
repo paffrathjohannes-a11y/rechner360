@@ -8,6 +8,7 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { calculateTilgung } from '@/lib/calculator/credit/tilgung';
 import { formatCurrency } from '@/lib/utils/format';
 import type { TilgungsResult } from '@/types/calculator';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 export function TilgungsrechnerForm() {
   const [darlehensbetrag, setDarlehensbetrag] = useState(300000);
@@ -16,6 +17,25 @@ export function TilgungsrechnerForm() {
   const [zinsbindung, setZinsbindung] = useState(10);
   const [sondertilgung, setSondertilgung] = useState(0);
   const [result, setResult] = useState<TilgungsResult | null>(null);
+
+  // URL-State: ?d=300000&z=3.5&t=2&zb=10
+  const urlOverrides = useUrlStateRead<{
+    d: number; z: number; t: number; zb: number;
+  }>({ d: parsers.int, z: parsers.float, t: parsers.float, zb: parsers.int });
+
+  useEffect(() => {
+    if (urlOverrides.d !== undefined && urlOverrides.d > 0) setDarlehensbetrag(urlOverrides.d);
+    if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
+    if (urlOverrides.t !== undefined && urlOverrides.t > 0) setTilgung(urlOverrides.t);
+    if (urlOverrides.zb !== undefined && urlOverrides.zb > 0) setZinsbindung(urlOverrides.zb);
+  }, [urlOverrides]);
+
+  useUrlStateSync({
+    d: darlehensbetrag !== 300000 ? darlehensbetrag : null,
+    z: zinssatz !== 3.5 ? zinssatz : null,
+    t: tilgung !== 2 ? tilgung : null,
+    zb: zinsbindung !== 10 ? zinsbindung : null,
+  });
 
   useEffect(() => {
     if (darlehensbetrag <= 0) { setResult(null); return; }

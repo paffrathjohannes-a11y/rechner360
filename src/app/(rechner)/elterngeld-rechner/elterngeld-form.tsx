@@ -9,6 +9,7 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { calculateElterngeld, type ElterngeldResult } from '@/lib/calculator/social/elterngeld';
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 export function ElterngeldForm() {
   const [brutto, setBrutto] = useState(3500);
@@ -18,6 +19,21 @@ export function ElterngeldForm() {
   const [zwillinge, setZwillinge] = useState(false);
   const [geschwister, setGeschwister] = useState(false);
   const [result, setResult] = useState<ElterngeldResult | null>(null);
+
+  // URL-State: ?b=3500&art=basis
+  const urlOverrides = useUrlStateRead<{ b: number; art: string }>({
+    b: parsers.int, art: parsers.str,
+  });
+  useEffect(() => {
+    if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBrutto(urlOverrides.b);
+    if (urlOverrides.art === 'basis' || urlOverrides.art === 'plus') {
+      setArt(urlOverrides.art as 'basis' | 'plus');
+    }
+  }, [urlOverrides]);
+  useUrlStateSync({
+    b: brutto !== 3500 ? brutto : null,
+    art: art !== 'basis' ? art : null,
+  });
 
   useEffect(() => {
     setResult(calculateElterngeld({

@@ -10,6 +10,7 @@ import { calculateZinseszins, type ZinseszinsResult } from '@/lib/calculator/mat
 import { formatCurrency } from '@/lib/utils/format';
 import type { ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 interface ZinseszinsFormProps {
   initialSparrate?: number;
@@ -23,6 +24,23 @@ export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
   const [steuer, setSteuer] = useState(false);
   const [freibetrag, setFreibetrag] = useState(1000);
   const [result, setResult] = useState<ZinseszinsResult | null>(null);
+
+  // URL-State: ?k=10000&m=200&z=5&l=10
+  const urlOverrides = useUrlStateRead<{ k: number; m: number; z: number; l: number }>({
+    k: parsers.int, m: parsers.int, z: parsers.float, l: parsers.int,
+  });
+  useEffect(() => {
+    if (urlOverrides.k !== undefined && urlOverrides.k >= 0) setStartkapital(urlOverrides.k);
+    if (urlOverrides.m !== undefined && urlOverrides.m >= 0) setSparrate(urlOverrides.m);
+    if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
+    if (urlOverrides.l !== undefined && urlOverrides.l > 0) setLaufzeit(urlOverrides.l);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    k: startkapital !== 10000 ? startkapital : null,
+    m: sparrate !== (initialSparrate ?? 200) ? sparrate : null,
+    z: zinssatz !== 5 ? zinssatz : null,
+    l: laufzeit !== 10 ? laufzeit : null,
+  });
 
   useEffect(() => {
     if (laufzeit <= 0) { setResult(null); return; }

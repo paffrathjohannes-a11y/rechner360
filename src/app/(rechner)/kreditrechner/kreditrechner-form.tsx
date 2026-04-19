@@ -11,6 +11,7 @@ import { formatCurrency } from '@/lib/utils/format';
 import type { KreditInput, KreditResult, ChartSegment } from '@/types/calculator';
 import { cn } from '@/lib/utils/cn';
 import { LaufzeitVergleich } from './kredit-comparison';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 type Verwendungszweck = 'frei' | 'auto' | 'renovierung' | 'umschuldung' | 'elektronik';
 
@@ -29,6 +30,23 @@ export function KreditrechnerForm() {
   const [laufzeit, setLaufzeit] = useState(60);
   const [sondertilgung, setSondertilgung] = useState(0);
   const [result, setResult] = useState<KreditResult | null>(null);
+
+  // URL-State für teilbare Links (?b=20000&z=5.5&l=60)
+  const urlOverrides = useUrlStateRead<{
+    b: number; z: number; l: number;
+  }>({ b: parsers.int, z: parsers.float, l: parsers.int });
+
+  useEffect(() => {
+    if (urlOverrides.b !== undefined && urlOverrides.b > 0) setDarlehensbetrag(urlOverrides.b);
+    if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
+    if (urlOverrides.l !== undefined && urlOverrides.l > 0) setLaufzeit(urlOverrides.l);
+  }, [urlOverrides]);
+
+  useUrlStateSync({
+    b: darlehensbetrag !== 20000 ? darlehensbetrag : null,
+    z: zinssatz !== 5.5 ? zinssatz : null,
+    l: laufzeit !== 60 ? laufzeit : null,
+  });
 
   useEffect(() => {
     if (darlehensbetrag <= 0 || zinssatz < 0 || laufzeit <= 0) {
