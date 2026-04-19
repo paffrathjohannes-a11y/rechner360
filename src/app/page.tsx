@@ -2,6 +2,7 @@ import { TrendingUp } from 'lucide-react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
+import { TestimonialsStrip } from '@/components/content/testimonials-strip';
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
 import { CategorySection } from '@/components/home/category-section';
@@ -77,6 +78,11 @@ export default function HomePage() {
             />
           ))}
         </div>
+
+        {/* Warum uns Nutzer vertrauen — Trust-Strip zwischen Rechner-Grid
+            und Ratgeber. Keine erfundenen Fake-Testimonials, sondern konkrete
+            Qualitäts-Merkmale. */}
+        <TestimonialsStrip />
 
         {/* Featured Ratgeber */}
         <section className="mx-auto max-w-[var(--container-max)] px-4 pb-4 sm:px-6 lg:px-8">

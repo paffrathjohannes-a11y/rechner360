@@ -40,7 +40,9 @@ const defaultInput: BruttoNettoInput = {
 export function BruttoNettoForm() {
   const [input, setInput] = useState<BruttoNettoInput>(defaultInput);
   const [result, setResult] = useState<BruttoNettoResult | null>(() => calculateBruttoNetto(defaultInput));
+  const [period, setPeriod] = useState<'month' | 'year'>('month');
   useTrackCalculator('brutto-netto-rechner', result !== null);
+  const factor = period === 'year' ? 12 : 1;
 
   // URL-State: aus Query-Params nach Mount übernehmen (SSR-safe).
   const urlOverrides = useUrlStateRead<{
@@ -201,11 +203,34 @@ export function BruttoNettoForm() {
               <div className="text-center">
                 <p className="text-sm text-text-secondary">Ihr Nettogehalt</p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400 mt-1">
-                  {formatCurrency(result.netto)}
+                  {formatCurrency(result.netto * factor)}
                 </p>
                 <p className="text-sm text-text-muted mt-1">
-                  von {formatCurrency(result.brutto)} brutto ({(result.abgabenquote * 100).toFixed(1).replace('.', ',')}% Abgabenquote)
+                  von {formatCurrency(result.brutto * factor)} brutto ({(result.abgabenquote * 100).toFixed(1).replace('.', ',')}% Abgabenquote)
                 </p>
+                {/* Period-Toggle: Monat ↔ Jahr — schnelle UX-Verbesserung, keiner muss mehr ×12 rechnen */}
+                <div className="mt-3 inline-flex items-center gap-1 rounded-full border border-border bg-surface p-0.5 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setPeriod('month')}
+                    className={period === 'month'
+                      ? 'rounded-full bg-accent-600 text-white px-3 py-1'
+                      : 'rounded-full text-text-secondary hover:text-text px-3 py-1'}
+                    aria-pressed={period === 'month'}
+                  >
+                    Monat
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPeriod('year')}
+                    className={period === 'year'
+                      ? 'rounded-full bg-accent-600 text-white px-3 py-1'
+                      : 'rounded-full text-text-secondary hover:text-text px-3 py-1'}
+                    aria-pressed={period === 'year'}
+                  >
+                    Jahr
+                  </button>
+                </div>
               </div>
             </Card>
 
@@ -234,9 +259,9 @@ export function BruttoNettoForm() {
               <p className="text-sm text-text-secondary">
                 Gesamtkosten für den Arbeitgeber:{' '}
                 <span className="font-currency font-semibold text-text">
-                  {formatCurrency(result.ag_kosten_gesamt)}
+                  {formatCurrency(result.ag_kosten_gesamt * factor)}
                 </span>
-                {' '}/ Monat
+                {' '}/ {period === 'year' ? 'Jahr' : 'Monat'}
               </p>
             </Card>
           </div>
