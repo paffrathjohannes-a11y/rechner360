@@ -10,6 +10,7 @@ import { calculateBu, BERUFSGRUPPE_LABEL, type BuResult, type Berufsgruppe } fro
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { ShieldCheck, AlertTriangle, Info } from 'lucide-react';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 interface BuFormProps {
   initialAlter?: number;
@@ -21,6 +22,21 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
   const [alter, setAlter] = useState(initialAlter);
   const [berufsgruppe, setBerufsgruppe] = useState<Berufsgruppe>(initialBerufsgruppe);
   const [nettoeinkommen, setNettoeinkommen] = useState(initialNetto);
+
+  // URL-State: ?a=30&n=2500&bg=buero
+  const urlOverrides = useUrlStateRead<{ a: number; n: number; bg: string }>({
+    a: parsers.int, n: parsers.int, bg: parsers.str,
+  });
+  useEffect(() => {
+    if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
+    if (urlOverrides.n !== undefined && urlOverrides.n > 0) setNettoeinkommen(urlOverrides.n);
+    if (urlOverrides.bg) setBerufsgruppe(urlOverrides.bg as Berufsgruppe);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    a: alter !== initialAlter ? alter : null,
+    n: nettoeinkommen !== initialNetto ? nettoeinkommen : null,
+    bg: berufsgruppe !== initialBerufsgruppe ? berufsgruppe : null,
+  });
   const [buRente, setBuRente] = useState(Math.round(initialNetto * 0.75 / 50) * 50);
   const [laufzeit, setLaufzeit] = useState(67);
   const [raucher, setRaucher] = useState(false);

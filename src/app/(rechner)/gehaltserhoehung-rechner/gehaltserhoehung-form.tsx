@@ -11,12 +11,30 @@ import { calculateGehaltserhoehung, type GehaltserhoehungResult } from '@/lib/ca
 import { STEUERKLASSEN, BUNDESLAENDER } from '@/lib/utils/constants';
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 export function GehaltserhoehungForm() {
   const [bruttoAlt, setBruttoAlt] = useState(3500);
   const [bruttoNeu, setBruttoNeu] = useState(4000);
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
   const [bundesland, setBundesland] = useState('nw');
+
+  // URL-State: ?a=3500&n=4000&sk=1
+  const urlOverrides = useUrlStateRead<{ a: number; n: number; sk: number }>({
+    a: parsers.int, n: parsers.int, sk: parsers.int,
+  });
+  useEffect(() => {
+    if (urlOverrides.a !== undefined && urlOverrides.a > 0) setBruttoAlt(urlOverrides.a);
+    if (urlOverrides.n !== undefined && urlOverrides.n > 0) setBruttoNeu(urlOverrides.n);
+    if (urlOverrides.sk !== undefined && [1, 2, 3, 4, 5, 6].includes(urlOverrides.sk)) {
+      setSteuerklasse(urlOverrides.sk as 1|2|3|4|5|6);
+    }
+  }, [urlOverrides]);
+  useUrlStateSync({
+    a: bruttoAlt !== 3500 ? bruttoAlt : null,
+    n: bruttoNeu !== 4000 ? bruttoNeu : null,
+    sk: steuerklasse !== 1 ? steuerklasse : null,
+  });
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [pvKinder, setPvKinder] = useState(0);
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);

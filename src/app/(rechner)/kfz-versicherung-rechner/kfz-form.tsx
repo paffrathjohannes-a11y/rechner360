@@ -9,6 +9,7 @@ import { calculateKfz, type KfzResult, type Fahrzeugtyp } from '@/lib/calculator
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { Car, Shield, ShieldCheck, ShieldAlert, Lightbulb } from 'lucide-react';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 const versicherungStyles = {
   haftpflicht: { text: 'text-primary-500', icon: Shield },
@@ -28,6 +29,23 @@ export function KfzForm({ initialFahrzeugtyp = 'kompakt', initialAlter = 35 }: K
   const [jahreslaufleistung, setJahreslaufleistung] = useState(12000);
   const [garagenstellplatz, setGaragenstellplatz] = useState(false);
   const [alter, setAlter] = useState(initialAlter);
+
+  // URL-State: ?ft=kompakt&a=35&sf=10&km=12000
+  const urlOverrides = useUrlStateRead<{ ft: string; a: number; sf: number; km: number }>({
+    ft: parsers.str, a: parsers.int, sf: parsers.int, km: parsers.int,
+  });
+  useEffect(() => {
+    if (urlOverrides.ft) setFahrzeugtyp(urlOverrides.ft as Fahrzeugtyp);
+    if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
+    if (urlOverrides.sf !== undefined && urlOverrides.sf >= 0) setSfKlasse(urlOverrides.sf);
+    if (urlOverrides.km !== undefined && urlOverrides.km > 0) setJahreslaufleistung(urlOverrides.km);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    ft: fahrzeugtyp !== initialFahrzeugtyp ? fahrzeugtyp : null,
+    a: alter !== initialAlter ? alter : null,
+    sf: sfKlasse !== 10 ? sfKlasse : null,
+    km: jahreslaufleistung !== 12000 ? jahreslaufleistung : null,
+  });
   const [selbstbeteiligung, setSelbstbeteiligung] = useState(300);
   const [result, setResult] = useState<KfzResult | null>(null);
 

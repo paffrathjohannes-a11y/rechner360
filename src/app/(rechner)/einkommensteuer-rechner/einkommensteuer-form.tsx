@@ -13,6 +13,7 @@ import {
 } from '@/lib/calculator/tax/einkommensteuer';
 import { formatCurrency } from '@/lib/utils/format';
 import { BUNDESLAENDER, STEUERKLASSEN } from '@/lib/utils/constants';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -23,6 +24,27 @@ export function EinkommensteuerForm() {
   const [zusammenveranlagung, setZusammenveranlagung] = useState(false);
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [bundesland, setBundesland] = useState('nw');
+
+  // URL-State: ?e=50000&sk=1&zv=1&ks=1&bl=nw
+  const urlOverrides = useUrlStateRead<{ e: number; sk: number; zv: boolean; ks: boolean; bl: string }>({
+    e: parsers.int, sk: parsers.int, zv: parsers.bool, ks: parsers.bool, bl: parsers.str,
+  });
+  useEffect(() => {
+    if (urlOverrides.e !== undefined && urlOverrides.e > 0) setEinkommen(urlOverrides.e);
+    if (urlOverrides.sk !== undefined && [1, 2, 3, 4, 5, 6].includes(urlOverrides.sk)) {
+      setSteuerklasse(urlOverrides.sk as 1|2|3|4|5|6);
+    }
+    if (urlOverrides.zv !== undefined) setZusammenveranlagung(urlOverrides.zv);
+    if (urlOverrides.ks !== undefined) setKirchensteuer(urlOverrides.ks);
+    if (urlOverrides.bl) setBundesland(urlOverrides.bl);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    e: einkommen !== 50000 ? einkommen : null,
+    sk: steuerklasse !== 1 ? steuerklasse : null,
+    zv: zusammenveranlagung ? 1 : null,
+    ks: kirchensteuer ? 1 : null,
+    bl: bundesland !== 'nw' ? bundesland : null,
+  });
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
   const [geburtsjahr, setGeburtsjahr] = useState<number | ''>('');
   const [result, setResult] = useState<EinkommensteuerResult | null>(null);

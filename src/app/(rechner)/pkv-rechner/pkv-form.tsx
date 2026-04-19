@@ -10,6 +10,7 @@ import { calculatePkv, type PkvResult, type Berufsgruppe } from '@/lib/calculato
 import { formatCurrency } from '@/lib/utils/format';
 import { cn } from '@/lib/utils/cn';
 import { Shield, TrendingDown, TrendingUp, Minus, AlertTriangle } from 'lucide-react';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 const empfehlungStyles = {
   pkv: { bg: 'bg-accent-50/50 dark:bg-accent-900/10', border: 'border-accent-300 dark:border-accent-700', text: 'text-accent-600 dark:text-accent-400', icon: TrendingDown },
@@ -27,6 +28,21 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
   const [alter, setAlter] = useState(initialAlter);
   const [bruttoeinkommen, setBruttoeinkommen] = useState(initialBrutto);
   const [berufsgruppe, setBerufsgruppe] = useState<Berufsgruppe>(initialBerufsgruppe);
+
+  // URL-State: ?a=30&b=75000&bg=angestellt
+  const urlOverrides = useUrlStateRead<{ a: number; b: number; bg: string }>({
+    a: parsers.int, b: parsers.int, bg: parsers.str,
+  });
+  useEffect(() => {
+    if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
+    if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBruttoeinkommen(urlOverrides.b);
+    if (urlOverrides.bg) setBerufsgruppe(urlOverrides.bg as Berufsgruppe);
+  }, [urlOverrides]);
+  useUrlStateSync({
+    a: alter !== initialAlter ? alter : null,
+    b: bruttoeinkommen !== initialBrutto ? bruttoeinkommen : null,
+    bg: berufsgruppe !== initialBerufsgruppe ? berufsgruppe : null,
+  });
   const [kinder, setKinder] = useState(0);
   const [zusatzbeitrag, setZusatzbeitrag] = useState(2.9);
   const [result, setResult] = useState<PkvResult | null>(null);
