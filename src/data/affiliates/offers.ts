@@ -305,4 +305,8 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     headline: 'Kosten senken & sparen',
     offers: [verivoxStrom, verivoxGas],
   },
+  'wohngeld-rechner': {
+    headline: 'Nebenkosten senken & monatlich sparen',
+    offers: [verivoxStrom, verivoxGas],
+  },
 };

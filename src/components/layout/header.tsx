@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
-import { Calculator, Menu, X, ChevronDown } from 'lucide-react';
+import { Calculator, Menu, X, ChevronDown, BookOpen } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
 import { MegaMenu } from './mega-menu';
 import { MobileNav } from './mobile-nav';
@@ -67,6 +67,15 @@ export function Header() {
               <ChevronDown className={cn('h-3.5 w-3.5 transition-transform duration-200', megaOpen && 'rotate-180')} />
             </button>
           </div>
+
+          {/* Ratgeber */}
+          <Link
+            href="/ratgeber"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-lg text-text-secondary hover:text-text hover:bg-surface-raised transition-colors duration-150"
+          >
+            <BookOpen className="h-3.5 w-3.5" />
+            Ratgeber
+          </Link>
 
           {/* Search */}
           <CalculatorSearch variant="header" />

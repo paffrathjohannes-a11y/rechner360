@@ -79,6 +79,11 @@ export function CalculatorPageLayout({
 
       <WebApplicationJsonLd {...jsonLd} />
 
+      {/* Above-the-fold Ad-Slot (direkt unter H1/Trust-Sektion) — deutlich
+          höhere CTR als der untere Slot, da Nutzer den Ad unbedingt sieht.
+          Wird nur angezeigt wenn AdSense Ad geliefert hat (keine leere Box). */}
+      <NativeAdSlot format="horizontal" slot={process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT} />
+
       {/*
         aria-live="polite" announced Ergebnis-Aktualisierungen für Screenreader,
         ohne Input-Eingaben zu unterbrechen. aria-atomic="false" meldet nur den
@@ -94,10 +99,20 @@ export function CalculatorPageLayout({
       {guideContent && <div className="mt-12">{guideContent}</div>}
 
       {/* Ad placement — between guide content and FAQ for natural reading flow */}
-      <NativeAdSlot format="horizontal" className="mt-8" />
+      <NativeAdSlot format="horizontal" slot={process.env.NEXT_PUBLIC_ADSENSE_MID_SLOT} className="mt-8" />
 
       {faqs && faqs.length > 0 && (
         <FAQSection faqs={faqs} className="mt-8" />
+      )}
+
+      {/* Ad nach FAQ — "Post-Engagement"-Position. Nutzer hat den Inhalt
+          durchgelesen, ist engagiert, offen für kontextuelle Angebote. */}
+      {faqs && faqs.length > 0 && (
+        <NativeAdSlot
+          format="horizontal"
+          slot={process.env.NEXT_PUBLIC_ADSENSE_BOTTOM_SLOT}
+          className="mt-8"
+        />
       )}
 
       {/* Internal Linking: alle programmatischen Varianten verlinken */}

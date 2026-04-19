@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
+import { StickyDesktopAd } from '@/components/ads/sticky-desktop-ad';
 
 export default function RechnerLayout({
   children,
@@ -13,6 +14,8 @@ export default function RechnerLayout({
         {children}
       </main>
       <Footer />
+      {/* Sticky Desktop-Ad (nur ≥xl, schließbar, nur wenn Ad liefert). */}
+      <StickyDesktopAd />
     </>
   );
 }

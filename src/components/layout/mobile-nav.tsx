@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, BookOpen } from 'lucide-react';
 import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
 import { getIcon, getColors } from '@/lib/utils/icons';
 import { CalculatorSearch } from '@/components/search/calculator-search';
@@ -89,6 +89,20 @@ export function MobileNav({ onClose }: MobileNavProps) {
               </div>
             );
           })}
+        </div>
+
+        {/* Ratgeber Link */}
+        <div className="mt-3 pt-3 border-t border-border">
+          <Link
+            href="/ratgeber"
+            onClick={onClose}
+            className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-surface-raised transition-colors"
+          >
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+              <BookOpen className="h-4 w-4" />
+            </div>
+            <span className="flex-1 text-sm font-semibold text-text">Ratgeber & Guides</span>
+          </Link>
         </div>
       </div>
     </div>

@@ -6,9 +6,10 @@ import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
 import { CategorySection } from '@/components/home/category-section';
 import { CalculatorSearch } from '@/components/search/calculator-search';
-import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
+import { RECHNER, RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
 import { UsageCounter } from '@/components/home/usage-counter';
 import { HeroCalculator } from '@/components/home/hero-calculator';
+import { FeaturedRatgeber } from '@/components/home/featured-ratgeber';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 
@@ -33,14 +34,14 @@ export default function HomePage() {
               </div>
 
               <h1 className="animate-hero-in stagger-2 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-text">
-                26 Rechner.{' '}
+                {RECHNER.length} Rechner.{' '}
                 <span className="text-primary-600">Keine Daten.</span>{' '}
                 <span className="text-accent-600">Keine Registrierung.</span>
               </h1>
 
               <p className="animate-hero-in stagger-3 mt-4 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed">
                 Brutto-Netto, Kredit, PKV, Kfz und mehr — alles in Sekunden berechnet.
-                Komplett kostenlos, ohne Account, und alle Berechnungen laufen nur in Ihrem Browser.
+                Komplett kostenlos, ohne Account, und alle Berechnungen laufen direkt in Ihrem Browser.
               </p>
 
               {/* Search */}
@@ -77,8 +78,13 @@ export default function HomePage() {
           ))}
         </div>
 
+        {/* Featured Ratgeber */}
+        <section className="mx-auto max-w-[var(--container-max)] px-4 pb-4 sm:px-6 lg:px-8">
+          <FeaturedRatgeber />
+        </section>
+
         {/* Homepage Partner-Platzierung */}
-        <section className="mx-auto max-w-[var(--container-max)] px-4 pb-12 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-[var(--container-max)] px-4 py-12 sm:px-6 lg:px-8">
           <AffiliateBox
             headline={affiliateOffersBySlug.homepage.headline}
             offers={affiliateOffersBySlug.homepage.offers}

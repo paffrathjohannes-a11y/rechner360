@@ -1,7 +1,7 @@
 export const SITE_NAME = 'rechner360.de';
 export const SITE_URL = 'https://www.rechner360.de';
 // Meta-Description: 151 Zeichen — innerhalb des SERP-Limits von ~155 Zeichen.
-export const SITE_DESCRIPTION = '28 kostenlose Online-Rechner 2026 für Finanzen, Steuern & Versicherungen. Keine Registrierung — alle Berechnungen laufen direkt im Browser.';
+export const SITE_DESCRIPTION = '27 kostenlose Online-Rechner 2026 für Finanzen, Steuern & Versicherungen. Keine Registrierung — alle Berechnungen laufen direkt im Browser.';
 
 export const BUNDESLAENDER = [
   { id: 'bw', name: 'Baden-Württemberg', kirchensteuer: 0.08 },

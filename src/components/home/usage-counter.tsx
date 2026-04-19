@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Calculator, Users, EyeOff } from 'lucide-react';
+import { RECHNER } from '@/lib/utils/constants';
 
 /**
  * Nutzerzähler — zeigt simulierte Berechnungszahlen die realistisch steigen.
@@ -50,7 +51,7 @@ export function UsageCounter() {
       <div className="h-4 w-px bg-border" />
       <div className="flex items-center gap-1.5">
         <Users className="w-4 h-4 text-primary-500" />
-        <span><strong className="text-text font-semibold">26</strong> Rechner</span>
+        <span><strong className="text-text font-semibold">{RECHNER.length}</strong> Rechner</span>
       </div>
       <div className="h-4 w-px bg-border hidden sm:block" />
       <div className="hidden sm:flex items-center gap-1.5">

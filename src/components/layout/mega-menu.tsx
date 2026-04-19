@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BookOpen, ArrowRight } from 'lucide-react';
 import { RECHNER_CATEGORIES, getRechnerByCategory } from '@/lib/utils/constants';
 import { getIcon, getColors } from '@/lib/utils/icons';
 import { cn } from '@/lib/utils/cn';
@@ -45,6 +46,26 @@ export function MegaMenu({ onClose }: MegaMenuProps) {
               </div>
             );
           })}
+        </div>
+
+        {/* Ratgeber Footer */}
+        <div className="mt-6 pt-5 border-t border-border">
+          <Link
+            href="/ratgeber"
+            onClick={onClose}
+            className="group flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 hover:bg-surface-raised transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400">
+                <BookOpen className="h-4 w-4" />
+              </div>
+              <div>
+                <div className="text-sm font-semibold text-text">Ratgeber & Finanztipps</div>
+                <div className="text-xs text-text-secondary">Verständliche Anleitungen zu Steuern, Finanzen und Vorsorge</div>
+              </div>
+            </div>
+            <ArrowRight className="h-4 w-4 text-text-muted group-hover:text-primary-600 group-hover:translate-x-0.5 transition-all" />
+          </Link>
         </div>
       </div>
     </div>
