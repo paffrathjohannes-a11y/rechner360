@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTrackCalculator } from '@/hooks/use-track-calculator';
+import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 import { Calculator } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -40,6 +41,31 @@ export function BruttoNettoForm() {
   const [input, setInput] = useState<BruttoNettoInput>(defaultInput);
   const [result, setResult] = useState<BruttoNettoResult | null>(() => calculateBruttoNetto(defaultInput));
   useTrackCalculator('brutto-netto-rechner', result !== null);
+
+  // URL-State: aus Query-Params nach Mount übernehmen (SSR-safe).
+  const urlOverrides = useUrlStateRead<{
+    b: number; sk: number; bl: string; ks: boolean;
+  }>({ b: parsers.int, sk: parsers.int, bl: parsers.str, ks: parsers.bool });
+
+  useEffect(() => {
+    if (Object.keys(urlOverrides).length === 0) return;
+    setInput((prev) => ({
+      ...prev,
+      ...(urlOverrides.b !== undefined && urlOverrides.b > 0 ? { brutto: urlOverrides.b } : {}),
+      ...(urlOverrides.sk !== undefined && [1, 2, 3, 4, 5, 6].includes(urlOverrides.sk)
+        ? { steuerklasse: urlOverrides.sk as BruttoNettoInput['steuerklasse'] } : {}),
+      ...(urlOverrides.bl ? { bundesland: urlOverrides.bl as BruttoNettoInput['bundesland'] } : {}),
+      ...(urlOverrides.ks !== undefined ? { kirchensteuer: urlOverrides.ks } : {}),
+    }));
+  }, [urlOverrides]);
+
+  // URL-State Sync: nur die 4 teilbaren Haupt-Parameter zurückschreiben.
+  useUrlStateSync({
+    b: input.brutto !== defaultInput.brutto ? input.brutto : null,
+    sk: input.steuerklasse !== defaultInput.steuerklasse ? input.steuerklasse : null,
+    bl: input.bundesland !== defaultInput.bundesland ? input.bundesland : null,
+    ks: input.kirchensteuer !== defaultInput.kirchensteuer ? (input.kirchensteuer ? 1 : 0) : null,
+  });
 
   // Auto-calculate on every input change
   useEffect(() => {

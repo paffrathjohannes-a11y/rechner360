@@ -199,7 +199,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   // Gehalt & Steuern
   'grundsteuer-rechner': {
     headline: 'Steuererklärung einfach erledigen',
-    offers: [check24Steuer],
+    offers: [wisoSteuer, check24Steuer],
   },
   'brutto-netto-rechner': {
     headline: 'Steuererklärung schnell erledigen',
@@ -229,7 +229,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   // Versicherung
   'pkv-rechner': {
     headline: 'PKV-Tarife vergleichen',
-    offers: [check24PKV],
+    offers: [check24PKV, wisoSteuer],
   },
   'kfz-versicherung-rechner': {
     headline: 'Kfz-Versicherung vergleichen',
@@ -237,7 +237,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   },
   'bu-rechner': {
     headline: 'BU-Versicherung vergleichen',
-    offers: [check24BU],
+    offers: [check24BU, wisoSteuer],
   },
 
   // Vorsorge & Investment — Check24 Alternativen bis FinanceAds genehmigt
@@ -247,7 +247,7 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
   },
   inflationsrechner: {
     headline: 'Finanzen optimieren',
-    offers: [check24Steuer],
+    offers: [wisoMeinGeld, check24Steuer, verivoxStrom],
   },
   zinseszinsrechner: {
     headline: 'Finanzen vergleichen',
