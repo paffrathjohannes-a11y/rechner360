@@ -8,6 +8,7 @@ import { KFZ_PAGES } from '@/data/programmatic/kfz-pages';
 import { BU_PAGES } from '@/data/programmatic/bu-pages';
 import { BRUTTO_NETTO_PAGES } from '@/data/programmatic/brutto-netto-pages';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
+import { ADSENSE_APPROVAL_MODE } from '@/config/seo-mode';
 
 const SITE_URL = 'https://www.rechner360.de';
 
@@ -39,7 +40,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/ueber-uns`,
       lastModified: UEBER_UNS_LAST_MODIFIED,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.5,
+    },
+    {
+      url: `${SITE_URL}/autor/johannes-paffrath`,
+      lastModified: UEBER_UNS_LAST_MODIFIED,
+      changeFrequency: 'yearly',
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_URL}/methodik`,
+      lastModified: UEBER_UNS_LAST_MODIFIED,
+      changeFrequency: 'yearly',
+      priority: 0.5,
     },
     {
       url: `${SITE_URL}/ratgeber`,
@@ -56,6 +69,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     })),
   ];
+
+  // Im AdSense-Approval-Modus: ALLE programmatischen Varianten aus der
+  // Sitemap entfernen, damit Google nur die ~25 Hauptrechner (alle mit
+  // 600+ Wörtern) bewertet. Flag kann nach Freigabe deaktiviert werden.
+  if (ADSENSE_APPROVAL_MODE) {
+    return staticPages;
+  }
 
   // Nur programmatische Seiten mit unique Content (Intro + FAQs) in die Sitemap
   const programmaticPages: MetadataRoute.Sitemap = [

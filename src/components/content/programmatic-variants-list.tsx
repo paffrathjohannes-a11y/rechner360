@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
+import { ADSENSE_APPROVAL_MODE } from '@/config/seo-mode';
 
 /**
  * Gemeinsame Mindestform einer programmatischen Variante.
@@ -42,6 +43,10 @@ export function ProgrammaticVariantsList({
   intro,
   className,
 }: ProgrammaticVariantsListProps) {
+  // Im AdSense-Approval-Modus: Liste komplett ausblenden, damit Google
+  // keine widersprüchlichen Signale bekommt (Link auf noindex-Seiten).
+  if (ADSENSE_APPROVAL_MODE) return null;
+
   const indexableOnly = pages.filter((p) => p.indexable !== false);
   if (indexableOnly.length === 0) return null;
 

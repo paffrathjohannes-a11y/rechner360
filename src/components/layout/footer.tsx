@@ -36,6 +36,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/methodik" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
+                    Methodik
+                  </Link>
+                </li>
+                <li>
                   <Link href="/ratgeber" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
                     Ratgeber
                   </Link>
