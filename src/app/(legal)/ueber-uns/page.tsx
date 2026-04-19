@@ -19,12 +19,13 @@ export default function UeberUnsPage() {
       </p>
 
       <h2>Unsere Rechner im Überblick</h2>
-      <p>Aktuell bieten wir 26 kostenlose Online-Rechner in vier Kategorien:</p>
+      <p>Aktuell bieten wir 27 kostenlose Online-Rechner in vier Kategorien:</p>
       <ul>
         <li>
           <strong>Gehalt &amp; Steuern:</strong>{' '}
           <Link href="/brutto-netto-rechner">Brutto Netto Rechner</Link>,{' '}
           <Link href="/gehaltsrechner">Gehaltsrechner</Link>,{' '}
+          <Link href="/einkommensteuer-rechner">Einkommensteuerrechner</Link>,{' '}
           <Link href="/stundenlohn-rechner">Stundenlohn Rechner</Link>,{' '}
           <Link href="/abfindungsrechner">Abfindungsrechner</Link>,{' '}
           <Link href="/erbschaftsteuer-rechner">Erbschaftsteuer Rechner</Link>
@@ -43,7 +44,8 @@ export default function UeberUnsPage() {
           <Link href="/rentenrechner">Rentenrechner</Link>,{' '}
           <Link href="/unterhalt-rechner">Unterhalt Rechner</Link>,{' '}
           <Link href="/pkv-rechner">PKV Rechner</Link>,{' '}
-          <Link href="/bu-rechner">BU-Rechner</Link>
+          <Link href="/bu-rechner">BU-Rechner</Link>,{' '}
+          <Link href="/wohngeld-rechner">Wohngeldrechner</Link>
         </li>
         <li>
           <strong>Alltag &amp; Tools:</strong>{' '}
@@ -61,8 +63,8 @@ export default function UeberUnsPage() {
       <h2>Unsere Grundprinzipien</h2>
       <ul>
         <li>
-          <strong>Präzision:</strong> Alle Steuerberechnungen basieren auf dem offiziellen
-          offiziellen Steuerformeln. Wir validieren unsere Ergebnisse regelmäßig gegen
+          <strong>Präzision:</strong> Alle Steuerberechnungen basieren auf den offiziellen
+          Steuerformeln. Wir validieren unsere Ergebnisse regelmäßig gegen
           den BMF-Steuerrechner.
         </li>
         <li>

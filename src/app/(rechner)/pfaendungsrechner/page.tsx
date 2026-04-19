@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { PfaendungsForm } from './pfaendungs-form';
+import { PFAENDUNGS_PAGES } from '@/data/programmatic/pfaendungs-pages';
 
 const FAQS = [
   { question: 'Was ist die Pfändungsfreigrenze?', answer: 'Die Pfändungsfreigrenze ist der Betrag Ihres Nettoeinkommens, der nicht gepfändet werden darf. Sie sichert das Existenzminimum. Ab Juli 2023 liegt der Grundfreibetrag bei 1.402,28 € monatlich für Alleinstehende ohne Unterhaltspflichten.' },
@@ -31,6 +34,7 @@ export default function PfaendungsrechnerPage() {
         description: 'Pfändungsfreigrenze und pfändbaren Betrag berechnen.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.pfaendungsrechner.headline} offers={affiliateOffersBySlug.pfaendungsrechner.offers} />}
       guideContent={
         <>
           <section className="space-y-4">
@@ -56,6 +60,7 @@ export default function PfaendungsrechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: PFAENDUNGS_PAGES }}
     >
       <PfaendungsForm />
     </CalculatorPageLayout>

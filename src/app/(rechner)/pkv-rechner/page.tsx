@@ -4,6 +4,7 @@ import { PkvForm } from './pkv-form';
 import { PKV_FAQS } from '@/data/content/pkv-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { PKV_PAGES } from '@/data/programmatic/pkv-pages';
 
 export const metadata: Metadata = {
   title: 'PKV Rechner 2026 — Private vs. Gesetzliche Krankenversicherung',
@@ -63,6 +64,7 @@ export default function PkvRechnerPage() {
           </div>
         </section>
       }
+      programmaticVariants={{ pages: PKV_PAGES }}
     >
       <PkvForm />
     </CalculatorPageLayout>

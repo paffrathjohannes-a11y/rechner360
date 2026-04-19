@@ -6,6 +6,7 @@ import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { ZinsTicker } from '@/components/calculator/zins-ticker';
 import { getCurrentRates } from '@/lib/rates/fetch-rates';
+import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 
 export const metadata: Metadata = {
   title: 'Kreditrechner 2026 — Monatliche Rate & Gesamtkosten',
@@ -61,6 +62,7 @@ export default async function KreditrechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: KREDIT_PAGES }}
     >
       <ZinsTicker rates={rates} variant="kredit" className="mb-4" />
       <KreditrechnerForm />

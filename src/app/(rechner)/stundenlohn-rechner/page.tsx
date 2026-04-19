@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { StundenlohnForm } from './stundenlohn-form';
+import { STUNDENLOHN_PAGES } from '@/data/programmatic/stundenlohn-pages';
 
 const FAQS = [
   { question: 'Wie berechne ich meinen Stundenlohn?', answer: 'Stundenlohn = Monatsgehalt ÷ (Wochenstunden × 52 ÷ 12). Bei 40 Stunden/Woche und 3.000 € Monatsgehalt: 3.000 ÷ 173,3 = 17,31 €/Stunde.' },
@@ -27,6 +30,7 @@ export default function StundenlohnRechnerPage() {
       subtitle="Rechnen Sie Stundenlohn, Monatsgehalt und Jahresgehalt ineinander um."
       jsonLd={{ name: 'Stundenlohn Rechner', url: '/stundenlohn-rechner', description: 'Stundenlohn in Monatsgehalt und Jahresgehalt umrechnen.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['stundenlohn-rechner'].headline} offers={affiliateOffersBySlug['stundenlohn-rechner'].offers} />}
       guideContent={
         <section className="space-y-4">
           <h2 className="text-2xl font-bold text-text">Stundenlohn, Monatsgehalt, Jahresgehalt — alle Formeln</h2>
@@ -61,6 +65,7 @@ export default function StundenlohnRechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: STUNDENLOHN_PAGES }}
     >
       <StundenlohnForm />
     </CalculatorPageLayout>

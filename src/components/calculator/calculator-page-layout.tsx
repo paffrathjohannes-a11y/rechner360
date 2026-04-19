@@ -5,6 +5,10 @@ import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { RelatedCalculators } from '@/components/content/related-calculators';
 import { FAQSection } from '@/components/content/faq-section';
+import {
+  ProgrammaticVariantsList,
+  type ProgrammaticVariantEntry,
+} from '@/components/content/programmatic-variants-list';
 import { WebApplicationJsonLd } from '@/components/seo/json-ld';
 import { NativeAdSlot } from '@/components/ads/native-ad-slot';
 import { getCategoryForRechner } from '@/lib/utils/constants';
@@ -17,6 +21,17 @@ interface FAQ {
   answer: string;
 }
 
+interface ProgrammaticVariants {
+  /** URL-Prefix ohne trailing slash, z.B. "/brutto-netto-rechner". Fällt zurück auf `/${slug}`. */
+  basePath?: string;
+  /** PAGES-Array aus src/data/programmatic/. */
+  pages: ReadonlyArray<ProgrammaticVariantEntry>;
+  /** Optional: eigene Überschrift. */
+  headline?: string;
+  /** Optional: Intro-Text. */
+  intro?: string;
+}
+
 interface CalculatorPageLayoutProps {
   slug: string;
   title: string;
@@ -26,6 +41,12 @@ interface CalculatorPageLayoutProps {
   guideContent?: ReactNode;
   faqs?: FAQ[];
   affiliateSection?: ReactNode;
+  /**
+   * Link-Liste aller programmatischen Unter-Varianten dieses Rechners.
+   * Signalisiert Google die Wichtigkeit der Varianten (Internal Linking),
+   * damit sie aus dem "Gefunden – zurzeit nicht indexiert"-Status rauskommen.
+   */
+  programmaticVariants?: ProgrammaticVariants;
 }
 
 export function CalculatorPageLayout({
@@ -37,6 +58,7 @@ export function CalculatorPageLayout({
   guideContent,
   faqs,
   affiliateSection,
+  programmaticVariants,
 }: CalculatorPageLayoutProps) {
   const category = getCategoryForRechner(slug);
 
@@ -76,6 +98,17 @@ export function CalculatorPageLayout({
 
       {faqs && faqs.length > 0 && (
         <FAQSection faqs={faqs} className="mt-8" />
+      )}
+
+      {/* Internal Linking: alle programmatischen Varianten verlinken */}
+      {programmaticVariants && programmaticVariants.pages.length > 0 && (
+        <ProgrammaticVariantsList
+          basePath={programmaticVariants.basePath ?? `/${slug}`}
+          pages={programmaticVariants.pages}
+          headline={programmaticVariants.headline}
+          intro={programmaticVariants.intro}
+          className="mt-8"
+        />
       )}
 
       {/* Related ratgeber articles */}

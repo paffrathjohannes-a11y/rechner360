@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { UnterhaltForm } from './unterhalt-form';
+import { UNTERHALT_PAGES } from '@/data/programmatic/unterhalt-pages';
 
 const FAQS = [
   { question: 'Was ist die Düsseldorfer Tabelle?', answer: 'Die Düsseldorfer Tabelle ist eine Leitlinie des OLG Düsseldorf zur Bemessung des Kindesunterhalts. Sie wird jährlich aktualisiert und von allen Familiengerichten in Deutschland als Orientierung genutzt. Die Tabelle staffelt den Unterhalt nach Einkommen des Unterhaltspflichtigen und Alter des Kindes.' },
@@ -31,6 +34,7 @@ export default function UnterhaltRechnerPage() {
         description: 'Kindesunterhalt nach Düsseldorfer Tabelle berechnen.',
       }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['unterhalt-rechner'].headline} offers={affiliateOffersBySlug['unterhalt-rechner'].offers} />}
       guideContent={
         <section className="space-y-4">
           <h2 className="text-2xl font-bold text-text">Kindesunterhalt nach der Düsseldorfer Tabelle 2026</h2>
@@ -70,6 +74,7 @@ export default function UnterhaltRechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: UNTERHALT_PAGES }}
     >
       <UnterhaltForm />
     </CalculatorPageLayout>

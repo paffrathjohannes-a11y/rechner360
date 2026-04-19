@@ -4,6 +4,7 @@ import { BruttoNettoForm } from './brutto-netto-form';
 import { BRUTTO_NETTO_FAQS } from '@/data/content/brutto-netto-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { BRUTTO_NETTO_PAGES } from '@/data/programmatic/brutto-netto-pages';
 
 export const metadata: Metadata = {
   title: 'Brutto Netto Rechner 2026 — Kostenlos & Aktuell',
@@ -90,6 +91,7 @@ export default function BruttoNettoRechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: BRUTTO_NETTO_PAGES }}
     >
       <BruttoNettoForm />
     </CalculatorPageLayout>

@@ -102,11 +102,17 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
 
       <article className="legal-content">
         <h1>{artikel.title}</h1>
-        <p className="text-text-muted text-sm mb-6">
+        <p className="text-text-muted text-sm mb-6 flex flex-wrap items-center gap-2">
           {/* Semantisches <time> macht das Datum für Crawler und Screenreader maschinenlesbar */}
           <time dateTime={artikel.publishDate}>
             {new Date(artikel.publishDate).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}
           </time>
+          <span aria-hidden>·</span>
+          <span>
+            {Math.max(2, Math.round(
+              (artikel.sections.reduce((sum, s) => sum + s.content.split(/\s+/).length, 0) + artikel.intro.split(/\s+/).length) / 220,
+            ))} Min. Lesezeit
+          </span>
         </p>
         <p className="text-lg leading-relaxed mb-8">{artikel.intro}</p>
 

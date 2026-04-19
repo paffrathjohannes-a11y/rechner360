@@ -4,6 +4,7 @@ import { GehaltsrechnerForm } from './gehaltsrechner-form';
 import { GEHALTS_FAQS } from '@/data/content/gehalts-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { GEHALTS_PAGES } from '@/data/programmatic/gehalts-pages';
 
 export const metadata: Metadata = {
   title: 'Gehaltsrechner 2026 — Netto-Vergleich aller Steuerklassen',
@@ -58,6 +59,7 @@ export default function GehaltsrechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: GEHALTS_PAGES }}
     >
       <GehaltsrechnerForm />
     </CalculatorPageLayout>

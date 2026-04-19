@@ -6,29 +6,68 @@ import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
-import { calculateEinkommensteuer, type EinkommensteuerResult } from '@/lib/calculator/tax/einkommensteuer'; // v2
+import {
+  calculateEinkommensteuer,
+  type EinkommensteuerResult,
+  type EinkommensArt,
+} from '@/lib/calculator/tax/einkommensteuer';
 import { formatCurrency } from '@/lib/utils/format';
 import { BUNDESLAENDER, STEUERKLASSEN } from '@/lib/utils/constants';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export function EinkommensteuerForm() {
-  const [zvE, setZvE] = useState(50000);
+  const [einkommensArt, setEinkommensArt] = useState<EinkommensArt>('zve');
+  const [einkommen, setEinkommen] = useState(50000);
   const [steuerklasse, setSteuerklasse] = useState<1 | 2 | 3 | 4 | 5 | 6>(1);
+  const [zusammenveranlagung, setZusammenveranlagung] = useState(false);
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [bundesland, setBundesland] = useState('nw');
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
+  const [geburtsjahr, setGeburtsjahr] = useState<number | ''>('');
   const [result, setResult] = useState<EinkommensteuerResult | null>(null);
 
   useEffect(() => {
-    const r = calculateEinkommensteuer({ zvE, steuerklasse, kirchensteuer, bundesland, kinderfreibetraege });
+    const r = calculateEinkommensteuer({
+      einkommen,
+      einkommensArt,
+      steuerklasse,
+      zusammenveranlagung,
+      kirchensteuer,
+      bundesland,
+      kinderfreibetraege,
+      geburtsjahr: geburtsjahr === '' ? undefined : geburtsjahr,
+    });
     setResult(r);
-  }, [zvE, steuerklasse, kirchensteuer, bundesland, kinderfreibetraege]);
+  }, [einkommen, einkommensArt, steuerklasse, zusammenveranlagung, kirchensteuer, bundesland, kinderfreibetraege, geburtsjahr]);
+
+  // Splitting ist impliziert, wenn SK III ODER Toggle "Zusammenveranlagung" an
+  const splittingAktiv = zusammenveranlagung || steuerklasse === 3;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
       <Card padding="lg" className="lg:col-span-2 lg:sticky lg:top-20 lg:self-start">
         <div className="space-y-5">
-          <InputGroup label="Zu versteuerndes Einkommen (jährlich)" htmlFor="zve" tooltip="Ihr Jahreseinkommen nach Abzug aller Werbungskosten, Sonderausgaben und außergewöhnlichen Belastungen.">
-            <CurrencyInput id="zve" value={zvE} onChange={setZvE} />
+          {/* Einkommensart: zvE oder Brutto */}
+          <InputGroup label="Einkommensart" htmlFor="art" tooltip="zvE = zu versteuerndes Einkommen (nach allen Abzügen). Brutto = Jahresgehalt vor Pauschalen — Rechner zieht Werbungskosten- und Sonderausgabenpauschale automatisch ab.">
+            <Select
+              id="art"
+              value={einkommensArt}
+              onChange={(e) => setEinkommensArt(e.target.value as EinkommensArt)}
+            >
+              <option value="zve">Zu versteuerndes Einkommen (zvE)</option>
+              <option value="brutto">Bruttojahreseinkommen</option>
+            </Select>
+          </InputGroup>
+
+          <InputGroup
+            label={einkommensArt === 'brutto' ? 'Bruttojahreseinkommen' : 'Zu versteuerndes Einkommen (jährlich)'}
+            htmlFor="einkommen"
+            tooltip={einkommensArt === 'brutto'
+              ? 'Ihr Bruttojahresgehalt vor Steuern und Sozialabgaben. Werbungskostenpauschale (1.230 €) und Sonderausgaben-Pauschbetrag werden automatisch abgezogen.'
+              : 'Ihr Jahreseinkommen nach Abzug aller Werbungskosten, Sonderausgaben und außergewöhnlichen Belastungen.'}
+          >
+            <CurrencyInput id="einkommen" value={einkommen} onChange={setEinkommen} />
           </InputGroup>
 
           <InputGroup label="Steuerklasse" htmlFor="sk">
@@ -39,6 +78,20 @@ export function EinkommensteuerForm() {
             </Select>
           </InputGroup>
 
+          <div className="space-y-1">
+            <Toggle
+              label="Zusammenveranlagung (Ehegattensplitting)"
+              checked={splittingAktiv}
+              onChange={setZusammenveranlagung}
+              disabled={steuerklasse === 3}
+            />
+            <p className="text-xs text-text-muted pl-11">
+              {steuerklasse === 3
+                ? 'Bei Steuerklasse III automatisch aktiv.'
+                : 'Für verheiratete Paare — Einkommen wird geteilt, Tarif angewendet, Steuer verdoppelt.'}
+            </p>
+          </div>
+
           <InputGroup label="Bundesland" htmlFor="bl" tooltip="Relevant für den Kirchensteuersatz (8% in Bayern/BaWü, 9% sonst).">
             <Select id="bl" value={bundesland} onChange={(e) => setBundesland(e.target.value)}>
               {BUNDESLAENDER.map((bl) => (
@@ -47,7 +100,7 @@ export function EinkommensteuerForm() {
             </Select>
           </InputGroup>
 
-          <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Halbe Kinderfreibeträge (z. B. 1.0 = 1 Kind). Bei Zusammenveranlagung: volle Kinderfreibeträge.">
+          <InputGroup label="Kinderfreibeträge" htmlFor="kfb" tooltip="Halbe Kinderfreibeträge (z. B. 1,0 = 1 Kind bei Einzelveranlagung, 0,5 = geteilt). Bei Zusammenveranlagung: volle Kinderfreibeträge.">
             <Select id="kfb" value={kinderfreibetraege} onChange={(e) => setKinderfreibetraege(Number(e.target.value))}>
               <option value={0}>Keine</option>
               <option value={0.5}>0,5</option>
@@ -61,6 +114,25 @@ export function EinkommensteuerForm() {
             </Select>
           </InputGroup>
 
+          {einkommensArt === 'brutto' && (
+            <InputGroup
+              label="Geburtsjahr (für Altersentlastungsbetrag)"
+              htmlFor="gj"
+              tooltip="Optional. Ab dem Folgejahr der Vollendung des 64. Lebensjahres greift der Altersentlastungsbetrag nach §24a EStG (jahrgangsabhängige Staffelung)."
+            >
+              <Select
+                id="gj"
+                value={geburtsjahr === '' ? '' : String(geburtsjahr)}
+                onChange={(e) => setGeburtsjahr(e.target.value === '' ? '' : Number(e.target.value))}
+              >
+                <option value="">— nicht anwendbar —</option>
+                {Array.from({ length: 60 }, (_, i) => CURRENT_YEAR - 64 - i).map((j) => (
+                  <option key={j} value={j}>{j}</option>
+                ))}
+              </Select>
+            </InputGroup>
+          )}
+
           <Toggle label="Kirchensteuer" checked={kirchensteuer} onChange={setKirchensteuer} />
 
           <p className="text-xs text-text-muted text-center">Ergebnisse aktualisieren sich automatisch.</p>
@@ -72,7 +144,9 @@ export function EinkommensteuerForm() {
           <div className="animate-result-in space-y-6">
             <Card padding="lg" className="border-accent-200 dark:border-accent-800 bg-accent-50/30 dark:bg-accent-900/10">
               <div className="text-center space-y-1">
-                <p className="text-sm text-text-secondary">Einkommensteuer 2026</p>
+                <p className="text-sm text-text-secondary">
+                  Einkommensteuer 2026{splittingAktiv ? ' · Splittingtarif' : ''}
+                </p>
                 <p className="text-2xl sm:text-3xl lg:text-4xl font-bold font-currency truncate text-accent-600 dark:text-accent-400">
                   {formatCurrency(result.einkommensteuer)}
                 </p>
@@ -105,11 +179,48 @@ export function EinkommensteuerForm() {
                   {result.aufschluesselung.map((item, i) => {
                     const isTotal = item.label === 'Steuerbelastung gesamt';
                     const isNetto = item.label === 'Verbleibendes Einkommen';
+                    const isZvE = item.label === 'Zu versteuerndes Einkommen';
+                    const isDeduction = [
+                      'Werbungskostenpauschale',
+                      'Altersentlastungsbetrag (§24a EStG)',
+                      'Kinderfreibetrag',
+                    ].includes(item.label) || item.label.startsWith('Sonderausgaben-Pauschbetrag');
                     return (
-                      <tr key={i} className={`border-b border-border last:border-b-0 ${isTotal || isNetto ? 'bg-surface-sunken font-semibold' : 'hover:bg-surface-raised'} transition-colors`}>
-                        <td className={`px-4 py-3 ${isNetto ? 'text-accent-600 dark:text-accent-400' : isTotal ? 'text-negative-500' : 'text-text-secondary'}`}>{item.label}</td>
-                        <td className={`px-4 py-3 text-right font-currency font-medium ${isNetto ? 'text-accent-600 dark:text-accent-400' : isTotal ? 'text-negative-500' : 'text-text'}`}>
-                          {isTotal ? `-${formatCurrency(item.betrag)}` : formatCurrency(item.betrag)}
+                      <tr
+                        key={i}
+                        className={`border-b border-border last:border-b-0 ${
+                          isTotal || isNetto || isZvE ? 'bg-surface-sunken font-semibold' : 'hover:bg-surface-raised'
+                        } transition-colors`}
+                      >
+                        <td
+                          className={`px-4 py-3 ${
+                            isNetto
+                              ? 'text-accent-600 dark:text-accent-400'
+                              : isTotal
+                                ? 'text-negative-500'
+                                : isDeduction
+                                  ? 'text-text-secondary'
+                                  : 'text-text-secondary'
+                          }`}
+                        >
+                          {item.label}
+                        </td>
+                        <td
+                          className={`px-4 py-3 text-right font-currency font-medium ${
+                            isNetto
+                              ? 'text-accent-600 dark:text-accent-400'
+                              : isTotal
+                                ? 'text-negative-500'
+                                : isDeduction
+                                  ? 'text-positive-500'
+                                  : 'text-text'
+                          }`}
+                        >
+                          {isTotal
+                            ? `-${formatCurrency(item.betrag)}`
+                            : isDeduction
+                              ? `-${formatCurrency(item.betrag)}`
+                              : formatCurrency(item.betrag)}
                         </td>
                       </tr>
                     );

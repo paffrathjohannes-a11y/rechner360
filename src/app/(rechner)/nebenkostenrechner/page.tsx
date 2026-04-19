@@ -3,6 +3,7 @@ import { CalculatorPageLayout } from '@/components/calculator/calculator-page-la
 import { NebenkostenForm } from './nebenkosten-form';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { NEBENKOSTEN_PAGES } from '@/data/programmatic/nebenkosten-pages';
 
 const FAQS = [
   { question: 'Wie hoch sind die Kaufnebenkosten?', answer: 'Die Kaufnebenkosten betragen je nach Bundesland und Maklerkosten zwischen 7% und 15% des Kaufpreises. Die größten Posten sind Grunderwerbsteuer (3,5-6,5%), Notar (ca. 1,5%) und ggf. Makler (ca. 3-3,57%).' },
@@ -47,6 +48,7 @@ export default function NebenkostenrechnerPage() {
           </div>
         </section>
       }
+      programmaticVariants={{ pages: NEBENKOSTEN_PAGES }}
     >
       <NebenkostenForm />
     </CalculatorPageLayout>

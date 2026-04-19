@@ -4,6 +4,7 @@ import { BuForm } from './bu-form';
 import { BU_FAQS } from '@/data/content/bu-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { BU_PAGES } from '@/data/programmatic/bu-pages';
 
 export const metadata: Metadata = {
   title: 'BU-Rechner 2026 — Berufsunfähigkeitsversicherung berechnen',
@@ -58,6 +59,7 @@ export default function BuRechnerPage() {
           <p className="text-sm text-text-muted">* Geschätzt für 30 Jahre, 1.500 € BU-Rente, Nichtraucher, bis Alter 67.</p>
         </section>
       }
+      programmaticVariants={{ pages: BU_PAGES }}
     >
       <BuForm />
     </CalculatorPageLayout>

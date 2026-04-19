@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { BmiForm } from './bmi-form';
 import { BMI_FAQS } from '@/data/content/bmi-guide';
+import { BMI_PAGES } from '@/data/programmatic/bmi-pages';
 
 export const metadata: Metadata = {
   title: 'BMI Rechner 2026 — Body-Mass-Index berechnen',
@@ -29,6 +32,7 @@ export default function BmiRechnerPage() {
         description: 'Kostenloser BMI Rechner. Body-Mass-Index berechnen mit WHO-Klassifikation und Idealgewicht.',
       }}
       faqs={BMI_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['bmi-rechner'].headline} offers={affiliateOffersBySlug['bmi-rechner'].offers} />}
       guideContent={
         <>
           {/* BMI Tabelle */}
@@ -90,6 +94,7 @@ export default function BmiRechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: BMI_PAGES }}
     >
       <BmiForm />
     </CalculatorPageLayout>

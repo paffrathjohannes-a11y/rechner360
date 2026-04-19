@@ -3,6 +3,7 @@ import { CalculatorPageLayout } from '@/components/calculator/calculator-page-la
 import { BaukostenForm } from './baukosten-form';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { BAUKOSTEN_PAGES } from '@/data/programmatic/baukosten-pages';
 
 const FAQS = [
   { question: 'Was kostet ein Haus bauen 2026?', answer: 'Die reinen Baukosten liegen 2026 bei ca. 1.800-3.500 €/m² je nach Ausstattung und Bauweise. Für ein Einfamilienhaus mit 140 m² in mittlerer Ausstattung sind das ca. 308.000 € Baukosten. Mit Grundstück, Nebenkosten und Außenanlagen rechnet man mit 450.000-600.000 € Gesamtkosten.' },
@@ -54,6 +55,7 @@ export default function BaukostenRechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: BAUKOSTEN_PAGES }}
     >
       <BaukostenForm />
     </CalculatorPageLayout>

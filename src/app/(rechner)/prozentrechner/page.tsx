@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { ProzentForm } from './prozent-form';
+import { PROZENT_PAGES } from '@/data/programmatic/prozent-pages';
 
 const FAQS = [
   { question: 'Wie berechnet man Prozent?', answer: 'Die Grundformel lautet: Prozentwert = Grundwert × Prozentsatz ÷ 100. Beispiel: 20% von 150 = 150 × 20 ÷ 100 = 30.' },
@@ -27,6 +30,7 @@ export default function ProzentrechnerPage() {
       subtitle="Prozente einfach berechnen — Anteil, Prozentsatz, Grundwert und prozentuale Veränderung."
       jsonLd={{ name: 'Prozentrechner', url: '/prozentrechner', description: 'Kostenloser Prozentrechner. Prozente berechnen leicht gemacht.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.prozentrechner.headline} offers={affiliateOffersBySlug.prozentrechner.offers} />}
       guideContent={
         <>
           <section className="space-y-4 mt-12">
@@ -56,6 +60,7 @@ export default function ProzentrechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: PROZENT_PAGES }}
     >
       <ProzentForm />
     </CalculatorPageLayout>

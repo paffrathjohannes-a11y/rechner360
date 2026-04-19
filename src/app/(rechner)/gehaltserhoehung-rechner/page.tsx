@@ -3,6 +3,7 @@ import { CalculatorPageLayout } from '@/components/calculator/calculator-page-la
 import { GehaltserhoehungForm } from './gehaltserhoehung-form';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { GEHALTSERHOEHUNG_PAGES } from '@/data/programmatic/gehaltserhoehung-pages';
 
 const FAQS = [
   { question: 'Wie viel kommt von einer Gehaltserhöhung netto an?', answer: 'Typischerweise kommen nur 45-60% einer Brutto-Gehaltserhöhung netto an. Der Rest geht für Steuern und Sozialversicherung drauf. Je höher Ihr Einkommen, desto weniger bleibt netto — wegen der Steuerprogression.' },
@@ -30,6 +31,7 @@ export default function GehaltserhoehungRechnerPage() {
       jsonLd={{ name: 'Gehaltserhöhung Rechner', url: '/gehaltserhoehung-rechner', description: 'Gehaltserhöhung: Wie viel bleibt netto?' }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['gehaltserhoehung-rechner'].headline} offers={affiliateOffersBySlug['gehaltserhoehung-rechner'].offers} />}
+      programmaticVariants={{ pages: GEHALTSERHOEHUNG_PAGES }}
     >
       <GehaltserhoehungForm />
     </CalculatorPageLayout>

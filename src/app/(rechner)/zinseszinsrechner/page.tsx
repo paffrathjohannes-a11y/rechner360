@@ -5,6 +5,7 @@ import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { ZinsTicker } from '@/components/calculator/zins-ticker';
 import { getCurrentRates } from '@/lib/rates/fetch-rates';
+import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
 
 const FAQS = [
   { question: 'Was ist der Zinseszinseffekt?', answer: 'Beim Zinseszins werden nicht nur das Startkapital, sondern auch die bereits angefallenen Zinsen verzinst. Dadurch wächst das Vermögen exponentiell — je länger der Anlagezeitraum, desto stärker der Effekt. Albert Einstein soll ihn als „achtes Weltwunder" bezeichnet haben.' },
@@ -34,6 +35,7 @@ export default async function ZinseszinsrechnerPage() {
       jsonLd={{ name: 'Zinseszinsrechner', url: '/zinseszinsrechner', description: 'Zinseszins und Sparplan berechnen.' }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.zinseszinsrechner.headline} offers={affiliateOffersBySlug.zinseszinsrechner.offers} />}
+      programmaticVariants={{ pages: ZINSESZINS_PAGES }}
     >
       <ZinsTicker rates={rates} variant="anlage" className="mb-4" />
       <ZinseszinsForm />

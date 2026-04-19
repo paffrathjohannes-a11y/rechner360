@@ -6,6 +6,7 @@ import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { ZinsTicker } from '@/components/calculator/zins-ticker';
 import { getCurrentRates } from '@/lib/rates/fetch-rates';
+import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 
 export const metadata: Metadata = {
   title: 'Tilgungsrechner 2026 — Baufinanzierung & Tilgungsplan',
@@ -55,6 +56,7 @@ export default async function TilgungsrechnerPage() {
           </p>
         </section>
       }
+      programmaticVariants={{ pages: TILGUNGS_PAGES }}
     >
       <ZinsTicker rates={rates} variant="baufi" className="mb-4" />
       <TilgungsrechnerForm />

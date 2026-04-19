@@ -4,6 +4,7 @@ import { ErbschaftsteuerForm } from './erbschaftsteuer-form';
 import { ERBSCHAFTSTEUER_FAQS } from '@/data/content/erbschaftsteuer-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { ERBSCHAFTSTEUER_PAGES } from '@/data/programmatic/erbschaftsteuer-pages';
 
 export const metadata: Metadata = {
   title: 'Erbschaftsteuer Rechner 2026 — Kostenlos berechnen',
@@ -99,6 +100,7 @@ export default function ErbschaftsteuerRechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: ERBSCHAFTSTEUER_PAGES }}
     >
       <ErbschaftsteuerForm />
     </CalculatorPageLayout>

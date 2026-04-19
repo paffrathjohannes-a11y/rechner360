@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { WohngeldForm } from './wohngeld-form';
 import { WOHNGELD_FAQS } from '@/data/content/wohngeld-guide';
 
@@ -22,6 +24,7 @@ export default function WohngeldRechnerPage() {
         description: 'Kostenloser Wohngeldrechner 2026 mit Wohngeld-Plus.',
       }}
       faqs={WOHNGELD_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['wohngeld-rechner'].headline} offers={affiliateOffersBySlug['wohngeld-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">

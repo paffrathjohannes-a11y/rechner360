@@ -4,6 +4,7 @@ import { KfzForm } from './kfz-form';
 import { KFZ_FAQS } from '@/data/content/kfz-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { KFZ_PAGES } from '@/data/programmatic/kfz-pages';
 
 export const metadata: Metadata = {
   title: 'Kfz-Versicherung Rechner 2026 — Beitrag berechnen & vergleichen',
@@ -31,6 +32,7 @@ export default function KfzVersicherungRechnerPage() {
       }}
       faqs={KFZ_FAQS}
       affiliateSection={affiliateOffersBySlug['kfz-versicherung-rechner'] ? <AffiliateBox headline={affiliateOffersBySlug['kfz-versicherung-rechner'].headline} offers={affiliateOffersBySlug['kfz-versicherung-rechner'].offers} /> : undefined}
+      programmaticVariants={{ pages: KFZ_PAGES }}
     >
       <KfzForm />
     </CalculatorPageLayout>

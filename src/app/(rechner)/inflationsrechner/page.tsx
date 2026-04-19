@@ -3,6 +3,7 @@ import { CalculatorPageLayout } from '@/components/calculator/calculator-page-la
 import { InflationsForm } from './inflations-form';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { INFLATIONS_PAGES } from '@/data/programmatic/inflations-pages';
 
 const FAQS = [
   { question: 'Was ist Inflation?', answer: 'Inflation bezeichnet den allgemeinen Anstieg des Preisniveaus. Wenn die Inflation 3% beträgt, kosten Güter und Dienstleistungen im Durchschnitt 3% mehr als im Vorjahr. Dadurch sinkt die Kaufkraft des Geldes.' },
@@ -34,6 +35,7 @@ export default function InflationsrechnerPage() {
       }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.inflationsrechner.headline} offers={affiliateOffersBySlug.inflationsrechner.offers} />}
+      programmaticVariants={{ pages: INFLATIONS_PAGES }}
     >
       <InflationsForm />
     </CalculatorPageLayout>

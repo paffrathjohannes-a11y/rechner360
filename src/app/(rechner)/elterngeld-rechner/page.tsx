@@ -4,6 +4,7 @@ import { ElterngeldForm } from './elterngeld-form';
 import { ELTERNGELD_FAQS } from '@/data/content/elterngeld-guide';
 import { AffiliateBox } from '@/components/ads/affiliate-box';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { ELTERNGELD_PAGES } from '@/data/programmatic/elterngeld-pages';
 
 export const metadata: Metadata = {
   title: 'Elterngeld Rechner 2026 — Basiselterngeld & ElterngeldPlus',
@@ -72,6 +73,7 @@ export default function ElterngeldRechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: ELTERNGELD_PAGES }}
     >
       <ElterngeldForm />
     </CalculatorPageLayout>

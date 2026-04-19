@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { BuergergeldForm } from './buergergeld-form';
 import { BUERGERGELD_FAQS } from '@/data/content/buergergeld-guide';
+import { BUERGERGELD_PAGES } from '@/data/programmatic/buergergeld-pages';
 
 export const metadata: Metadata = {
   title: 'Bürgergeld-Rechner 2026 — Anspruch & Höhe berechnen',
@@ -22,6 +25,7 @@ export default function BuergergeldRechnerPage() {
         description: 'Kostenloser Grundsicherung Rechner 2026 — ehemals Bürgergeld.',
       }}
       faqs={BUERGERGELD_FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['buergergeld-rechner'].headline} offers={affiliateOffersBySlug['buergergeld-rechner'].offers} />}
       guideContent={
         <>
           <section className="space-y-4">
@@ -63,6 +67,7 @@ export default function BuergergeldRechnerPage() {
           </section>
         </>
       }
+      programmaticVariants={{ pages: BUERGERGELD_PAGES }}
     >
       <BuergergeldForm />
     </CalculatorPageLayout>

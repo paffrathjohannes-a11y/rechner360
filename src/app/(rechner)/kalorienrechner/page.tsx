@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { CalculatorPageLayout } from '@/components/calculator/calculator-page-layout';
+import { AffiliateBox } from '@/components/ads/affiliate-box';
+import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 import { KalorienForm } from './kalorien-form';
+import { KALORIEN_PAGES } from '@/data/programmatic/kalorien-pages';
 
 const FAQS = [
   { question: 'Was ist der Grundumsatz?', answer: 'Der Grundumsatz ist die Energiemenge, die Ihr Körper im Ruhezustand benötigt, um lebenswichtige Funktionen aufrechtzuerhalten (Atmung, Herzschlag, Gehirnaktivität). Er macht ca. 60-70% des Gesamtenergieverbrauchs aus.' },
@@ -27,6 +30,8 @@ export default function KalorienrechnerPage() {
       subtitle="Berechnen Sie Ihren täglichen Kalorienbedarf — Grundumsatz, Gesamtumsatz und Zielkalorien."
       jsonLd={{ name: 'Kalorienrechner', url: '/kalorienrechner', description: 'T\u00e4glichen Kalorienbedarf berechnen.' }}
       faqs={FAQS}
+      affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.kalorienrechner.headline} offers={affiliateOffersBySlug.kalorienrechner.offers} />}
+      programmaticVariants={{ pages: KALORIEN_PAGES }}
     >
       <KalorienForm />
     </CalculatorPageLayout>
