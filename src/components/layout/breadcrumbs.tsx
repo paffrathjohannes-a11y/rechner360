@@ -14,10 +14,12 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
-  // BreadcrumbList für JSON-LD darf nur echte, crawlbare URLs enthalten.
-  // Einträge mit Hash-Fragment (z. B. /#gehalt-steuern) werden von Google
-  // ignoriert bzw. als ungültig gewertet — solche Items übernehmen wir
-  // visuell, geben aber kein `item` im Schema aus.
+  // BreadcrumbList für JSON-LD: `item` ist für alle nicht-letzten Einträge
+  // Pflicht. Fehlt es, meldet Google "Feld 'item' fehlt (in itemListElement)"
+  // und das gesamte Breadcrumb-Schema wird verworfen.
+  // Der letzte Eintrag (aktuelle Seite) darf kein `item` haben (Spec).
+  // Fragment-URLs (z. B. /#gehalt-steuern) akzeptiert Google als gültigen
+  // Item-Wert; wir nutzen also den Hash-Link, statt den Eintrag zu skippen.
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -28,14 +30,25 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
         name: 'Startseite',
         item: SITE_URL,
       },
-      ...items.map((item, i) => ({
-        '@type': 'ListItem',
-        position: i + 2,
-        name: item.label,
-        ...(item.href && !item.href.includes('#')
-          ? { item: `${SITE_URL}${item.href}` }
-          : {}),
-      })),
+      ...items.map((item, i) => {
+        const isLast = i === items.length - 1;
+        // Letzter Eintrag (current page) darf ohne `item` auskommen.
+        if (isLast && !item.href) {
+          return {
+            '@type': 'ListItem' as const,
+            position: i + 2,
+            name: item.label,
+          };
+        }
+        // Alle anderen: `item` verpflichtend, auch bei Hash-URLs.
+        const href = item.href || '/';
+        return {
+          '@type': 'ListItem' as const,
+          position: i + 2,
+          name: item.label,
+          item: `${SITE_URL}${href}`,
+        };
+      }),
     ],
   };
 
