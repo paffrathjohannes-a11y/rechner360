@@ -60,5 +60,36 @@
     ],
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-04-20"
+  },
+  {
+    "slug": "kirchensteuer-lohnt-austritt",
+    "title": "Kirchensteuer 2026: Lohnt sich der Austritt?",
+    "metaTitle": "Kirchensteuer sparen: Lohnt der Austritt 2026?",
+    "metaDescription": "Erfahren Sie, ob sich der Austritt aus der Kirche steuerlich lohnt und welche finanziellen Vorteile Sie erwarten.",
+    "intro": "Die Kirchensteuer ist für viele Steuerzahler ein erheblicher Posten. In Bayern und Baden-Württemberg beträgt sie 8 %, im Rest der Republik 9 % des Einkommenssteuerbetrags. Doch lohnt sich ein Kirchenaustritt finanziell? Eine Betrachtung der Einsparungen bei verschiedenen Einkommensstufen klärt auf.",
+    "sections": [
+      {
+        "title": "Warum zahlen wir Kirchensteuer?",
+        "content": "In Deutschland dient die Kirchensteuer der Finanzierung kirchlicher Aufgaben, wie der Seelsorge und sozialen Diensten. Sie wird direkt mit der Einkommenssteuer erhoben und beträgt je nach Bundesland 8 % oder 9 % des Einkommenssteuerbetrags laut §51a EStG. Vor einem Austritt sollte man nicht nur die finanziellen, sondern auch die religiösen und sozialen Aspekte berücksichtigen, da der Austritt den Zugang zu kirchlichen Handlungen wie Taufe und kirchlicher Trauung einschränkt."
+      },
+      {
+        "title": "Finanzielle Einsparung bei 3.000 € brutto",
+        "content": "Bei einem Einkommen von 3.000 € brutto monatlich zahlt eine unverheiratete, kinderlose Person in Bayern oder Baden-Württemberg rund 45 € Kirchensteuer pro Monat, im restlichen Deutschland etwa 50 €. Das ergibt eine jährliche Ersparnis von 540 € bzw. 600 €, sollte man austreten. Diese Beträge können ein klares Argument für den Kirchenaustritt sein, wobei die individuellen Umstände genauer betrachtet werden sollten."
+      },
+      {
+        "title": "Finanzielle Einsparung bei 5.000 € brutto",
+        "content": "Verdienen Sie monatlich 5.000 € brutto, zahlen Sie in Bayern oder Baden-Württemberg ca. 105 € monatlich für die Kirchensteuer. In anderen Bundesländern wären es etwa 115 €. Eine Ersparnis von 1.260 € bzw. 1.380 € im Jahr könnte bei der Frage des Kirchenaustritts eine Rolle spielen. Allerdings sollte hierbei nicht nur der finanzielle Aspekt, sondern auch die persönliche Beziehung zur Kirche bedacht werden."
+      },
+      {
+        "title": "Finanzielle Einsparung bei 8.000 € brutto",
+        "content": "Mit einem Monatsgehalt von 8.000 € brutto steigen die Kirchensteuerzahlungen entsprechend an. In Bayern und Baden-Württemberg wären dies ungefähr 180 € monatlich, in anderen Bundesländern etwa 200 €. Dies führt zu einer Ersparnis von rund 2.160 € bzw. 2.400 € im Jahr. Solche Einsparungen können die Entscheidung erleichtern, verlangen aber eine umfassende Überlegung der langfristigen Konsequenzen."
+      },
+      {
+        "title": "Prozedere und Auswirkungen eines Kirchenaustritts",
+        "content": "Der Austritt aus der Kirche erfolgt in der Regel bei der örtlichen Stadtverwaltung oder einem Amtsgericht. Hierbei wird eine Bearbeitungsgebühr von etwa 30 € fällig. Ein Austritt kann jedoch weitreichende persönliche und soziale Folgen haben, etwa den Verlust kirchlicher Anlässe wie Hochzeiten oder der Kindstaufe. Es ist empfehlenswert, die Entscheidung ernsthaft zu überdenken und eventuell eine individuelle Beratung in Anspruch zu nehmen."
+      }
+    ],
+    "relatedRechner": "einkommensteuer-rechner",
+    "publishDate": "2026-04-22"
   }
 ]
