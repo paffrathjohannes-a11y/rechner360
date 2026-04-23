@@ -29,10 +29,18 @@ const FALLBACK_RATES: CurrentRates = {
 };
 
 async function fetchEcbRate(): Promise<number | null> {
+  // 8s-Timeout via AbortController — ohne das blockt ein hängender ECB-Call
+  // den Vercel-Build (3×60s Retries, dann build failure). FALLBACK_RATES
+  // springen ein, sobald das Signal abgebrochen hat.
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
     // EZB Hauptrefinanzierungssatz (MRO)
     const url = 'https://data.ecb.europa.eu/data-api/v1/data/FM/M.U2.EUR.4F.KR.MRR_FR.LEV?lastNObservations=1&format=jsondata';
-    const res = await fetch(url, { next: { revalidate: 86400 } }); // 24h cache
+    const res = await fetch(url, {
+      next: { revalidate: 86400 }, // 24h cache
+      signal: controller.signal,
+    });
     if (!res.ok) return null;
     const data = await res.json();
     const observations = data?.dataSets?.[0]?.series?.['0:0:0:0:0:0:0']?.observations;
@@ -41,6 +49,8 @@ async function fetchEcbRate(): Promise<number | null> {
     return lastKey ? parseFloat(observations[lastKey][0]) : null;
   } catch {
     return null;
+  } finally {
+    clearTimeout(timeout);
   }
 }
 
