@@ -65,7 +65,7 @@ export function CalculatorPageLayout({
 
   const breadcrumbItems = [
     ...(category ? [{ label: category.title, href: `/#${category.id}` }] : []),
-    { label: title },
+    { label: title, href: `/${slug}` },
   ];
 
   return (
