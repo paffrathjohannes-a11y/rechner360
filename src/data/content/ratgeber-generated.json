@@ -91,5 +91,36 @@
     ],
     "relatedRechner": "einkommensteuer-rechner",
     "publishDate": "2026-04-22"
+  },
+  {
+    "slug": "home-office-pauschale-2026-optimal-nutzen",
+    "title": "Home-Office-Pauschale 2026: Vorteile richtig nutzen",
+    "metaTitle": "Home-Office-Pauschale 2026 optimal nutzen",
+    "metaDescription": "Erfahren Sie, wie Sie die Home-Office-Pauschale 2026 optimal ausschöpfen. Tipps zur Kombination mit Arbeitsmitteln und Steuererklärung.",
+    "intro": "Mit der Home-Office-Pauschale können Steuerzahler bis zu 1.260 € im Jahr absetzen. Diese Pauschale erleichtert den Abzug für Arbeit von zu Hause, selbst ohne separates Arbeitszimmer. Erfahren Sie, wie Sie die Pauschale kombinieren und welche Nachweise nötig sind.",
+    "sections": [
+      {
+        "title": "Grundlagen der Home-Office-Pauschale",
+        "content": "Seit 2023 können Arbeitnehmer 6 € pro Home-Office-Tag bis zu einem Maximum von 1.260 € im Jahr absetzen, auch ohne ein separates Arbeitszimmer. Laut den aktuellen Steuerregelungen ermöglicht dies eine unkomplizierte Steuererleichterung für bis zu 210 Arbeitstage von zu Hause. Die Pauschale stellt eine Vereinfachung dar, da keine umfangreichen Nachweise für die Nutzung eines heimischen Büros erforderlich sind. Dies ist besonders für diejenigen von Vorteil, die keinen regulären Arbeitsplatz im Unternehmen haben."
+      },
+      {
+        "title": "Wie Sie die Pauschale ausschöpfen",
+        "content": "Um den maximalen Betrag der Home-Office-Pauschale zu erhalten, müssen 210 Tage von zu Hause aus gearbeitet werden. Selbst wenn weniger Tage gearbeitet werden, können Arbeitnehmer den Anspruch pro Tag geltend machen. Es ist wichtig, dass Arbeitstage dokumentiert werden, um diese der Steuererklärung beizufügen. Eine einfache Tabelle mit Datum und Arbeitszeit kann hier ausreichend sein. Selbstständige können die Pauschale ebenfalls nutzen, haben jedoch andere Abzugsmöglichkeiten, die genau geprüft werden sollten. Eine individuelle Beratung kann für komplizierte Fälle empfohlen werden."
+      },
+      {
+        "title": "Kombination mit anderen Steuerabzügen",
+        "content": "Neben der Home-Office-Pauschale können auch weitere Kosten wie Arbeitsmittel geltend gemacht werden. Dazu gehören etwa Schreibtischstühle, Computer oder andere notwendige Ausstattungen. Hier können zusätzliche Beträge über der Werbungskostenpauschale von 1.230 € hinausgehen. Es ist wichtig, dass die Kosten belegt werden können, um sie beim Finanzamt einreichen zu können. Diese Kombination kann die Steuerlast erheblich senken, wenn die entsprechende Dokumentation vorhanden ist."
+      },
+      {
+        "title": "Was das Finanzamt akzeptiert",
+        "content": "Das Finanzamt verlangt zwar keine speziellen Nachweise für die Home-Office-Pauschale, jedoch sollte eine nachvollziehbare Dokumentation der Arbeitstage vorliegen. Bei der Geltendmachung von Arbeitsmitteln müssen Quittungen und Rechnungen aufbewahrt werden, insbesondere wenn die Kosten hoch sind. Akzeptierte Arbeitsmittel sind typischerweise technische Geräte und Büromöbel. Beachten Sie, dass jegliche Abzüge so dargestellt sein müssen, dass sie plausibel und nachvollziehbar sind."
+      },
+      {
+        "title": "Praktische Tipps zur Steuererklärung",
+        "content": "Bei der Steuererklärung sollte der Abzug der Home-Office-Pauschale klar als Werbungskosten vermerkt werden. Es empfiehlt sich, die Arbeitsmittel und deren Nutzung zu dokumentieren und rechtzeitig alle Belege zu sammeln. Software-Programme zur Steuererklärung können helfen, alle notwendigen Details korrekt einzugeben. Eine Beratung durch einen Steuerberater kann vor allem bei umfangreicheren Abzugsplänen von Vorteil sein, besonders wenn Unsicherheiten bestehen, was geltend gemacht werden kann."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-04-24"
   }
 ]
