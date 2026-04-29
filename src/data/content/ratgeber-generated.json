@@ -153,5 +153,36 @@
     ],
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-04-27"
+  },
+  {
+    "slug": "grunderwerbsteuer-2026-bayern-guenstiger",
+    "title": "Grunderwerbsteuer 2026: Warum Bayern günstiger ist",
+    "metaTitle": "Grunderwerbsteuer 2026: Günstiger in Bayern",
+    "metaDescription": "Erfahren Sie, warum die Grunderwerbsteuer in Bayern günstiger ist und wie Kaufpreisaufteilung sparen kann.",
+    "intro": "Die Grunderwerbsteuer variiert je nach Bundesland erheblich. Während Bayern mit einem Steuersatz von 3,5 % günstiger ist, verlangen andere Bundesländer wie Nordrhein-Westfalen und Brandenburg bis zu 6,5 %. Erfahren Sie, warum Bayern günstiger ist und wie eine geschickte Aufteilung des Kaufpreises zusätzliche Einsparungen ermöglichen kann.",
+    "sections": [
+      {
+        "title": "Grunderwerbsteuer in Bayern vs. anderen Bundesländern",
+        "content": "In Bayern beträgt die Grunderwerbsteuer lediglich 3,5 %. Dieses Niveau ist eines der niedrigsten in Deutschland. Im Vergleich dazu erheben Nordrhein-Westfalen, Brandenburg, Saarland und Schleswig-Holstein eine Steuer von 6,5 %. Diese Unterschiede können bei Immobilien im Wert von 500.000 € zu erheblichen Kostenspannen führen. In Bayern zahlen Sie 17.500 € Grunderwerbsteuer, während Sie in den teureren Bundesländern 32.500 € entrichten müssten. Diese erhebliche Differenz macht Bayern besonders attraktiv für Immobilienkäufer."
+      },
+      {
+        "title": "Grunderwerbsteuer: Wann sie fällig wird",
+        "content": "Die Grunderwerbsteuer fällt nur bei einem Immobilienkauf an und ist direkt nach der notariellen Beurkundung des Kaufvertrags zu zahlen. Sie stellt somit eine Einmalbelastung beim Erwerb einer Immobilie dar. Der zu versteuernde Betrag wird auf Basis des Kaufpreises berechnet. Es ist wichtig, diesen Aspekt in die Gesamtplanung der Zahlungsströme beim Immobilienkauf einzubeziehen, da die Steuer beim Abschluss des Verkaufsprozesses fällig wird."
+      },
+      {
+        "title": "Kaufpreisaufteilung: Einsparpotenzial durch Mobiliar",
+        "content": "Eine Möglichkeit, um die Belastung durch die Grunderwerbsteuer zu reduzieren, liegt in der Aufteilung des Kaufpreises. Beim Kauf von Immobilien mit Mobiliar kann der Kaufpreis auf Gebäude und bewegliche Güter, wie Küchen oder Einbaumöbel, aufgeteilt werden. Die Grunderwerbsteuer wird nur auf den Gebäudeteil erhoben. Angenommen, der Gesamtpreis einer Immobilie beträgt 500.000 €, wovon 20.000 € auf Möbel entfallen, dann verringert sich der steuerpflichtige Betrag auf 480.000 €. In Bayern spart dies 700 €, bei einem Steuersatz von 6,5 % sogar 1.300 €."
+      },
+      {
+        "title": "Rechtsgrundlagen und regionale Unterschiede",
+        "content": "Die rechtlichen Grundlagen für die Grunderwerbsteuer sind im Grunderwerbsteuergesetz verankert. Das Gesetz erlaubt den Ländern die Festlegung eigener Steuersätze. Bayern nutzt diese Möglichkeit, um mit 3,5 % einen der niedrigsten Sätze zu etablieren. Dieses Engagement, die Steuerlast gering zu halten, wirkt als Anreiz für Käufer und könnte, abhängig von den individuellen Umständen, die Entscheidung für den Standort beeinflussen. Damit bleibt Bayern besonders wettbewerbsfähig im Vergleich zu anderen Ländern mit höheren Steuersätzen."
+      },
+      {
+        "title": "Wirtschaftliche Überlegungen im Immobilienkauf",
+        "content": "Neben der Grunderwerbsteuer gibt es bei einem Immobilienkauf zusätzliche Kosten wie Notargebühren und Grundbucheinträge, die Sie berücksichtigen sollten. Diese können ebenfalls variieren. Ein umfassendes Verständnis der Gesamtkosten ist entscheidend, um die finanzielle Belastung realistisch einzuschätzen. Es wird empfohlen, eine individuelle Beratung durch einen Steuerberater in Anspruch zu nehmen, um alle Einsparpotenziale auszuschöpfen und rechtliche Feinheiten zu beachten."
+      }
+    ],
+    "relatedRechner": "grundsteuer-rechner",
+    "publishDate": "2026-04-29"
   }
 ]
