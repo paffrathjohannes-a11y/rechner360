@@ -184,5 +184,36 @@
     ],
     "relatedRechner": "grundsteuer-rechner",
     "publishDate": "2026-04-29"
+  },
+  {
+    "slug": "weihnachtsgeld-versteuern-2026",
+    "title": "Weihnachtsgeld 2026: So viel bleibt netto übrig",
+    "metaTitle": "Weihnachtsgeld besteuern 2026: Nettobeträge berechnen",
+    "metaDescription": "Erfahren Sie, wie viel Weihnachtsgeld 2026 nach Steuern bleibt. Praktische Netto-Beispiele für 500€, 1.500€ und 3.000€.",
+    "intro": "Das Weihnachtsgeld wird als sonstiger Bezug versteuert und unterliegt dem Progressionseffekt. Darum bringt es unterschiedliche Nettobeträge je nach Einkommenshöhe. Verständnis dieser Auswirkungen und konkrete Beispielrechnungen helfen, Ihre Nettobeträge präzise zu planen.",
+    "sections": [
+      {
+        "title": "Weihnachtsgeld als sonstiger Bezug",
+        "content": "Das Weihnachtsgeld wird steuerlich als <em>sonstiger Bezug</em> behandelt. Dies bedeutet, dass es nicht zu Ihrem regulären Einkommen zählt, sondern separat ausgewiesen wird. Im Gegensatz zu regulären Gehältern wird das Weihnachtsgeld nicht durch die Fünftelregelung begünstigt, was zu einem höheren Steuersatz führen kann. Ihr jährliches Einkommen in Kombination mit dem Weihnachtsgeld kann somit zu einem Progressionseffekt führen, der Ihre Steuerlast erhöht."
+      },
+      {
+        "title": "Erklärung des Progressionseffekts",
+        "content": "Der Progressionseffekt tritt auf, wenn das zusätzliche Einkommen, in diesem Fall das Weihnachtsgeld, dazu führt, dass der Steuersatz ansteigt. In Deutschland ist der Steuertarif progressiv gestaltet, was bedeutet, dass mit steigendem Einkommen auch der Steuersatz steigt (§32a EStG). Diese Progression führt dazu, dass sich eine Erhöhung des Einkommens durchaus spürbar auf die steuerliche Belastung auswirkt. Somit kann es ein, dass von einem hohen Weihnachtsgeld relativ weniger netto übrig bleibt."
+      },
+      {
+        "title": "Netto-Beispielrechnung: Weihnachtsgeld 500€",
+        "content": "Bei einem Weihnachtsgeld von 500 € kann die Steuerbelastung relativ moderat sein, da sich die progressive Wirkung bei geringen Beträgen noch nicht stark entfaltet. Bei einem jährlichen Einkommen von 40.000 € ergibt sich eine zusätzliche Steuerlast von etwa 100 €, wobei rund 400 € netto verbleiben. Diese Berechnung verdeutlicht, dass kleinere Sonderzahlungen weniger von der erhöhten Progression betroffen sind."
+      },
+      {
+        "title": "Netto-Beispielrechnung: Weihnachtsgeld 1.500€",
+        "content": "Erhöht sich das Weihnachtsgeld auf 1.500 €, ist der Progressionseffekt deutlicher spürbar. Bei einem Jahreseinkommen von 40.000 € könnte die Steuerbelastung auf rund 500 € steigen. Netto blieben so etwa 1.000 €. Dies zeigt, dass höhere Beträge eine deutlichere progressive Wirkung erfahren und somit ein größerer Teil versteuert wird."
+      },
+      {
+        "title": "Netto-Beispielrechnung: Weihnachtsgeld 3.000€",
+        "content": "Für ein Weihnachtsgeld von 3.000 € bei einem Jahresverdienst von 40.000 € erhöht sich die Zusatzsteuer auf circa 1.200 €. Das bedeutet, dass etwa 1.800 € netto übrig bleiben. Bei solch einem Betrag ist die Progression recht stark, was zu einer größeren steuerlichen Belastung führt. Eine professionelle Steuerberatung könnte hier helfen, Optimierungspotenziale zu identifizieren."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-05-01"
   }
 ]
