@@ -51,6 +51,55 @@ export default function EinkommensteuerRechnerPage() {
               Berechnung erfolgt nach dem offiziellen BMF Programmablaufplan 2026. Grundfreibetrag: 12.348 € (Ledige) / 24.696 € (Verheiratete).
             </p>
           </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-text">Vom Bruttoeinkommen zum zu versteuernden Einkommen</h2>
+            <p className="text-text-secondary leading-relaxed">
+              Die Einkommensteuer wird nicht auf das Bruttogehalt berechnet, sondern auf das
+              <strong> zu versteuernde Einkommen (zvE)</strong>. Der Weg dorthin ist im
+              Einkommensteuergesetz gesetzlich vorgegeben (§ 2 EStG) und reduziert die Bemessungsgrundlage
+              meist deutlich:
+            </p>
+            <ol className="list-decimal list-inside space-y-1 text-text-secondary">
+              <li><strong>Summe der Einkünfte</strong> aus allen sieben Einkunftsarten (z. B. nichtselbstständige Arbeit, Kapitalerträge, Vermietung).</li>
+              <li><strong>Minus Werbungskosten</strong> bzw. Pauschbetrag (1.230 € bei Arbeitnehmern, höher bei tatsächlichem Nachweis).</li>
+              <li><strong>Minus Sonderausgaben</strong>: Vorsorgeaufwendungen (gesetzliche und private), Kirchensteuer, Spenden, Kinderbetreuung, Schulgeld.</li>
+              <li><strong>Minus außergewöhnliche Belastungen</strong>: Krankheits-, Pflege-, Bestattungskosten oberhalb der zumutbaren Eigenbelastung.</li>
+              <li><strong>Minus Freibeträge</strong>: Grundfreibetrag, Kinderfreibetrag (sofern günstiger als Kindergeld), Entlastungsbetrag für Alleinerziehende.</li>
+            </ol>
+            <p className="text-text-secondary leading-relaxed">
+              Erst auf das so ermittelte zvE wird der Tarif aus § 32a EStG angewendet. Auf die berechnete
+              Einkommensteuer kommen Solidaritätszuschlag (5,5 % der ESt, faktisch nur ab ca. 73.500 €
+              zvE für Ledige) und ggf. Kirchensteuer (8 % oder 9 % der ESt, je nach Bundesland).
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-text">Grenzsteuersatz vs. Durchschnittssteuersatz</h2>
+            <p className="text-text-secondary leading-relaxed">
+              Die wohl am häufigsten verwechselten Begriffe im deutschen Steuerrecht. Der
+              <strong> Grenzsteuersatz</strong> ist der Steuersatz, mit dem der zuletzt verdiente Euro
+              besteuert wird — relevant für die Frage „Was bleibt mir von einer Gehaltserhöhung netto übrig?".
+              Der <strong>Durchschnittssteuersatz</strong> ist die tatsächliche Steuerlast geteilt durch das
+              zvE — relevant für die Frage „Wie hoch ist meine Gesamtbelastung?".
+            </p>
+            <p className="text-text-secondary leading-relaxed">
+              Beispiel: Bei einem zu versteuernden Einkommen von 60.000 € (Ledige, 2026) liegt die
+              Einkommensteuer bei rund 14.330 €. Der Durchschnittssteuersatz beträgt also etwa 23,9 %, der
+              Grenzsteuersatz aber rund 38 %. Eine Gehaltserhöhung von 1.000 € brutto wird daher nur mit
+              etwa 620 € netto wirksam — vor SV-Abgaben. Diese Differenz ist die Grundlage für nahezu jede
+              Optimierungs-Strategie: Ehegattensplitting, Freibetrag-Eintragung in den Lohnsteuerklassen,
+              gezielte Verlagerung von Werbungskosten in Hochsteuer-Jahre, Verlustverrechnung über
+              Veranlagungszeiträume.
+            </p>
+            <h3 className="text-lg font-semibold text-text pt-2">Wichtige Sonderfälle</h3>
+            <ul className="space-y-2 text-text-secondary">
+              <li><strong>Ehegattensplitting:</strong> Verheiratete werden zusammen veranlagt, das gemeinsame zvE wird halbiert, der Tarif darauf angewendet, das Ergebnis verdoppelt. Spürbarer Vorteil bei ungleichen Einkommen.</li>
+              <li><strong>Progressionsvorbehalt:</strong> Steuerfreie Lohnersatzleistungen (Arbeitslosengeld, Krankengeld, Elterngeld, Kurzarbeitergeld) erhöhen den Steuersatz auf das übrige Einkommen.</li>
+              <li><strong>Abgeltungssteuer:</strong> Kapitalerträge oberhalb des Sparerpauschbetrags (1.000 € / 2.000 €) werden pauschal mit 25 % + Soli besteuert, nicht im Tarif.</li>
+              <li><strong>Außerordentliche Einkünfte:</strong> Abfindungen können mit der Fünftelregelung (§ 34 EStG) glatt gezogen werden — senkt die Belastung deutlich, wenn das laufende Einkommen niedrig ist.</li>
+            </ul>
+          </section>
         </>
       }
     >
