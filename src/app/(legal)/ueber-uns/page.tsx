@@ -163,7 +163,7 @@ export default function UeberUnsPage() {
           <strong>Transparenz bei Werbung.</strong> Einnahmen aus
           Anzeigen-Netzwerken (Google AdSense) und Affiliate-Partnerschaften
           (z.&nbsp;B. CHECK24, Verivox) finanzieren das Projekt. Alle
-          sponsored Links sind klar als „Anzeige" gekennzeichnet. Unsere
+          sponsored Links sind klar als „Anzeige&ldquo; gekennzeichnet. Unsere
           Rechner-Ergebnisse werden nicht durch kommerzielle Interessen
           beeinflusst — der Algorithmus ist derselbe, egal ob eine Anzeige
           klickbar ist oder nicht.

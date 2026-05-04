@@ -145,7 +145,7 @@ export default function AutorJohannesPaffrathPage() {
         <li>
           <strong>Affiliate-Partnerschaften</strong>, z.&nbsp;B. mit CHECK24
           und Verivox für Kredit-, Strom- und Versicherungsvergleiche, sowie
-          Buhl Data für WISO Steuer. Affiliate-Links sind als „Anzeige"
+          Buhl Data für WISO Steuer. Affiliate-Links sind als „Anzeige&ldquo;
           gekennzeichnet und mit{' '}
           <code>rel=&quot;nofollow sponsored&quot;</code> attribuiert.
         </li>

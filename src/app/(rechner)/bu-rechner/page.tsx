@@ -111,7 +111,7 @@ export default function BuRechnerPage() {
           <ul className="space-y-2 text-text-secondary">
             <li><strong>Patientenakte anfordern</strong> bei Hausarzt und Fachärzten der letzten 5–10 Jahre, bevor man den Antrag stellt. Niemand erinnert alle Diagnosen.</li>
             <li><strong>Risikovoranfrage</strong> statt direktem Antrag: Versicherer prüfen anonym, ob ein Antrag angenommen würde, ohne dass eine Ablehnung in der HIS-Datei landet.</li>
-            <li><strong>Konkrete Verweisung ausschließen:</strong> Tarif sollte „ohne abstrakte und ohne konkrete Verweisung" enthalten — sonst kann der Versicherer auf einen anderen Beruf verweisen, den man theoretisch noch ausüben könnte.</li>
+            <li><strong>Konkrete Verweisung ausschließen:</strong> Tarif sollte „ohne abstrakte und ohne konkrete Verweisung&ldquo; enthalten — sonst kann der Versicherer auf einen anderen Beruf verweisen, den man theoretisch noch ausüben könnte.</li>
             <li><strong>Nachversicherungsgarantie</strong> aufnehmen, um nach Heirat, Geburt, Hauskauf oder Gehaltssprung die BU-Rente ohne erneute Gesundheitsprüfung zu erhöhen.</li>
             <li><strong>Frühzeitig abschließen.</strong> Junge Akademiker zahlen 30–40 % weniger als Berufstätige Mitte 30. Studierendentarife sichern den Beruf gleich mit ab — auch ohne dass er schon ausgeübt wird.</li>
           </ul>

@@ -79,9 +79,9 @@ export default function EinkommensteuerRechnerPage() {
             <p className="text-text-secondary leading-relaxed">
               Die wohl am häufigsten verwechselten Begriffe im deutschen Steuerrecht. Der
               <strong> Grenzsteuersatz</strong> ist der Steuersatz, mit dem der zuletzt verdiente Euro
-              besteuert wird — relevant für die Frage „Was bleibt mir von einer Gehaltserhöhung netto übrig?".
+              besteuert wird — relevant für die Frage „Was bleibt mir von einer Gehaltserhöhung netto übrig?&ldquo;.
               Der <strong>Durchschnittssteuersatz</strong> ist die tatsächliche Steuerlast geteilt durch das
-              zvE — relevant für die Frage „Wie hoch ist meine Gesamtbelastung?".
+              zvE — relevant für die Frage „Wie hoch ist meine Gesamtbelastung?&ldquo;.
             </p>
             <p className="text-text-secondary leading-relaxed">
               Beispiel: Bei einem zu versteuernden Einkommen von 60.000 € (Ledige, 2026) liegt die

@@ -242,8 +242,11 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
 
   // Vorsorge & Investment — Check24 Alternativen bis FinanceAds genehmigt
   rentenrechner: {
-    headline: 'Vorsorge optimieren',
-    offers: [check24PKV, check24Steuer],
+    // Vorher: PKV als Vorsorge-Match war konzeptionell schwach (PKV ist
+    // Krankenversicherung, nicht Altersvorsorge). WISO Mein Geld passt
+    // besser: Finanzen-Übersicht + Vorsorge-Tracking.
+    headline: 'Rentenlücke schließen — Finanzen im Blick behalten',
+    offers: [wisoMeinGeld, wisoSteuer, check24Steuer],
   },
   inflationsrechner: {
     headline: 'Finanzen optimieren',
@@ -254,13 +257,16 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     offers: [check24Kredit, verivoxKredit],
   },
 
-  // Allgemeine Spar-Tipps für Rechner ohne spezifischen Partner
+  // Allgemeine Spar-Tipps für Rechner ohne spezifischen Partner.
+  // Health-Rechner (BMI, Kalorien) haben keine direkten Awin-Pendants —
+  // wir framen Strom/DSL ehrlich als "Alltag günstiger" statt einen
+  // unpassenden Health-Kontext zu konstruieren.
   'bmi-rechner': {
-    headline: 'Nebenkosten senken',
+    headline: 'Nebenkosten im Alltag senken',
     offers: [verivoxStrom, verivoxDSL],
   },
   'buergergeld-rechner': {
-    headline: 'Kosten senken & sparen',
+    headline: 'Laufende Kosten senken — Strom & Gas vergleichen',
     offers: [verivoxStrom, verivoxGas],
   },
   'gehaltserhoehung-rechner': {
@@ -286,27 +292,35 @@ export const affiliateOffersBySlug: Record<string, { headline: string; offers: A
     offers: [wisoMeinGeld, wisoSteuer],
   },
   kalorienrechner: {
-    headline: 'Nebenkosten senken',
+    headline: 'Nebenkosten im Alltag senken',
     offers: [verivoxStrom, verivoxDSL],
   },
   pfaendungsrechner: {
-    headline: 'Kosten senken & sparen',
-    offers: [verivoxStrom, verivoxGas],
+    // Pfändungs-Nutzer sind oft in finanzieller Schieflage. Bewusst KEIN
+    // Kredit-Affiliate (ethisch heikel: Schuldnerberatung wäre richtig,
+    // aber dafür gibt es kein Awin-Programm). WISO Mein Geld ist
+    // Finanzen-Übersicht — hilft tatsächlich beim Sortieren.
+    headline: 'Finanzen sortieren & laufende Kosten senken',
+    offers: [wisoMeinGeld, verivoxStrom, verivoxGas],
   },
   prozentrechner: {
-    headline: 'Nebenkosten senken',
+    headline: 'Nebenkosten im Alltag senken',
     offers: [verivoxStrom, verivoxDSL],
   },
   'stundenlohn-rechner': {
-    headline: 'Ausgaben optimieren',
-    offers: [verivoxStrom, verivoxGas],
+    // Stundenlohn-Rechner-Nutzer = Selbstständige + Arbeitnehmer mit
+    // Lohnoptimierungs-Interesse. WISO Steuer ist relevanter als Strom.
+    headline: 'Stunden abrechnen, Steuern optimieren',
+    offers: [wisoSteuer, verivoxStrom, verivoxGas],
   },
   'unterhalt-rechner': {
-    headline: 'Kosten senken & sparen',
-    offers: [verivoxStrom, verivoxGas],
+    headline: 'Familie finanziell entlasten',
+    offers: [wisoSteuer, verivoxStrom, verivoxGas],
   },
   'wohngeld-rechner': {
     headline: 'Nebenkosten senken & monatlich sparen',
     offers: [verivoxStrom, verivoxGas],
   },
+  // tilgungsrechner war bereits oben definiert (Baufinanzierung-Match).
+  // unterhalt-rechner hat jetzt WISO Steuer für Familienkasse-Logik.
 };

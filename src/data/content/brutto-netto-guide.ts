@@ -19,7 +19,7 @@ export const BRUTTO_NETTO_FAQS: FAQ[] = [
   },
   {
     question: 'Stimmen die Berechnungen mit dem BMF-Rechner überein?',
-    answer: 'Ja, unsere Berechnungen basieren auf dem offiziellen offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026. Die Lohnsteuerberechnung entspricht exakt dem Berechnungsverfahren des Finanzministeriums.',
+    answer: 'Ja, unsere Berechnungen basieren auf den offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026. Die Lohnsteuerberechnung entspricht exakt dem Berechnungsverfahren des Finanzministeriums.',
   },
   {
     question: 'Was ist die Beitragsbemessungsgrenze?',

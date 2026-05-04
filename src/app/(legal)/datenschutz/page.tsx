@@ -147,7 +147,7 @@ export default function DatenschutzPage() {
       <h3>Google Analytics 4</h3>
       <p>
         Diese Website nutzt Google Analytics 4, einen Webanalysedienst der Google Ireland Limited,
-        Gordon House, Barrow Street, Dublin 4, Irland („Google"). Google Analytics
+        Gordon House, Barrow Street, Dublin 4, Irland („Google&ldquo;). Google Analytics
         verwendet Cookies, die eine Analyse der Benutzung der Website durch Sie ermöglichen.
         Die durch das Cookie erzeugten Informationen werden in der Regel an einen Server von Google
         in der EU übertragen und dort gespeichert.
@@ -166,7 +166,7 @@ export default function DatenschutzPage() {
         Diese Website enthält Affiliate-Links zu Drittanbietern (z. B. CHECK24,
         Tarifcheck, Verivox). Wenn Sie auf einen solchen Link klicken und dort einen Vertrag
         abschließen, erhalten wir eine Provision. Der Preis für Sie ändert sich
-        dadurch nicht. Affiliate-Links sind als „Anzeige" gekennzeichnet.
+        dadurch nicht. Affiliate-Links sind als „Anzeige&ldquo; gekennzeichnet.
       </p>
 
       <h2>6. Ihre Rechte</h2>
