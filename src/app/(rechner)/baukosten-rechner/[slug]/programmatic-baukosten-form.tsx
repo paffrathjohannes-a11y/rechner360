@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { NumberInput } from '@/components/ui/number-input';
@@ -16,11 +16,10 @@ export function ProgrammaticBaukostenForm({ wohnflaeche: initWf }: Props) {
   const [ausstattung, setAusstattung] = useState<'einfach'|'mittel'|'gehoben'|'luxus'>('mittel');
   const [bauweise, setBauweise] = useState<'massiv'|'fertighaus'>('massiv');
   const [grundstueck, setGrundstueck] = useState(80000);
-  const [result, setResult] = useState<BaukostenResult | null>(null);
 
-  useEffect(() => {
-    if (wohnflaeche <= 0) { setResult(null); return; }
-    setResult(calculateBaukosten({ wohnflaeche, ausstattung, bauweise, keller: true, garage: 'einzelgarage', grundstueckspreis: grundstueck, region: 'mittel' }));
+  const result = useMemo<BaukostenResult | null>(() => {
+    if (wohnflaeche <= 0) return null;
+    return calculateBaukosten({ wohnflaeche, ausstattung, bauweise, keller: true, garage: 'einzelgarage', grundstueckspreis: grundstueck, region: 'mittel' });
   }, [wohnflaeche, ausstattung, bauweise, grundstueck]);
 
   return (

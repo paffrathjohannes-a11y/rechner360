@@ -1,16 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { ResultsChart } from '@/components/calculator/results-chart';
 import { BreakdownTable } from '@/components/calculator/breakdown-table';
-import { BUNDESLAENDER, STEUERKLASSEN } from '@/lib/utils/constants';
+import { STEUERKLASSEN } from '@/lib/utils/constants';
 import { calculateBruttoNetto } from '@/lib/calculator/brutto-netto';
 import { formatCurrency } from '@/lib/utils/format';
-import type { BruttoNettoInput, BruttoNettoResult, BreakdownItem, ChartSegment } from '@/types/calculator';
+import type { BruttoNettoResult, BreakdownItem, ChartSegment } from '@/types/calculator';
 
 interface Props {
   brutto: number;
@@ -20,11 +20,10 @@ interface Props {
 export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initialSk }: Props) {
   const [brutto, setBrutto] = useState(initialBrutto);
   const [steuerklasse, setSteuerklasse] = useState(initialSk);
-  const [result, setResult] = useState<BruttoNettoResult | null>(null);
 
-  useEffect(() => {
-    if (brutto <= 0) { setResult(null); return; }
-    setResult(calculateBruttoNetto({
+  const result = useMemo<BruttoNettoResult | null>(() => {
+    if (brutto <= 0) return null;
+    return calculateBruttoNetto({
       brutto,
       steuerklasse: steuerklasse as 1 | 2 | 3 | 4 | 5 | 6,
       bundesland: 'nw',
@@ -41,7 +40,7 @@ export function ProgrammaticBNRForm({ brutto: initialBrutto, steuerklasse: initi
       geldwerter_vorteil: 0,
       firmenwagen_listenpreis: 0,
       firmenwagen_antrieb: 'kein',
-    }));
+    });
   }, [brutto, steuerklasse]);
 
   const chartSegments: ChartSegment[] = result

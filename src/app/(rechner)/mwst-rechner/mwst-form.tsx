@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -13,11 +12,10 @@ export function MwstForm() {
   const [betrag, setBetrag] = useState(1000);
   const [richtung, setRichtung] = useState<'netto-zu-brutto' | 'brutto-zu-netto'>('netto-zu-brutto');
   const [steuersatz, setSteuersatz] = useState(19);
-  const [result, setResult] = useState<MwstResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setResult(null); return; }
-    setResult(richtung === 'netto-zu-brutto' ? nettoZuBrutto(betrag, steuersatz) : bruttoZuNetto(betrag, steuersatz));
+  const result = useMemo<MwstResult | null>(() => {
+    if (betrag <= 0) return null;
+    return richtung === 'netto-zu-brutto' ? nettoZuBrutto(betrag, steuersatz) : bruttoZuNetto(betrag, steuersatz);
   }, [betrag, richtung, steuersatz]);
 
   return (

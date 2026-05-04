@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -20,11 +20,10 @@ export function BaukostenForm() {
   const [garage, setGarage] = useState<'keine'|'einzelgarage'|'doppelgarage'|'carport'>('einzelgarage');
   const [grundstueck, setGrundstueck] = useState(80000);
   const [region, setRegion] = useState<'guenstig'|'mittel'|'teuer'>('mittel');
-  const [result, setResult] = useState<BaukostenResult | null>(null);
 
-  useEffect(() => {
-    if (wohnflaeche <= 0) { setResult(null); return; }
-    setResult(calculateBaukosten({ wohnflaeche, ausstattung, bauweise, keller, garage, grundstueckspreis: grundstueck, region }));
+  const result = useMemo<BaukostenResult | null>(() => {
+    if (wohnflaeche <= 0) return null;
+    return calculateBaukosten({ wohnflaeche, ausstattung, bauweise, keller, garage, grundstueckspreis: grundstueck, region });
   }, [wohnflaeche, ausstattung, bauweise, keller, garage, grundstueck, region]);
 
   const chartSegments: ChartSegment[] = result

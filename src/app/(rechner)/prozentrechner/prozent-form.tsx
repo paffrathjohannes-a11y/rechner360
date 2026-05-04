@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { InputGroup } from '@/components/calculator/input-group';

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -8,18 +8,20 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { calculateGrundsteuer, type GrundsteuerResult } from '@/lib/calculator/immobilien/grundsteuer';
 import { formatCurrency } from '@/lib/utils/format';
 
+// `bundesland` wird vom Caller übergeben, aktuell aber nicht im calculate-
+// Aufruf ausgewertet (Modell-Wahl macht der Calc selbst). Underscore-Prefix
+// signalisiert: bewusst ungenutzt, soll aber typed bleiben.
 interface Props { bundesland: string; }
 
-export function ProgrammaticGrundsteuerForm({ bundesland }: Props) {
+export function ProgrammaticGrundsteuerForm({ bundesland: _bundesland }: Props) {
   const [grundstueck, setGrundstueck] = useState(500);
   const [bodenrichtwert, setBodenrichtwert] = useState(150);
   const [wohnflaeche, setWohnflaeche] = useState(140);
   const [hebesatz, setHebesatz] = useState(400);
-  const [result, setResult] = useState<GrundsteuerResult | null>(null);
 
-  useEffect(() => {
-    if (grundstueck <= 0 || wohnflaeche <= 0) { setResult(null); return; }
-    setResult(calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr: 1990, gebaeudeart: 'efh', hebesatz, nutzung: 'wohnen' }));
+  const result = useMemo<GrundsteuerResult | null>(() => {
+    if (grundstueck <= 0 || wohnflaeche <= 0) return null;
+    return calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr: 1990, gebaeudeart: 'efh', hebesatz, nutzung: 'wohnen' });
   }, [grundstueck, bodenrichtwert, wohnflaeche, hebesatz]);
 
   return (

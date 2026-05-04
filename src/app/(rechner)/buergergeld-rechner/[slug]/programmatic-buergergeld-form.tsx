@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
@@ -15,11 +15,11 @@ export function ProgrammaticBuergergeldForm({ typ }: Props) {
 
   const [warmmiete, setWarmmiete] = useState(antragsteller === 'paar' ? 650 : 500);
   const [einkommen, setEinkommen] = useState(0);
-  const [result, setResult] = useState<BuergergeldResult | null>(null);
 
-  useEffect(() => {
-    setResult(calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 }));
-  }, [warmmiete, einkommen]);
+  const result = useMemo<BuergergeldResult>(
+    () => calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 }),
+    [antragsteller, defaultKinder, warmmiete, einkommen],
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

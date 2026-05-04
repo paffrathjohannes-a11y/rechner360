@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -16,7 +16,6 @@ export function TilgungsrechnerForm() {
   const [tilgung, setTilgung] = useState(2);
   const [zinsbindung, setZinsbindung] = useState(10);
   const [sondertilgung, setSondertilgung] = useState(0);
-  const [result, setResult] = useState<TilgungsResult | null>(null);
 
   // URL-State: ?d=300000&z=3.5&t=2&zb=10
   const urlOverrides = useUrlStateRead<{
@@ -24,6 +23,8 @@ export function TilgungsrechnerForm() {
   }>({ d: parsers.int, z: parsers.float, t: parsers.float, zb: parsers.int });
 
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.d !== undefined && urlOverrides.d > 0) setDarlehensbetrag(urlOverrides.d);
     if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
     if (urlOverrides.t !== undefined && urlOverrides.t > 0) setTilgung(urlOverrides.t);
@@ -37,15 +38,15 @@ export function TilgungsrechnerForm() {
     zb: zinsbindung !== 10 ? zinsbindung : null,
   });
 
-  useEffect(() => {
-    if (darlehensbetrag <= 0) { setResult(null); return; }
-    setResult(calculateTilgung({
+  const result = useMemo<TilgungsResult | null>(() => {
+    if (darlehensbetrag <= 0) return null;
+    return calculateTilgung({
       darlehensbetrag,
       zinssatz,
       anfaengliche_tilgung: tilgung,
       zinsbindung_jahre: zinsbindung,
       sondertilgung_jaehrlich: sondertilgung,
-    }));
+    });
   }, [darlehensbetrag, zinssatz, tilgung, zinsbindung, sondertilgung]);
 
   const laufzeitJahre = result ? Math.ceil(result.gesamtlaufzeit_monate / 12) : 0;

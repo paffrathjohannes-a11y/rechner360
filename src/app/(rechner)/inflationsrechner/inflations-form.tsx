@@ -1,24 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateInflation, type InflationResult } from '@/lib/calculator/math/inflation';
 import { formatCurrency } from '@/lib/utils/format';
-import { cn } from '@/lib/utils/cn';
 
 export function InflationsForm() {
   const [betrag, setBetrag] = useState(10000);
   const [rate, setRate] = useState(3);
   const [jahre, setJahre] = useState(10);
-  const [result, setResult] = useState<InflationResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0 || rate < 0 || jahre <= 0) { setResult(null); return; }
-    setResult(calculateInflation({ betrag, inflationsrate: rate, jahre }));
+  // useMemo statt `useState + useEffect`: der Result ist ein reiner derived
+  // State aus den Inputs. Re-Calculation passiert beim nächsten Render —
+  // schneller als ein Effect-Cycle, kein cascading re-render.
+  const result = useMemo<InflationResult | null>(() => {
+    if (betrag <= 0 || rate < 0 || jahre <= 0) return null;
+    return calculateInflation({ betrag, inflationsrate: rate, jahre });
   }, [betrag, rate, jahre]);
 
   return (

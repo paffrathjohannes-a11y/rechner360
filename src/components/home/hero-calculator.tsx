@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -32,7 +32,7 @@ const defaultInput: Omit<BruttoNettoInput, 'brutto' | 'steuerklasse'> = {
 // SSR-Output bereits einen Wert enthält. Ohne diese Konstante blinkt das
 // Ergebnis bei Hydration von "—" auf den tatsächlichen Betrag.
 const DEFAULT_BRUTTO = 3500;
-const DEFAULT_STEUERKLASSE: 1 = 1;
+const DEFAULT_STEUERKLASSE = 1 as const;
 const DEFAULT_NETTO = calculateBruttoNetto({
   ...defaultInput,
   brutto: DEFAULT_BRUTTO,
@@ -42,13 +42,13 @@ const DEFAULT_NETTO = calculateBruttoNetto({
 export function HeroCalculator() {
   const [brutto, setBrutto] = useState(DEFAULT_BRUTTO);
   const [steuerklasse, setSteuerklasse] = useState<1 | 2 | 3 | 4 | 5 | 6>(DEFAULT_STEUERKLASSE);
-  // Mit vorberechnetem Default startet die UI ohne "—"-Flash → stabilerer LCP.
-  const [netto, setNetto] = useState(DEFAULT_NETTO);
 
-  useEffect(() => {
-    if (brutto <= 0) { setNetto(0); return; }
-    const result = calculateBruttoNetto({ ...defaultInput, brutto, steuerklasse });
-    setNetto(result.netto);
+  // Netto als reiner derived state aus brutto+steuerklasse — kein Effect nötig.
+  // Initial-Render nutzt DEFAULT_NETTO als seed (LCP-stabil), useMemo greift
+  // ab dem ersten Re-Render.
+  const netto = useMemo(() => {
+    if (brutto <= 0) return 0;
+    return calculateBruttoNetto({ ...defaultInput, brutto, steuerklasse }).netto;
   }, [brutto, steuerklasse]);
 
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -13,11 +13,10 @@ interface Props { stundenlohn: number; }
 export function ProgrammaticStundenlohnForm({ stundenlohn: initSl }: Props) {
   const [betrag, setBetrag] = useState(initSl);
   const [stunden, setStunden] = useState(40);
-  const [result, setResult] = useState<StundenlohnResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setResult(null); return; }
-    setResult(calculateStundenlohn(betrag, 'stunde', stunden));
+  const result = useMemo<StundenlohnResult | null>(() => {
+    if (betrag <= 0) return null;
+    return calculateStundenlohn(betrag, 'stunde', stunden);
   }, [betrag, stunden]);
 
   return (

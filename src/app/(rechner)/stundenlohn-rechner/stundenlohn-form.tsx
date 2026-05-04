@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { NumberInput } from '@/components/ui/number-input';
@@ -15,11 +15,10 @@ export function StundenlohnForm() {
   const [stunden, setStunden] = useState(40);
   const [urlaubstage, setUrlaubstage] = useState(28);
   const [feiertage, setFeiertage] = useState(10);
-  const [result, setResult] = useState<StundenlohnResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setResult(null); return; }
-    setResult(calculateStundenlohn(betrag, einheit, stunden, urlaubstage, feiertage));
+  const result = useMemo<StundenlohnResult | null>(() => {
+    if (betrag <= 0) return null;
+    return calculateStundenlohn(betrag, einheit, stunden, urlaubstage, feiertage);
   }, [betrag, einheit, stunden, urlaubstage, feiertage]);
 
   return (

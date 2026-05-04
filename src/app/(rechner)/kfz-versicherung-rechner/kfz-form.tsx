@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -35,6 +35,8 @@ export function KfzForm({ initialFahrzeugtyp = 'kompakt', initialAlter = 35 }: K
     ft: parsers.str, a: parsers.int, sf: parsers.int, km: parsers.int,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.ft) setFahrzeugtyp(urlOverrides.ft as Fahrzeugtyp);
     if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
     if (urlOverrides.sf !== undefined && urlOverrides.sf >= 0) setSfKlasse(urlOverrides.sf);
@@ -47,12 +49,10 @@ export function KfzForm({ initialFahrzeugtyp = 'kompakt', initialAlter = 35 }: K
     km: jahreslaufleistung !== 12000 ? jahreslaufleistung : null,
   });
   const [selbstbeteiligung, setSelbstbeteiligung] = useState(300);
-  const [result, setResult] = useState<KfzResult | null>(null);
 
-  useEffect(() => {
-    if (alter > 0 && erstzulassung > 1990) {
-      setResult(calculateKfz({ fahrzeugtyp, erstzulassung, sfKlasse, jahreslaufleistung, garagenstellplatz, alter, selbstbeteiligung }));
-    }
+  const result = useMemo<KfzResult | null>(() => {
+    if (alter <= 0 || erstzulassung <= 1990) return null;
+    return calculateKfz({ fahrzeugtyp, erstzulassung, sfKlasse, jahreslaufleistung, garagenstellplatz, alter, selbstbeteiligung });
   }, [fahrzeugtyp, erstzulassung, sfKlasse, jahreslaufleistung, garagenstellplatz, alter, selbstbeteiligung]);
 
   return (

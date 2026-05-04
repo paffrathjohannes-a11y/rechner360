@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -28,6 +28,8 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
     a: parsers.int, n: parsers.int, bg: parsers.str,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
     if (urlOverrides.n !== undefined && urlOverrides.n > 0) setNettoeinkommen(urlOverrides.n);
     if (urlOverrides.bg) setBerufsgruppe(urlOverrides.bg as Berufsgruppe);
@@ -40,20 +42,20 @@ export function BuForm({ initialAlter = 30, initialNetto = 2500, initialBerufsgr
   const [buRente, setBuRente] = useState(Math.round(initialNetto * 0.75 / 50) * 50);
   const [laufzeit, setLaufzeit] = useState(67);
   const [raucher, setRaucher] = useState(false);
-  const [result, setResult] = useState<BuResult | null>(null);
   const manualBuRente = useRef(false);
 
-  useEffect(() => {
-    if (alter > 0 && nettoeinkommen > 0 && buRente > 0) {
-      setResult(calculateBu({ alter, berufsgruppe, nettoeinkommen, buRente, laufzeit, raucher }));
-    }
+  const result = useMemo<BuResult | null>(() => {
+    if (alter <= 0 || nettoeinkommen <= 0 || buRente <= 0) return null;
+    return calculateBu({ alter, berufsgruppe, nettoeinkommen, buRente, laufzeit, raucher });
   }, [alter, berufsgruppe, nettoeinkommen, buRente, laufzeit, raucher]);
 
-  // Update BU-Rente wenn Netto sich ändert (nur wenn User nicht manuell geändert hat)
+  // BU-Rente automatisch nachziehen, sofern der Nutzer den Wert nicht manuell
+  // gesetzt hat. Hier ist setState im Effect gewollt: wir reagieren auf eine
+  // Eingabe (nettoeinkommen) und überschreiben einen abgeleiteten Default.
   useEffect(() => {
-    if (!manualBuRente.current) {
-      setBuRente(Math.round(nettoeinkommen * 0.75 / 50) * 50);
-    }
+    if (manualBuRente.current) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setBuRente(Math.round(nettoeinkommen * 0.75 / 50) * 50);
   }, [nettoeinkommen]);
 
   const handleBuRenteChange = (value: number) => {

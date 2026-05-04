@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -14,11 +14,10 @@ export function ProgrammaticRentenForm({ jahresbrutto: initB }: Props) {
   const [brutto, setBrutto] = useState(initB);
   const [alter, setAlter] = useState(35);
   const [berufsjahre, setBerufsjahre] = useState(15);
-  const [result, setResult] = useState<RenteResult | null>(null);
 
-  useEffect(() => {
-    if (brutto <= 0) { setResult(null); return; }
-    setResult(calculateRente({ aktuellesBrutto: brutto, alter, berufsjahre, renteneintrittsalter: 67, gehaltsSteigerung: 2 }));
+  const result = useMemo<RenteResult | null>(() => {
+    if (brutto <= 0) return null;
+    return calculateRente({ aktuellesBrutto: brutto, alter, berufsjahre, renteneintrittsalter: 67, gehaltsSteigerung: 2 });
   }, [brutto, alter, berufsjahre]);
 
   return (

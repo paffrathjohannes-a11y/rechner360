@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { NumberInput } from '@/components/ui/number-input';
@@ -14,11 +14,10 @@ export function ProgrammaticInflationsForm({ betrag: initB, jahre: initJ, rate: 
   const [betrag, setBetrag] = useState(initB);
   const [rate, setRate] = useState(initR);
   const [jahre, setJahre] = useState(initJ);
-  const [result, setResult] = useState<InflationResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0 || rate < 0 || jahre <= 0) { setResult(null); return; }
-    setResult(calculateInflation({ betrag, inflationsrate: rate, jahre }));
+  const result = useMemo<InflationResult | null>(() => {
+    if (betrag <= 0 || rate < 0 || jahre <= 0) return null;
+    return calculateInflation({ betrag, inflationsrate: rate, jahre });
   }, [betrag, rate, jahre]);
 
   return (

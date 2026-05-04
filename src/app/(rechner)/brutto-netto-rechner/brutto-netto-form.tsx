@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTrackCalculator } from '@/hooks/use-track-calculator';
 import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 import { Calculator } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -39,16 +38,25 @@ const defaultInput: BruttoNettoInput = {
 
 export function BruttoNettoForm() {
   const [input, setInput] = useState<BruttoNettoInput>(defaultInput);
-  const [result, setResult] = useState<BruttoNettoResult | null>(() => calculateBruttoNetto(defaultInput));
   const [period, setPeriod] = useState<'month' | 'year'>('month');
   const [compareSk, setCompareSk] = useState<BruttoNettoInput['steuerklasse'] | null>(null);
-  useTrackCalculator('brutto-netto-rechner', result !== null);
   const factor = period === 'year' ? 12 : 1;
 
+  // Result als derived state — keine Race Conditions, kein Effect nötig.
+  const result = useMemo<BruttoNettoResult | null>(
+    () => (input.brutto > 0 ? calculateBruttoNetto(input) : null),
+    [input],
+  );
+
+  useTrackCalculator('brutto-netto-rechner', result !== null);
+
   // Compare-Szenario: gleiche Eingaben, aber mit abweichender Steuerklasse
-  const compareResult = compareSk && compareSk !== input.steuerklasse && result
-    ? calculateBruttoNetto({ ...input, steuerklasse: compareSk })
-    : null;
+  const compareResult = useMemo(
+    () => (compareSk && compareSk !== input.steuerklasse && result
+      ? calculateBruttoNetto({ ...input, steuerklasse: compareSk })
+      : null),
+    [compareSk, input, result],
+  );
 
   // URL-State: aus Query-Params nach Mount übernehmen (SSR-safe).
   const urlOverrides = useUrlStateRead<{
@@ -57,6 +65,8 @@ export function BruttoNettoForm() {
 
   useEffect(() => {
     if (Object.keys(urlOverrides).length === 0) return;
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setInput((prev) => ({
       ...prev,
       ...(urlOverrides.b !== undefined && urlOverrides.b > 0 ? { brutto: urlOverrides.b } : {}),
@@ -74,15 +84,6 @@ export function BruttoNettoForm() {
     bl: input.bundesland !== defaultInput.bundesland ? input.bundesland : null,
     ks: input.kirchensteuer !== defaultInput.kirchensteuer ? (input.kirchensteuer ? 1 : 0) : null,
   });
-
-  // Auto-calculate on every input change
-  useEffect(() => {
-    if (input.brutto > 0) {
-      setResult(calculateBruttoNetto(input));
-    } else {
-      setResult(null);
-    }
-  }, [input]);
 
   function updateInput<K extends keyof BruttoNettoInput>(key: K, value: BruttoNettoInput[K]) {
     setInput((prev) => ({ ...prev, [key]: value }));

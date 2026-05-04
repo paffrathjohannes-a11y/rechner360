@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -13,11 +13,10 @@ interface Props { netto: number; }
 export function ProgrammaticPfaendungsForm({ netto: initN }: Props) {
   const [netto, setNetto] = useState(initN);
   const [unterhalt, setUnterhalt] = useState(0);
-  const [result, setResult] = useState<PfaendungResult | null>(null);
 
-  useEffect(() => {
-    if (netto <= 0) { setResult(null); return; }
-    setResult(calculatePfaendung({ nettoEinkommen: netto, unterhaltspflichten: unterhalt }));
+  const result = useMemo<PfaendungResult | null>(() => {
+    if (netto <= 0) return null;
+    return calculatePfaendung({ nettoEinkommen: netto, unterhaltspflichten: unterhalt });
   }, [netto, unterhalt]);
 
   return (

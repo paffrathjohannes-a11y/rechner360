@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState, useRef, type InputHTMLAttributes } from 'react';
+import { forwardRef, useState, useRef, useEffect, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -12,7 +12,9 @@ interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
 
 /**
  * NumberInput — erlaubt dem User das Feld komplett zu leeren und neu zu tippen.
- * Synchronisiert mit externem Value nur wenn nicht fokussiert.
+ * Synchronisiert mit externem Value nur wenn nicht fokussiert (sonst würde
+ * React beim Tippen den DOM-Value mit der reaktiv-aktualisierten Prop
+ * überschreiben und den Cursor zurücksetzen).
  */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
   ({ className, value, onChange, error, suffix, ...props }, ref) => {
@@ -20,11 +22,15 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     const isFocusedRef = useRef(false);
     const lastValueRef = useRef(value);
 
-    // Sync when external value changes (but not while user is typing)
-    if (!isFocusedRef.current && value !== lastValueRef.current) {
+    // Externe `value`-Prop → lokale displayValue spiegeln (nur außerhalb des
+    // Fokus). useEffect statt direkt-im-Render: React 19 / Next 16 verbieten
+    // ref-mutations und setState während render strikt.
+    useEffect(() => {
+      if (isFocusedRef.current || value === lastValueRef.current) return;
       lastValueRef.current = value;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value > 0 ? value.toString() : '');
-    }
+    }, [value]);
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       const raw = e.target.value;

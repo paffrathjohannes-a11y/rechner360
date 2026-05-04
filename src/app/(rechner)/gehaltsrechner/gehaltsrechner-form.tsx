@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -39,13 +39,13 @@ export function GehaltsrechnerForm() {
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
   const [kvZusatzbeitrag, setKvZusatzbeitrag] = useState(2.9);
-  const [results, setResults] = useState<(BruttoNettoResult & { steuerklasse: number })[]>([]);
-
   // URL-State: ?b=4000&bl=nw&ks=1
   const urlOverrides = useUrlStateRead<{ b: number; bl: string; ks: boolean }>({
     b: parsers.int, bl: parsers.str, ks: parsers.bool,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBrutto(urlOverrides.b);
     if (urlOverrides.bl) setBundesland(urlOverrides.bl);
     if (urlOverrides.ks !== undefined) setKirchensteuer(urlOverrides.ks);
@@ -56,10 +56,9 @@ export function GehaltsrechnerForm() {
     ks: kirchensteuer ? 1 : null,
   });
 
-  useEffect(() => {
-    if (brutto <= 0) { setResults([]); return; }
-
-    const newResults = STEUERKLASSEN_IDS.map((sk) => {
+  const results = useMemo<(BruttoNettoResult & { steuerklasse: number })[]>(() => {
+    if (brutto <= 0) return [];
+    return STEUERKLASSEN_IDS.map((sk) => {
       const r = calculateBruttoNetto({
         ...defaultInput,
         brutto,
@@ -72,7 +71,6 @@ export function GehaltsrechnerForm() {
       });
       return { ...r, steuerklasse: sk };
     });
-    setResults(newResults);
   }, [brutto, bundesland, pvKinder, kirchensteuer, kinderfreibetraege, kvZusatzbeitrag]);
 
   return (

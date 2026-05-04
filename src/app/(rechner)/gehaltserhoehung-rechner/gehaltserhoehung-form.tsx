@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
@@ -10,7 +10,6 @@ import { AdvancedOptions } from '@/components/calculator/advanced-options';
 import { calculateGehaltserhoehung, type GehaltserhoehungResult } from '@/lib/calculator/tax/gehaltserhoehung';
 import { STEUERKLASSEN, BUNDESLAENDER } from '@/lib/utils/constants';
 import { formatCurrency } from '@/lib/utils/format';
-import { cn } from '@/lib/utils/cn';
 import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 export function GehaltserhoehungForm() {
@@ -24,6 +23,8 @@ export function GehaltserhoehungForm() {
     a: parsers.int, n: parsers.int, sk: parsers.int,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.a !== undefined && urlOverrides.a > 0) setBruttoAlt(urlOverrides.a);
     if (urlOverrides.n !== undefined && urlOverrides.n > 0) setBruttoNeu(urlOverrides.n);
     if (urlOverrides.sk !== undefined && [1, 2, 3, 4, 5, 6].includes(urlOverrides.sk)) {
@@ -41,11 +42,10 @@ export function GehaltserhoehungForm() {
   const [kvZusatzbeitrag, setKvZusatzbeitrag] = useState(2.9);
   const [fwAntrieb, setFwAntrieb] = useState('kein');
   const [fwPreis, setFwPreis] = useState(0);
-  const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
-  useEffect(() => {
-    if (bruttoAlt <= 0 || bruttoNeu <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder, kinderfreibetraege, kvZusatzbeitrag, firmenwagenAntrieb: fwAntrieb, firmenwagenListenpreis: fwPreis }));
+  const result = useMemo<GehaltserhoehungResult | null>(() => {
+    if (bruttoAlt <= 0 || bruttoNeu <= 0) return null;
+    return calculateGehaltserhoehung(bruttoAlt, bruttoNeu, steuerklasse, { bundesland, kirchensteuer, pvKinder, kinderfreibetraege, kvZusatzbeitrag, firmenwagenAntrieb: fwAntrieb, firmenwagenListenpreis: fwPreis });
   }, [bruttoAlt, bruttoNeu, steuerklasse, bundesland, kirchensteuer, pvKinder, kinderfreibetraege, kvZusatzbeitrag, fwAntrieb, fwPreis]);
 
   return (

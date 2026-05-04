@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -23,13 +23,14 @@ export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
   const [laufzeit, setLaufzeit] = useState(10);
   const [steuer, setSteuer] = useState(false);
   const [freibetrag, setFreibetrag] = useState(1000);
-  const [result, setResult] = useState<ZinseszinsResult | null>(null);
 
   // URL-State: ?k=10000&m=200&z=5&l=10
   const urlOverrides = useUrlStateRead<{ k: number; m: number; z: number; l: number }>({
     k: parsers.int, m: parsers.int, z: parsers.float, l: parsers.int,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.k !== undefined && urlOverrides.k >= 0) setStartkapital(urlOverrides.k);
     if (urlOverrides.m !== undefined && urlOverrides.m >= 0) setSparrate(urlOverrides.m);
     if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
@@ -42,9 +43,9 @@ export function ZinseszinsForm({ initialSparrate }: ZinseszinsFormProps = {}) {
     l: laufzeit !== 10 ? laufzeit : null,
   });
 
-  useEffect(() => {
-    if (laufzeit <= 0) { setResult(null); return; }
-    setResult(calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit, steuerBeruecksichtigen: steuer, freibetrag }));
+  const result = useMemo<ZinseszinsResult | null>(() => {
+    if (laufzeit <= 0) return null;
+    return calculateZinseszins({ startkapital, monatlicheSparrate: sparrate, zinssatz, laufzeit, steuerBeruecksichtigen: steuer, freibetrag });
   }, [startkapital, sparrate, zinssatz, laufzeit, steuer, freibetrag]);
 
   const chartSegments: ChartSegment[] = result ? [

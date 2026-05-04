@@ -1,24 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
-import { nettoZuBrutto, bruttoZuNetto, type MwstResult } from '@/lib/calculator/math/mwst';
+import { bruttoZuNetto, type MwstResult } from '@/lib/calculator/math/mwst';
 import { formatCurrency } from '@/lib/utils/format';
 
 interface Props { betrag: number; }
 
 export function ProgrammaticMwstForm({ betrag: initB }: Props) {
   const [betrag, setBetrag] = useState(initB);
-  const [r19, setR19] = useState<MwstResult | null>(null);
-  const [r7, setR7] = useState<MwstResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setR19(null); setR7(null); return; }
-    setR19(bruttoZuNetto(betrag, 19));
-    setR7(bruttoZuNetto(betrag, 7));
-  }, [betrag]);
+  const r19 = useMemo<MwstResult | null>(() => (betrag <= 0 ? null : bruttoZuNetto(betrag, 19)), [betrag]);
+  const r7 = useMemo<MwstResult | null>(() => (betrag <= 0 ? null : bruttoZuNetto(betrag, 7)), [betrag]);
 
   return (
     <div className="space-y-6">

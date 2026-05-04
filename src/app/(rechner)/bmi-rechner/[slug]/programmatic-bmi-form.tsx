@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { InputGroup } from '@/components/calculator/input-group';
@@ -19,12 +19,10 @@ interface Props { gewicht: number; groesse: number; }
 export function ProgrammaticBmiForm({ gewicht: initG, groesse: initH }: Props) {
   const [gewicht, setGewicht] = useState(initG);
   const [groesse, setGroesse] = useState(initH);
-  const [result, setResult] = useState<BmiResult | null>(null);
 
-  useEffect(() => {
-    if (gewicht > 0 && groesse > 0) {
-      setResult(calculateBmi({ gewicht, groesse, alter: 30, geschlecht: 'mann' }));
-    }
+  const result = useMemo<BmiResult | null>(() => {
+    if (gewicht <= 0 || groesse <= 0) return null;
+    return calculateBmi({ gewicht, groesse, alter: 30, geschlecht: 'mann' });
   }, [gewicht, groesse]);
 
   return (

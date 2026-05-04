@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
@@ -30,6 +30,8 @@ export function EinkommensteuerForm() {
     e: parsers.int, sk: parsers.int, zv: parsers.bool, ks: parsers.bool, bl: parsers.str,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.e !== undefined && urlOverrides.e > 0) setEinkommen(urlOverrides.e);
     if (urlOverrides.sk !== undefined && [1, 2, 3, 4, 5, 6].includes(urlOverrides.sk)) {
       setSteuerklasse(urlOverrides.sk as 1|2|3|4|5|6);
@@ -47,21 +49,17 @@ export function EinkommensteuerForm() {
   });
   const [kinderfreibetraege, setKinderfreibetraege] = useState(0);
   const [geburtsjahr, setGeburtsjahr] = useState<number | ''>('');
-  const [result, setResult] = useState<EinkommensteuerResult | null>(null);
 
-  useEffect(() => {
-    const r = calculateEinkommensteuer({
-      einkommen,
-      einkommensArt,
-      steuerklasse,
-      zusammenveranlagung,
-      kirchensteuer,
-      bundesland,
-      kinderfreibetraege,
-      geburtsjahr: geburtsjahr === '' ? undefined : geburtsjahr,
-    });
-    setResult(r);
-  }, [einkommen, einkommensArt, steuerklasse, zusammenveranlagung, kirchensteuer, bundesland, kinderfreibetraege, geburtsjahr]);
+  const result = useMemo<EinkommensteuerResult>(() => calculateEinkommensteuer({
+    einkommen,
+    einkommensArt,
+    steuerklasse,
+    zusammenveranlagung,
+    kirchensteuer,
+    bundesland,
+    kinderfreibetraege,
+    geburtsjahr: geburtsjahr === '' ? undefined : geburtsjahr,
+  }), [einkommen, einkommensArt, steuerklasse, zusammenveranlagung, kirchensteuer, bundesland, kinderfreibetraege, geburtsjahr]);
 
   // Splitting ist impliziert, wenn SK III ODER Toggle "Zusammenveranlagung" an
   const splittingAktiv = zusammenveranlagung || steuerklasse === 3;

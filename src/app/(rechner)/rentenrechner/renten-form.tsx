@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
@@ -9,7 +9,6 @@ import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateRente, type RenteResult } from '@/lib/calculator/social/rente';
 import { formatCurrency } from '@/lib/utils/format';
-import { cn } from '@/lib/utils/cn';
 
 export function RentenForm() {
   const [brutto, setBrutto] = useState(45000);
@@ -17,11 +16,10 @@ export function RentenForm() {
   const [berufsjahre, setBerufsjahre] = useState(15);
   const [renteneintritt, setRenteneintritt] = useState(67);
   const [steigerung, setSteigerung] = useState(2);
-  const [result, setResult] = useState<RenteResult | null>(null);
 
-  useEffect(() => {
-    if (brutto <= 0 || alter <= 0) { setResult(null); return; }
-    setResult(calculateRente({ aktuellesBrutto: brutto, alter, berufsjahre, renteneintrittsalter: renteneintritt, gehaltsSteigerung: steigerung }));
+  const result = useMemo<RenteResult | null>(() => {
+    if (brutto <= 0 || alter <= 0) return null;
+    return calculateRente({ aktuellesBrutto: brutto, alter, berufsjahre, renteneintrittsalter: renteneintritt, gehaltsSteigerung: steigerung });
   }, [brutto, alter, berufsjahre, renteneintritt, steigerung]);
 
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
@@ -8,7 +8,6 @@ import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateElterngeld, type ElterngeldResult } from '@/lib/calculator/social/elterngeld';
 import { formatCurrency } from '@/lib/utils/format';
-import { cn } from '@/lib/utils/cn';
 import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
 export function ElterngeldForm() {
@@ -18,13 +17,14 @@ export function ElterngeldForm() {
   const [partnermonate, setPartnermonate] = useState(false);
   const [zwillinge, setZwillinge] = useState(false);
   const [geschwister, setGeschwister] = useState(false);
-  const [result, setResult] = useState<ElterngeldResult | null>(null);
 
   // URL-State: ?b=3500&art=basis
   const urlOverrides = useUrlStateRead<{ b: number; art: string }>({
     b: parsers.int, art: parsers.str,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBrutto(urlOverrides.b);
     if (urlOverrides.art === 'basis' || urlOverrides.art === 'plus') {
       setArt(urlOverrides.art as 'basis' | 'plus');
@@ -35,16 +35,14 @@ export function ElterngeldForm() {
     art: art !== 'basis' ? art : null,
   });
 
-  useEffect(() => {
-    setResult(calculateElterngeld({
-      bruttoEinkommen: brutto,
-      teilzeitBrutto,
-      elterngeldArt: art,
-      partnermonate,
-      zwillinge,
-      geschwisterbonus: geschwister,
-    }));
-  }, [brutto, teilzeitBrutto, art, partnermonate, zwillinge, geschwister]);
+  const result = useMemo<ElterngeldResult>(() => calculateElterngeld({
+    bruttoEinkommen: brutto,
+    teilzeitBrutto,
+    elterngeldArt: art,
+    partnermonate,
+    zwillinge,
+    geschwisterbonus: geschwister,
+  }), [brutto, teilzeitBrutto, art, partnermonate, zwillinge, geschwister]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

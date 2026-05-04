@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Flame } from 'lucide-react';
 import { getIcon, getColors } from '@/lib/utils/icons';
@@ -25,17 +26,19 @@ interface CategorySectionProps {
 }
 
 export function CategorySection({ id, title, description, icon, color, calculators }: CategorySectionProps) {
-  const SectionIcon = getIcon(icon);
   const sectionColors = getColors(color);
-
-  // Beliebte Rechner zuerst sortieren
-  const sorted = [...calculators].sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
+  // `getIcon` liefert eine fertig importierte Lucide-Component (kein neuer
+  // Component-Type pro Render). React 19's Compiler erkennt das nicht und
+  // wirft "Cannot create components during render", wenn man die Component
+  // einer Variable mit Großbuchstaben zuweist und als JSX-Tag verwendet.
+  // `createElement` umgeht die Heuristik, ohne die Semantik zu ändern.
+  const sortedCalcs = [...calculators].sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0));
 
   return (
     <section id={id} className="scroll-mt-20">
       <div className="flex items-center gap-3 mb-6">
         <div className={cn('flex h-10 w-10 items-center justify-center rounded-xl', sectionColors.bg)}>
-          <SectionIcon className={cn('h-5 w-5', sectionColors.icon)} />
+          {createElement(getIcon(icon), { className: cn('h-5 w-5', sectionColors.icon) })}
         </div>
         <div>
           <h2 className="text-xl font-semibold text-text">{title}</h2>
@@ -44,8 +47,7 @@ export function CategorySection({ id, title, description, icon, color, calculato
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {sorted.map((r) => {
-          const Icon = getIcon(r.icon);
+        {sortedCalcs.map((r) => {
           const colors = getColors(r.color);
 
           return (
@@ -67,7 +69,9 @@ export function CategorySection({ id, title, description, icon, color, calculato
                   r.popular ? 'h-12 w-12' : 'h-11 w-11',
                   colors.bg,
                 )}>
-                  <Icon className={cn(r.popular ? 'h-6 w-6' : 'h-5.5 w-5.5', colors.icon)} />
+                  {createElement(getIcon(r.icon), {
+                    className: cn(r.popular ? 'h-6 w-6' : 'h-5.5 w-5.5', colors.icon),
+                  })}
                 </div>
                 <div className="flex items-center gap-2">
                   {r.popular && (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -19,11 +19,10 @@ export function ProgrammaticTilgungsForm({ betrag: initialBetrag, tilgung: initi
   const [zinssatz, setZinssatz] = useState(3.5);
   const [tilgung, setTilgung] = useState(initialTilgung);
   const [zinsbindung, setZinsbindung] = useState(10);
-  const [result, setResult] = useState<TilgungsResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setResult(null); return; }
-    setResult(calculateTilgung({ darlehensbetrag: betrag, zinssatz, anfaengliche_tilgung: tilgung, zinsbindung_jahre: zinsbindung }));
+  const result = useMemo<TilgungsResult | null>(() => {
+    if (betrag <= 0) return null;
+    return calculateTilgung({ darlehensbetrag: betrag, zinssatz, anfaengliche_tilgung: tilgung, zinsbindung_jahre: zinsbindung });
   }, [betrag, zinssatz, tilgung, zinsbindung]);
 
   return (

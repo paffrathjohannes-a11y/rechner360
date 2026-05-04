@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -19,11 +19,10 @@ export function ProgrammaticKreditForm({ betrag: initialBetrag, zinssatz: initia
   const [betrag, setBetrag] = useState(initialBetrag);
   const [zinssatz, setZinssatz] = useState(initialZins);
   const [laufzeit, setLaufzeit] = useState(60);
-  const [result, setResult] = useState<KreditResult | null>(null);
 
-  useEffect(() => {
-    if (betrag <= 0) { setResult(null); return; }
-    setResult(calculateKredit({ darlehensbetrag: betrag, zinssatz, laufzeit_monate: laufzeit }));
+  const result = useMemo<KreditResult | null>(() => {
+    if (betrag <= 0) return null;
+    return calculateKredit({ darlehensbetrag: betrag, zinssatz, laufzeit_monate: laufzeit });
   }, [betrag, zinssatz, laufzeit]);
 
   const chartSegments: ChartSegment[] = result

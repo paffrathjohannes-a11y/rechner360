@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -47,13 +47,12 @@ export function GrundsteuerForm() {
   const [hebesatz, setHebesatz] = useState(400);
   const [nutzung, setNutzung] = useState<'wohnen' | 'gewerbe'>('wohnen');
   const [bundesland, setBundesland] = useState('');
-  const [result, setResult] = useState<GrundsteuerResult | null>(null);
 
   const isLaendermodell = bundesland !== '' && bundesland in LAENDERMODELL_STATES;
 
-  useEffect(() => {
-    if (grundstueck <= 0 || wohnflaeche <= 0) { setResult(null); return; }
-    setResult(calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung }));
+  const result = useMemo<GrundsteuerResult | null>(() => {
+    if (grundstueck <= 0 || wohnflaeche <= 0) return null;
+    return calculateGrundsteuer({ grundstuecksflaeche: grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung });
   }, [grundstueck, bodenrichtwert, wohnflaeche, baujahr, gebaeudeart, hebesatz, nutzung]);
 
   return (

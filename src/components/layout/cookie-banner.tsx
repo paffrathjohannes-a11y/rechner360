@@ -44,6 +44,10 @@ export function CookieBanner() {
   const primaryButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    // Mount-Marker für SSR-Safe-Rendering und Initial-Show wenn noch kein
+    // Consent gespeichert ist. setState hier ist gewollt: wir greifen erst
+    // clientseitig auf localStorage zu.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (!getStoredConsent()) setShow(true);
   }, []);

@@ -1,10 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Plus, Minus, AlertTriangle } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
-import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
 import { Button } from '@/components/ui/button';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -17,11 +16,10 @@ export function UnterhaltForm() {
   const [netto, setNetto] = useState(3000);
   const [kinderAlter, setKinderAlter] = useState([6]);
   const [kindergeld, setKindergeld] = useState(true);
-  const [result, setResult] = useState<UnterhaltResult | null>(null);
 
-  useEffect(() => {
-    if (netto <= 0 || kinderAlter.length === 0) { setResult(null); return; }
-    setResult(calculateUnterhalt({ nettoEinkommen: netto, kinderAnzahl: kinderAlter.length, kinderAlter, kindergeldAnrechnung: kindergeld }));
+  const result = useMemo<UnterhaltResult | null>(() => {
+    if (netto <= 0 || kinderAlter.length === 0) return null;
+    return calculateUnterhalt({ nettoEinkommen: netto, kinderAnzahl: kinderAlter.length, kinderAlter, kindergeldAnrechnung: kindergeld });
   }, [netto, kinderAlter, kindergeld]);
 
   function addKind() { setKinderAlter([...kinderAlter, 6]); }

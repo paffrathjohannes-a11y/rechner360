@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
@@ -15,11 +15,10 @@ interface Props { erhoehung: number; }
 export function ProgrammaticGehaltserhoehungForm({ erhoehung }: Props) {
   const [bruttoAlt, setBruttoAlt] = useState(3500);
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
-  const [result, setResult] = useState<GehaltserhoehungResult | null>(null);
 
-  useEffect(() => {
-    if (bruttoAlt <= 0) { setResult(null); return; }
-    setResult(calculateGehaltserhoehung(bruttoAlt, bruttoAlt + erhoehung, steuerklasse, {}));
+  const result = useMemo<GehaltserhoehungResult | null>(() => {
+    if (bruttoAlt <= 0) return null;
+    return calculateGehaltserhoehung(bruttoAlt, bruttoAlt + erhoehung, steuerklasse, {});
   }, [bruttoAlt, steuerklasse, erhoehung]);
 
   return (

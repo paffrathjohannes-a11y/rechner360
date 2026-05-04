@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useTrackCalculator } from '@/hooks/use-track-calculator';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
@@ -27,22 +27,20 @@ export function ErbschaftsteuerForm({ defaultWert, defaultVerwandtschaft }: Erbs
   const [versorgungsfreibetrag, setVersorgungsfreibetrag] = useState(false);
   const [hausratFreibetrag, setHausratFreibetrag] = useState(false);
   const [alterDesKindes, setAlterDesKindes] = useState(10);
-  const [result, setResult] = useState<ErbschaftsteuerResult | null>(null);
-  useTrackCalculator('erbschaftsteuer-rechner', result !== null);
 
   const showVersorgung = artDesErwerbs === 'erbschaft' && (verwandtschaft === 'ehepartner' || verwandtschaft === 'kind');
   const showAlter = versorgungsfreibetrag && verwandtschaft === 'kind';
 
-  useEffect(() => {
-    setResult(calculateErbschaftsteuer({
-      wert,
-      verwandtschaft,
-      artDesErwerbs,
-      versorgungsfreibetrag: showVersorgung ? versorgungsfreibetrag : false,
-      hausratFreibetrag,
-      alterDesKindes: showAlter ? alterDesKindes : undefined,
-    }));
-  }, [wert, verwandtschaft, artDesErwerbs, versorgungsfreibetrag, hausratFreibetrag, alterDesKindes, showVersorgung, showAlter]);
+  const result = useMemo<ErbschaftsteuerResult>(() => calculateErbschaftsteuer({
+    wert,
+    verwandtschaft,
+    artDesErwerbs,
+    versorgungsfreibetrag: showVersorgung ? versorgungsfreibetrag : false,
+    hausratFreibetrag,
+    alterDesKindes: showAlter ? alterDesKindes : undefined,
+  }), [wert, verwandtschaft, artDesErwerbs, versorgungsfreibetrag, hausratFreibetrag, alterDesKindes, showVersorgung, showAlter]);
+
+  useTrackCalculator('erbschaftsteuer-rechner', result !== null);
 
   const breakdownItems: BreakdownItem[] = result ? [
     { label: 'Bruttowert', value: result.bruttoWert, color: 'muted' },

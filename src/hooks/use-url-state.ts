@@ -28,8 +28,17 @@ export function useUrlStateRead<T extends Record<string, Primitive | null>>(
       const parsed = schema[key](raw);
       if (parsed !== null) (next as Record<string, Primitive>)[key as string] = parsed;
     }
+    // Externer Browser-State (URL) → React-State, einmalige Synchronisierung
+    // nach Mount. setState im Effect ist hier korrekt: wir initialisieren
+    // aus einer Quelle, auf die wir SSR-sicher erst clientseitig zugreifen
+    // können.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (Object.keys(next).length) setResult(next);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    // schema bewusst nicht im Dep-Array: ist beim Caller meist ein neues
+    // Objekt-Literal pro Render und würde den Effect bei jedem Render erneut
+    // feuern.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return result;
 }
@@ -42,7 +51,12 @@ export function useUrlStateRead<T extends Record<string, Primitive | null>>(
 export function useUrlStateSync(state: Record<string, Primitive | null | undefined>) {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const stateRef = useRef(state);
-  stateRef.current = state;
+
+  // Ref-Update in einem Effect statt direkt im Body — entspricht React 19's
+  // strikter Regel "Cannot access refs during render".
+  useEffect(() => {
+    stateRef.current = state;
+  }, [state]);
 
   const push = useCallback(() => {
     if (typeof window === 'undefined') return;

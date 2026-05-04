@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -15,11 +15,10 @@ export function ProgrammaticAbfindungsForm({ abfindung: initA }: Props) {
   const [jahresbrutto, setJahresbrutto] = useState(45000);
   const [abfindung, setAbfindung] = useState(initA);
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
-  const [result, setResult] = useState<AbfindungResult | null>(null);
 
-  useEffect(() => {
-    if (jahresbrutto <= 0 || abfindung <= 0) { setResult(null); return; }
-    setResult(calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer: false, kirchensteuerSatz: 0.09 }));
+  const result = useMemo<AbfindungResult | null>(() => {
+    if (jahresbrutto <= 0 || abfindung <= 0) return null;
+    return calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer: false, kirchensteuerSatz: 0.09 });
   }, [jahresbrutto, abfindung, steuerklasse]);
 
   return (

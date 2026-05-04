@@ -149,12 +149,17 @@ export function calculatePap2026(input: PapInput): PapOutput {
   let SOLZV = 0;
   let BKV = 0;
 
-  // Extract input
+  // Extract input.
+  // Variables prefixed with `_` werden vom PAP zwar definiert, aber nicht
+  // direkt im aktuell implementierten Pfad verwendet (z. B. JFREIB/JHINZU
+  // sind Jahres-Pendants zur Lohnzahlungszeitraum-Berechnung). Sie bleiben
+  // namentlich erhalten, damit Code-Reviewer sie 1:1 mit dem amtlichen
+  // Programmablaufplan abgleichen können.
   const {
-    af, AJAHR, ALTER1, ALV, JFREIB, JHINZU, JRE4, JRE4ENT, JVBEZ,
-    KRV, KVZ, LZZ, LZZFREIB, LZZHINZU, MBV, PKPV, PKPVAGZ, PKV,
-    PVA, PVS, PVZ, R, RE4, SONSTB, SONSTENT, STERBE, STKL,
-    VBEZ, VBEZM, VBEZS, VBS, VJAHR, ZKF, ZMVB,
+    af, AJAHR, ALTER1, ALV, JFREIB: _JFREIB, JHINZU: _JHINZU, JRE4: _JRE4, JRE4ENT: _JRE4ENT, JVBEZ: _JVBEZ,
+    KRV, KVZ, LZZ, LZZFREIB, LZZHINZU, MBV: _MBV, PKPV, PKPVAGZ, PKV,
+    PVA, PVS, PVZ, R, RE4, SONSTB: _SONSTB, SONSTENT: _SONSTENT, STERBE: _STERBE, STKL,
+    VBEZ, VBEZM, VBEZS, VBS: _VBS, VJAHR, ZKF, ZMVB,
   } = input;
   let f = input.f;
 

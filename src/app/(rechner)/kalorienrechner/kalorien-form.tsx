@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -15,12 +15,10 @@ export function KalorienForm() {
   const [geschlecht, setGeschlecht] = useState<'mann' | 'frau'>('mann');
   const [aktivitaet, setAktivitaet] = useState<'sitzend' | 'leicht' | 'moderat' | 'aktiv' | 'sehr-aktiv'>('moderat');
   const [ziel, setZiel] = useState<'abnehmen' | 'halten' | 'zunehmen'>('halten');
-  const [result, setResult] = useState<KalorienResult | null>(null);
 
-  useEffect(() => {
-    if (gewicht > 0 && groesse > 0 && alter > 0) {
-      setResult(calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet, ziel }));
-    }
+  const result = useMemo<KalorienResult | null>(() => {
+    if (gewicht <= 0 || groesse <= 0 || alter <= 0) return null;
+    return calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet, ziel });
   }, [gewicht, groesse, alter, geschlecht, aktivitaet, ziel]);
 
   return (

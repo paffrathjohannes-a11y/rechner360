@@ -1,22 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculatePfaendung, type PfaendungResult } from '@/lib/calculator/social/pfaendung';
 import { formatCurrency } from '@/lib/utils/format';
-import { cn } from '@/lib/utils/cn';
 
 export function PfaendungsForm() {
   const [netto, setNetto] = useState(2000);
   const [unterhalt, setUnterhalt] = useState(0);
-  const [result, setResult] = useState<PfaendungResult | null>(null);
 
-  useEffect(() => {
-    if (netto <= 0) { setResult(null); return; }
-    setResult(calculatePfaendung({ nettoEinkommen: netto, unterhaltspflichten: unterhalt }));
+  const result = useMemo<PfaendungResult | null>(() => {
+    if (netto <= 0) return null;
+    return calculatePfaendung({ nettoEinkommen: netto, unterhaltspflichten: unterhalt });
   }, [netto, unterhalt]);
 
   // Balken-Visualisierung

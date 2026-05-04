@@ -10,6 +10,8 @@ export function AdsenseScript() {
 
   useEffect(() => {
     const stored = localStorage.getItem('rechner360_cookie_consent');
+    // Externes Browser-State (localStorage) → React-State, einmalige Sync.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setConsent(stored === 'accepted');
 
     const handleConsent = () => {

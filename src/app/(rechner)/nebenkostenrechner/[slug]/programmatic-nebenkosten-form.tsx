@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Toggle } from '@/components/ui/toggle';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -13,11 +13,10 @@ interface Props { bundesland: string; }
 export function ProgrammaticNebenkostenForm({ bundesland }: Props) {
   const [kaufpreis, setKaufpreis] = useState(350000);
   const [makler, setMakler] = useState(true);
-  const [result, setResult] = useState<NebenkostenResult | null>(null);
 
-  useEffect(() => {
-    if (kaufpreis <= 0) { setResult(null); return; }
-    setResult(calculateNebenkosten({ kaufpreis, bundesland, makler, maklerSatz: 3.57 }));
+  const result = useMemo<NebenkostenResult | null>(() => {
+    if (kaufpreis <= 0) return null;
+    return calculateNebenkosten({ kaufpreis, bundesland, makler, maklerSatz: 3.57 });
   }, [kaufpreis, bundesland, makler]);
 
   return (

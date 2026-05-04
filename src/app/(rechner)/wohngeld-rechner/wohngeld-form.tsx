@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -23,11 +23,11 @@ export function WohngeldForm() {
   const [mietstufe, setMietstufe] = useState(4);
   const [bruttokaltmiete, setBruttokaltmiete] = useState(500);
   const [einkommen, setEinkommen] = useState(1200);
-  const [result, setResult] = useState<WohngeldResult | null>(null);
 
-  useEffect(() => {
-    setResult(calculateWohngeld({ haushaltsgroesse, mietstufe, bruttokaltmiete, einkommen }));
-  }, [haushaltsgroesse, mietstufe, bruttokaltmiete, einkommen]);
+  const result = useMemo<WohngeldResult>(
+    () => calculateWohngeld({ haushaltsgroesse, mietstufe, bruttokaltmiete, einkommen }),
+    [haushaltsgroesse, mietstufe, bruttokaltmiete, einkommen],
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

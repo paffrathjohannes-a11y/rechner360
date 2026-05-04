@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
@@ -9,7 +9,6 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { calculateAbfindung, type AbfindungResult } from '@/lib/calculator/tax/abfindung';
 import { STEUERKLASSEN } from '@/lib/utils/constants';
 import { formatCurrency } from '@/lib/utils/format';
-import type { BruttoNettoInput } from '@/types/calculator';
 
 export function AbfindungsForm() {
   const [jahresbrutto, setJahresbrutto] = useState(45000);
@@ -17,11 +16,10 @@ export function AbfindungsForm() {
   const [steuerklasse, setSteuerklasse] = useState<1|2|3|4|5|6>(1);
   const [kirchensteuer, setKirchensteuer] = useState(false);
   const [kirchensteuerSatz, setKirchensteuerSatz] = useState(0.09);
-  const [result, setResult] = useState<AbfindungResult | null>(null);
 
-  useEffect(() => {
-    if (jahresbrutto <= 0 || abfindung <= 0) { setResult(null); return; }
-    setResult(calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz }));
+  const result = useMemo<AbfindungResult | null>(() => {
+    if (jahresbrutto <= 0 || abfindung <= 0) return null;
+    return calculateAbfindung({ jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz });
   }, [jahresbrutto, abfindung, steuerklasse, kirchensteuer, kirchensteuerSatz]);
 
   return (

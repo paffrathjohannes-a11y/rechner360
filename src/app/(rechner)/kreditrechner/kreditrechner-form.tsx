@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -8,8 +8,7 @@ import { InputGroup } from '@/components/calculator/input-group';
 import { ResultsChart } from '@/components/calculator/results-chart';
 import { calculateKredit } from '@/lib/calculator/credit/annuity';
 import { formatCurrency } from '@/lib/utils/format';
-import type { KreditInput, KreditResult, ChartSegment } from '@/types/calculator';
-import { cn } from '@/lib/utils/cn';
+import type { KreditResult, ChartSegment } from '@/types/calculator';
 import { LaufzeitVergleich } from './kredit-comparison';
 import { useUrlStateRead, useUrlStateSync, parsers } from '@/hooks/use-url-state';
 
@@ -29,7 +28,6 @@ export function KreditrechnerForm() {
   const [zinssatz, setZinssatz] = useState(5.5);
   const [laufzeit, setLaufzeit] = useState(60);
   const [sondertilgung, setSondertilgung] = useState(0);
-  const [result, setResult] = useState<KreditResult | null>(null);
 
   // URL-State für teilbare Links (?b=20000&z=5.5&l=60)
   const urlOverrides = useUrlStateRead<{
@@ -37,6 +35,8 @@ export function KreditrechnerForm() {
   }>({ b: parsers.int, z: parsers.float, l: parsers.int });
 
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.b !== undefined && urlOverrides.b > 0) setDarlehensbetrag(urlOverrides.b);
     if (urlOverrides.z !== undefined && urlOverrides.z >= 0) setZinssatz(urlOverrides.z);
     if (urlOverrides.l !== undefined && urlOverrides.l > 0) setLaufzeit(urlOverrides.l);
@@ -48,12 +48,9 @@ export function KreditrechnerForm() {
     l: laufzeit !== 60 ? laufzeit : null,
   });
 
-  useEffect(() => {
-    if (darlehensbetrag <= 0 || zinssatz < 0 || laufzeit <= 0) {
-      setResult(null);
-      return;
-    }
-    setResult(calculateKredit({ darlehensbetrag, zinssatz, laufzeit_monate: laufzeit, sondertilgung_jaehrlich: sondertilgung }));
+  const result = useMemo<KreditResult | null>(() => {
+    if (darlehensbetrag <= 0 || zinssatz < 0 || laufzeit <= 0) return null;
+    return calculateKredit({ darlehensbetrag, zinssatz, laufzeit_monate: laufzeit, sondertilgung_jaehrlich: sondertilgung });
   }, [darlehensbetrag, zinssatz, laufzeit, sondertilgung]);
 
   const chartSegments: ChartSegment[] = result

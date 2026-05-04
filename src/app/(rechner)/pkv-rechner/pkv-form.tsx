@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -34,6 +34,8 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
     a: parsers.int, b: parsers.int, bg: parsers.str,
   });
   useEffect(() => {
+    // Externer Input (URL) → React-State, einmalige Synchronisierung nach Mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
     if (urlOverrides.b !== undefined && urlOverrides.b > 0) setBruttoeinkommen(urlOverrides.b);
     if (urlOverrides.bg) setBerufsgruppe(urlOverrides.bg as Berufsgruppe);
@@ -45,14 +47,10 @@ export function PkvForm({ initialAlter = 30, initialBrutto = 75000, initialBeruf
   });
   const [kinder, setKinder] = useState(0);
   const [zusatzbeitrag, setZusatzbeitrag] = useState(2.9);
-  const [result, setResult] = useState<PkvResult | null>(null);
 
-  useEffect(() => {
-    if (alter > 0 && bruttoeinkommen > 0) {
-      setResult(calculatePkv({ alter, bruttoeinkommen, berufsgruppe, kinder, zusatzbeitrag }));
-    } else {
-      setResult(null);
-    }
+  const result = useMemo<PkvResult | null>(() => {
+    if (alter <= 0 || bruttoeinkommen <= 0) return null;
+    return calculatePkv({ alter, bruttoeinkommen, berufsgruppe, kinder, zusatzbeitrag });
   }, [alter, bruttoeinkommen, berufsgruppe, kinder, zusatzbeitrag]);
 
   return (

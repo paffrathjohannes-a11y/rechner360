@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -13,16 +13,19 @@ interface Props { sparrate: number; }
 export function ProgrammaticZinseszinsForm({ sparrate: initSr }: Props) {
   const [sparrate, setSparrate] = useState(initSr);
   const [zinssatz, setZinssatz] = useState(7);
-  const [result10, setResult10] = useState<ZinseszinsResult | null>(null);
-  const [result20, setResult20] = useState<ZinseszinsResult | null>(null);
-  const [result30, setResult30] = useState<ZinseszinsResult | null>(null);
 
-  useEffect(() => {
-    if (sparrate <= 0) { setResult10(null); setResult20(null); setResult30(null); return; }
-    setResult10(calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 10 }));
-    setResult20(calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 20 }));
-    setResult30(calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 30 }));
-  }, [sparrate, zinssatz]);
+  const result10 = useMemo<ZinseszinsResult | null>(
+    () => (sparrate <= 0 ? null : calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 10 })),
+    [sparrate, zinssatz],
+  );
+  const result20 = useMemo<ZinseszinsResult | null>(
+    () => (sparrate <= 0 ? null : calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 20 })),
+    [sparrate, zinssatz],
+  );
+  const result30 = useMemo<ZinseszinsResult | null>(
+    () => (sparrate <= 0 ? null : calculateZinseszins({ startkapital: 0, monatlicheSparrate: sparrate, zinssatz, laufzeit: 30 })),
+    [sparrate, zinssatz],
+  );
 
   return (
     <div className="space-y-6">

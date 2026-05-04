@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState, useRef, type InputHTMLAttributes } from 'react';
+import { forwardRef, useState, useRef, useEffect, type InputHTMLAttributes } from 'react';
 import { cn } from '@/lib/utils/cn';
 
 interface CurrencyInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -18,11 +18,15 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     const isFocusedRef = useRef(false);
     const lastValueRef = useRef(value);
 
-    // Sync display when external value changes (but not while user is typing)
-    if (!isFocusedRef.current && value !== lastValueRef.current) {
+    // Externe `value`-Prop → lokale displayValue spiegeln (nur außerhalb des
+    // Fokus). useEffect ist nötig, weil React 19 / Next 16 ref-mutations und
+    // setState im Render-Body strikt verbieten.
+    useEffect(() => {
+      if (isFocusedRef.current || value === lastValueRef.current) return;
       lastValueRef.current = value;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDisplayValue(value > 0 ? value.toLocaleString('de-DE') : '');
-    }
+    }, [value]);
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       const raw = e.target.value.replace(/[^\d,.-]/g, '');

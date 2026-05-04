@@ -24,7 +24,14 @@ export function ResultsChart({
   const circumference = 2 * Math.PI * radius;
   const center = size / 2;
 
-  let accumulatedOffset = 0;
+  // Offsets vorab berechnen statt einer let-Variable im map-Callback —
+  // React 19's Compiler markiert reassignment innerhalb eines Renders als
+  // Anti-Pattern, weil es nicht-deterministisch wirkt.
+  const segmentOffsets = segments.reduce<number[]>((acc, segment) => {
+    const last = acc.length === 0 ? 0 : acc[acc.length - 1] + (segments[acc.length - 1].percentage / 100) * circumference;
+    acc.push(last);
+    return acc;
+  }, []);
 
   return (
     <div className={cn('flex flex-col items-center gap-4', className)}>
@@ -46,10 +53,9 @@ export function ResultsChart({
             strokeWidth={strokeWidth}
           />
           {/* Segments */}
-          {segments.map((segment) => {
+          {segments.map((segment, i) => {
             const segmentLength = (segment.percentage / 100) * circumference;
-            const offset = circumference - accumulatedOffset;
-            accumulatedOffset += segmentLength;
+            const offset = circumference - segmentOffsets[i];
 
             return (
               <circle

@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -18,11 +17,11 @@ export function BuergergeldForm() {
   const [einkommen, setEinkommen] = useState(0);
   const [einkommenPartner, setEinkommenPartner] = useState(0);
   const [kindergeld, setKindergeld] = useState(255);
-  const [result, setResult] = useState<BuergergeldResult | null>(null);
 
-  useEffect(() => {
-    setResult(calculateBuergergeld({ antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld }));
-  }, [antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld]);
+  const result = useMemo<BuergergeldResult | null>(
+    () => calculateBuergergeld({ antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld }),
+    [antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld],
+  );
 
   function addKind() {
     setKinder([...kinder, { alter: 3 }]);

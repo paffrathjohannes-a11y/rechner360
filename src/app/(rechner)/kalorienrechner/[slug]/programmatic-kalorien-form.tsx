@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
 import { InputGroup } from '@/components/calculator/input-group';
 import { calculateKalorien, type KalorienResult } from '@/lib/calculator/health/kalorien';
-import { cn } from '@/lib/utils/cn';
 
 interface Props { gewicht: number; geschlecht: 'mann' | 'frau'; }
 
@@ -14,14 +13,15 @@ export function ProgrammaticKalorienForm({ gewicht: initG, geschlecht: initS }: 
   const [gewicht, setGewicht] = useState(initG);
   const [groesse, setGroesse] = useState(initS === 'mann' ? 178 : 165);
   const [alter, setAlter] = useState(30);
-  const [geschlecht, setGeschlecht] = useState(initS);
+  // Geschlecht kommt aus der Programmatic-Variante als Prop und wird hier
+  // nicht im UI getoggelt — Setter bewusst unbenutzt (Underscore-Prefix).
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [geschlecht, _setGeschlecht] = useState(initS);
   const [aktivitaet, setAktivitaet] = useState<'sitzend'|'leicht'|'moderat'|'aktiv'|'sehr-aktiv'>('moderat');
-  const [result, setResult] = useState<KalorienResult | null>(null);
 
-  useEffect(() => {
-    if (gewicht > 0 && groesse > 0 && alter > 0) {
-      setResult(calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet, ziel: 'halten' }));
-    }
+  const result = useMemo<KalorienResult | null>(() => {
+    if (gewicht <= 0 || groesse <= 0 || alter <= 0) return null;
+    return calculateKalorien({ gewicht, groesse, alter, geschlecht, aktivitaet, ziel: 'halten' });
   }, [gewicht, groesse, alter, geschlecht, aktivitaet]);
 
   return (

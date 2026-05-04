@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
 import { Select } from '@/components/ui/select';
@@ -21,13 +21,16 @@ export function BmiForm() {
   const [groesse, setGroesse] = useState(175);
   const [alter, setAlter] = useState(30);
   const [geschlecht, setGeschlecht] = useState<'mann' | 'frau'>('mann');
-  const [result, setResult] = useState<BmiResult | null>(null);
 
   // URL-State: ?g=175&w=75&a=30&s=m
   const urlOverrides = useUrlStateRead<{
     g: number; w: number; a: number; s: string;
   }>({ g: parsers.int, w: parsers.int, a: parsers.int, s: parsers.str });
   useEffect(() => {
+    // Externer Input (URL) wird einmalig nach Mount in den State gespiegelt.
+    // setState im Effect ist hier korrekt: wir synchronisieren mit einem
+    // externen System, nicht mit anderem React-State.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (urlOverrides.g !== undefined && urlOverrides.g > 0) setGroesse(urlOverrides.g);
     if (urlOverrides.w !== undefined && urlOverrides.w > 0) setGewicht(urlOverrides.w);
     if (urlOverrides.a !== undefined && urlOverrides.a > 0) setAlter(urlOverrides.a);
@@ -42,12 +45,9 @@ export function BmiForm() {
     s: geschlecht !== 'mann' ? (geschlecht === 'frau' ? 'f' : null) : null,
   });
 
-  useEffect(() => {
-    if (gewicht > 0 && groesse > 0 && alter > 0) {
-      setResult(calculateBmi({ gewicht, groesse, alter, geschlecht }));
-    } else {
-      setResult(null);
-    }
+  const result = useMemo<BmiResult | null>(() => {
+    if (gewicht <= 0 || groesse <= 0 || alter <= 0) return null;
+    return calculateBmi({ gewicht, groesse, alter, geschlecht });
   }, [gewicht, groesse, alter, geschlecht]);
 
   // BMI scale position (0-100%)

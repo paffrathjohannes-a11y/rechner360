@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { CurrencyInput } from '@/components/calculator/currency-input';
 import { InputGroup } from '@/components/calculator/input-group';
@@ -34,14 +34,13 @@ interface Props {
 
 export function ProgrammaticGehaltsForm({ brutto: initialBrutto }: Props) {
   const [brutto, setBrutto] = useState(initialBrutto);
-  const [results, setResults] = useState<(BruttoNettoResult & { steuerklasse: number })[]>([]);
 
-  useEffect(() => {
-    if (brutto <= 0) { setResults([]); return; }
-    setResults(STEUERKLASSEN_IDS.map((sk) => ({
+  const results = useMemo<(BruttoNettoResult & { steuerklasse: number })[]>(() => {
+    if (brutto <= 0) return [];
+    return STEUERKLASSEN_IDS.map((sk) => ({
       ...calculateBruttoNetto({ ...defaultInput, brutto, steuerklasse: sk }),
       steuerklasse: sk,
-    })));
+    }));
   }, [brutto]);
 
   return (

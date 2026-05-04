@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { NumberInput } from '@/components/ui/number-input';
@@ -15,11 +15,10 @@ interface Props { netto: number; }
 export function ProgrammaticUnterhaltForm({ netto: initNetto }: Props) {
   const [netto, setNetto] = useState(initNetto);
   const [kinderAlter, setKinderAlter] = useState([6]);
-  const [result, setResult] = useState<UnterhaltResult | null>(null);
 
-  useEffect(() => {
-    if (netto <= 0) { setResult(null); return; }
-    setResult(calculateUnterhalt({ nettoEinkommen: netto, kinderAnzahl: kinderAlter.length, kinderAlter, kindergeldAnrechnung: true }));
+  const result = useMemo<UnterhaltResult | null>(() => {
+    if (netto <= 0) return null;
+    return calculateUnterhalt({ nettoEinkommen: netto, kinderAnzahl: kinderAlter.length, kinderAlter, kindergeldAnrechnung: true });
   }, [netto, kinderAlter]);
 
   return (

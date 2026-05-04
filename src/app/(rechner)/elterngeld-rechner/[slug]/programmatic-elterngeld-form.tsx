@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { CurrencyInput } from '@/components/calculator/currency-input';
@@ -15,11 +15,11 @@ export function ProgrammaticElterngeldForm({ netto: initNetto }: Props) {
   const estimatedBrutto = Math.round(initNetto / 0.6);
   const [brutto, setBrutto] = useState(estimatedBrutto);
   const [art, setArt] = useState<'basis' | 'plus'>('basis');
-  const [result, setResult] = useState<ElterngeldResult | null>(null);
 
-  useEffect(() => {
-    setResult(calculateElterngeld({ bruttoEinkommen: brutto, teilzeitBrutto: 0, elterngeldArt: art, partnermonate: false, zwillinge: false, geschwisterbonus: false }));
-  }, [brutto, art]);
+  const result = useMemo<ElterngeldResult>(
+    () => calculateElterngeld({ bruttoEinkommen: brutto, teilzeitBrutto: 0, elterngeldArt: art, partnermonate: false, zwillinge: false, geschwisterbonus: false }),
+    [brutto, art],
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

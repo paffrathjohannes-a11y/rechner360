@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Select } from '@/components/ui/select';
 import { Toggle } from '@/components/ui/toggle';
@@ -17,11 +17,10 @@ export function NebenkostenForm() {
   const [bundesland, setBundesland] = useState('nw');
   const [makler, setMakler] = useState(true);
   const [maklerSatz, setMaklerSatz] = useState(3.57);
-  const [result, setResult] = useState<NebenkostenResult | null>(null);
 
-  useEffect(() => {
-    if (kaufpreis <= 0) { setResult(null); return; }
-    setResult(calculateNebenkosten({ kaufpreis, bundesland, makler, maklerSatz }));
+  const result = useMemo<NebenkostenResult | null>(() => {
+    if (kaufpreis <= 0) return null;
+    return calculateNebenkosten({ kaufpreis, bundesland, makler, maklerSatz });
   }, [kaufpreis, bundesland, makler, maklerSatz]);
 
   const chartSegments: ChartSegment[] = result ? [

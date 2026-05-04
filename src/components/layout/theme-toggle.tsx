@@ -8,6 +8,10 @@ export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  // Mount-Marker: vermeidet Flash-of-Unstyled-Theme bei Hydration. setState
+  // im Effect ist hier gewollt — wir können `mounted` nicht aus dem Server
+  // ableiten.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {
