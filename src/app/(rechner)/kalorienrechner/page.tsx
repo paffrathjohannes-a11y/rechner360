@@ -28,7 +28,7 @@ export default function KalorienrechnerPage() {
       slug="kalorienrechner"
       title="Kalorienrechner"
       subtitle="Berechnen Sie Ihren täglichen Kalorienbedarf — Grundumsatz, Gesamtumsatz und Zielkalorien."
-      jsonLd={{ name: 'Kalorienrechner', url: '/kalorienrechner', description: 'T\u00e4glichen Kalorienbedarf berechnen.' }}
+      jsonLd={{ name: 'Kalorienrechner', url: '/kalorienrechner', description: 'T\u00e4glichen Kalorienbedarf berechnen.', category: 'HealthApplication' }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.kalorienrechner.headline} offers={affiliateOffersBySlug.kalorienrechner.offers} />}
       programmaticVariants={{ pages: KALORIEN_PAGES }}

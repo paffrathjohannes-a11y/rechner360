@@ -3,7 +3,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { TrustSignals } from '@/components/content/trust-signals';
 import { TestimonialsStrip } from '@/components/content/testimonials-strip';
-import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld';
+import { WebSiteJsonLd } from '@/components/seo/json-ld';
 import { Badge } from '@/components/ui/badge';
 import { CategorySection } from '@/components/home/category-section';
 import { CalculatorSearch } from '@/components/search/calculator-search';
@@ -18,7 +18,6 @@ import { affiliateOffersBySlug } from '@/data/affiliates/offers';
 export default function HomePage() {
   return (
     <>
-      <OrganizationJsonLd />
       <WebSiteJsonLd />
       <Header />
 

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { RECHNER } from '@/lib/utils/constants';
+import { RECHNER, RECHNER_CATEGORIES } from '@/lib/utils/constants';
 import { KREDIT_PAGES } from '@/data/programmatic/kredit-pages';
 import { TILGUNGS_PAGES } from '@/data/programmatic/tilgungs-pages';
 import { ZINSESZINS_PAGES } from '@/data/programmatic/zinseszins-pages';
@@ -35,6 +35,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: RECHNER_LAST_MODIFIED,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+    })),
+    // Pillar-Hub-Übersicht + 4 Kategorie-Hubs (Topic-Cluster-Architektur).
+    // Priorität 0.85 = unter den einzelnen Rechnern (0.9), aber über den
+    // Ratgeber-Artikeln (0.8) — weil sie als Crawl-Einstieg in den Cluster
+    // dienen sollen.
+    {
+      url: `${SITE_URL}/themen`,
+      lastModified: RECHNER_LAST_MODIFIED,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    ...RECHNER_CATEGORIES.map((c) => ({
+      url: `${SITE_URL}/themen/${c.id}`,
+      lastModified: RECHNER_LAST_MODIFIED,
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
     })),
     {
       url: `${SITE_URL}/ueber-uns`,

@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { CookieBanner } from '@/components/layout/cookie-banner';
 import { Analytics } from '@/components/layout/analytics';
 import { AdsenseScript } from '@/components/ads/adsense-script';
+import { OrganizationJsonLd } from '@/components/seo/json-ld';
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/utils/constants';
 import { ScrollToTop } from '@/components/layout/scroll-to-top';
 import './globals.css';
@@ -11,12 +12,6 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-inter',
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains',
   display: 'swap',
 });
 
@@ -99,7 +94,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={inter.variable}
       suppressHydrationWarning
     >
       <body className="min-h-dvh flex flex-col antialiased">
@@ -116,6 +111,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/* Site-weites Organization-Schema (E-E-A-T Identity-Signal auf jeder
+              Seite, nicht nur auf der Home). WebSite-Schema bleibt bewusst nur
+              auf der Home, weil Google das Schema nur einmal pro Site indexiert. */}
+          <OrganizationJsonLd />
           {children}
           <ScrollToTop />
           <CookieBanner />

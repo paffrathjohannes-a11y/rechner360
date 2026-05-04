@@ -30,6 +30,7 @@ export default function BmiRechnerPage() {
         name: 'BMI Rechner',
         url: '/bmi-rechner',
         description: 'Kostenloser BMI Rechner. Body-Mass-Index berechnen mit WHO-Klassifikation und Idealgewicht.',
+        category: 'HealthApplication',
       }}
       faqs={BMI_FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug['bmi-rechner'].headline} offers={affiliateOffersBySlug['bmi-rechner'].offers} />}

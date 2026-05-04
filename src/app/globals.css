@@ -48,7 +48,10 @@
 @theme inline {
   /* Typography */
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
+  /* System-Mono-Stack statt JetBrains_Mono: spart ~50 KB Font-Bytes,
+     verbessert LCP/FCP. Currency-Display nutzt nur tabular-nums + leichtes
+     letter-spacing, keine echte Mono-Schrift nötig. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* Primary (Blue) — static, same in both modes */
   --color-primary-50: #EFF6FF;

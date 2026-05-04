@@ -46,8 +46,8 @@ export default function BruttoNettoRechnerPage() {
             <div className="space-y-3 text-text-secondary leading-relaxed">
               <p>
                 Unser Brutto Netto Rechner berechnet präzise, wie viel von Ihrem Bruttogehalt nach Abzug aller Steuern
-                und Sozialversicherungsbeiträge übrig bleibt. Die Berechnung basiert auf dem offiziellen
-                offiziellen Steuerberechnungsformeln des Bundesfinanzministeriums für 2026 und berücksichtigt alle aktuellen
+                und Sozialversicherungsbeiträge übrig bleibt. Die Berechnung basiert auf den offiziellen
+                Steuerberechnungsformeln des Bundesfinanzministeriums für 2026 und berücksichtigt alle aktuellen
                 Steuer- und Sozialversicherungsparameter.
               </p>
               <p>

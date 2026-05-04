@@ -28,7 +28,7 @@ export default function ProzentrechnerPage() {
       slug="prozentrechner"
       title="Prozentrechner"
       subtitle="Prozente einfach berechnen — Anteil, Prozentsatz, Grundwert und prozentuale Veränderung."
-      jsonLd={{ name: 'Prozentrechner', url: '/prozentrechner', description: 'Kostenloser Prozentrechner. Prozente berechnen leicht gemacht.' }}
+      jsonLd={{ name: 'Prozentrechner', url: '/prozentrechner', description: 'Kostenloser Prozentrechner. Prozente berechnen leicht gemacht.', category: 'UtilitiesApplication' }}
       faqs={FAQS}
       affiliateSection={<AffiliateBox headline={affiliateOffersBySlug.prozentrechner.headline} offers={affiliateOffersBySlug.prozentrechner.offers} />}
       guideContent={
