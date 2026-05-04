@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { StickyDesktopAd } from '@/components/ads/sticky-desktop-ad';
+import { MobileAnchorAd } from '@/components/ads/mobile-anchor-ad';
 
 export default function RechnerLayout({
   children,
@@ -16,6 +17,9 @@ export default function RechnerLayout({
       <Footer />
       {/* Sticky Desktop-Ad (nur ≥xl, schließbar, nur wenn Ad liefert). */}
       <StickyDesktopAd />
+      {/* Mobile Anchor-Ad (nur <xl, schließbar). Schließt die Mobile-Revenue-
+          Lücke des Sticky-Desktop-Ads. */}
+      <MobileAnchorAd />
     </>
   );
 }

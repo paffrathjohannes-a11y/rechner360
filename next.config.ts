@@ -11,12 +11,16 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com",
+      // AdSense lädt Ad-Creatives von tpc.googlesyndication.com und nutzt
+      // googleads.g.doubleclick.net für Auto-Ads / Click-Tracking.
+      // www.googleadservices.com wird beim Klick auf Anzeigen aufgerufen.
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' https: data:",
       "font-src 'self'",
-      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://data.ecb.europa.eu",
-      "frame-src https://pagead2.googlesyndication.com",
+      "connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.googleadservices.com https://data.ecb.europa.eu",
+      // frame-src deckt Ad-iframes (pagead2 und tpc rendern beide in iframes).
+      "frame-src https://pagead2.googlesyndication.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",

@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
+import { useAdsenseSlot } from '@/hooks/use-adsense-slot';
+import { useSessionStorageFlag } from '@/hooks/use-session-storage-flag';
 
 /**
  * Sticky Desktop Ad — dezentes, schließbares 300×250 Rectangle am rechten
@@ -20,77 +21,15 @@ import { cn } from '@/lib/utils/cn';
 const CLOSE_KEY = 'rechner360_sticky_ad_closed';
 
 export function StickyDesktopAd() {
-  const [consent, setConsent] = useState(false);
-  const [closed, setClosed] = useState(true);
-  const [adFilled, setAdFilled] = useState<boolean | null>(null);
-  const pushed = useRef(false);
-  const adRef = useRef<HTMLDivElement>(null);
+  const [closed, setClosed] = useSessionStorageFlag(CLOSE_KEY);
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || '';
   const slotId = process.env.NEXT_PUBLIC_ADSENSE_STICKY_SLOT || '';
 
-  useEffect(() => {
-    setConsent(localStorage.getItem('rechner360_cookie_consent') === 'accepted');
-    setClosed(sessionStorage.getItem(CLOSE_KEY) === '1');
-
-    const handleConsent = () => {
-      setConsent(localStorage.getItem('rechner360_cookie_consent') === 'accepted');
-    };
-    window.addEventListener('cookie-consent-change', handleConsent);
-    return () => window.removeEventListener('cookie-consent-change', handleConsent);
-  }, []);
-
-  const tryPush = useCallback(() => {
-    if (pushed.current) return;
-    try {
-      const adsbygoogle = (window as unknown as Record<string, unknown[]>).adsbygoogle;
-      if (adsbygoogle) {
-        adsbygoogle.push({});
-        pushed.current = true;
-      }
-    } catch {
-      /* AdSense not ready */
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!consent || !clientId || closed) return;
-    tryPush();
-    if (!pushed.current) {
-      const interval = setInterval(() => {
-        tryPush();
-        if (pushed.current) clearInterval(interval);
-      }, 500);
-      const timeout = setTimeout(() => {
-        clearInterval(interval);
-        if (!pushed.current) setAdFilled(false);
-      }, 10000);
-      return () => { clearInterval(interval); clearTimeout(timeout); };
-    }
-  }, [consent, clientId, closed, tryPush]);
-
-  useEffect(() => {
-    if (!pushed.current || !adRef.current) return;
-    const check = () => {
-      const ins = adRef.current?.querySelector('ins.adsbygoogle');
-      if (!ins) return;
-      const status = ins.getAttribute('data-ad-status');
-      if (status === 'filled') setAdFilled(true);
-      else if (status === 'unfilled') setAdFilled(false);
-    };
-    const interval = setInterval(check, 1000);
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-      if (adFilled === null) setAdFilled(false);
-    }, 8000);
-    return () => { clearInterval(interval); clearTimeout(timeout); };
-  }, [consent, clientId, adFilled]);
+  const { consent, adFilled, adRef } = useAdsenseSlot({ enabled: !closed });
 
   if (!clientId || closed || !consent) return null;
 
-  const handleClose = () => {
-    try { sessionStorage.setItem(CLOSE_KEY, '1'); } catch { /* ignore */ }
-    setClosed(true);
-  };
+  const handleClose = () => setClosed(true);
 
   return (
     <div
