@@ -9,8 +9,10 @@ import {
   ProgrammaticVariantsList,
   type ProgrammaticVariantEntry,
 } from '@/components/content/programmatic-variants-list';
-import { WebApplicationJsonLd } from '@/components/seo/json-ld';
+import { WebApplicationJsonLd, HowToJsonLd, type HowToStep } from '@/components/seo/json-ld';
+import { HOWTO_BY_SLUG } from '@/data/howto';
 import { NativeAdSlot } from '@/components/ads/native-ad-slot';
+import { NewsletterSignup } from '@/components/newsletter/newsletter-signup';
 import { getCategoryForRechner } from '@/lib/utils/constants';
 import { RATGEBER_ARTIKEL } from '@/data/content/ratgeber';
 import { Sources } from '@/components/calculator/sources';
@@ -37,7 +39,18 @@ interface CalculatorPageLayoutProps {
   slug: string;
   title: string;
   subtitle: string;
-  jsonLd: { name: string; url: string; description: string };
+  /**
+   * Schema.org WebApplication-Daten. `category` ist Schema.org `applicationCategory`
+   * — Default 'FinanceApplication' passt für alle Steuer-/Finanz-/Sozial-Rechner.
+   * Für BMI/Kalorien o.ä. explizit 'HealthApplication' setzen, für reine Mathe-
+   * Tools (Prozent) 'UtilitiesApplication'. Falsche Kategorie ist Schema-Spam.
+   */
+  jsonLd: { name: string; url: string; description: string; category?: string };
+  /**
+   * Optionale HowTo-Anleitung. Wenn gesetzt, wird ein zusätzliches
+   * Schema.org `HowTo`-Markup gerendert. Steps müssen Plain-Text sein.
+   */
+  howTo?: { name: string; description: string; steps: HowToStep[]; totalTimeISO?: string };
   children: ReactNode;
   guideContent?: ReactNode;
   faqs?: FAQ[];
@@ -55,6 +68,7 @@ export function CalculatorPageLayout({
   title,
   subtitle,
   jsonLd,
+  howTo,
   children,
   guideContent,
   faqs,
@@ -63,8 +77,11 @@ export function CalculatorPageLayout({
 }: CalculatorPageLayoutProps) {
   const category = getCategoryForRechner(slug);
 
+  // Breadcrumbs: Kategorie verlinkt jetzt auf den Themen-Hub `/themen/<id>`,
+  // nicht mehr auf den Homepage-Anker. Schließt den Topic-Cluster-Loop:
+  // Calculator → Hub → verwandte Calculators (statt nur zurück zur Home).
   const breadcrumbItems = [
-    ...(category ? [{ label: category.title, href: `/#${category.id}` }] : []),
+    ...(category ? [{ label: category.title, href: `/themen/${category.id}` }] : []),
     { label: title, href: `/${slug}` },
   ];
 
@@ -82,11 +99,22 @@ export function CalculatorPageLayout({
       </div>
 
       <WebApplicationJsonLd {...jsonLd} />
-
-      {/* Above-the-fold Ad-Slot (direkt unter H1/Trust-Sektion) — deutlich
-          höhere CTR als der untere Slot, da Nutzer den Ad unbedingt sieht.
-          Wird nur angezeigt wenn AdSense Ad geliefert hat (keine leere Box). */}
-      <NativeAdSlot format="horizontal" slot={process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT} />
+      {/* HowTo-Schema: explizit über `howTo`-Prop oder zentral aus
+          src/data/howto.ts per Slug. Page-Override schlägt zentrale
+          Datei — z.B. wenn ein Rechner kontextspezifische Schritte
+          braucht (Sonderfall Brutto-Netto vor der Migration). */}
+      {(() => {
+        const effectiveHowTo = howTo ?? HOWTO_BY_SLUG[slug];
+        if (!effectiveHowTo) return null;
+        return (
+          <HowToJsonLd
+            name={effectiveHowTo.name}
+            description={effectiveHowTo.description}
+            steps={effectiveHowTo.steps}
+            totalTimeISO={effectiveHowTo.totalTimeISO}
+          />
+        );
+      })()}
 
       {/*
         aria-live="polite" announced Ergebnis-Aktualisierungen für Screenreader,
@@ -97,8 +125,21 @@ export function CalculatorPageLayout({
         {children}
       </div>
 
+      {/* Post-Result Ad-Slot — direkt nach dem Calculator-Output, vor Affiliate
+          und Guide. Vorher war der Slot über dem Calculator (above-fold) und
+          dominierte den ersten Viewport — AdSense-Policy-Risiko ("Page-Layout
+          dominated by ads") und schlechte UX. Jetzt sieht der Nutzer zuerst
+          das Ergebnis, dann werbliche Anschluss-Touchpoints (Ad, Affiliate). */}
+      <NativeAdSlot format="horizontal" slot={process.env.NEXT_PUBLIC_ADSENSE_TOP_SLOT} className="mt-8" />
+
       {/* Affiliate recommendations — natural next step after results */}
       {affiliateSection && <div className="mt-8">{affiliateSection}</div>}
+
+      {/* Newsletter-Capture nach Result + Affiliate. Rendert sich selbst
+          nur wenn `NEXT_PUBLIC_NEWSLETTER_ENABLED=1` gesetzt ist — sonst
+          komplett ausgeblendet. Slug als source-Attribut für Brevo, damit
+          später ausgewertet werden kann, von welchem Rechner der Kontakt kam. */}
+      <NewsletterSignup source={slug} className="mt-8" />
 
       {guideContent && <div className="mt-12">{guideContent}</div>}
 
