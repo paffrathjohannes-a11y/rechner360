@@ -45,9 +45,13 @@ export function UsageCounter() {
     return () => clearInterval(countUp);
   }, []);
 
-  // Phase 2: Live-Ticker nach Initial-Animation
+  // Phase 2: Live-Ticker nach Initial-Animation. Hängt vom Übergang
+  // count > 0 ab — wir extrahieren das in eine boolesche Variable, damit
+  // Lint die Effect-Dependency statisch prüfen kann (vorher: Inline-
+  // Conditional `count === 0 ? 0 : 1`).
+  const animationDone = count > 0;
   useEffect(() => {
-    if (count === 0) return;
+    if (!animationDone) return;
 
     const tick = () => {
       setCount((c) => c + Math.floor(Math.random() * 3) + 1); // +1 bis +3
@@ -55,7 +59,7 @@ export function UsageCounter() {
     };
 
     // Erstes Tick zufällig 4–9 Sek nach Animation
-    const scheduleNext = () => {
+    const scheduleNext = (): ReturnType<typeof setTimeout> => {
       const delay = Math.floor(Math.random() * 5000) + 4000;
       return setTimeout(() => {
         tick();
@@ -65,7 +69,7 @@ export function UsageCounter() {
 
     let nextTimer = scheduleNext();
     return () => clearTimeout(nextTimer);
-  }, [count === 0 ? 0 : 1]); // only run once after first count > 0
+  }, [animationDone]);
 
   // Zusätzlich: "Letzte Berechnung vor X Sekunden" tickt jede Sekunde
   useEffect(() => {

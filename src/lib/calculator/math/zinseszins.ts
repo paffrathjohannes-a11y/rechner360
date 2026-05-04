@@ -37,7 +37,6 @@ export function calculateZinseszins(input: ZinseszinsInput): ZinseszinsResult {
   const jahresEntwicklung: ZinseszinsResult['jahresEntwicklung'] = [];
 
   for (let jahr = 1; jahr <= laufzeit; jahr++) {
-    let jahresZinsen = 0;
     let jahresZinsenNachSteuer = 0;
 
     for (let monat = 0; monat < 12; monat++) {
@@ -45,7 +44,6 @@ export function calculateZinseszins(input: ZinseszinsInput): ZinseszinsResult {
       gesamt += monatlicheSparrate;
       const zinsBrutto = gesamt * monatsZins;
       gesamt += zinsBrutto;
-      jahresZinsen += zinsBrutto;
 
       // Mit Steuer
       gesamtNachSteuer += monatlicheSparrate;

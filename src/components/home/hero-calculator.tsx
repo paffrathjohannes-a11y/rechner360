@@ -9,7 +9,6 @@ import { CurrencyInput } from '@/components/calculator/currency-input';
 import { calculateBruttoNetto } from '@/lib/calculator/brutto-netto';
 import { formatCurrency } from '@/lib/utils/format';
 import type { BruttoNettoInput } from '@/types/calculator';
-import { cn } from '@/lib/utils/cn';
 
 const defaultInput: Omit<BruttoNettoInput, 'brutto' | 'steuerklasse'> = {
   bundesland: 'nw',
@@ -28,16 +27,8 @@ const defaultInput: Omit<BruttoNettoInput, 'brutto' | 'steuerklasse'> = {
   firmenwagen_antrieb: 'kein',
 };
 
-// LCP-Optimierung: Default-Netto zur Modul-Ladezeit vorberechnen, damit der
-// SSR-Output bereits einen Wert enthält. Ohne diese Konstante blinkt das
-// Ergebnis bei Hydration von "—" auf den tatsächlichen Betrag.
 const DEFAULT_BRUTTO = 3500;
 const DEFAULT_STEUERKLASSE = 1 as const;
-const DEFAULT_NETTO = calculateBruttoNetto({
-  ...defaultInput,
-  brutto: DEFAULT_BRUTTO,
-  steuerklasse: DEFAULT_STEUERKLASSE,
-}).netto;
 
 export function HeroCalculator() {
   const [brutto, setBrutto] = useState(DEFAULT_BRUTTO);

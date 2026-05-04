@@ -11,15 +11,21 @@ interface Props { typ: string; }
 
 export function ProgrammaticBuergergeldForm({ typ }: Props) {
   const antragsteller = typ === 'paar' ? 'paar' as const : 'single' as const;
-  const defaultKinder = typ.includes('2-kinder') ? [{ alter: 4 }, { alter: 8 }] : typ.includes('kind') || typ === 'alleinerziehend' ? [{ alter: 6 }] : [];
 
   const [warmmiete, setWarmmiete] = useState(antragsteller === 'paar' ? 650 : 500);
   const [einkommen, setEinkommen] = useState(0);
 
-  const result = useMemo<BuergergeldResult>(
-    () => calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 }),
-    [antragsteller, defaultKinder, warmmiete, einkommen],
-  );
+  // `defaultKinder` aus typ-String ableiten — innerhalb des useMemo, damit
+  // Lint die Dependency-Stabilität statisch verifizieren kann (Array-Literal
+  // im Render-Body wäre bei jedem Render referenziell neu).
+  const result = useMemo<BuergergeldResult>(() => {
+    const defaultKinder = typ.includes('2-kinder')
+      ? [{ alter: 4 }, { alter: 8 }]
+      : typ.includes('kind') || typ === 'alleinerziehend'
+        ? [{ alter: 6 }]
+        : [];
+    return calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 });
+  }, [typ, antragsteller, warmmiete, einkommen]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">

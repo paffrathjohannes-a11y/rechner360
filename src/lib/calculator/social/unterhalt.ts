@@ -53,9 +53,11 @@ const EINKOMMENS_GRENZEN = [2100, 2500, 2900, 3300, 3700, 4100, 4500, 4900, 5300
 // Kindergeld 2025: 255€ pro Kind
 const KINDERGELD = 255;
 
-// Selbstbehalt
+// Selbstbehalt (Düsseldorfer Tabelle 2026).
+// Aktuell wird nur der Erwerbstätigen-Wert genutzt; der Nicht-Erwerbstätigen-
+// Wert (1200 €) bleibt dokumentarisch erhalten für zukünftige Differenzierung
+// nach Erwerbsstatus.
 const SELBSTBEHALT_ERWERBSTAETIG = 1450;
-const SELBSTBEHALT_NICHT_ERWERBSTAETIG = 1200;
 
 function getAltersstufe(alter: number): number {
   if (alter <= 5) return 0;

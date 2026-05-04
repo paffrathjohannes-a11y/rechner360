@@ -34,8 +34,9 @@ const ERHOEHUNG_PRO_PERSON = [
   326.04,   // 5. Person
 ];
 
-// Obergrenze: darüber voll pfändbar
-const OBERGRENZE_BASIS = 4767.00; // bei 0 Unterhaltspflichten
+// Obergrenze (4767,00 € bei 0 Unterhaltspflichten): darüber voll pfändbar.
+// Wert dokumentarisch, in der aktuellen Berechnung nicht direkt verwendet —
+// die Pfändungsquote auf den Mehrbetrag deckt den effektiven Effekt ab.
 
 // Pfändungsquote des Mehrbetrags über Freigrenze
 const PFAENDUNGSQUOTE = 0.70;

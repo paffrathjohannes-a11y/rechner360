@@ -14,8 +14,8 @@ export function ProgrammaticKalorienForm({ gewicht: initG, geschlecht: initS }: 
   const [groesse, setGroesse] = useState(initS === 'mann' ? 178 : 165);
   const [alter, setAlter] = useState(30);
   // Geschlecht kommt aus der Programmatic-Variante als Prop und wird hier
-  // nicht im UI getoggelt — Setter bewusst unbenutzt (Underscore-Prefix).
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // nicht im UI getoggelt — Setter bewusst unbenutzt (Underscore-Prefix
+  // wird durch ESLint-Config für no-unused-vars akzeptiert).
   const [geschlecht, _setGeschlecht] = useState(initS);
   const [aktivitaet, setAktivitaet] = useState<'sitzend'|'leicht'|'moderat'|'aktiv'|'sehr-aktiv'>('moderat');
 

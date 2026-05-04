@@ -55,7 +55,7 @@ function getSteuerklasseContext(sk: number): string {
   }
 }
 
-function getIncomeNarrative(brutto: number, bruttoStr: string, sk: number): string {
+function getIncomeNarrative(brutto: number, bruttoStr: string, _sk: number): string {
   const bracket = getIncomeBracket(brutto);
   const grundfreibetrag = 12348;
   const monatsGrundfreibetrag = Math.round(grundfreibetrag / 12);

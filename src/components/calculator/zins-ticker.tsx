@@ -1,4 +1,3 @@
-import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 import type { CurrentRates } from '@/lib/rates/fetch-rates';
 

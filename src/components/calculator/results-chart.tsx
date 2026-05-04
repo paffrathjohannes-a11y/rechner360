@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils/cn';
 import type { ChartSegment } from '@/types/calculator';
-import { formatCurrency, formatPercent } from '@/lib/utils/format';
+import { formatCurrency } from '@/lib/utils/format';
 
 interface ResultsChartProps {
   segments: ChartSegment[];
@@ -27,7 +27,7 @@ export function ResultsChart({
   // Offsets vorab berechnen statt einer let-Variable im map-Callback —
   // React 19's Compiler markiert reassignment innerhalb eines Renders als
   // Anti-Pattern, weil es nicht-deterministisch wirkt.
-  const segmentOffsets = segments.reduce<number[]>((acc, segment) => {
+  const segmentOffsets = segments.reduce<number[]>((acc) => {
     const last = acc.length === 0 ? 0 : acc[acc.length - 1] + (segments[acc.length - 1].percentage / 100) * circumference;
     acc.push(last);
     return acc;

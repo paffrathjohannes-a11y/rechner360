@@ -32,7 +32,6 @@ export function useUrlStateRead<T extends Record<string, Primitive | null>>(
     // nach Mount. setState im Effect ist hier korrekt: wir initialisieren
     // aus einer Quelle, auf die wir SSR-sicher erst clientseitig zugreifen
     // können.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (Object.keys(next).length) setResult(next);
     // schema bewusst nicht im Dep-Array: ist beim Caller meist ein neues
     // Objekt-Literal pro Render und würde den Effect bei jedem Render erneut
