@@ -74,21 +74,27 @@ export async function subscribeToBrevo(payload: SubscribePayload): Promise<Subsc
     });
 
     // Brevo gibt 201 (created) bzw. 204 (no content) bei Erfolg.
-    // 400 mit code "duplicate_parameter" = Adresse schon angemeldet — als
-    // Erfolg werten, damit der User keinen Fehler sieht (DOI verhindert
-    // unbemerkte Anmeldungen Dritter, Re-Anmeldung ist gewollt idempotent).
     if (res.ok) return { ok: true };
 
-    if (res.status === 400) {
-      const data = await res.json().catch(() => ({}));
-      if (data?.code === 'duplicate_parameter') return { ok: true };
-    }
-
+    // Body genau EINMAL lesen — sonst wirft `text()` nach `json()` "Body
+    // already consumed" und wir verlieren den Fehlertext. Wir lesen als
+    // Text, parsen optional als JSON.
     const errText = await res.text().catch(() => '');
+    let errCode = '';
+    try {
+      const data = JSON.parse(errText);
+      errCode = data?.code ?? '';
+    } catch { /* kein JSON */ }
+
+    // 400 mit code "duplicate_parameter" = Adresse schon in Liste — als
+    // Erfolg werten (idempotent; DSGVO-DOI verhindert ohnehin unbemerkte
+    // Mehrfach-Anmeldungen Dritter).
+    if (res.status === 400 && errCode === 'duplicate_parameter') return { ok: true };
+
     return {
       ok: false,
       status: res.status,
-      reason: `Brevo-API antwortete mit ${res.status}: ${errText.slice(0, 200)}`,
+      reason: `Brevo: ${res.status} ${errCode ? `(${errCode}) ` : ''}${errText.slice(0, 300)}`,
     };
   } catch (err) {
     return {
