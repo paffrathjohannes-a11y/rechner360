@@ -246,5 +246,32 @@
     ],
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-05-04"
+  },
+  {
+    "slug": "aenderungen-2026-steuern-rente-buergergeld",
+    "title": "Änderungen 2026: Steuern, Rente und Bürgergeld",
+    "metaTitle": "Steuern, Rente, Bürgergeld: Änderungen 2026",
+    "metaDescription": "Erfahren Sie, welche wichtigen Änderungen 2026 bei Steuern, Rente und Bürgergeld auf Sie zukommen. Jetzt informieren!",
+    "intro": "Im Jahr 2026 treten mehrere bedeutende Änderungen bei Steuern, Rente und Bürgergeld in Kraft. Der Grundfreibetrag wird angepasst, ebenso die Sätze für Bürgergeld und Pflegeversicherung. Diese Anpassungen könnten Auswirkungen auf Ihr Einkommen und Ihre finanzielle Planung haben.",
+    "sections": [
+      {
+        "title": "Erhöhung des Grundfreibetrags",
+        "content": "Für das Jahr 2026 steigt der Grundfreibetrag auf 12.348 €, was eine Entlastung besonders für niedrige Einkommen bedeutet. Der Grundfreibetrag, der im §32a des EStG geregelt ist, schützt ein niedriges Einkommen vor der Besteuerung. Dies führt zu einer höheren Nettoauszahlung, da erst das Einkommen oberhalb dieser Grenze versteuert wird. Beispielsweise sparen Personen mit einem zu versteuernden Einkommen von 13.000 € bis zu 885 € an Steuern im Vergleich zu 2025. Eine genaue Berechnung des eigenen Steueraufkommens sollte jedoch mit einem Steuerberater erfolgen."
+      },
+      {
+        "title": "Kinderfreibetrag und Sozialversicherungsgrenzen",
+        "content": "Der Kinderfreibetrag wird 2026 ebenfalls angehoben und beträgt nun für zusammen veranlagte Eltern 9.456 € jährlich. Diese Änderung zielt darauf ab, Familien finanziell zu entlasten. Gleichzeitig steigen die Beitragsbemessungsgrenzen (BBG) für Kranken- und Rentenversicherung. Die BBG in der Krankenversicherung liegt bei 64.350 €, während sie in der Rentenversicherung auf 90.000 € ansteigt. Höhere BBG bedeuten, dass auf einen größeren Teil des Einkommens Beiträge zu entrichten sind, was in höherem Einkommen eventuell zu mehr Abgaben führen kann."
+      },
+      {
+        "title": "Mindestlohn und Bürgergeld-Regelsätze",
+        "content": "Der gesetzliche Mindestlohn erfährt 2026 eine Anhebung und beträgt nun 13,50 € pro Stunde. Diese Erhöhung zielt darauf ab, die Kaufkraft geringverdienender Arbeitnehmer zu stärken und kann deren Gesamteinkommen signifikant beeinflussen. Auch die Sätze für das Bürgergeld wurden angehoben. Für einen alleinstehenden Erwachsenen erhöht sich der Regelsatz auf 652 € monatlich. Diese Veränderungen unterstützen Personen mit niedrigem Einkommen, erhöhen aber auch den finanziellen Druck auf Sozialversicherungssysteme."
+      },
+      {
+        "title": "Änderungen in der Pflegeversicherung",
+        "content": "Im Bereich der Pflegeversicherung gibt es 2026 ebenfalls Anpassungen. Der Beitragssatz zur Pflegeversicherung steigt um 0,35 Prozentpunkte auf nun 3,6 % (für Kinderlose 4,1 %). Diese Erhöhung resultiert aus den steigenden Pflegekosten und der Notwendigkeit, die Pflege besser zu finanzieren. Es wird erwartet, dass diese Anpassung den Pflegebereich stärkt, aber auch die individuelle Abgabenlast für Beschäftigte erhöht. Eine genaue Analyse der Auswirkungen auf das Nettoeinkommen kann mithilfe eines brutto-netto-rechners erfolgen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-05-06"
   }
 ]
