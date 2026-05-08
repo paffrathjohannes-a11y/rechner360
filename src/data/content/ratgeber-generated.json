@@ -273,5 +273,32 @@
     ],
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-05-06"
+  },
+  {
+    "slug": "aenderungen-steuern-rente-buergergeld-2026",
+    "title": "Diese Zahlen ändern sich 2026: Steuern, Rente, Bürgergeld",
+    "metaTitle": "Änderungen 2026: Steuern, Rente und Bürgergeld",
+    "metaDescription": "Erfahren Sie alles zu Steuer-, Renten- und Bürgergeldänderungen 2026. Nutzen Sie rechtzeitig unseren Brutto-Netto-Rechner.",
+    "intro": "Das Jahr 2026 bringt zahlreiche finanzielle Änderungen mit sich. Wesentliche Anpassungen betreffen den Grundfreibetrag, den Kinderfreibetrag sowie die Beitragsbemessungsgrenzen in der Kranken- und Rentenversicherung. Gleichzeitig erhöhen sich der Mindestlohn und die Bürgergeld-Regelsätze. Im Folgenden werden die wichtigsten Anpassungen erläutert.",
+    "sections": [
+      {
+        "title": "Grundfreibetrag und Kinderfreibetrag",
+        "content": "Ab dem Steuerjahr 2026 steigt der Grundfreibetrag auf 12.348 € pro Person. Dieser Betrag bleibt steuerfrei und entlastet insbesondere Geringverdiener. Der Kinderfreibetrag, der das Existenzminimum des Kindes absichert und das steuerliche Einkommen der Eltern mindert, erhöht sich ebenfalls. Für ein Kind liegt dieser nun insgesamt bei 8.712 €. Dadurch sparen Familien zusätzlich Steuern und erhalten mehr Netto vom Brutto im Jahresvergleich."
+      },
+      {
+        "title": "Beitragsbemessungsgrenzen in der Kranken- und Rentenversicherung",
+        "content": "Die Beitragsbemessungsgrenzen in der Kranken- und Rentenversicherung (BBG KV/RV) werden 2026 weiter angepasst. Die BBG in den alten Bundesländern steigt auf 70.050 € jährlich, während sie in den neuen Bundesländern 66.300 € beträgt. Diese Grenzwerte bestimmen, bis zu welchem Einkommen Sozialversicherungsbeiträge erhoben werden. Verdienst über diesen Beitragsgrenzen bleibt beitragsfrei, was Einfluss auf das verfügbare Einkommen hat."
+      },
+      {
+        "title": "Erhöhung des Mindestlohns",
+        "content": "Der gesetzliche Mindestlohn erhöht sich 2026 auf 13,20 € pro Stunde. Diese Anpassung wirkt sich positiv auf Geringverdiener aus und kann die Kaufkraft steigern. Arbeitgeber sollten überprüfen, ob alle Mitarbeiter den neuen gesetzlichen Anforderungen entsprechen, um etwaige Nachzahlungen zu vermeiden. Ein höherer Mindestlohn hat ebenfalls direkte Auswirkungen auf den Lebensstandard der betroffenen Arbeitnehmer."
+      },
+      {
+        "title": "Bürgergeld-Regelsätze und Pflegeversicherung",
+        "content": "Die Regelsätze für das Bürgergeld erhöhen sich. Ein alleinstehender Erwachsener erhält nun 639 € monatlich. Diese Anpassung soll den steigenden Lebenshaltungskosten entgegenwirken. Zusätzlich steigen die Pflegeversicherungsbeiträge leicht um 0,2 Prozentpunkte auf 3,4 %. Auch hier ist es wichtig, individuelle Berechnungen vorzunehmen, um die persönlichen finanziellen Konsequenzen abzuschätzen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-05-08"
   }
 ]
