@@ -300,5 +300,36 @@
     ],
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-05-08"
+  },
+  {
+    "slug": "pfaendungsschutzkonto-grundfreibetrag",
+    "title": "Pfändungsschutzkonto: Grundfreibetrag von 1.560 € verstehen",
+    "metaTitle": "Pfändungsschutzkonto und Grundfreibetrag 1.560 €",
+    "metaDescription": "Erfahren Sie alles über den Pfändungsschutz, den Grundfreibetrag und wie Sie ein P-Konto beantragen können.",
+    "intro": "Ein Pfändungsschutzkonto (P-Konto) schützt einen Teil Ihres Einkommens vor Pfändung, um Ihnen einen finanziellen Grundbedarf zu sichern. Im Jahr 2026 beträgt der monatliche Grundfreibetrag 1.560 €. Informieren Sie sich, wie dieser Freibetrag möglicherweise erhöht werden kann und wie Sie ein P-Konto beantragen.",
+    "sections": [
+      {
+        "title": "Der Grundfreibetrag von 1.560 €",
+        "content": "Der Grundfreibetrag auf einem Pfändungsschutzkonto beträgt aktuell 1.560 € pro Monat. Dieser Betrag ist gesetzlich geschützt und darf nicht gepfändet werden, um dem Kontoinhaber die Möglichkeit zu geben, seine Grundbedürfnisse zu decken. Dies beinhaltet Ausgaben für Miete, Lebensmittel und andere notwendige Lebenshaltungskosten. Sollten Sie ein Einkommen unterhalb dieses Betrags haben, bleibt Ihr komplettes Einkommen unangetastet."
+      },
+      {
+        "title": "Erhöhung des Freibetrags bei Unterhaltspflichten",
+        "content": "Zusätzlich zum Basisfreibetrag können Sie bei vorhandenen Unterhaltspflichten eine Erhöhung beantragen. Pro unterhaltspflichtige Person erhöht sich der Freibetrag um 660 €. Beispielsweise beläuft sich der geschützte Betrag bei zwei unterhaltspflichtigen Personen auf 2.880 € monatlich (1.560 € + 2 × 660 €). Es ist essentiell, dass entsprechende Nachweise, wie Geburtsurkunden Ihrer Kinder oder Unterhaltsvereinbarungen, eingereicht werden."
+      },
+      {
+        "title": "Pfändungsschutzkonto beantragen",
+        "content": "Um ein Pfändungsschutzkonto zu eröffnen, sollten Sie bei Ihrer Bank ein bestehendes Girokonto in ein P-Konto umwandeln lassen. Dies ist nach §850k Zivilprozessordnung allen Kontoinhabern gestattet. Die Umwandlung muss durch die Bank innerhalb von vier Geschäftstagen erfolgen und bringt keine zusätzlichen Gebühren mit sich. Banken dürfen die Einrichtung eines P-Kontos nicht verweigern, sollten sie ein reguläres Girokonto führen."
+      },
+      {
+        "title": "Bescheinigungen für Erhöhungen",
+        "content": "Um den Freibetrag auf einem P-Konto zu erhöhen, sind Bescheinigungen unerlässlich. Diese können von Arbeitgebern, Familienkassen oder Sozialleistungsträgern ausgestellt werden. Eine direkte Bestätigung eines Anwalts oder Schuldnerberaters ist ebenfalls möglich. Stellen Sie sicher, dass alle Bescheinigungen aktuell und vollständig sind, um eine reibungslose Anpassung des Freibetrags zu gewährleisten."
+      },
+      {
+        "title": "Praktische Hinweise zum P-Konto",
+        "content": "Überprüfen Sie regelmäßig den gesetzlich garantierten Freibetrag und aktuelle Anpassungen, die möglicherweise von der Bundesregierung erlassen werden. Ein P-Konto kann von der Schufa vermerkt werden, was jedoch keinen negativen Einfluss auf Ihre Bonität hat. Es ist sinnvoll, sich bei Unsicherheiten oder besonderen Situationen individuellen Rat von einem Schuldnerberater oder Anwalt einzuholen."
+      }
+    ],
+    "relatedRechner": "pfaendungsrechner",
+    "publishDate": "2026-05-11"
   }
 ]
