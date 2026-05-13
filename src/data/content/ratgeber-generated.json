@@ -331,5 +331,36 @@
     ],
     "relatedRechner": "pfaendungsrechner",
     "publishDate": "2026-05-11"
+  },
+  {
+    "slug": "erbschaftsteuer-2026-freibetraege-nutzen",
+    "title": "Erbschaftsteuer 2026: Freibeträge optimal nutzen",
+    "metaTitle": "Erbschaftsteuer: Freibeträge clever nutzen",
+    "metaDescription": "Nutzen Sie die Erbschaftsteuer-Freibeträge effektiv. Erfahren Sie, wie Freibeträge für Ehepartner, Kinder und Enkel optimal angewendet werden.",
+    "intro": "Die Erbschaftsteuer stellt in Deutschland eine erhebliche finanzielle Belastung dar. Wer jedoch die bestehenden Freibeträge effizient ausschöpft, kann die Steuerlast erheblich verringern. Erfahren Sie, wie Sie die Freibeträge für Ehepartner, Kinder und Enkel optimal nutzen und welche Strategien, wie Schenkung alle 10 Jahre oder Kettenschenkungen, Ihnen dabei helfen können.",
+    "sections": [
+      {
+        "title": "Freibeträge für Ehepartner, Kinder und Enkel",
+        "content": "Ehepartner genießen einen Freibetrag von 500.000 €, Kinder können bis zu 400.000 € steuerfrei erben und Enkel profitieren von einem Freibetrag von 200.000 €. Diese Freibeträge sind entscheidend, um die Erbschaftsteuer zu minimieren. Durch vorausschauende Planung lässt sich sicherstellen, dass diese Grenzen optimal ausgenutzt werden. Insbesondere bei größeren Vermögen kann es sinnvoll sein, bereits zu Lebzeiten Schenkungen zu erwägen."
+      },
+      {
+        "title": "Schenkungen alle 10 Jahre erneut nutzen",
+        "content": "Laut Erbschaftsteuerrecht können die Freibeträge alle 10 Jahre neu in Anspruch genommen werden. Dies eröffnet die Möglichkeit, durch frühzeitige und regelmäßige Schenkungen die steuerfreie Übertragung größeren Vermögens zu ermöglichen. Ein Beispiel: Startet ein Vermögensüberträger 2026 mit einer Schenkung von 400.000 € an ein Kind, kann er 2036 erneut die gleiche Summe steuerfrei schenken und so langfristig Steuern sparen."
+      },
+      {
+        "title": "Strategie der Kettenschenkung",
+        "content": "Eine Kettenschenkung kann eine sinnvolle Maßnahme zur Steueroptimierung sein. Hierbei erfolgt die Vermögensübertragung in mehreren Schritten über verschiedene Personen. Zum Beispiel könnte ein Großelternteil seinem Kind eine Schenkung machen, das dann den Betrag, unter Beachtung der Freibeträge, an das Enkelkind weitergibt. Dies erfordert jedoch eine sorgfältige Planung und rechtliche Absicherung, um Missverständnisse und rechtliche Probleme zu vermeiden."
+      },
+      {
+        "title": "Versorgungsfreibeträge bei Ehepartnern",
+        "content": "Neben den allgemeinen Freibeträgen profitieren Ehepartner von zusätzlichen Versorgungsfreibeträgen. Diese betragen bis zu 256.000 € und sollen dazu beitragen, den Lebensstandard des überlebenden Partners zu sichern. Bei strategischer Planung kann dieser Freibetrag die Belastung durch die Erbschaftsteuer weiter reduzieren. Es empfiehlt sich daher, die individuelle Situation umfassend zu prüfen, um diese Vorteile optimal zu nutzen."
+      },
+      {
+        "title": "Warum individuelle Beratung wichtig ist",
+        "content": "Das deutsche Erbschaftsteuerrecht ist komplex und die optimale Nutzung der Freibeträge erfordert häufig eine individuelle Betrachtung. Steuerberater können bei der Entwicklung einer maßgeschneiderten Strategie helfen, um Vermögen effizient zu übertragen und Steuern zu sparen. Eine professionelle Beratung ist besonders wichtig bei der Planung größerer Vermögenswerte, um rechtliche Fehler zu vermeiden und die Freibeträge maximal auszunutzen."
+      }
+    ],
+    "relatedRechner": "erbschaftsteuer-rechner",
+    "publishDate": "2026-05-13"
   }
 ]
