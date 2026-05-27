@@ -505,5 +505,32 @@
     ],
     "relatedRechner": "abfindungsrechner",
     "publishDate": "2026-05-25"
+  },
+  {
+    "slug": "grunderwerbsteuer-bayern-guenstiger",
+    "title": "Grunderwerbsteuer 2026: Warum Bayern günstiger ist",
+    "metaTitle": "Grunderwerbsteuer: Vorteil Bayern",
+    "metaDescription": "Erfahren Sie, warum Bayern mit 3,5 % Grunderwerbsteuer günstiger ist als andere Bundesländer. Tipps zur Steueroptimierung beim Immobilienkauf.",
+    "intro": "Beim Kauf einer Immobilie fällt in Deutschland die Grunderwerbsteuer an. Allerdings variieren die Sätze erheblich zwischen den Bundesländern. In Bayern liegt der Satz bei 3,5 %, während beispielsweise in Nordrhein-Westfalen bis zu 6,5 % fällig werden. Es gibt jedoch Möglichkeiten, wie durch eine Kaufpreisaufteilung, um die Steuerlast zu optimieren.",
+    "sections": [
+      {
+        "title": "Regionale Unterschiede in der Grunderwerbsteuer",
+        "content": "In Deutschland variiert der Grunderwerbsteuersatz je nach Bundesland erheblich. Während Bayern den Satz bei 3,5 % hält, verlangen Bundesländer wie Nordrhein-Westfalen, Brandenburg, das Saarland und Schleswig-Holstein bis zu 6,5 %. Diese Unterschiede wirken sich spürbar auf die Kosten beim Erwerb eines Grundstücks oder einer Immobilie aus. Bei einem Kaufpreis von 300.000 € bedeutet dies in Bayern eine Steuer von 10.500 €, während in den teureren Ländern 19.500 € anfallen."
+      },
+      {
+        "title": "Grunderwerbsteuer: Wann sie anfällt",
+        "content": "Die Grunderwerbsteuer fällt grundsätzlich beim Kauf von Immobilien und Grundstücken an. Nicht betroffen sind jedoch andere Eigentumsübertragungen, wie der Kauf von Privatfahrzeugen oder Gesellschaftsanteilen. Wichtig ist, dass die Steuer beim Notartermin anfällt, wenn der Kaufvertrag unterschrieben wird. Somit sollte der Steuersatz des jeweiligen Bundeslandes bereits in der Planungsphase berücksichtigt werden."
+      },
+      {
+        "title": "Kaufpreisaufteilung: Eine Strategie zur Steueroptimierung",
+        "content": "Ein wichtiger Gestaltungsspielraum besteht in der Aufteilung des Kaufpreises auf Gebäude und Mobiliar. Gesetzlich fallen auf bewegliche Güter wie Einbauküchen oder Möbel keine Grunderwerbsteuer an, was eine steuerliche Möglichkeit zur Reduzierung der Steuerlast bietet. So könnte bei einem Immobilienkauf von 300.000 € der Anteil für Mobiliar bei 10.000 € liegen. Die Steuerbasis für die Grunderwerbsteuer reduziert sich auf 290.000 €, was in Bayern zu einer Steuer von 10.150 € führt."
+      },
+      {
+        "title": "Berücksichtigung der Nebenkosten",
+        "content": "Neben der Grunderwerbsteuer sollten auch andere Erwerbsnebenkosten in die Finanzplanung einbezogen werden. Dazu zählen Notarkosten, Grundbuchgebühren und eventuelle Maklergebühren. Diese fallen zusätzlich zur Grunderwerbsteuer an und können den Gesamtbetrag erheblich erhöhen. Es empfiehlt sich, diese Kosten im Vorhinein zu kalkulieren, um die finanziellen Anforderungen realistisch einschätzen zu können."
+      }
+    ],
+    "relatedRechner": "grundsteuer-rechner",
+    "publishDate": "2026-05-27"
   }
 ]
