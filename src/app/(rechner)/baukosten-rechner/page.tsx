@@ -53,6 +53,19 @@ export default function BaukostenRechnerPage() {
             Durchschnittswerte für Deutschland 2025/2026 inkl. KG 300+400 nach DIN 276.
             Regionale Abweichungen: ländliche Gebiete ca. -15%, Großstädte ca. +25%.
           </p>
+          <p className="text-sm text-text-secondary">
+            Tipp: Wer baut, sollte den Bauablauf von Anfang an lückenlos dokumentieren —
+            bei Streit über Mehrkosten oder Nachträge ist ein gerichtsfester Nachweis
+            entscheidend. Ein{' '}
+            <a
+              href="https://bautagebuch.org/digitales-bautagebuch"
+              rel="noopener"
+              className="underline"
+            >
+              digitales Bautagebuch
+            </a>{' '}
+            hält Baufortschritt, Wetter, Personal und Mängel automatisch fest.
+          </p>
         </section>
       }
       programmaticVariants={{ pages: BAUKOSTEN_PAGES }}
