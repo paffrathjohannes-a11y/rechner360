@@ -594,5 +594,36 @@
     ],
     "relatedRechner": "einkommensteuer-rechner",
     "publishDate": "2026-06-01"
+  },
+  {
+    "slug": "halbjahres-finanzcheck-kennzahlen-juli-pruefen",
+    "title": "Halbjahres-Finanzcheck: 7 wichtige Kennzahlen im Juli",
+    "metaTitle": "Halbjahres-Finanzcheck: 7 Kennzahlen im Juli",
+    "metaDescription": "Überprüfen Sie im Juli 7 wichtige Finanzkennzahlen und optimieren Sie Ihre Finanzen für das restliche Jahr.",
+    "intro": "Der Halbjahres-Finanzcheck im Juli bietet die Gelegenheit, eine umfassende Analyse der persönlichen Finanzen durchzuführen. In diesem Artikel werden sieben essentielle Kennzahlen beleuchtet, die ein klares Bild Ihrer finanziellen Situation geben können. Zu den wesentlichen Aspekten gehören unter anderem Sparquote, Inflationsrate, Zinsen und das Verhältnis von Kreditrate zu Einkommen.",
+    "sections": [
+      {
+        "title": "Sparquote analysieren",
+        "content": "Die Sparquote ist ein entscheidender Indikator für finanzielle Stabilität. Allgemein sollten 15 % des Nettoeinkommens monatlich gespart werden, um sowohl Notgroschen als auch Altersvorsorge zu sichern. Bei einem Nettoeinkommen von 3.000 € sind das 450 €. Falls diese Rate nicht erreicht wird, lohnt es sich, die Ausgaben zu prüfen und Einsparpotenziale zu identifizieren."
+      },
+      {
+        "title": "Inflationsrate vs. Zinsen",
+        "content": "Die Inflationsrate beeinflusst die Kaufkraft. Liegt die Jahresinflation beispielsweise bei 4 %, und auf dem Tagesgeldkonto gibt es nur 2 % Zinsen, so verliert das Ersparte an Wert. Alternativen wie Festgeldkonten könnten je nach Marktlage bessere Zinsangebote bieten. Prüfen Sie regelmäßig die Konditionen Ihrer Anlageprodukte, um Verluste auszugleichen."
+      },
+      {
+        "title": "Kreditrate-Einkommen-Verhältnis",
+        "content": "Das Kreditrate-Einkommen-Verhältnis gibt Aufschluss über Ihre Verschuldungsfähigkeit. Eine gesunde Rate liegt bei maximal 30 % des Nettoeinkommens. Bei 3.500 € monatlichem Nettoeinkommen sollte die Kreditbelastung also höchstens 1.050 € betragen. Höhere Raten können langfristig zu finanziellen Engpässen führen."
+      },
+      {
+        "title": "Altersvorsorge überprüfung",
+        "content": "Ein regelmäßiger Check der Altersvorsorge kann helfen, Engpässe im Rentenalter zu vermeiden. Für eine angemessene Vorsorge wird empfohlen, mindestens 20 % des Einkommens dafür zu verwenden. Beispiel: Bei 3.200 € monatlichem Einkommen sollten mindestens 640 € in Vorsorgeprodukte fließen. Sind die Beiträge niedriger, kann eine Anpassung sinnvoll sein."
+      },
+      {
+        "title": "Notgroschen und dessen Bedeutung",
+        "content": "Ein Notgroschen bietet finanzielle Sicherheit in Krisenzeiten. Experten raten, drei bis sechs Monatsgehälter als Reserve zu halten. Angenommen, Ihre monatlichen Ausgaben belaufen sich auf 2.500 €, sollte der Puffer zwischen 7.500 € und 15.000 € liegen. Diese Reserve mindert das Risiko, in finanzieller Not auf Kredite angewiesen zu sein."
+      }
+    ],
+    "relatedRechner": "zinseszinsrechner",
+    "publishDate": "2026-06-03"
   }
 ]
