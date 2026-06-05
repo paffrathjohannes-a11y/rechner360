@@ -625,5 +625,36 @@
     ],
     "relatedRechner": "zinseszinsrechner",
     "publishDate": "2026-06-03"
+  },
+  {
+    "slug": "halbjahres-finanzcheck-kennzahlen-juli-pruefen-2",
+    "title": "Halbjahres-Finanzcheck: 7 Kennzahlen im Juli prüfen",
+    "metaTitle": "Halbjahres-Finanzcheck: Kennzahlen im Juli",
+    "metaDescription": "Prüfen Sie 7 Finanzkennzahlen im Juli. Erkennen Sie Sparpotenziale und optimieren Sie Ihre Finanzen.",
+    "intro": "Der Juli eignet sich hervorragend, um einen umfassenden Finanzcheck vorzunehmen. Gerade zur Jahresmitte können Sie Ihre finanzielle Lage mit konkreten Kennzahlen bewerten. Dieser Artikel zeigt Ihnen, welche sieben Kennzahlen besonders wichtig sind, um Ihre finanzielle Gesundheit sicherzustellen.",
+    "sections": [
+      {
+        "title": "Sparquote bewerten",
+        "content": "Die Sparquote gibt an, wie viel Prozent Ihres Einkommens Sie sparen. Eine gesunde Sparquote liegt oft bei mindestens 10%. Verdienen Sie monatlich 3.000 € netto, könnten Sie somit idealerweise 300 € sparen. Überdenken Sie Ihre Sparstrategie, sofern Sie deutlich unter diesem Wert liegen, um langfristig finanziell flexibel zu bleiben."
+      },
+      {
+        "title": "Inflationsrate vs. Zinsen",
+        "content": "Vergleichen Sie aktuelle Inflationsrate und Zinssätze. Beträgt die Inflationsrate 4% und Ihr Sparkonto bietet 1% Zinsen, verlieren Sie Kaufkraft. Um zu vermeiden, dass Ihr Erspartes an Wert verliert, prüfen Sie alternative Anlageformen. Konsultieren Sie einen Berater, bevor Sie in risikoreiche Anlagen investieren."
+      },
+      {
+        "title": "Kreditrate-Einkommen-Verhältnis",
+        "content": "Prüfen Sie das Verhältnis Ihrer monatlichen Kreditraten zu Ihrem Einkommen. Eine Faustregel besagt, dass nicht mehr als 30% des Netto-Einkommens für Kredite verwendet werden sollten. Bei einem Einkommen von 4.000 € netto wären das maximal 1.200 € monatlich. Liegen Ihre Verpflichtungen darüber, besteht Handlungsbedarf."
+      },
+      {
+        "title": "Altersvorsorge-Beitrag anpassen",
+        "content": "Überprüfen Sie, ob Ihre Beitragszahlungen zur Altersvorsorge noch angemessen sind. Beträgt Ihr Jahresbruttoeinkommen 50.000 €, sollten Sie idealerweise 10% davon oder 5.000 € pro Jahr sparen. Passen Sie Ihren Beitrag an veränderte Lebensumstände an. Lassen Sie sich professionell beraten, um individuelle Lücken zu vermeiden."
+      },
+      {
+        "title": "Notgroschen stärken",
+        "content": "Ein ausreichender Notgroschen ist unerlässlich, um unvorhergesehene Ausgaben abzudecken. Angestrebt werden meist drei bis sechs Monatsgehälter. Bei einem Einkommen von 2.500 € netto sollten Sie 7.500 € bis 15.000 € als Reserve bereithalten. Stellen Sie sicher, dass dieses Geld schnell verfügbar ist."
+      }
+    ],
+    "relatedRechner": "zinseszinsrechner",
+    "publishDate": "2026-06-05"
   }
 ]
