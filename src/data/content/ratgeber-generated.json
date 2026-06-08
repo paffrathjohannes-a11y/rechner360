@@ -656,5 +656,36 @@
     ],
     "relatedRechner": "zinseszinsrechner",
     "publishDate": "2026-06-05"
+  },
+  {
+    "slug": "trennungsunterhalt-hoehe-dauer-ausschluss",
+    "title": "Trennungsunterhalt 2026: Berechnung und Regelungen",
+    "metaTitle": "Trennungsunterhalt 2026: Höhe und Ausschluss",
+    "metaDescription": "Erfahren Sie alles über Trennungsunterhalt: Höhe, Dauer und Ausschluss. Nutzen Sie den Unterhalt-Rechner zur Ermittlung.",
+    "intro": "Trennungsunterhalt ist eine finanzielle Unterstützung, die während des Trennungsjahres zwischen Ehepartnern gezahlt wird. Dieses Jahr dient oft der Klärung finanzieller und persönlicher Verhältnisse. In diesem Artikel beleuchten wir die Berechnung nach der 3/7-Regel, die Dauer des Anspruchs und mögliche Ausschlussgründe.",
+    "sections": [
+      {
+        "title": "Berechnung des Trennungsunterhalts",
+        "content": "Der Trennungsunterhalt richtet sich nach der sogenannten 3/7-Regel. Diese Regel besagt, dass der geringer verdienende Ehepartner Anspruch auf 3/7 der Differenz der bereinigten Nettoeinkommen hat. Beträgt das bereinigte Nettoeinkommen des verdienenden Ehepartners 3.000 € und das des anderen 1.500 €, so ergibt sich eine Einkommensdifferenz von 1.500 €. Davon sind 3/7, also rund 642 €, als Trennungsunterhalt zu zahlen. Diese Berechnung soll den Lebensstandard während der Ehe in gewissem Maße sichern."
+      },
+      {
+        "title": "Dauer des Trennungsunterhalts",
+        "content": "Trennungsunterhalt wird grundsätzlich für die Dauer des Trennungsjahres gewährt, das laut §1567 BGB das Jahr vor der endgültigen Scheidung darstellt. Während dieses Jahres sollen die Partner ihre Ehe überdenken und finanzielle Angelegenheiten regeln. In Ausnahmefällen kann der Trennungsunterhalt über das Trennungsjahr hinaus gewährt werden, allerdings endet er spätestens mit der Rechtskraft der Scheidung, sofern kein nachehelicher Unterhalt bewilligt wird. Wichtig ist die rechtzeitige Klärung der finanziellen Verhältnisse."
+      },
+      {
+        "title": "Mögliche Ausschlussgründe",
+        "content": "Der Anspruch auf Trennungsunterhalt kann unter bestimmten Umständen verwirkt sein. Dies ist der Fall, wenn der Berechtigte eine neue partnerschaftliche Lebensgemeinschaft eingeht, die finanzielle Unterstützung bietet. Auch ein schwerwiegendes Fehlverhalten, das die Grundlage der ehelichen Solidarität beeinträchtigt, kann den Anspruch ausschließen. Jede Verwirkungsproblematik ist individuell und bedarf einer genauen Prüfung, gegebenenfalls durch rechtliche Beratung."
+      },
+      {
+        "title": "Unterschied zum nachehelichen Unterhalt",
+        "content": "Trennungsunterhalt und nachehelicher Unterhalt sind rechtlich unterschiedlich zu behandeln. Während der Trennungsunterhalt nur bis zur Rechtskraft der Scheidung gezahlt wird, dient der nacheheliche Unterhalt der längerfristigen Absicherung eines Partners nach der Ehe. Beim nachehelichen Unterhalt wird stärker auf die Eigenverantwortung und die Möglichkeit der Erwerbstätigkeit des Berechtigten abgestellt. Somit unterliegt dieser oft strengeren Prüfungen und geänderten Einkommensberechnungen."
+      },
+      {
+        "title": "Praktische Hinweise",
+        "content": "Zur genauen Berechnung des Trennungsunterhalts kann der Einsatz von Hilfsmitteln wie einem Unterhalt-Rechner sinnvoll sein, um individuell korrekte Beträge zu ermitteln. Dabei sollten auch alle relevanten Abzüge und etwaige Besonderheiten der Einkünfte berücksichtigt werden. Professionelle Beratung durch Rechtsanwälte oder spezialisierte Beratungsstellen kann helfen, individuelle Ansprüche und Pflichten korrekt einzuschätzen und effektiv durchzusetzen."
+      }
+    ],
+    "relatedRechner": "unterhalt-rechner",
+    "publishDate": "2026-06-08"
   }
 ]
