@@ -145,6 +145,11 @@ async function main() {
   // wenn der Slug eines Topics (slugified) mit einem existierenden Slug beginnt, gilt
   // er als "kürzlich verwendet" und wird übersprungen.
   const recentlyUsedIds = new Set<string>();
+  // Exakter Topic-Lookup über persistierte topicId (seit 06/2026); die
+  // Präfix-Heuristik darunter bleibt als Fallback für Alt-Artikel ohne Feld.
+  for (const a of generated as Array<{ topicId?: string }>) {
+    if (a.topicId) recentlyUsedIds.add(a.topicId);
+  }
   for (const topic of RATGEBER_TOPICS) {
     const hint = topic.titleSeed
       .toLowerCase()
@@ -202,20 +207,43 @@ async function main() {
       const jsonRaw = extractJson(rawText);
       const article = validateArticle(jsonRaw);
 
-      // Slug-Kollision? Dann mit Counter-Suffix.
-      let finalSlug = article.slug;
-      if (allSlugs.has(finalSlug)) {
-        let counter = 2;
-        while (allSlugs.has(`${finalSlug}-${counter}`)) counter++;
-        finalSlug = `${finalSlug}-${counter}`;
-        article.slug = finalSlug;
-        console.log(`→ Slug-Kollision — umbenannt zu "${finalSlug}"`);
+      // Slug-Kollision = Thema ist bereits abgedeckt. Früher wurde hier ein
+      // "-2"-Suffix angehängt — das hat Duplicate Content produziert (5 Artikel,
+      // bereinigt 11.06.2026). Jetzt: hart abbrechen, Topic-Pool pflegen.
+      if (allSlugs.has(article.slug)) {
+        throw new Error(
+          `Slug-Kollision: "${article.slug}" existiert bereits — Thema "${topic.id}" ist abgedeckt. ` +
+          'Kein Duplikat anlegen; Topic aus dem Pool nehmen oder titleSeed schärfen.'
+        );
+      }
+
+      // Titel-Dedup gegen alle generierten Artikel: gleicher oder fast gleicher
+      // Titel mit anderem Slug ist genauso Duplicate Content wie eine Slug-
+      // Kollision (Vorfall: "Diese Zahlen ändern sich 2026" existierte 2×).
+      const normalizeTitle = (t: string) =>
+        t.toLowerCase()
+          .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+          .replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+      const newWords = new Set(normalizeTitle(article.title).split(' '));
+      for (const existing of generated) {
+        const exWords = new Set(normalizeTitle(existing.title).split(' '));
+        const overlap = [...newWords].filter((w) => exWords.has(w)).length;
+        const jaccard = overlap / new Set([...newWords, ...exWords]).size;
+        if (jaccard >= 0.7) {
+          throw new Error(
+            `Titel-Duplikat: "${article.title}" ≈ "${existing.title}" (${existing.slug}, Ähnlichkeit ${Math.round(jaccard * 100)}%). ` +
+            'Kein Duplikat anlegen; Topic-Pool prüfen.'
+          );
+        }
       }
 
       // `publishDate` und `relatedRechner` auf die vom Script vorgegebenen Werte fixieren.
       // Claude wird gebeten, sie zu übernehmen, wir erzwingen es nochmal.
       article.publishDate = today;
       article.relatedRechner = topic.relatedRechner;
+      // Topic-ID persistieren — damit ist „Thema schon verwendet" künftig ein
+      // exakter Lookup statt der fehleranfälligen Slug-Präfix-Heuristik.
+      (article as RatgeberArtikel & { topicId?: string }).topicId = topic.id;
 
       // Defense in Depth: HTML im Content sanitizen, bevor es ins Repo
       // committet wird. Damit landet niemals ungesäubertes HTML im Git —

@@ -36,6 +36,37 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
+  async redirects() {
+    // 301s für gelöschte Duplikat-Artikel (Generator-Dedup-Vorfall, bereinigt
+    // 11.06.2026): jeweils auf den älteren, weiter bestehenden Artikel.
+    return [
+      {
+        source: '/ratgeber/aenderungen-steuern-rente-buergergeld-2026',
+        destination: '/ratgeber/steuer-und-sozialaenderungen-2026',
+        permanent: true,
+      },
+      {
+        source: '/ratgeber/aenderungen-2026-steuern-rente-buergergeld',
+        destination: '/ratgeber/steuer-und-sozialaenderungen-2026',
+        permanent: true,
+      },
+      {
+        source: '/ratgeber/grunderwerbsteuer-bayern-guenstiger',
+        destination: '/ratgeber/grunderwerbsteuer-2026-bayern-guenstiger',
+        permanent: true,
+      },
+      {
+        source: '/ratgeber/steuererklaerung-2026-fristen-2',
+        destination: '/ratgeber/steuererklaerung-2026-fristen',
+        permanent: true,
+      },
+      {
+        source: '/ratgeber/halbjahres-finanzcheck-kennzahlen-juli-pruefen-2',
+        destination: '/ratgeber/halbjahres-finanzcheck-kennzahlen-juli-pruefen',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
