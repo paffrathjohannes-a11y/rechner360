@@ -24,7 +24,7 @@ export function ProgrammaticBuergergeldForm({ typ }: Props) {
       : typ.includes('kind') || typ === 'alleinerziehend'
         ? [{ alter: 6 }]
         : [];
-    return calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 255 });
+    return calculateBuergergeld({ antragsteller, kinder: defaultKinder, warmmiete, einkommen, einkommenPartner: 0, kindergeld: 259 });
   }, [typ, antragsteller, warmmiete, einkommen]);
 
   return (

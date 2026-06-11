@@ -39,8 +39,8 @@ export default function NebenkostenrechnerPage() {
               <thead><tr className="bg-surface-sunken"><th className="px-4 py-2 text-left text-text font-medium">Bundesland</th><th className="px-4 py-2 text-right text-text font-medium">Steuersatz</th></tr></thead>
               <tbody className="text-text-secondary">
                 <tr className="border-t border-border bg-accent-50/20 dark:bg-accent-900/5"><td className="px-4 py-2 font-medium text-accent-600">Bayern</td><td className="px-4 py-2 text-right font-currency font-medium text-accent-600">3,5%</td></tr>
-                <tr className="border-t border-border"><td className="px-4 py-2">Baden-Württemberg, Bremen, Niedersachsen, Rheinland-Pfalz, Sachsen-Anhalt, Thüringen</td><td className="px-4 py-2 text-right font-currency">5,0%</td></tr>
-                <tr className="border-t border-border"><td className="px-4 py-2">Hamburg, Sachsen</td><td className="px-4 py-2 text-right font-currency">5,5%</td></tr>
+                <tr className="border-t border-border"><td className="px-4 py-2">Baden-Württemberg, Niedersachsen, Rheinland-Pfalz, Sachsen-Anhalt, Thüringen</td><td className="px-4 py-2 text-right font-currency">5,0%</td></tr>
+                <tr className="border-t border-border"><td className="px-4 py-2">Bremen, Hamburg, Sachsen</td><td className="px-4 py-2 text-right font-currency">5,5%</td></tr>
                 <tr className="border-t border-border"><td className="px-4 py-2">Berlin, Hessen, Mecklenburg-Vorpommern</td><td className="px-4 py-2 text-right font-currency">6,0%</td></tr>
                 <tr className="border-t border-border"><td className="px-4 py-2">Brandenburg, NRW, Saarland, Schleswig-Holstein</td><td className="px-4 py-2 text-right font-currency">6,5%</td></tr>
               </tbody>

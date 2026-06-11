@@ -22,13 +22,13 @@ export interface NebenkostenResult {
   nebenkosten_prozent: number;
 }
 
-/** Grunderwerbsteuer-Sätze nach Bundesland (Stand 2025/2026) */
+/** Grunderwerbsteuer-Sätze nach Bundesland (Stand 2026; Bremen 5,5 % seit 01.07.2025) */
 const GRUNDERWERBSTEUER: Record<string, number> = {
   bw: 5.0,
   by: 3.5,
   be: 6.0,
   bb: 6.5,
-  hb: 5.0,
+  hb: 5.5,
   hh: 5.5,
   he: 6.0,
   mv: 6.0,

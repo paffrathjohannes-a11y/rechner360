@@ -3,8 +3,8 @@
  *
  * Rentenformel: Monatliche Rente = Entgeltpunkte × Zugangsfaktor × Rentenwert
  *
- * Entgeltpunkte: Jahresgehalt / Durchschnittseinkommen (2026: ca. 45.358 €)
- * Rentenwert 2026: ca. 39,32 € (West, nach Rentenanpassung)
+ * Entgeltpunkte: Jahresgehalt / Durchschnittseinkommen (2026: 51.944 €)
+ * Rentenwert: 40,79 € seit 01.07.2025, 42,52 € ab 01.07.2026 (bundeseinheitlich)
  * Zugangsfaktor: 1.0 bei Regelalter, Abschläge bei Frühverrentung
  */
 
@@ -28,7 +28,11 @@ export interface RenteResult {
 // Vorläufiges Durchschnittsentgelt 2026 laut Bundeskabinettsbeschluss
 // (SV-Rechengrößen-Verordnung 2026): 51.944 €.
 const DURCHSCHNITTSEINKOMMEN = 51944;
-const RENTENWERT = 39.32; // € pro Entgeltpunkt, bundeseinheitlich seit 2024
+// Aktueller Rentenwert (§ 68 SGB VI), bundeseinheitlich seit 07/2023:
+// 40,79 € seit 01.07.2025; 42,52 € ab 01.07.2026 (Rentenanpassung 2026: +4,24 %).
+function getRentenwert(datum: Date = new Date()): number {
+  return datum >= new Date('2026-07-01') ? 42.52 : 40.79;
+}
 const REGELALTERSGRENZE = 67; // Ab Jahrgang 1964
 // Beitragsbemessungsgrenze RV 2026: 101.400 € — darüber werden keine Entgeltpunkte erworben
 const BBG_RV_JAHR = 101400;
@@ -69,7 +73,7 @@ export function calculateRente(input: RenteInput): RenteResult {
   }
   zugangsfaktor = Math.round(zugangsfaktor * 1000) / 1000;
 
-  const monatsrente = Math.round(entgeltpunkteGesamt * zugangsfaktor * RENTENWERT * 100) / 100;
+  const monatsrente = Math.round(entgeltpunkteGesamt * zugangsfaktor * getRentenwert() * 100) / 100;
   const jahresrente = Math.round(monatsrente * 12 * 100) / 100;
 
   // Rentenlücke (aktuelles Netto ca. 65% des Brutto vs. Rente)

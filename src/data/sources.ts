@@ -76,19 +76,19 @@ export const sourcesBySlug: Record<string, SourceData> = {
   rentenrechner: {
     sources: [
       'Deutsche Rentenversicherung',
-      'Aktueller Rentenwert 39,32 € (West, Stand Juli 2025)',
+      'Aktueller Rentenwert 40,79 € (bundeseinheitlich, Stand Juli 2025; ab Juli 2026: 42,52 €)',
       'Durchschnittsentgelt 2026',
     ],
     disclaimer: 'Schätzung basierend auf dem aktuellen Rentenwert. Zukünftige Rentenanpassungen nicht berücksichtigt.',
   },
   'unterhalt-rechner': {
-    sources: ['Düsseldorfer Tabelle 2025/2026', '§ 1612a BGB (Mindestunterhalt)'],
+    sources: ['Düsseldorfer Tabelle 2026 (OLG Düsseldorf, Stand 01.01.2026)', '§ 1612a BGB (Mindestunterhalt)'],
   },
   'buergergeld-rechner': {
     sources: ['SGB II (Grundsicherung für Arbeitsuchende)', 'Regelbedarfsstufen 2026', 'Freibeträge § 11b SGB II', 'Bundestag-Beschluss Neue Grundsicherung (März 2026)'],
   },
   pfaendungsrechner: {
-    sources: ['§ 850c ZPO', 'Pfändungsfreigrenzenbekanntmachung ab 01.07.2025 (BGBl. 2025 I Nr. 110)'],
+    sources: ['§ 850c ZPO', 'Pfändungsfreigrenzenbekanntmachung 2025 (BGBl. 2025 I Nr. 110) / 2026 (BGBl. 2026 I Nr. 80, ab 01.07.2026)'],
   },
 
   // ─── Versicherung ──────────────────────────────────

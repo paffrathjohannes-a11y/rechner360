@@ -16,7 +16,7 @@ export function BuergergeldForm() {
   const [warmmiete, setWarmmiete] = useState(500);
   const [einkommen, setEinkommen] = useState(0);
   const [einkommenPartner, setEinkommenPartner] = useState(0);
-  const [kindergeld, setKindergeld] = useState(255);
+  const [kindergeld, setKindergeld] = useState(259);
 
   const result = useMemo<BuergergeldResult | null>(
     () => calculateBuergergeld({ antragsteller, kinder, warmmiete, einkommen, einkommenPartner, kindergeld }),
@@ -83,7 +83,7 @@ export function BuergergeldForm() {
           )}
 
           {kinder.length > 0 && (
-            <InputGroup label="Kindergeld pro Kind" htmlFor="kg" tooltip="Kindergeld 2026: 255 €/Kind. Wird als Einkommen auf den Bedarf des Kindes angerechnet.">
+            <InputGroup label="Kindergeld pro Kind" htmlFor="kg" tooltip="Kindergeld 2026: 259 €/Kind. Wird als Einkommen auf den Bedarf des Kindes angerechnet.">
               <CurrencyInput id="kg" value={kindergeld} onChange={setKindergeld} />
             </InputGroup>
           )}

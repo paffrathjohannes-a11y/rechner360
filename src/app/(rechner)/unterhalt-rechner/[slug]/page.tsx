@@ -31,7 +31,7 @@ export default async function UnterhaltSlugPage({ params }: { params: Promise<{ 
       <Breadcrumbs items={[{ label: 'Unterhalt Rechner', href: '/unterhalt-rechner' }, { label: page.title }]} />
       <div className="space-y-2">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-text">{page.h1}</h1>
-        <p className="text-text-secondary">Berechnung nach Düsseldorfer Tabelle 2025 mit Kindergeld-Anrechnung.</p>
+        <p className="text-text-secondary">Berechnung nach Düsseldorfer Tabelle 2026 mit Kindergeld-Anrechnung.</p>
         <TrustSignals compact className="mt-3" />
       </div>
       <WebApplicationJsonLd name={page.metaTitle} url={`/unterhalt-rechner/${page.slug}`} description={page.metaDescription} />

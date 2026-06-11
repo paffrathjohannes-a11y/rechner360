@@ -1,10 +1,10 @@
 /**
- * Unterhalt Rechner — Düsseldorfer Tabelle 2025/2026
+ * Unterhalt Rechner — Düsseldorfer Tabelle 2026
  *
  * Berechnet den Kindesunterhalt nach der Düsseldorfer Tabelle.
  * Die Tabelle wird jährlich vom OLG Düsseldorf veröffentlicht.
  *
- * Stand: 01.01.2025 (2026 noch nicht veröffentlicht)
+ * Stand: 01.01.2026 (OLG Düsseldorf, veröffentlicht 01.12.2025)
  */
 
 export interface UnterhaltInput {
@@ -23,35 +23,35 @@ export interface UnterhaltResult {
   mangelfall: boolean;
 }
 
-// Düsseldorfer Tabelle 2025 — Bedarfssätze (ohne Kindergeldanrechnung)
-// Einkommensgruppen 1-15, Altersstufen 0-5, 6-11, 12-17, ab 18
+// Düsseldorfer Tabelle 2026 — Bedarfssätze (ohne Kindergeldanrechnung)
+// Quelle: OLG Düsseldorf, Stand 01.01.2026. Altersstufen 0-5, 6-11, 12-17, ab 18.
 const TABELLE: number[][] = [
-  // Gruppe 1: bis 2.100€
-  [480, 551, 645, 689],
-  // Gruppe 2: 2.101-2.500€
-  [504, 579, 678, 724],
-  // Gruppe 3: 2.501-2.900€
-  [529, 607, 710, 758],
-  // Gruppe 4: 2.901-3.300€
-  [553, 635, 743, 793],
-  // Gruppe 5: 3.301-3.700€
-  [578, 663, 776, 828],
-  // Gruppe 6: 3.701-4.100€
-  [616, 707, 827, 882],
-  // Gruppe 7: 4.101-4.500€
-  [653, 750, 878, 937],
-  // Gruppe 8: 4.501-4.900€
-  [691, 793, 929, 991],
-  // Gruppe 9: 4.901-5.300€
-  [728, 836, 979, 1045],
-  // Gruppe 10: 5.301-5.700€
-  [766, 879, 1030, 1099],
+  // Gruppe 1: bis 2.100€ (100% = Mindestunterhalt)
+  [486, 558, 653, 698],
+  // Gruppe 2: 2.101-2.500€ (105%)
+  [511, 586, 686, 733],
+  // Gruppe 3: 2.501-2.900€ (110%)
+  [535, 614, 719, 768],
+  // Gruppe 4: 2.901-3.300€ (115%)
+  [559, 642, 751, 803],
+  // Gruppe 5: 3.301-3.700€ (120%)
+  [584, 670, 784, 838],
+  // Gruppe 6: 3.701-4.100€ (128%)
+  [623, 715, 836, 894],
+  // Gruppe 7: 4.101-4.500€ (136%)
+  [661, 759, 889, 950],
+  // Gruppe 8: 4.501-4.900€ (144%)
+  [700, 804, 941, 1006],
+  // Gruppe 9: 4.901-5.300€ (152%)
+  [739, 849, 993, 1061],
+  // Gruppe 10: 5.301-5.700€ (160%)
+  [778, 893, 1045, 1117],
 ];
 
 const EINKOMMENS_GRENZEN = [2100, 2500, 2900, 3300, 3700, 4100, 4500, 4900, 5300, 5700];
 
-// Kindergeld 2025: 255€ pro Kind
-const KINDERGELD = 255;
+// Kindergeld 2026: 259€ pro Kind (seit 01.01.2026)
+const KINDERGELD = 259;
 
 // Selbstbehalt (Düsseldorfer Tabelle 2026).
 // Aktuell wird nur der Erwerbstätigen-Wert genutzt; der Nicht-Erwerbstätigen-
@@ -103,7 +103,7 @@ export function calculateUnterhalt(input: UnterhaltInput): UnterhaltResult {
 
     // Kindergeld hälftig anrechnen (bei minderjährigen Kindern)
     if (kindergeldAnrechnung && alter < 18) {
-      zahlbetrag.push(Math.max(0, bedarf - Math.round(KINDERGELD / 2)));
+      zahlbetrag.push(Math.max(0, bedarf - KINDERGELD / 2));
     } else if (kindergeldAnrechnung && alter >= 18) {
       // Bei volljährigen Kindern: volles Kindergeld anrechnen
       zahlbetrag.push(Math.max(0, bedarf - KINDERGELD));

@@ -203,7 +203,7 @@ export const RECHNER = [
     slug: 'unterhalt-rechner',
     title: 'Unterhalt Rechner',
     shortTitle: 'Unterhalt',
-    description: 'Berechnen Sie den Kindesunterhalt nach der D\u00fcsseldorfer Tabelle 2025/2026.',
+    description: 'Berechnen Sie den Kindesunterhalt nach der D\u00fcsseldorfer Tabelle 2026.',
     icon: 'users',
     color: 'primary',
     popular: false,
