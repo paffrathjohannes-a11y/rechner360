@@ -24,28 +24,29 @@ export function NativeAdSlot({ format = 'horizontal', slot, className }: NativeA
   // Ohne ClientID gibt es nichts zu rendern (Build-Zeit-Ausschluss).
   if (!clientId) return null;
 
-  // Slot komplett verstecken, solange wir nicht sicher wissen, dass eine Ad
-  // geliefert wurde. Grund: AdSense reserviert ~280 px Höhe via `ins`,
-  // bevor klar ist, ob überhaupt eine Ad kommt — leere Boxen für Sekunden
-  // wären ein massiver Layout- und UX-Killer.
-  const hideCompletely = adFilled !== true;
+  // WICHTIG: Solange der Status unbekannt ist (null), muss der Container
+  // MESSBAR bleiben — `display:none` verhindert, dass AdSense die Breite
+  // bestimmen kann, und der Slot füllt dann NIE (Henne-Ei). Deshalb:
+  // Pending = reservierte Höhe als dezenter Platzhalter (CLS-frei),
+  // kollabiert wird erst bei explizitem No-Fill/Timeout.
+  const collapsed = adFilled === false;
 
   return (
     <div
       ref={adRef}
-      hidden={hideCompletely}
+      hidden={collapsed}
       aria-hidden={adFilled !== true}
       className={cn(
         'relative overflow-hidden rounded-xl border border-border bg-surface-sunken/50',
         'transition-opacity duration-300',
         formatStyles[format],
-        adFilled === true ? 'opacity-100' : 'opacity-0',
+        adFilled === true ? 'opacity-100' : 'opacity-40',
         className,
       )}
     >
       {adFilled && (
         <div className="absolute top-2 right-3 z-10">
-          <span className="text-[10px] font-medium text-text-muted/60 uppercase tracking-wider">
+          <span className="text-[11px] font-medium text-text-muted uppercase tracking-wider">
             Anzeige
           </span>
         </div>

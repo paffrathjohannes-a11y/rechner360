@@ -29,6 +29,12 @@ export function AdsenseScript() {
       src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
       strategy="afterInteractive"
       crossOrigin="anonymous"
+      onLoad={() => {
+        // Signal an useAdsenseSlot: Script ist da, Push-Versuch lohnt jetzt.
+        // Das window-load-Event ist beim typischen Erstbesuch (Consent-Klick
+        // NACH Page-Load) längst vorbei und taugt nicht als Trigger.
+        window.dispatchEvent(new Event('adsense-script-loaded'));
+      }}
     />
   );
 }

@@ -97,6 +97,17 @@ export default function RootLayout({
       className={inter.variable}
       suppressHydrationWarning
     >
+      <head>
+        {/* Theme-Klasse VOR dem ersten Paint setzen (gleiche Logik wie der
+            ThemeProvider). Ohne dieses Script erscheint die Seite bis zur
+            Hydration hell, weil dark:-Utilities seit dem @custom-variant an
+            der .dark-Klasse hängen — Dark-Nutzer sähen einen Light-Flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme')||'system';var d=t==='dark'||(t==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);var e=document.documentElement;e.classList.add(d?'dark':'light');e.style.colorScheme=d?'dark':'light';}catch(_){}`,
+          }}
+        />
+      </head>
       <body className="min-h-dvh flex flex-col antialiased">
         {/* Skip-Link für Tastatur- und Screenreader-Nutzer (WCAG 2.4.1). */}
         <a

@@ -34,12 +34,13 @@ export function MobileAnchorAd() {
   return (
     <div
       ref={adRef}
-      hidden={adFilled !== true}
+      hidden={adFilled === false}
       aria-hidden={adFilled !== true}
       className={cn(
         'xl:hidden fixed inset-x-0 bottom-0 z-30',
         'transition-opacity duration-300',
-        adFilled === true ? 'opacity-100' : 'opacity-0',
+        // visibility statt display:none: AdSense muss die Breite messen können
+        adFilled === true ? 'opacity-100' : 'opacity-0 invisible',
       )}
     >
       <div className="relative mx-auto max-w-[320px] border-t border-l border-r border-border bg-surface-sunken/95 backdrop-blur-sm shadow-lg overflow-hidden rounded-t-lg">

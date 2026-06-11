@@ -34,12 +34,13 @@ export function StickyDesktopAd() {
   return (
     <div
       ref={adRef}
-      hidden={adFilled !== true}
+      hidden={adFilled === false}
       aria-hidden={adFilled !== true}
       className={cn(
         'hidden xl:block fixed z-30 right-4 bottom-4',
         'w-[300px] transition-opacity duration-300',
-        adFilled === true ? 'opacity-100' : 'opacity-0',
+        // visibility statt display:none: AdSense muss die Breite messen können
+        adFilled === true ? 'opacity-100' : 'opacity-0 invisible',
       )}
     >
       <div className="relative rounded-xl border border-border bg-surface-sunken/90 backdrop-blur-sm shadow-lg overflow-hidden">

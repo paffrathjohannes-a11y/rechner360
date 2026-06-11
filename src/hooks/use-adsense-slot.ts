@@ -84,6 +84,12 @@ export function useAdsenseSlot({
       tryPush();
     };
 
+    // Primärer Trigger: das AdSense-Script meldet sich nach dem Laden per
+    // Custom-Event (siehe adsense-script.tsx). Das frühere window-load-Event
+    // war beim typischen Erstbesuch (Consent-Klick NACH Page-Load) längst
+    // vorbei — der Push passierte nie. window.load bleibt als Fallback für
+    // den Fall, dass der Slot vor dem Script initialisiert.
+    window.addEventListener('adsense-script-loaded', handleLoad, { once: true });
     window.addEventListener('load', handleLoad, { once: true });
 
     // Fallback-Timeout: wenn nach `fallbackTimeoutMs` immer noch nicht gepusht,
@@ -93,6 +99,7 @@ export function useAdsenseSlot({
     }, fallbackTimeoutMs);
 
     return () => {
+      window.removeEventListener('adsense-script-loaded', handleLoad);
       window.removeEventListener('load', handleLoad);
       window.clearTimeout(timeout);
     };

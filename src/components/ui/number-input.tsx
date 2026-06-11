@@ -11,6 +11,26 @@ interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
 }
 
 /**
+ * Deutsche Zahleneingabe parsen: Komma = Dezimaltrenner, Punkte davor =
+ * Tausendertrenner („1.234,5" → 1234.5). Ohne Komma wird ein Punkt nur dann
+ * als Tausendertrenner gewertet, wenn das Muster eindeutig ist („1.000");
+ * sonst bleibt er Dezimalpunkt („5.5" → 5.5, Desktop-Gewohnheit). Der
+ * deutsche iOS-Ziffernblock bietet bei inputMode="decimal" NUR das Komma —
+ * ohne Komma-Parsing wäre dort keine Dezimaleingabe möglich.
+ */
+function parseLocalizedNumber(raw: string): number {
+  const trimmed = raw.trim();
+  if (trimmed === '') return NaN;
+  let normalized = trimmed;
+  if (trimmed.includes(',')) {
+    normalized = trimmed.replace(/\./g, '').replace(',', '.');
+  } else if (/^-?\d{1,3}(\.\d{3})+$/.test(trimmed)) {
+    normalized = trimmed.replace(/\./g, '');
+  }
+  return Number(normalized);
+}
+
+/**
  * NumberInput — erlaubt dem User das Feld komplett zu leeren und neu zu tippen.
  * Synchronisiert mit externem Value nur wenn nicht fokussiert (sonst würde
  * React beim Tippen den DOM-Value mit der reaktiv-aktualisierten Prop
@@ -40,7 +60,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
         lastValueRef.current = 0;
         onChange(0);
       } else {
-        const num = Number(raw);
+        const num = parseLocalizedNumber(raw);
         if (!isNaN(num)) {
           lastValueRef.current = num;
           onChange(num);
@@ -59,9 +79,11 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
     function handleBlur() {
       isFocusedRef.current = false;
       lastValueRef.current = value;
-      if (displayValue === '' || isNaN(Number(displayValue))) {
-        setDisplayValue('');
-        onChange(0);
+      if (displayValue !== '' && isNaN(parseLocalizedNumber(displayValue))) {
+        // Unparsebare Eingabe nicht still auf 0 setzen, sondern den letzten
+        // gültigen Wert wieder anzeigen — der Nutzer sieht so, dass seine
+        // Eingabe nicht übernommen wurde.
+        setDisplayValue(value > 0 ? value.toString() : '');
       }
     }
 

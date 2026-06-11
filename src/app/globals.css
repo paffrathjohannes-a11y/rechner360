@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* dark:-Utilities an die .dark-Klasse binden (Default in Tailwind v4 ist die
+   prefers-color-scheme-Media-Query). Ohne diese Zeile folgen alle dark:-
+   Klassen dem OS-Theme, während die CSS-Variablen der .dark-Klasse folgen —
+   Misch-Theme sobald Toggle und OS-Einstellung auseinanderlaufen. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ============================================
    rechner360.de Design System — Tailwind v4
 
