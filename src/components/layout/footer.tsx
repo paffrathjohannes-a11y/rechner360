@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Calculator } from 'lucide-react';
 import { RECHNER_CATEGORIES, getRechnerByCategory, SITE_NAME } from '@/lib/utils/constants';
 import { affiliateOffersBySlug } from '@/data/affiliates/offers';
+import { CookieSettingsLink } from '@/components/layout/cookie-settings-link';
 
 // WISO-Partner-URL für die dezente Footer-Platzierung
 const WISO_FOOTER_OFFER = affiliateOffersBySlug.homepage.offers[0];
@@ -54,6 +55,9 @@ export function Footer() {
                   <Link href="/datenschutz" className="text-sm text-text-secondary hover:text-primary-600 transition-colors">
                     Datenschutzerklärung
                   </Link>
+                </li>
+                <li>
+                  <CookieSettingsLink className="text-sm text-text-secondary hover:text-primary-600 transition-colors cursor-pointer" />
                 </li>
               </ul>
             </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
+import { getConsent, onConsentChange } from '@/lib/consent';
 
 const ADSENSE_CLIENT_ID = process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || '';
 
@@ -9,26 +10,12 @@ export function AdsenseScript() {
   const [consent, setConsent] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem('rechner360_cookie_consent');
+    // Granulares Gate: AdSense lädt NUR bei erteilter Werbe-Einwilligung —
+    // nicht beim Sammel-Key, der auch bei reinem Analyse-Consent gesetzt ist.
     // Externes Browser-State (localStorage) → React-State, einmalige Sync.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setConsent(stored === 'accepted');
-
-    const handleConsent = () => {
-      setConsent(localStorage.getItem('rechner360_cookie_consent') === 'accepted');
-    };
-
-    const handleStorage = (e: StorageEvent) => {
-      if (e.key === 'rechner360_cookie_consent') handleConsent();
-    };
-
-    window.addEventListener('storage', handleStorage);
-    window.addEventListener('cookie-consent-change', handleConsent);
-
-    return () => {
-      window.removeEventListener('storage', handleStorage);
-      window.removeEventListener('cookie-consent-change', handleConsent);
-    };
+    setConsent(getConsent().marketing);
+    return onConsentChange(() => setConsent(getConsent().marketing));
   }, []);
 
   if (!consent || !ADSENSE_CLIENT_ID) return null;

@@ -30,8 +30,8 @@ export default function DatenschutzPage() {
       </p>
       <p>
         <strong>Wie erfassen wir Ihre Daten?</strong><br />
-        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es
-        sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere Daten
+        Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z. B. per
+        E-Mail an uns). Andere Daten
         werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere
         IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser,
         Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt
@@ -58,9 +58,12 @@ export default function DatenschutzPage() {
 
       <h2>2. Hosting</h2>
       <p>
-        Diese Website wird bei Vercel Inc. gehostet. Die Server befinden sich in der EU
-        (Frankfurt am Main). Vercel verarbeitet personenbezogene Daten in unserem Auftrag
-        und ist vertraglich verpflichtet, alle datenschutzrechtlichen Anforderungen einzuhalten.
+        Diese Website wird bei Vercel Inc. (340 S Lemon Ave #4133, Walnut, CA 91789, USA)
+        gehostet. Die Inhalte werden primär über Server in der EU (Frankfurt am Main)
+        ausgeliefert; ein Zugriff durch Vercel aus den USA kann jedoch nicht ausgeschlossen
+        werden. Vercel ist nach dem EU-US Data Privacy Framework zertifiziert; zusätzlich
+        bestehen Standardvertragsklauseln (Art. 46 DSGVO). Vercel verarbeitet personenbezogene
+        Daten in unserem Auftrag (Art. 28 DSGVO).
         Details finden Sie in der{' '}
         <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
           Datenschutzerklärung von Vercel
@@ -88,7 +91,9 @@ export default function DatenschutzPage() {
       <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
       <p>
         Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung
-        möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen.
+        möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen —
+        am einfachsten über den Link <strong>„Cookie-Einstellungen&ldquo;</strong> im Footer
+        jeder Seite, mit dem Sie Ihre Auswahl jederzeit ändern können.
         Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt
         vom Widerruf unberührt.
       </p>
@@ -109,16 +114,25 @@ export default function DatenschutzPage() {
       </p>
       <ul>
         <li>
-          <strong>Technisch notwendige Cookies:</strong> Diese sind für die Funktion der
-          Website erforderlich (z. B. Speicherung der Cookie-Einwilligung und des
-          Design-Modus). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+          <strong>Technisch notwendige Cookies/Speichervorgänge:</strong> Diese sind für die
+          Funktion der Website erforderlich (z. B. Speicherung der Cookie-Einwilligung und des
+          Design-Modus). Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG sowie Art. 6 Abs. 1 lit. f DSGVO.
         </li>
         <li>
           <strong>Analyse-Cookies (nur mit Einwilligung):</strong> Google Analytics 4 zur
           Analyse des Nutzerverhaltens. Diese Cookies werden nur gesetzt, wenn Sie dem
-          ausdrücklich zustimmen. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.
+          ausdrücklich zustimmen. Rechtsgrundlage: § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO.
+        </li>
+        <li>
+          <strong>Werbe-Cookies (nur mit Einwilligung):</strong> Google AdSense zur Anzeige
+          von Werbung (siehe Abschnitt 5). Rechtsgrundlage: § 25 Abs. 1 TDDDG,
+          Art. 6 Abs. 1 lit. a DSGVO.
         </li>
       </ul>
+      <p>
+        Ihre Auswahl können Sie jederzeit über den Link „Cookie-Einstellungen&ldquo; im
+        Footer ändern oder widerrufen.
+      </p>
       <p>
         Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies
         informiert werden und Cookies nur im Einzelfall erlauben. Bei der Deaktivierung von Cookies
@@ -153,20 +167,68 @@ export default function DatenschutzPage() {
         in der EU übertragen und dort gespeichert.
       </p>
       <p>
-        <strong>IP-Anonymisierung:</strong> Wir haben die IP-Anonymisierung aktiviert.
-        Ihre IP-Adresse wird von Google innerhalb der EU gekürzt.
+        <strong>IP-Adressen:</strong> Google Analytics 4 protokolliert keine vollständigen
+        IP-Adressen; IP-Daten werden nur kurzzeitig zur groben Standortbestimmung verwendet
+        und nicht gespeichert.
       </p>
       <p>
-        Google Analytics wird nur aktiviert, wenn Sie dem Cookie-Banner ausdrücklich
-        zustimmen. Ohne Ihre Einwilligung findet kein Tracking statt.
+        <strong>Drittlandtransfer:</strong> Eine Übermittlung von Daten an Google LLC in den
+        USA kann nicht ausgeschlossen werden. Google ist nach dem EU-US Data Privacy Framework
+        zertifiziert (Art. 45 DSGVO).
+      </p>
+      <p>
+        Google Analytics wird nur aktiviert, wenn Sie im Cookie-Banner der Kategorie
+        „Analyse&ldquo; ausdrücklich zustimmen. Ohne Ihre Einwilligung findet kein Tracking
+        statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung
+        jederzeit über „Cookie-Einstellungen&ldquo; im Footer widerrufen.
+      </p>
+
+      <h3>Google AdSense</h3>
+      <p>
+        Diese Website nutzt Google AdSense, einen Dienst zum Einbinden von Werbeanzeigen der
+        Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google&ldquo;).
+        AdSense verwendet Cookies und vergleichbare Technologien (z. B. Web Beacons), um
+        Werbung anzuzeigen und deren Wirksamkeit zu messen. Dabei können Informationen wie
+        Ihre gekürzte IP-Adresse, Geräte- und Browserinformationen sowie besuchte Seiten
+        verarbeitet und zur Anzeige interessenbezogener Werbung genutzt werden.
+      </p>
+      <p>
+        AdSense wird <strong>nur mit Ihrer ausdrücklichen Einwilligung</strong> über den
+        Cookie-Banner (Kategorie „Werbung&ldquo;) geladen. Rechtsgrundlage:
+        § 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO. Ohne Einwilligung wird kein
+        AdSense-Code ausgeführt und es werden keine Werbe-Cookies gesetzt.
+      </p>
+      <p>
+        <strong>Drittlandtransfer:</strong> Dabei können Daten an Server der Google LLC in
+        den USA übertragen werden. Google ist nach dem EU-US Data Privacy Framework
+        zertifiziert (Art. 45 DSGVO).
+      </p>
+      <p>
+        Sie können Ihre Einwilligung jederzeit über „Cookie-Einstellungen&ldquo; im Footer
+        widerrufen. Personalisierte Werbung können Sie zudem in den{' '}
+        <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">
+          Google-Einstellungen für Werbung
+        </a>{' '}
+        deaktivieren. Weitere Informationen finden Sie in der{' '}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Google
+        </a>{' '}
+        und unter{' '}
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
+          „Wie Google Daten verwendet&ldquo;
+        </a>.
       </p>
 
       <h3>Affiliate-Links</h3>
       <p>
-        Diese Website enthält Affiliate-Links zu Drittanbietern (z. B. CHECK24,
-        Tarifcheck, Verivox). Wenn Sie auf einen solchen Link klicken und dort einen Vertrag
-        abschließen, erhalten wir eine Provision. Der Preis für Sie ändert sich
-        dadurch nicht. Affiliate-Links sind als „Anzeige&ldquo; gekennzeichnet.
+        Diese Website enthält Affiliate-Links zu Drittanbietern (z. B. CHECK24, Verivox,
+        WISO/Buhl Data Service). Die Links werden über das Partnernetzwerk AWIN AG
+        (Eichhornstraße 3, 10785 Berlin) vermittelt. Wenn Sie auf einen solchen Link klicken
+        und dort einen Vertrag abschließen, erhalten wir eine Provision. Der Preis für Sie
+        ändert sich dadurch nicht. Beim Klick auf einen Affiliate-Link verlassen Sie unsere
+        Website; erst dort können durch den jeweiligen Anbieter bzw. AWIN Cookies zur
+        Zuordnung der Vermittlung gesetzt werden. Affiliate-Links sind als
+        „Anzeige&ldquo; gekennzeichnet.
       </p>
 
       <h2>6. Ihre Rechte</h2>
@@ -181,7 +243,7 @@ export default function DatenschutzPage() {
       </ul>
 
       <p className="text-sm text-text-muted mt-8">
-        Stand: April 2026
+        Stand: Juni 2026
       </p>
     </>
   );

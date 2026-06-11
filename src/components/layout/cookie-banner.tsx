@@ -3,43 +3,24 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import {
+  getStoredConsent,
+  getConsent,
+  saveConsent,
+  CONSENT_SETTINGS_OPEN_EVENT,
+} from '@/lib/consent';
 
-const CONSENT_KEY = 'rechner360_cookie_consent';
-const CONSENT_DETAIL_KEY = 'rechner360_cookie_detail';
-
-export interface CookieConsent {
-  necessary: boolean;
-  analytics: boolean;
-  marketing: boolean;
-}
-
-function getStoredConsent(): CookieConsent | null {
-  try {
-    const detail = localStorage.getItem(CONSENT_DETAIL_KEY);
-    if (detail) return JSON.parse(detail);
-    const old = localStorage.getItem(CONSENT_KEY);
-    if (old === 'accepted') return { necessary: true, analytics: true, marketing: true };
-    if (old === 'declined') return { necessary: true, analytics: false, marketing: false };
-  } catch {}
-  return null;
-}
-
-function saveConsent(consent: CookieConsent) {
-  localStorage.setItem(CONSENT_DETAIL_KEY, JSON.stringify(consent));
-  localStorage.setItem(CONSENT_KEY, consent.analytics || consent.marketing ? 'accepted' : 'declined');
-  window.dispatchEvent(new Event('cookie-consent-change'));
-}
-
-export function getConsent(): CookieConsent {
-  if (typeof window === 'undefined') return { necessary: true, analytics: false, marketing: false };
-  return getStoredConsent() || { necessary: true, analytics: false, marketing: false };
-}
+// Re-Export für bestehende Importe
+export type { CookieConsent } from '@/lib/consent';
+export { getConsent } from '@/lib/consent';
 
 export function CookieBanner() {
   const [show, setShow] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [analytics, setAnalytics] = useState(true);
-  const [marketing, setMarketing] = useState(true);
+  // Nicht vorangekreuzt (EuGH C-673/17 „Planet49": vorausgewählte
+  // Checkboxen sind keine wirksame Einwilligung).
+  const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
   const [mounted, setMounted] = useState(false);
   const primaryButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -50,6 +31,18 @@ export function CookieBanner() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (!getStoredConsent()) setShow(true);
+
+    // Widerruf/Änderung: Footer-Link „Cookie-Einstellungen" öffnet den
+    // Banner im Detail-Modus, vorbelegt mit der aktuell gespeicherten Auswahl.
+    const handleOpenSettings = () => {
+      const current = getConsent();
+      setAnalytics(current.analytics);
+      setMarketing(current.marketing);
+      setShowDetails(true);
+      setShow(true);
+    };
+    window.addEventListener(CONSENT_SETTINGS_OPEN_EVENT, handleOpenSettings);
+    return () => window.removeEventListener(CONSENT_SETTINGS_OPEN_EVENT, handleOpenSettings);
   }, []);
 
   // Nach Einblendung Fokus auf den primären Button setzen — Keyboard-Nutzer

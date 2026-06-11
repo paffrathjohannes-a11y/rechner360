@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { getConsent, onConsentChange } from '@/lib/consent';
 
 /**
  * Gemeinsame AdSense-Slot-Logik für NativeAdSlot und StickyDesktopAd.
@@ -34,14 +35,10 @@ export interface UseAdsenseSlotResult {
   adRef: React.RefObject<HTMLDivElement | null>;
 }
 
-const CONSENT_KEY = 'rechner360_cookie_consent';
-
+// Granulares Gate: Slots pushen nur bei erteilter Werbe-Einwilligung
+// (gleiche Bedingung wie das AdSense-Script selbst).
 function readConsent(): boolean {
-  try {
-    return localStorage.getItem(CONSENT_KEY) === 'accepted';
-  } catch {
-    return false;
-  }
+  return getConsent().marketing;
 }
 
 export function useAdsenseSlot({
@@ -56,18 +53,7 @@ export function useAdsenseSlot({
   // 1) Consent: einmal initial lesen + auf Änderungen hören (storage + custom event).
   useEffect(() => {
     setConsent(readConsent());
-
-    const handleConsent = () => setConsent(readConsent());
-    const handleStorage = (e: StorageEvent) => {
-      if (e.key === CONSENT_KEY) handleConsent();
-    };
-
-    window.addEventListener('storage', handleStorage);
-    window.addEventListener('cookie-consent-change', handleConsent);
-    return () => {
-      window.removeEventListener('storage', handleStorage);
-      window.removeEventListener('cookie-consent-change', handleConsent);
-    };
+    return onConsentChange(() => setConsent(readConsent()));
   }, []);
 
   // 2) Push: einmal nach dem ersten Render mit Consent.
