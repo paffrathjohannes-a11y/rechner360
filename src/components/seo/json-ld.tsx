@@ -1,9 +1,9 @@
 import { SITE_NAME, SITE_URL, SITE_DESCRIPTION } from '@/lib/utils/constants';
 
-// `/icon` wird von `src/app/icon.tsx` zur Build-Zeit generiert und ist
-// unter `/icon.png` als Brand-Asset abrufbar. Bis ein echtes Logo im
-// public-Ordner liegt, nutzen wir diese URL als verifizierbares Bild.
-const BRAND_LOGO_URL = `${SITE_URL}/icon.png`;
+// Statisches Brand-Asset in `public/logo.png` (180×180 PNG, >= Googles
+// 112px-Minimum für Organization-Logos). Die frühere `/icon.png`-URL
+// existierte nicht (404) — `/icon` ist eine dynamische 32px-Route.
+const BRAND_LOGO_URL = `${SITE_URL}/logo.png`;
 
 /**
  * Stabile `@id`-Anker für die zentralen Site-Entities. Andere Schemas

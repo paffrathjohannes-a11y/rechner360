@@ -87,7 +87,7 @@ export default async function RatgeberArtikelPage({ params }: { params: Promise<
       url: 'https://www.rechner360.de',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.rechner360.de/icon.png',
+        url: 'https://www.rechner360.de/logo.png',
       },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `https://www.rechner360.de/ratgeber/${artikel.slug}` },

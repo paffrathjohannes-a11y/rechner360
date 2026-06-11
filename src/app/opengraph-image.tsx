@@ -51,9 +51,12 @@ export default function OGImage() {
           </span>
         </div>
 
-        {/* Title */}
+        {/* Title — display:flex ist Pflicht: Satori wirft bei >1 Kind ohne
+            explizites Flex einen Fehler, der auf Vercel zur leeren 200-Antwort
+            wird (0-Byte-PNG). */}
         <div
           style={{
+            display: 'flex',
             fontSize: '56px',
             fontWeight: 800,
             color: '#F1F5F9',
@@ -87,7 +90,7 @@ export default function OGImage() {
             marginTop: '40px',
           }}
         >
-          {['22+ Rechner', '436+ Seiten', 'Aktuell 2026'].map((text) => (
+          {['27 Rechner', 'Kostenlos', 'Aktuell 2026'].map((text) => (
             <div
               key={text}
               style={{

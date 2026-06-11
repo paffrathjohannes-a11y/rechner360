@@ -6,10 +6,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        // Next.js serviert den public-Ordner direkt unter `/` — eine Regel
-        // für `/public/` würde nichts treffen. `/_next/` hält interne Assets
-        // vom Crawl fern, `/api/` ist präventiv für spätere Routes.
-        disallow: ['/api/', '/_next/'],
+        // WICHTIG: `/_next/` darf NICHT geblockt werden — dort liegen alle
+        // CSS/JS/Font-Assets. Blockt man sie, rendert Googlebot die Seiten
+        // ohne Styles und ohne die client-seitigen Rechner-Formulare.
+        // `/api/` ist präventiv für spätere Routes.
+        disallow: ['/api/'],
       },
       {
         // Aggressive Bots blocken — schützt Crawl-Budget und Server-Ressourcen
