@@ -575,5 +575,37 @@
     ],
     "relatedRechner": "pkv-rechner",
     "publishDate": "2026-06-10"
+  },
+  {
+    "slug": "ruerup-rente-selbststaendige",
+    "title": "Rürup-Rente für Selbstständige 2026: Vor- und Nachteile",
+    "metaTitle": "Rürup-Rente für Selbstständige 2026",
+    "metaDescription": "Rürup-Rente steuerlich absetzbar 2026. Erfahren Sie, ob sie sich lohnt und vergleichen Sie mit anderen Optionen.",
+    "intro": "Die Rürup-Rente bietet Selbstständigen eine Möglichkeit zur Altersvorsorge mit steuerlichen Vorteilen. Seit 2023 sind die Beiträge laut §10 EStG vollständig absetzbar. Doch welche Vor- und Nachteile bringt die Rürup-Rente konkret mit sich und wie schlägt sie sich im Vergleich zu ETFs oder einer freiwilligen gesetzlichen Rentenversicherung?",
+    "sections": [
+      {
+        "title": "Steuerliche Vorteile der Rürup-Rente",
+        "content": "Ein wesentlicher Vorteil der Rürup-Rente ist die volle steuerliche Absetzbarkeit der Beiträge ab dem Jahr 2023. Dies bedeutet, dass Selbstständige die Möglichkeit haben, ihre Vorsorgeaufwendungen in Höhe von bis zu 26.528 € für Ledige und 53.056 € für Verheiratete bei der Einkommenssteuer geltend zu machen. Dadurch reduzieren sich die jährlichen Steuerzahlungen signifikant, was insbesondere bei gutem Einkommen eine hohe Ersparnis bringen kann. Diese Steuervorteile könnten eine attraktive kurzfristige Entlastung darstellen, die sich langfristig als rentabel erweist."
+      },
+      {
+        "title": "Lebenslange Rente als Sicherheit",
+        "content": "Die Rürup-Rente garantiert eine lebenslange monatliche Rentenzahlung. Dies bietet eine gewisse Planungssicherheit im Alter, da das Risiko der Langlebigkeit abgesichert wird. Im Vergleich zu alternativen Anlagen, bei denen ein Kapitalverzehr erfolgt, sorgt die Rürup-Rente dafür, dass der Versicherte nicht das Risiko eingeht, im hohen Alter ohne Einkommen dazustehen. Dennoch sollte bedacht werden, dass diese Rentenform wenig Flexibilität bietet, da Auszahlungen vor dem Renteneintritt vertraglich ausgeschlossen sind."
+      },
+      {
+        "title": "Vererbbarkeit und Hinterbliebenenschutz",
+        "content": "Ein oft diskutierter Nachteil der Rürup-Rente liegt in ihrer begrenzten Vererbbarkeit. Im Standardfall verfällt das angesparte Kapital bei Tod des Versicherten, sofern keine Zusatzoption für Hinterbliebene gewählt wurde. Gegen geringen Aufpreis kann jedoch ein Hinterbliebenenschutz integriert werden, der Ehepartnern oder Kindern eine Absicherung bietet. Hierbei ist zu beachten, dass solche Optionen die Höhe der Altersrente verringern können, weshalb eine sorgfältige Abwägung getroffen werden sollte."
+      },
+      {
+        "title": "Vergleich zur freiwilligen gesetzlichen Rentenversicherung",
+        "content": "Selbstständige, die über eine freiwillige Mitgliedschaft in der gesetzlichen Rentenversicherung nachdenken, sollten die Vor- und Nachteile im Vergleich zur Rürup-Rente beachten. Während die gesetzliche Rente ebenfalls regelmäßige Auszahlungen im Alter sicherstellt, bietet sie weniger steuerliche Gestaltungsmöglichkeiten. Zudem ist die Rendite der Rürup-Rente bei guter Vertragsgestaltung oft höher, was sie attraktiver machen kann. Hierbei sind individuelle Einkommens- und Steuerverhältnisse entscheidend, weshalb eine persönliche Beratung sinnvoll ist."
+      },
+      {
+        "title": "Rürup-Rente vs. ETFs: Renditevergleich",
+        "content": "Beim Vergleich mit ETFs muss beachtet werden, dass die Rürup-Rente eine weniger flexible Anlageform im Vergleich zu ETFs darstellt, die höhere Renditen bieten können. ETFs ermöglichen Kapitalzuwachs durch Wertsteigerungen, während die Rürup-Rente primär Sicherheit bietet. Ein Beispiel: Bei einer angenommenen durchschnittlichen ETF-Rendite von 5 % p.a. kann ein Kapital von 50.000 € nach 20 Jahren etwa 132.664 € wert sein. Die Entscheidung sollte daher auf Basis der individuellen Risikobereitschaft und des Anlageziels erfolgen."
+      }
+    ],
+    "relatedRechner": "rentenrechner",
+    "publishDate": "2026-06-12",
+    "topicId": "ruerup-selbststaendige"
   }
 ]
