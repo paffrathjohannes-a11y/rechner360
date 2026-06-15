@@ -607,5 +607,37 @@
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-06-12",
     "topicId": "ruerup-selbststaendige"
+  },
+  {
+    "slug": "mini-job-vs-midi-job-grenzen",
+    "title": "Mini-Job vs. Midi-Job: Aktuelle Grenzen 2026",
+    "metaTitle": "Mini-Job vs. Midi-Job: Grenzen 2026",
+    "metaDescription": "Entdecken Sie die Unterschiede zwischen Mini- und Midi-Job 2026. Nutzen Sie unseren Brutto-Netto-Rechner.",
+    "intro": "Mini-Jobs und Midi-Jobs unterscheiden sich grundlegend in ihren Verdienstgrenzen und Sozialabgaben. Während Mini-Jobs eine klare Einkommensgrenze bieten, profitieren Midi-Jobber von speziellen Sozialversicherungsregelungen. In diesem Artikel beleuchten wir die relevanten Unterschiede für das Jahr 2026.",
+    "sections": [
+      {
+        "title": "Mini-Job: Die Grundlagen",
+        "content": "Ein Mini-Job ist eine Anstellung, bei der das monatliche Einkommen die Grenze von 538 € nicht überschreitet. Dabei sind Arbeitnehmer von Sozialabgaben befreit, während der Arbeitgeber Pauschalbeiträge zur Sozialversicherung entrichtet. Diese geringfügige Beschäftigung eignet sich besonders für Personen, die zusätzliches Einkommen ohne Abzüge erzielen möchten. Es ist jedoch zu beachten, dass Mini-Jobber keine Ansprüche auf Arbeitslosen- oder Krankenversicherung aus dieser Beschäftigung erwirtschaften. Daher ist es wichtig, individuelle Versicherungsbedarfe zu prüfen."
+      },
+      {
+        "title": "Midi-Job: Der Übergangsbereich",
+        "content": "Ein Midi-Job deckt ein Einkommen von 538,01 € bis 2.000 € monatlich ab. Arbeitnehmer profitieren hier von geringeren Sozialversicherungsbeiträgen aufgrund einer gleitenden Skala, die durch die Formel F=0,6846 beschrieben wird. Bei einem Verdienst von 1.200 € beträgt der Arbeitnehmeranteil zur Sozialversicherung etwa 207,14 €, statt der regulären Beiträge bei einem höheren Einkommen. Diese Einstufung erleichtert den Übergang in eine reguläre Beschäftigung."
+      },
+      {
+        "title": "Sozialversicherung im Midi-Job",
+        "content": "Im Midi-Job wird der Übergangsbereich durch eine spezielle Berechnungsgrundlage, die Gleitzone, geregelt. Dies bedeutet, dass der Beitragssatz für Sozialversicherungen von der Höhe des Einkommens abhängig ist. Zum Beispiel: Bei einem Verdienst von 1.500 € wird der Beitrag für Krankenkasse, Renten- und Arbeitslosenversicherung reduziert, sodass der Arbeitnehmer etwa 282,19 € statt der normalen Abzüge leistet. Diese Regelung entlastet Arbeitnehmer und fördert den Einstieg in den regulären Arbeitsmarkt."
+      },
+      {
+        "title": "Vergleich: Mini-Job und Midi-Job",
+        "content": "Der wesentliche Unterschied zwischen Mini- und Midi-Job liegt in den Sozialabgaben. Mini-Jobber sind von diesen befreit, während Midi-Jobber anteilig zahlen. Rechnen Sie mit einem Bruttoverdienst von 1.000 €: Bei einem Mini-Job würden komplett 1.000 € abzüglich Steuern fließen, während im Midi-Job netto etwa 880 € verbleiben. Beide Job-Modelle bieten ihre Vorteile abhängig von der individuellen Lebenssituation, sodass eine professionelle Beratung ratsam sein kann."
+      },
+      {
+        "title": "Steuern und Abgaben für Mini- und Midi-Jobs",
+        "content": "Mini-Job-Einkommen bleibt meist steuerfrei, wenn keine anderen Einnahmen vorliegen. Der Arbeitgeber kann pauschal 2 % Lohnsteuer abführen. Hingegen unterliegen Midi-Jobs dem regulären Lohnsteuertarif, jedoch mit modifizierten Abgaben. Bei 1.800 € Verdienst könnte der Nettoverdienst nach Steuern und Abzügen rund 1.456 € betragen. Es ist ratsam, steuerliche Auswirkungen genau zu prüfen und eventuell eine Steuerberatung in Anspruch zu nehmen, um die bestmögliche Option auszuwählen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-06-15",
+    "topicId": "minijob-midijob-2026"
   }
 ]
