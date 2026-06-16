@@ -110,6 +110,18 @@ export function Footer() {
             Stand: {currentYear} · Letzte Aktualisierung der Steuerformeln {currentYear}
           </p>
         </div>
+
+        <p className="mt-4 text-center text-xs text-text-muted">
+          Entwickelt von{' '}
+          <a
+            href="https://paffrath.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 transition-colors hover:text-primary-600"
+          >
+            Johannes Paffrath
+          </a>
+        </p>
       </div>
     </footer>
   );
