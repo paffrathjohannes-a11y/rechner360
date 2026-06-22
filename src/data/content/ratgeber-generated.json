@@ -671,5 +671,33 @@
     "relatedRechner": "inflationsrechner",
     "publishDate": "2026-06-19",
     "topicId": "inflation-vermoegensschutz"
+  },
+  {
+    "slug": "buergergeld-2026-was-sich-aendert",
+    "title": "Bürgergeld 2026: Änderungen und Neuerungen",
+    "metaTitle": "Bürgergeld 2026: Regelsätze & Änderungen",
+    "metaDescription": "Erfahren Sie alles über Bürgergeld 2026: Regelsätze, Sanktionsregeln, Freibeträge und mehr. Jetzt informieren!",
+    "intro": "Im Jahr 2026 gibt es wichtige Änderungen beim Bürgergeld. Die Anpassungen betreffen vor allem die Regelsätze, neue Sanktionsregelungen sowie Freibeträge. Zudem wurden die Vorgaben zu den Kosten der Unterkunft und den Mehrbedarfen modifiziert. Es ist entscheidend, sich mit diesen Neuerungen vertraut zu machen, um finanzielle Engpässe zu vermeiden.",
+    "sections": [
+      {
+        "title": "Neue Regelsätze für 2026",
+        "content": "Die Regelsätze für das Bürgergeld steigen im Jahr 2026 leicht an. Ein alleinstehender Erwachsener erhält nun 563 € monatlich, ein Anstieg um 20 €. Lebenspartner in einer Bedarfsgemeinschaft erhalten jeweils 506 € monatlich. Kinder bis 5 Jahre bekommen 311 €, Kinder zwischen 6 und 13 Jahren 384 € und Jugendliche bis 17 Jahre dürfen 502 € erwarten. Diese Anpassungen sollen die Inflation ausgleichen und sicherstellen, dass Bedürftige ihre Grundbedürfnisse decken können."
+      },
+      {
+        "title": "Neuregelung der Sanktionsmechanismen",
+        "content": "Während in den Vorjahren die Sanktionsmöglichkeiten stark begrenzt waren, gibt es 2026 eine abgestufte Regelung, die von geringeren Kürzungen bis zu maximal 30 % reicht. Bei erstmaligen Pflichtverletzungen wird nur ein geringer Prozentsatz des Bürgergelds gekürzt. Wiederholte Verstöße führen zu strengeren Kürzungen. Diese Neuregelung zielt darauf ab, Eigenverantwortung zu fördern, ohne die Existenz zu gefährden."
+      },
+      {
+        "title": "Freibeträge nach §11b SGB II",
+        "content": "Nach §11b SGB II gelten im Jahr 2026 neue Freibeträge. Einkommen bis zu 100 € bleiben anrechnungsfrei. Für Einkommen zwischen 100 € und 1.000 € liegt der Freibetrag nun bei 20 %. Besonders relevant ist der angehobene Freibetrag von 10 % für Einkommensteile zwischen 1.000 € und 1.500 €. Diese Freibeträge ermöglichen es Bürgergeldempfängern, zusätzliche Arbeit aufzunehmen, ohne erhebliche Verluste beim Bürgergeld hinnehmen zu müssen."
+      },
+      {
+        "title": "Kosten der Unterkunft und Mehrbedarfe",
+        "content": "Die Erstattung der Kosten der Unterkunft wird 2026 weiterhin in voller Höhe, jedoch nur bis zu örtlich angemessenen Grenzen gewährt. Diese Grenzen berücksichtigen örtliche Mietspiegel und verhindern überhöhte Wohnkosten. Darüber hinaus gibt es Anpassungen bei den Mehrbedarfen: Beispielsweise erhalten Personen mit einer gesundheitlich bedingten kostenaufwändigen Ernährung 10 % des maßgebenden Regelsatzes zusätzlich. Diese Regelungen helfen, spezielle Bedürfnisse finanziell abzufedern."
+      }
+    ],
+    "relatedRechner": "buergergeld-rechner",
+    "publishDate": "2026-06-22",
+    "topicId": "buergergeld-reform-2026"
   }
 ]
