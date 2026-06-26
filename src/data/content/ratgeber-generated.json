@@ -731,5 +731,37 @@
     "relatedRechner": "kalorienrechner",
     "publishDate": "2026-06-24",
     "topicId": "kalorien-abnehmen-nachhaltig"
+  },
+  {
+    "slug": "jahresendsprint-steuern-tipps-silvester",
+    "title": "Jahresendsprint Steuern: 10 Dinge vor Silvester",
+    "metaTitle": "Steuer-Sprint: 10 Tipps für Jahresende",
+    "metaDescription": "Nutzen Sie das Jahresende optimal für Ihre Steuererklärung. Tipps zu Werbungskosten, Spenden und mehr.",
+    "intro": "Das nahende Jahresende bietet die Gelegenheit, Ihre Steuerlast effektiv zu optimieren. Einige Maßnahmen können Sie noch vor Silvester ergreifen, um Ihre Steuererklärung für 2026 optimal vorzubereiten. Hier finden Sie zehn entscheidende Tipps, um Ihr Steuerpotenzial voll auszuschöpfen.",
+    "sections": [
+      {
+        "title": "Werbungskosten jetzt maximieren",
+        "content": "Werbungskosten können Ihre Steuerlast erheblich mindern. Überlegen Sie, ob größere Ausgaben wie Fachliteratur, Arbeitsmittel oder Fortbildungskosten noch im laufenden Jahr beglichen werden können. Liegen diese Kosten insgesamt über dem Arbeitnehmer-Pauschbetrag von 1.230 €, lohnt sich das besondere Vorgehen. Sollten Sie beispielsweise Fortbildungskosten in Höhe von 2.500 € haben, führt dies zu einer steuerlichen Minderung Ihres zu versteuernden Einkommens um den entsprechenden Betrag."
+      },
+      {
+        "title": "Spenden absetzen",
+        "content": "<strong>Spenden</strong> an gemeinnützige Organisationen sind in hohem Maße steuerlich absetzbar. Der Abzug ist laut §10b EStG bis zu 20 % des Gesamtbetrags Ihrer Einkünfte möglich. Angenommen, Ihr Jahreseinkommen beträgt 50.000 €, so können Sie bis zu 10.000 € spenden und den Steuerabzug maximal nutzen. Prüfen Sie auch, ob festgesetzte Spendenbescheinigungen vorhanden sind, um diese geltend zu machen."
+      },
+      {
+        "title": "Handwerkerleistungen optimal nutzen",
+        "content": "Auch Handwerkerleistungen können Ihre Steuerlast mindern. Hierbei sind Lohnkosten von bis zu 6.000 € pro Jahr zu 20 % direkt von der Steuer abziehbar, was bis zu 1.200 € Steuerentlastung bedeutet. Bezahlen Sie eventuell noch ausstehende Rechnungen für Renovierungen, um von diesem Steuerbonus zu profitieren. Wichtig ist, dass die Zahlung bis zum 31. Dezember erfolgt und eine Rechnung vorliegt."
+      },
+      {
+        "title": "Rürup-Rente vor Silvester aufstocken",
+        "content": "Eine Einzahlung in die Rürup-Rente kann Ihnen Steuervorteile verschaffen. Im Jahr 2026 sind bis zu 26.528 € für Ledige und 53.056 € für Verheiratete von der Steuer absetzbar. Dabei werden 94 % der gezahlten Beiträge als Sonderausgaben anerkannt, sodass eine optimale Ausnutzung dieses Spielraums erhebliche Steuerersparnisse bietet. Erwägen Sie, zusätzliche Einzahlungen vorzunehmen, um Ihre Altersversorgung sowie aktuelle steuerliche Vorteile zu sichern."
+      },
+      {
+        "title": "Den Sparerpauschbetrag ausreizen",
+        "content": "Der Sparerpauschbetrag liegt für Ledige bei 1.000 € und für Verheiratete bei 2.000 €. Kapitalerträge bis zu dieser Höhe bleiben steuerfrei. Überprüfen Sie, ob Sie den Freibetrag bereits voll ausgeschöpft haben. Falls nicht, könnten gezielte Anlageentscheidungen zum Jahresende hin noch ungenutzte Potenziale freisetzen. Ein optimaler Einsatz von Tagesgeldanlagen oder Aktienerträgen kann dabei helfen, das Maximum herauszuholen."
+      }
+    ],
+    "relatedRechner": "einkommensteuer-rechner",
+    "publishDate": "2026-06-26",
+    "topicId": "steuer-last-minute-dezember"
   }
 ]
