@@ -819,5 +819,37 @@
     "relatedRechner": "tilgungsrechner",
     "publishDate": "2026-07-01",
     "topicId": "sondertilgung-strategie"
+  },
+  {
+    "slug": "kurzarbeitergeld-2026-netto",
+    "title": "Kurzarbeitergeld 2026: Was netto übrig bleibt",
+    "metaTitle": "Kurzarbeitergeld 2026: Netto-Betrag berechnen",
+    "metaDescription": "Erfahren Sie, was vom Kurzarbeitergeld 2026 netto bleibt. Erklärt: Steuerfrei, Progressionsvorbehalt und Arbeitgeber-Aufstockung.",
+    "intro": "Kurzarbeitergeld stellt für viele Arbeitnehmer eine wichtige finanzielle Absicherung dar, wenn die Arbeitszeiten vorübergehend reduziert werden. Für 2026 beträgt das Kurzarbeitergeld 60 % des Nettogehalts, für Arbeitnehmer mit Kindern 67 %. Trotz steuerfreier Auszahlung unterliegt es dem Progressionsvorbehalt, was die Steuerlast erhöhen kann. Eine klare Berechnung und eventuelle Aufstockung durch den Arbeitgeber sind daher entscheidend.",
+    "sections": [
+      {
+        "title": "Berechnung des Kurzarbeitergelds 2026",
+        "content": "Das Kurzarbeitergeld wird auf Basis des Nettogehalts berechnet. Für Arbeitnehmer ohne Kinder beträgt es 60 %, während Arbeitnehmer mit mindestens einem Kind 67 % erhalten. Ein Beispiel: Ein Arbeitnehmer ohne Kinder, dessen reguläres Nettogehalt 2.000 € beträgt, erhält 1.200 € Kurzarbeitergeld. Mit Kind erhöht sich dieser Betrag auf 1.340 €. Dieses Einkommen soll die finanziellen Verluste aufgrund reduzierter Arbeitszeit abmildern."
+      },
+      {
+        "title": "Steuerfrei — aber unter Progressionsvorbehalt",
+        "content": "Das Kurzarbeitergeld ist gemäß deutschem Steuerrecht steuerfrei, es unterliegt jedoch dem Progressionsvorbehalt. Das bedeutet, dass es das zu versteuernde Einkommen bei der Berechnung des persönlichen Steuersatzes erhöht. Das kann zu einer höheren Steuerlast auf andere Einkommen führen. Es ist wichtig, dies bei der jährlichen Steuererklärung zu berücksichtigen, um unliebsame Überraschungen zu vermeiden."
+      },
+      {
+        "title": "Pflicht zur Abgabe der Steuererklärung",
+        "content": "Empfänger von Kurzarbeitergeld in einer Höhe von mehr als 410 € im Jahr sind verpflichtet, eine Steuererklärung abzugeben. Diese Pflicht ergibt sich, da das Einkommen unter den Progressionsvorbehalt fällt. Die fristgerechte Abgabe ist entscheidend, um mögliche Nachzahlungen zu vermeiden. Fachkundige steuerliche Beratung kann dabei helfen, alle steuerlichen Möglichkeiten auszuschöpfen."
+      },
+      {
+        "title": "Aufstockung durch den Arbeitgeber",
+        "content": "Einige Arbeitgeber bieten eine zusätzliche Aufstockung des Kurzarbeitergelds an, um den Einkommensverlust gering zu halten. Diese Aufstockung ist freiwillig und kann individuell geregelt werden. Angenommen, der Arbeitgeber stockt auf 80 % des regulären Nettogehalts auf, so würde ein Arbeitnehmer mit einem ursprünglichen Nettogehalt von 2.000 € statt der 1.200 € aus eigener Tasche noch zusätzliche 400 € erhalten, was insgesamt 1.600 € ausmacht."
+      },
+      {
+        "title": "Praktische Tipps zur Optimierung",
+        "content": "Um die finanzielle Belastung durch den Progressionsvorbehalt zu verringern, sollten Empfänger von Kurzarbeitergeld nicht nur die Steuererklärung fristgerecht einreichen, sondern auch mögliche Freibeträge und Sonderausgaben nutzen. Häufig hilft eine zusätzliche Vorsorge wie Altersvorsorgeaufwendungen, den persönlichen Steuersatz zu senken. Steuerlicher Beistand kann helfen, alle individuellen Optimierungsmöglichkeiten auszuschöpfen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-07-03",
+    "topicId": "kurzarbeit-netto"
   }
 ]
