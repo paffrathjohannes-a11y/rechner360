@@ -851,5 +851,37 @@
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-07-03",
     "topicId": "kurzarbeit-netto"
+  },
+  {
+    "slug": "elterngeld-hoeheres-netto",
+    "title": "Elterngeld 2026: Fünf Tipps für ein höheres Netto",
+    "metaTitle": "Elterngeld 2026: Mehr Netto mit 5 Tipps",
+    "metaDescription": "Optimieren Sie Ihr Elterngeld 2026 mit fünf praktischen Tipps. Entdecken Sie wichtige Faktoren für ein höheres Netto.",
+    "intro": "Das Elterngeld unterstützt Familien in der ersten Lebensphase des Kindes finanziell. Eine optimale Gestaltung kann zu einem höheren Netto führen. Hier erfahren Sie, welche fünf Stellschrauben Sie dabei beachten können.",
+    "sections": [
+      {
+        "title": "Bemessungszeitraum richtig nutzen",
+        "content": "Das Elterngeld bemisst sich am Einkommen der 12 Monate vor der Geburt Ihres Kindes. Dabei wird der Durchschnitt des Nettoeinkommens herangezogen. Sind in diesem Zeitraum Boni oder Gehaltserhöhungen enthalten, kann dies Ihr Elterngeld positiv beeinflussen. Überlegen Sie, geplante Erhöhungen oder Prämienzahlungen in diesen Zeitraum zu legen, um die Basis für Ihr Elterngeld zu optimieren."
+      },
+      {
+        "title": "Steuerklasse klug wechseln",
+        "content": "Bis spätestens sieben Monate vor der Geburt kann ein Wechsel der Steuerklasse Sinn machen. Insbesondere der Partner mit dem höheren Verdienst sollte in Steuerklasse III wechseln, während der andere Partner in Steuerklasse V bleibt. Dies erhöht das anrechenbare Nettoeinkommen, wodurch sich auch das Elterngeld entsprechend erhöhen kann. Ein solch strategischer Wechsel kann vor allem dann von Vorteil sein, wenn der Partner mit dem höheren Einkommen auch den überwiegenden Teil der Elternzeit plant."
+      },
+      {
+        "title": "Partnermonate einplanen",
+        "content": "Um das volle Elterngeld auszuschöpfen, sollten Paare die Partnermonate nutzen. Bis zu vier zusätzliche Monate Elterngeld sind möglich, wenn beide Elternteile Elternzeit nehmen. Dies gibt nicht nur mehr finanzielle Flexibilität, sondern stärkt auch die Familienbindung. Achten Sie jedoch darauf, die Anträge rechtzeitig zu stellen, da es sonst zu Verzögerungen bei der Auszahlung kommen kann."
+      },
+      {
+        "title": "Geschwisterbonus berücksichtigen",
+        "content": "Familien mit mehreren Kindern profitieren unter Umständen vom Geschwisterbonus. Ist das Geschwisterkind unter drei Jahren oder gibt es mehrere Kinder unter sechs Jahren, können zusätzliche 10 Prozent Elterngeld, mindestens aber 75 €, gewährt werden. Dieser Bonus kann eine willkommene finanzielle Entlastung darstellen."
+      },
+      {
+        "title": "Jahreseinnahmen unter 200.000 € halten",
+        "content": "Für Paare gilt eine Einkommensgrenze von 300.000 €, bei Alleinerziehenden von 150.000 €, um Anspruch auf Elterngeld zu haben. Liegen die zu versteuernden Einkünfte über diesen Grenzen, entfällt der Anspruch. Planen Sie Ihre Einkünfte entsprechend, um den Anspruch nicht zu gefährden. Eine individuelle steuerliche Beratung kann hier besonders wertvoll sein, um alle Faktoren optimal zu berücksichtigen."
+      }
+    ],
+    "relatedRechner": "elterngeld-rechner",
+    "publishDate": "2026-07-06",
+    "topicId": "elterngeld-richtig-planen"
   }
 ]
