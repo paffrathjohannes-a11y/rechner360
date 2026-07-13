@@ -883,5 +883,33 @@
     "relatedRechner": "elterngeld-rechner",
     "publishDate": "2026-07-06",
     "topicId": "elterngeld-richtig-planen"
+  },
+  {
+    "slug": "prozentrechnen-einkaufen-fallen",
+    "title": "Prozentrechnen im Alltag: 8 Fallen beim Einkaufen",
+    "metaTitle": "Prozentrechnen: 8 Fallen beim Einkaufen im Blick",
+    "metaDescription": "Erfahren Sie, wie Sie beim Einkauf Prozentrechnungs-Fallen meiden. Tipps zur Mehrwertsteuer und Cashback.",
+    "intro": "Prozentrechnen begegnet uns im Alltag oft, gerade beim Einkaufen. Ob Rabatte, Mehrwertsteuer oder Cashback – die richtige Berechnung kann bares Geld sparen. Erfahren Sie, wie Sie häufige Fallen vermeiden und Ihren finanziellen Überblick behalten können.",
+    "sections": [
+      {
+        "title": "Rabatte: Warum 3 × 20 % nicht 60 % sind",
+        "content": "Ein häufiger Irrtum beim Einkaufen betrifft gestaffelte Rabatte. Wenn ein Produkt um 20 % reduziert ist und darauf nochmal ein weiterer 20 %-Rabatt kommt, erwarten viele, dass insgesamt 40 % abgezogen werden. Tatsächlich ergeben 20 % Rabatt auf den bereits reduzierten Preis keinen 40 %-Preisnachlass vom Ursprungspreis. <strong>Beispiel:</strong> Kostet ein Artikel 100 € und der Rabatt beträgt 20 %, zahlt man 80 €. Ein weiterer 20 %-Rabatt auf die 80 € führt zu einem Preis von 64 €, was einem Gesamtrabatt von 36 %, nicht 40 %, entspricht."
+      },
+      {
+        "title": "Mehrwertsteuer richtig herausrechnen",
+        "content": "Beim Kauf von Waren und Dienstleistungen ist es oft notwendig, die enthaltene Mehrwertsteuer zu kennen. Bei einem Brutto-Preis von 119 € mit 19 % Mehrwertsteuer beträgt der Nettoeinkaufspreis 100 €. Um die Mehrwertsteuer herauszurechnen, teilen Sie den Bruttobetrag durch 1,19. Somit sind 119 € inklusive Mehrwertsteuer gleich 100 € netto und der Steueranteil beträgt 19 €. Diese Kenntnisse sind hilfreich, um Angebote besser zu vergleichen, insbesondere bei internationalen Einkäufen."
+      },
+      {
+        "title": "Trinkgeld: Berechnung auf Brutto oder Netto?",
+        "content": "Trinkgeld bereiten vielen Unsicherheiten. Gerade in der Gastronomie stellt sich die Frage, ob Trinkgeld auf den Brutto- oder Nettobetrag berechnet wird. Üblicherweise wird Trinkgeld in Deutschland auf den Bruttobetrag berechnet. Wenn Ihre Rechnung 50 € beträgt und Sie 10 % Trinkgeld geben möchten, zahlen Sie 55 €. Trotz dessen kann es hilfreich sein, die lokale Praxis zu berücksichtigen und bei Unsicherheiten direkt beim Personal nachzufragen."
+      },
+      {
+        "title": "Kreditkarten-Cashback: So profitieren Sie",
+        "content": "Kreditkarten-Cashback-Programme versprechen eine Rückerstattung in Form von Prozenten auf getätigte Ausgaben. Ein gängiges Beispiel ist die Rückzahlung von 2 % auf Einkäufe. Bei einem Ausgabenvolumen von 500 € könnte der Cashback bei 10 € liegen. Um den maximalen Nutzen daraus zu ziehen, sollten Karteninhaber stets die monatlich anfallenden Gebühren und eventuell anfallende Zinssätze abwiegen. Beachten Sie, dass Cashback selten auf Finanzdienstleistungen oder bargeldähnliche Transaktionen gewährt wird."
+      }
+    ],
+    "relatedRechner": "prozentrechner",
+    "publishDate": "2026-07-13",
+    "topicId": "prozent-rabatt-tricks"
   }
 ]
