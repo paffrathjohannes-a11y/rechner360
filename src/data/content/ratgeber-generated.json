@@ -911,5 +911,33 @@
     "relatedRechner": "prozentrechner",
     "publishDate": "2026-07-13",
     "topicId": "prozent-rabatt-tricks"
+  },
+  {
+    "slug": "trennungsunterhalt-2026-hoehe-dauer-ausschluss",
+    "title": "Trennungsunterhalt 2026: Höhe, Dauer und Ausschluss",
+    "metaTitle": "Trennungsunterhalt 2026: Höhe & Dauer",
+    "metaDescription": "Trennungsunterhalt: Infos zur Höhe, Dauer & Ausschlussgründen. Erfahren Sie mehr zur 3/7-Regel & zum Trennungsjahr.",
+    "intro": "Trennungsunterhalt spielt im ersten Jahr nach der Trennung eine wichtige Rolle. Er sichert den wirtschaftlich schwächeren Ehepartner finanziell ab. In diesem Artikel erfahren Sie, wie sich der Anspruch berechnet, welche Fristen gelten und wann der Anspruch verwirkt sein kann.",
+    "sections": [
+      {
+        "title": "Wie berechnet sich der Trennungsunterhalt?",
+        "content": "Der Trennungsunterhalt richtet sich nach der Differenz der Einkommen beider Ehepartner. Häufig wird die 3/7-Regel angewendet. Der unterhaltsberechtigte Partner erhält 3/7 der Einkommensdifferenz. <strong>Beispiel:</strong> Verdient der eine Ehepartner 3.000 € netto und der andere 1.500 €, liegt die Differenz bei 1.500 €. Dem wirtschaftlich schwächeren Partner stehen somit <strong>3/7 von 1.500 €</strong> zu, also <strong>642,86 €</strong> monatlich. Berücksichtigen Sie, dass individuelle Umstände oder weitere unterhaltsrechtliche Verpflichtungen das Ergebnis verändern können. Eine genaue Berechnung ist mit einem Fachanwalt für Familienrecht ratsam."
+      },
+      {
+        "title": "Dauer des Trennungsunterhalts",
+        "content": "Der Anspruch auf Trennungsunterhalt besteht grundsätzlich für die Dauer des Trennungsjahres, also in der Regel zwölf Monate. Das Trennungsjahr beginnt, wenn Ehegatten sich räumlich oder umfassend innerhalb der gemeinsamen Wohnung trennen. Ziel ist es, eine Versöhnung zu erleichtern und die wirtschaftliche Sicherung zu gewährleisten, bevor eine Scheidung rechtskräftig wird. Eine Verlängerung des Anspruchs über das Trennungsjahr hinaus ist grundsätzlich nicht vorgesehen, es sei denn, es bestehen besondere Umstände, die dies rechtfertigen."
+      },
+      {
+        "title": "Wann ist Trennungsunterhalt ausgeschlossen?",
+        "content": "Der Anspruch auf Trennungsunterhalt kann verwirkt werden, wenn bestimmte Bedingungen erfüllt sind. Dies ist der Fall, wenn der Unterhaltsberechtigte in einer wirtschaftlich eigenständigen Lebensgemeinschaft lebt oder eine Eheverfehlung begeht, die als schwerwiegendes Fehlverhalten anzusehen ist. Solche Verfehlungen könnten grobe Straftaten oder eine neue, verfestigte Lebensgemeinschaft sein. Es ist wichtig, diese Punkte genau zu betrachten und gegebenenfalls rechtlichen Rat einzuholen, um die Auswirkungen auf den Unterhalt zu verstehen."
+      },
+      {
+        "title": "Unterschied zum nachehelichen Unterhalt",
+        "content": "Trennungsunterhalt und nachehelicher Unterhalt unterscheiden sich insbesondere in ihrer Dauer und Funktion. Der Trennungsunterhalt endet mit der rechtskräftigen Scheidung, während der nacheheliche Unterhalt, wie der Name schon sagt, nach der Scheidung geleistet wird. Letzterer berücksichtigt zusätzliche Kriterien, wie Kinderbetreuung oder Krankheit. Die Festlegung des nachehelichen Unterhalts ist komplexer und kann stark von individuellen Aspekten abhängen. Eine rechtliche Beratung ist hier besonders empfehlenswert, um die eigenen Ansprüche zu klären und durchzusetzen."
+      }
+    ],
+    "relatedRechner": "unterhalt-rechner",
+    "publishDate": "2026-07-17",
+    "topicId": "trennungsunterhalt-berechnen"
   }
 ]
