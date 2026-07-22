@@ -967,5 +967,37 @@
     "relatedRechner": "tilgungsrechner",
     "publishDate": "2026-07-20",
     "topicId": "anschlussfinanzierung-zeitpunkt"
+  },
+  {
+    "slug": "steuer-rente-buergergeld-2026",
+    "title": "Wichtige Änderungen 2026: Steuern, Rente, Bürgergeld",
+    "metaTitle": "Änderungen 2026: Steuern, Rente, Bürgergeld",
+    "metaDescription": "Erfahren Sie die neuen Steuerfreibeträge, Rentenwerte und Bürgergeld-Regelsätze für 2026. Informieren Sie sich jetzt!",
+    "intro": "Im Jahr 2026 stehen wichtige Anpassungen bei Steuern, Rente und Sozialleistungen an. Der Grundfreibetrag wird auf 12.348 € erhöht, während auch der Kinderfreibetrag, Beitragsbemessungsgrenzen und Bürgergeld-Regelsätze angepasst werden. Diese Änderungen haben bedeutende Auswirkungen auf Ihre Finanzen.",
+    "sections": [
+      {
+        "title": "Grundfreibetrag und Kinderfreibetrag 2026",
+        "content": "Der Grundfreibetrag steigt im Jahr 2026 auf 12.348 €, was eine Erhöhung gegenüber dem Vorjahr darstellt. Dieser Betrag bleibt für alle Steuerzahler in Deutschland steuerfrei. Ebenfalls wurde der Kinderfreibetrag angehoben und beträgt jetzt 8.652 € pro Kind. Diese Anpassungen sorgen dafür, dass ein größerer Teil Ihres Einkommens von der Steuer frei bleibt, was insbesondere Haushalten mit Kindern zugutekommt. Dennoch sollten Sie berücksichtigen, dass Ihr individueller Steuersatz hiervon nicht beeinflusst wird."
+      },
+      {
+        "title": "Änderungen bei der Beitragsbemessungsgrenze",
+        "content": "Auch die Beitragsbemessungsgrenzen in der Krankenversicherung (BBG KV) und Rentenversicherung (BBG RV) werden im Jahr 2026 angepasst. Die BBG KV liegt nun bei 66.600 € jährlich, während die BBG RV auf 87.600 € im Westen und 84.000 € im Osten angesetzt wurde. Beiträge zur Kranken- und Rentenversicherung werden nur bis zu diesen Grenzen erhoben. Verdienen Sie mehr, bleiben diese Einkünfte beitragsfrei. Beachten Sie, dass sich diese Werte regelmäßig ändern, um inflationsbedingte Anpassungen einzubeziehen."
+      },
+      {
+        "title": "Erhöhter Mindestlohn und seine Auswirkungen",
+        "content": "Der gesetzliche Mindestlohn hat sich 2026 auf 13,50 € pro Stunde erhöht. Diese Anhebung soll dazu beitragen, die Kaufkraft gering verdienender Arbeitnehmer zu verbessern. Arbeitnehmer, die bisher zum alten Mindestlohn von 12,50 € gearbeitet haben, profitieren durch eine Einkommenssteigerung. Für Arbeitgeber bedeutet dies eine erhöhte Lohnsumme, was Auswirkungen auf die Kalkulation von Personalkosten haben kann. Die genaue Höhe des Mindestlohns kann je nach Branche und Tarifvertrag variieren."
+      },
+      {
+        "title": "Neue Bürgergeld-Regelsätze",
+        "content": "Ab Januar 2026 steigen die Regelsätze für das Bürgergeld, das das bisherige Hartz-IV-System ersetzt hat. Ein alleinstehender Erwachsener erhält nun 662 € monatlich, was eine Erhöhung um 28 € bedeutet. Paare oder Bedarfsgemeinschaften erhalten pro Person 596 €, statt bisher 565 €. Diese Anpassungen sollen den gestiegenen Lebenshaltungskosten Rechnung tragen. Die Berechnung der individuellen Ansprüche kann kompliziert sein, weshalb eine persönliche Beratung bei der Arbeitsagentur ratsam ist."
+      },
+      {
+        "title": "Beitragserhöhung in der Pflegeversicherung",
+        "content": "Die Beitragssätze zur Pflegeversicherung werden 2026 ebenfalls angepasst. Für kinderlose Arbeitnehmer liegt der Beitragssatz nun bei 3,6 %, während Eltern einen Satz von 3,4 % zahlen. Diese Erhöhung resultiert aus der gestiegenen Nachfrage nach Pflegeleistungen und den damit verbundenen Kosten. Arbeitnehmer und Arbeitgeber teilen sich den Beitrag, wobei der Arbeitgeberanteil konstant bleibt. Für eine exakte Berechnung sollten Sie Ihren monatlichen Bruttoverdienst und den genauen Satz heranziehen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-07-22",
+    "topicId": "neue-werte-2026"
   }
 ]
