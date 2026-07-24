@@ -999,5 +999,37 @@
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-07-22",
     "topicId": "neue-werte-2026"
+  },
+  {
+    "slug": "unterhalt-volljaehrige-kinder-ausbildung-studium",
+    "title": "Unterhalt für volljährige Kinder in Ausbildung 2026",
+    "metaTitle": "Unterhalt für volljährige Kinder 2026",
+    "metaDescription": "Alles über Unterhalt für volljährige Kinder in Ausbildung und Studium 2026. Bedarfssätze und Kindergeld-Anrechnung. Informieren Sie sich jetzt!",
+    "intro": "Mit dem Erreichen der Volljährigkeit ändert sich auch die rechtliche Grundlage für den Unterhalt von Kindern in Ausbildung oder Studium. Die Berechnung wird komplexer, insbesondere durch die Anrechnung des Kindergeldes und die Berücksichtigung von Bedarfssätzen. Zudem entstehen oft zusätzliche Kosten, beispielsweise für eine Studentenwohnung.",
+    "sections": [
+      {
+        "title": "Unterhaltspflicht und Bedarfssätze",
+        "content": "Eltern sind verpflichtet, ihren volljährigen Kindern während der ersten Ausbildung Unterhalt zu gewähren. Nach der Düsseldorfer Tabelle beträgt der Bedarfssatz für Volljährige, die nicht mehr bei den Eltern wohnen, aktuell 930 € monatlich. Dieser Betrag deckt Wohn- und Lebenshaltungskosten ab. Es ist jedoch wichtig zu beachten, dass dieser Bedarfssatz unter bestimmten Voraussetzungen variieren kann, zum Beispiel bei besonders hohen Wohnkosten. Eine umfassende Beratung durch einen Fachmann kann hier sinnvoll sein."
+      },
+      {
+        "title": "Kindergeld-Anrechnung bei Volljährigen",
+        "content": "Das Kindergeld beträgt im Jahr 2026 weiterhin 250 € monatlich und wird voll auf den Unterhaltsbedarf angerechnet. Lebt das Kind nicht mehr bei den Eltern, reduzieren sich die 930 € Bedarf um das Kindergeld, sodass noch 680 € durch die Eltern aufzubringen sind. Dieser Betrag kann dann im Verhältnis ihrer Einkommen unter den Eltern aufgeteilt werden."
+      },
+      {
+        "title": "Besondere Kosten von Studentenwohnungen",
+        "content": "Die durchschnittlichen Mietkosten für eine Studentenwohnung oder ein WG-Zimmer in Deutschland betragen etwa 400 € bis 500 € pro Monat. Sollte der Mietanteil über der Hälfte des Gesamtbedarfs von 930 € liegen, empfiehlt es sich, die individuelle Berechnung des Unterhalts zu überprüfen. Regionale Unterschiede können außerdem eine Rolle spielen, weshalb eine genaue Kostenanalyse ratsam ist."
+      },
+      {
+        "title": "Zusätzliche Einnahmen und deren Einfluss auf den Unterhalt",
+        "content": "Verdient das volljährige Kind während des Studiums oder der Ausbildung eigenes Einkommen, kann dies den Unterhaltsanspruch verringern. Eigene Einkünfte über einem Freibetrag von 100 € monatlich reduzieren den Bedarf. Wenn der Nebenjob beispielsweise 500 € einbringt, werden 400 € auf den Unterhalt angerechnet, was den Bedarf entsprechend reduziert."
+      },
+      {
+        "title": "Tipps zur Optimierung der finanziellen Unterstützung",
+        "content": "Eltern sollten regelmäßig die Höhe des Unterhaltsbetrags überprüfen, insbesondere bei Änderungen in der Lebenssituation des Kindes, etwa bei einem Umzug. Auch der Wechsel von einer betrieblichen Ausbildung zu einem Studium kann Einfluss auf die Bedarfsrechnung haben. Individuelle Beratung ist ratsam, um alle Faktoren zu berücksichtigen und den fairen Beitrag zu ermitteln."
+      }
+    ],
+    "relatedRechner": "unterhalt-rechner",
+    "publishDate": "2026-07-24",
+    "topicId": "unterhalt-volljaehrige-kinder"
   }
 ]
