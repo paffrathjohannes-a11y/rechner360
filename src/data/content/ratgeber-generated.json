@@ -1031,5 +1031,37 @@
     "relatedRechner": "unterhalt-rechner",
     "publishDate": "2026-07-24",
     "topicId": "unterhalt-volljaehrige-kinder"
+  },
+  {
+    "slug": "rueckkehr-pkv-gkv-moeglich-2026",
+    "title": "Von PKV zurück in GKV – Geht das 2026 noch?",
+    "metaTitle": "Rückkehr zur GKV 2026: Möglichkeiten und Voraussetzungen",
+    "metaDescription": "Erfahren Sie, wie Sie 2026 von der PKV zur GKV zurückkehren können. Nutzen Sie rechtliche und praxisnahe Hinweise für eine erfolgreiche Rückkehr.",
+    "intro": "Der Wechsel von der privaten Krankenversicherung (PKV) zurück zur gesetzlichen Krankenversicherung (GKV) ist oft mit Hürden verbunden. Besonders wichtig sind dabei die Altersgrenze von 55 Jahren und die Pflichtversicherungsgrenze von 77.400 € jährlich. Im Folgenden erfahren Sie, wie eine Rückkehr 2026 gelingen kann und welche Möglichkeiten wirklich effektiv sind.",
+    "sections": [
+      {
+        "title": "Bedeutung der Pflichtversicherungsgrenze",
+        "content": "Die Pflichtversicherungsgrenze spielt eine zentrale Rolle bei der Rückkehr in die GKV. Sie liegt 2026 bei einem jährlichen Bruttoeinkommen von 77.400 €. Wer diese Grenze nicht überschreitet, hat die Möglichkeit, wieder in die gesetzliche Kasse zu wechseln. Eine regelmäßige Überprüfung des aktuellen Einkommens ist ratsam, um verlässliche Entscheidungen treffen zu können. Arbeitgeber können dabei unterstützen, indem sie auf eine entsprechende Gehaltsstruktur achten."
+      },
+      {
+        "title": "Altersgrenze von 55 Jahren",
+        "content": "Der Wechsel zurück in die GKV ist gemäß §6 des Sozialgesetzbuches für Personen über 55 Jahren schwierig. Wer dieses Alter noch nicht erreicht hat und unterhalb der Beitragsbemessungsgrenze verdient, kann durch eine Rückkehr in eine sozialversicherungspflichtige Anstellung oder eine Reduzierung der Arbeitszeit in die GKV zurückkehren. Es ist wichtig, frühzeitig zu planen, um die Altersgrenze nicht zu überschreiten."
+      },
+      {
+        "title": "Rückkehrtrick: Teilzeitbeschäftigung",
+        "content": "Für Arbeitnehmer unter 55 Jahren kann das Modell Teilzeitbeschäftigung eine effektive Strategie sein, um die Einkommensgrenze von 77.400 € zu unterschreiten und damit die Rückkehr in die GKV zu ermöglichen. Dabei sollte geprüft werden, ob durch das reduzierte Einkommen die Versicherungspflicht eintritt. Auch hier ist eine umfassende Beratung ratsam, um finanzielle und berufliche Aspekte ausreichend zu berücksichtigen."
+      },
+      {
+        "title": "Möglichkeit über Arbeitslosengeld",
+        "content": "Der Bezug von Arbeitslosengeld I kann ebenfalls einen Wechsel in die GKV ermöglichen. Die Versicherungspflicht tritt automatisch ein, wenn Arbeitslosengeld beantragt wird. Dies ist eine gangbare Lösung für Personen, die eine berufliche Neuorientierung planen. Allerdings sollte dieser Schritt wohlüberlegt sein, da er soziale Sicherungsleistungen zweckentfremden könnte. Eine individuelle Beratung kann hierbei helfen."
+      },
+      {
+        "title": "Rückkehr über Familienversicherung",
+        "content": "Eine weitere Möglichkeit zur Rückkehr in die GKV ist die Familienversicherung, etwa über den Ehepartner. Diese Option steht jedoch nur zur Verfügung, wenn das eigene Einkommen unterhalb der Minijob-Grenze von 520 € liegt. Diese Variante ist für jüngere unter 55 Jahren in Betracht zu ziehen und erfordert ebenfalls eine gründliche Überprüfung der finanziellen Gesamtverhältnisse."
+      }
+    ],
+    "relatedRechner": "pkv-rechner",
+    "publishDate": "2026-07-31",
+    "topicId": "pkv-gkv-wechsel-rueckweg"
   }
 ]
