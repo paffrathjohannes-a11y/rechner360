@@ -1063,5 +1063,37 @@
     "relatedRechner": "pkv-rechner",
     "publishDate": "2026-07-31",
     "topicId": "pkv-gkv-wechsel-rueckweg"
+  },
+  {
+    "slug": "werbungskosten-pauschale-ausreizen",
+    "title": "Werbungskostenpauschale ausreizen: 12 absetzbare Posten",
+    "metaTitle": "Werbungskostenpauschale 2026 optimal ausreizen",
+    "metaDescription": "Nutzen Sie 2026 Ihre Werbungskostenpauschale voll aus. Erfahren Sie hier, welche Posten Sie absetzen können.",
+    "intro": "Im Steuerjahr 2026 gilt eine Werbungskostenpauschale von 1.230 € für Arbeitnehmer. Kosten darüber hinaus können Ihre Steuerlast mindern, wenn sie korrekt abgesetzt werden. Besonders spannend sind hier Arbeitsmittel, Fachliteratur und beruflich bedingte Umzüge.",
+    "sections": [
+      {
+        "title": "Arbeiten mit der Werbungskostenpauschale",
+        "content": "Für viele Arbeitnehmer ist der Pauschbetrag von 1.230 €, der laut §9a EStG automatisch berücksichtigt wird, oft nicht ausreichend, um alle berufsbedingten Aufwendungen abzudecken. Je nach beruflicher Tätigkeit können die tatsächlich angefallenen Kosten weit darüber hinausgehen. Das Ausschöpfen dieser Möglichkeiten kann zu einer spürbaren Steuerersparnis führen, indem echte Kosten nachgewiesen werden."
+      },
+      {
+        "title": "Arbeitsmittel absetzen",
+        "content": "Arbeitsmittel sind typische Kostenpunkte, die über die Pauschale hinaus geltend gemacht werden können. Dazu zählen Büromaterialien, Computer oder spezielle Software, die für die berufliche Tätigkeit nötig sind. Wenn ein Laptop zum Preis von 1.500 € angeschafft wird und dieser beruflich genutzt wird, können die Kosten anteilig über eine Abschreibung abgesetzt werden. Prüfen Sie jährlich, welche Anschaffungen Sie steuerlich geltend machen können."
+      },
+      {
+        "title": "Fachliteratur richtig geltend machen",
+        "content": "Fachliteratur ist ein weiterer Punkt, der oft übersehen wird. Der Kauf von Büchern oder Fachzeitschriften kann in voller Höhe abgesetzt werden, wenn sie beruflich notwendig sind. Nehmen wir an, Sie erwerben Fachliteratur im Wert von 300 €. Diese Summe könnte, zusammen mit anderen Werbungskosten, zu einer deutlichen Erhöhung des steuerlich relevanten Betrags führen und sollte daher genau dokumentiert werden."
+      },
+      {
+        "title": "Fortbildungskosten als Werbungskosten",
+        "content": "Kosten für berufliche Fortbildungen, einschließlich Seminaren und Kursen, die zur Verbesserung Ihrer beruflichen Qualifikation beitragen, sind ebenfalls absetzbar. Beispielsweise kosten Weiterbildungen 800 €, dann können diese, zusammen mit Reisekosten zu den Veranstaltungen, den steuerlich relevanten Betrag erheblich erhöhen. Solche Kosten sind sowohl für den Arbeitnehmer als auch für Selbstständige von Interesse."
+      },
+      {
+        "title": "Doppelte Haushaltsführung und Umzugskosten",
+        "content": "Beruflich bedingte Umzüge oder doppelte Haushaltsführung können erhebliche Beträge als Werbungskosten ausmachen. Umzüge, die beruflich veranlasst sind, können mit einer Pauschale und tatsächlich angefallenen Kosten abgesetzt werden. Angenommen, Ihr Umzug kostet 4.000 €. Nach Abzug der Pauschale können Sie die Differenz steuerlich geltend machen, was Ihre Steuerlast deutlich verringern kann."
+      }
+    ],
+    "relatedRechner": "einkommensteuer-rechner",
+    "publishDate": "2026-08-03",
+    "topicId": "werbungskosten-optimieren"
   }
 ]
