@@ -1127,5 +1127,37 @@
     "relatedRechner": "tilgungsrechner",
     "publishDate": "2026-08-05",
     "topicId": "bauzinsen-prognose-2026"
+  },
+  {
+    "slug": "bu-rente-hoehe-absicherung",
+    "title": "BU-Rente 2026: Passende Höhe der Absicherung",
+    "metaTitle": "Optimale BU-Rentenhöhe 2026 bestimmen",
+    "metaDescription": "Finden Sie die ideale BU-Rentenhöhe: 75–80 % vom Netto, inkl. Inflationsdynamik. Individuelle Beratung empfohlen.",
+    "intro": "Eine Berufsunfähigkeitsversicherung (BU) ist entscheidend, um den Lebensstandard im Falle einer Berufsunfähigkeit zu sichern. Doch wie hoch sollte die Absicherung tatsächlich sein? Viele Experten empfehlen eine Deckung von 75 bis 80 % Ihres Nettogehalts. Der folgende Artikel beleuchtet wichtige Aspekte der BU-Versicherung für 2026, einschließlich der Inflationsdynamik und anderer wesentlicher Faktoren.",
+    "sections": [
+      {
+        "title": "Warum 75–80 % vom Netto?",
+        "content": "Der häufig genannte Richtwert von 75 bis 80 % des Nettogehalts als BU-Rente basiert auf der Annahme, dass diese Summe genügt, um Ihre Fixkosten sowie einen angemessenen Lebensstandard abzudecken. Nehmen wir an, Ihr monatliches Netto beträgt 3.000 €. Dann läge die empfohlene BU-Rente zwischen 2.250 € und 2.400 €. Beachten Sie, dass die gesetzliche Erwerbsminderungsrente, sofern verfügbar, in diesen Betrag eingerechnet werden sollte, um eine Doppelabsicherung zu vermeiden."
+      },
+      {
+        "title": "Die Rolle der Inflationsdynamik",
+        "content": "Bei einer langfristigen Versicherung wie der BU ist die Berücksichtigung der Inflation entscheidend. Eine Dynamikoption in Ihrem Vertrag sorgt dafür, dass Ihre Rentenzahlungen im Zeitverlauf ansteigen. Angesichts einer durchschnittlichen Inflation von 2 % pro Jahr kann eine ursprünglich ausreichende Rente ohne Dynamik in 15 Jahren erheblich an Kaufkraft verlieren. Daher ist es ratsam, eine jährliche Anpassung von 3 % zu integrieren, um langfristig abgesichert zu bleiben."
+      },
+      {
+        "title": "Endalter 65 oder 67?",
+        "content": "Das Endalter Ihrer BU-Versicherung bestimmt, bis wann Leistungen gezahlt werden können. Die meisten Policen sehen hier 65 oder 67 Jahre vor, da dies das typisierte Renteneintrittsalter darstellt. Entscheidend ist, dass das Endalter Ihrem realistischen Ruhestand entspricht, um Lücken zu vermeiden. Wählen Sie beispielsweise das Endalter 67, reduziert sich die Gefahr, mit einer Rentenlücke konfrontiert zu werden, sollten Sie bis zum regulären Rentenbeginn berufsunfähig werden."
+      },
+      {
+        "title": "Verzicht auf abstrakte Verweisung",
+        "content": "Ein wesentlicher Vertragspunkt ist der Verzicht auf die sogenannte abstrakte Verweisung. Diese ermöglicht dem Versicherer, Sie auf einen anderen Beruf zu verweisen, den Sie theoretisch ausüben könnten. Ein Verzicht auf diese Klausel stellt sicher, dass Sie Leistungen erhalten, wenn Sie Ihren derzeitigen Beruf nicht mehr ausüben können, unabhängig von anderen theoretisch möglichen Tätigkeiten."
+      },
+      {
+        "title": "Konkrete Beiträge zur BU-Versicherung",
+        "content": "Die Beitragshöhe für eine BU-Versicherung hängt von verschiedenen Faktoren ab, wie Beruf, Alter und Gesundheitszustand. Angenommen, eine 30-jährige Person mit einem Bürojob zahlt einen monatlichen Beitrag von 80 € für eine BU-Rente von 2.000 €. Dabei profitieren jüngere und gesunde Antragsteller von günstigeren Konditionen. Eine individuelle Beratung ist jedoch unerlässlich, um die für Sie optimalen Konditionen zu ermitteln."
+      }
+    ],
+    "relatedRechner": "bu-rechner",
+    "publishDate": "2026-08-07",
+    "topicId": "bu-absicherungshoehe"
   }
 ]
