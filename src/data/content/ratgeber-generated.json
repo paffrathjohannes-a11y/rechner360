@@ -1159,5 +1159,33 @@
     "relatedRechner": "bu-rechner",
     "publishDate": "2026-08-07",
     "topicId": "bu-absicherungshoehe"
+  },
+  {
+    "slug": "haftpflicht-versicherungen-pflicht",
+    "title": "Welche Haftpflichtversicherungen sind Pflicht?",
+    "metaTitle": "Haftpflicht: Diese Versicherungen sind Pflicht",
+    "metaDescription": "Erfahren Sie, welche Haftpflichtversicherungen gesetzlich vorgeschrieben sind und welche essentiell für Ihren Schutz sind.",
+    "intro": "Haftpflichtversicherungen schützen vor den finanziellen Folgen von Schäden, die Sie anderen zufügen. Während einige Haftpflichtversicherungen gesetzlich vorgeschrieben sind, sind andere zwar nicht verpflichtend, jedoch äußerst empfehlenswert. In diesem Artikel erfahren Sie, welche Versicherungen wirklich Pflicht sind und welche für Ihren umfassenden Schutz entscheidend sein können.",
+    "sections": [
+      {
+        "title": "Kfz-Haftpflichtversicherung: Eine gesetzliche Pflicht",
+        "content": "Die Kfz-Haftpflichtversicherung ist in Deutschland für alle Fahrzeughalter Pflicht (§ Pflichtversicherungsgesetz). Diese Versicherung deckt Personen-, Sach- und Vermögensschäden ab, die Dritte durch das Fahrzeug des Versicherten erleiden. Ohne diese Versicherung darf kein Auto auf deutschen Straßen bewegt werden. Die Deckungssumme liegt gesetzlich vorgeschrieben bei mindestens 7,5 Millionen € für Personenschäden, 1,22 Millionen € für Sachschäden und 50.000 € für reine Vermögensschäden. Da diese Summen bei schwerwiegenden Unfällen schnell überschritten werden können, empfehlen Versicherer oft höhere Deckungssummen."
+      },
+      {
+        "title": "Privathaftpflicht: Keine Pflicht, aber unverzichtbar",
+        "content": "Die Privathaftpflichtversicherung ist zwar nicht gesetzlich vorgeschrieben, aber dennoch essenziell. Sie schützt den Versicherungsnehmer und dessen Familie bei Personen- und Sachschäden, die unbeabsichtigt Dritten zugefügt werden. Ohne Versicherung kann der Versicherte in den Ruin getrieben werden, wenn zum Beispiel ein versehentlich verursachter Schaden bei einer dritten Person zu hohen Heilbehandlungskosten führt. Eine Privathaftpflicht sichert gegen solche Risiken ab und kostet meist zwischen 50 und 100 € pro Jahr, abhängig von den individuellen Konditionen und dem Versicherer."
+      },
+      {
+        "title": "Berufshaftpflicht: Pflicht für bestimmte Berufe",
+        "content": "Für einige Berufsgruppen ist eine Berufshaftpflichtversicherung gesetzlich vorgeschrieben. Dazu gehören beispielsweise Ärzte, Architekten und Rechtsanwälte. Diese Versicherungen decken beruflich verursachte Personen- und Sachschäden sowie Vermögensschäden ab, die aus beruflicher Tätigkeit resultieren. Ein Architekt, dessen Planung zu einem fehlerhaften Bau führt, kann durch eine Berufshaftpflicht vor existenzbedrohenden Schadenersatzforderungen geschützt werden. Die Deckungssummen sind je nach Berufsgruppe unterschiedlich geregelt und können Millionenbeträge umfassen."
+      },
+      {
+        "title": "Pflichtversicherungen vs. freiwillige Absicherung",
+        "content": "Während die Kfz- und Berufshaftpflicht für bestimmte Personengruppen verpflichtend sind, bleibt die Entscheidung für eine Privathaftpflicht eine individuelle. Dennoch zeigt sich in der Praxis, dass die Privathaftpflichtversicherung oft als „unverzichtbar“ betrachtet wird, da sie vor alltäglichen Risiken schützt, die schnell zu hohen Kosten führen könnten. Entsprechende Versicherungspolicen variieren stark in Preis und Leistung, was einen Vergleich sinnvoll macht. Nicht zuletzt sind bei allen Haftpflichtversicherungen regelmäßig Prüfung und Anpassung der Deckungssummen ratsam, um sicherzustellen, dass der Versicherungsschutz ausreichend ist."
+      }
+    ],
+    "relatedRechner": "pkv-rechner",
+    "publishDate": "2026-08-12",
+    "topicId": "haftpflicht-pflicht"
   }
 ]
