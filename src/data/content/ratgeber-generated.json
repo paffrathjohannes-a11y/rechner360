@@ -1187,5 +1187,37 @@
     "relatedRechner": "pkv-rechner",
     "publishDate": "2026-08-12",
     "topicId": "haftpflicht-pflicht"
+  },
+  {
+    "slug": "bmi-nach-alter-aeltere-menschen-mehr-wiegen",
+    "title": "BMI im Alter: Warum Ältere mehr wiegen dürfen",
+    "metaTitle": "Älter werden: BMI und Gewichtsanpassungen",
+    "metaDescription": "Erfahren Sie, warum für über 70-Jährige ein höherer BMI gesund sein kann. Nutzen Sie unseren BMI-Rechner!",
+    "intro": "Der Body-Mass-Index (BMI) dient als Standard zur Bewertung des Körpergewichts. Doch besonders im Alter kann ein höherer BMI gesundheitlich vorteilhaft sein. Dieser Artikel erklärt, warum Menschen über 70 Jahren ein BMI von 24 bis 29 als gesund gilt und welche Rolle der Körperfettanteil und die Muskelmasse spielen.",
+    "sections": [
+      {
+        "title": "Warum ändert sich der ideale BMI im Alter?",
+        "content": "Traditionell liegt der gesunde BMI zwischen 18,5 und 24,9. Doch bei älteren Menschen über 70 Jahren gelten etwas höhere Werte als gesund. Mit dem Alter verändern sich die Körperzusammensetzung und die Muskelmasse nimmt ab, während der Fettanteil steigt. Ein BMI von 24 bis 29 kann in dieser Altersgruppe gesundheitliche Vorteile bieten, da er Reserven für Krankheits- oder Erholungsphasen bietet."
+      },
+      {
+        "title": "Körperfettanteil als bessere Messgröße",
+        "content": "Der Körperfettanteil gibt ein präziseres Bild über die Gesundheit als der BMI allein. Während jüngere Erwachsene einen Körperfettanteil von 10-20 % bei Männern und 20-30 % bei Frauen anstreben sollten, können ältere Menschen höhere Werte aufweisen. Besonders wichtig ist die Unterscheidung zwischen subkutanem und viszeralem Fett, denn viszerales Fett kann das Risiko für chronische Krankheiten erhöhen."
+      },
+      {
+        "title": "Beispielrechnung: Ab welchem Gewicht ist ein BMI von 24 für Ältere gesund?",
+        "content": "Für eine Person mit einer Körpergröße von 1,70 m resultiert ein BMI von 24 in einem Gewicht von 69,4 kg. Ein BMI von 29 würde 83,6 kg entsprechen. Aufgrund der veränderten Gesundheitsanforderungen im Alter kann dieser Wert als Indikator für ein noch gesundes Gewicht betrachtet werden, insbesondere bei guter Muskelmasse."
+      },
+      {
+        "title": "Muskelmasse und ihre Bedeutung",
+        "content": "Mit zunehmendem Alter ist der Erhalt der Muskelmasse entscheidend. Muskeln verbrennen mehr Kalorien als Fett, selbst im Ruhezustand. Darüber hinaus bieten sie Stabilität, reduzieren das Sturzrisiko und fördern allgemeine Mobilität. Regelmäßige körperliche Aktivität, einschließlich Krafttraining, ist daher besonders im Alter wichtig, um die Muskelmasse zu erhalten oder sogar zu steigern."
+      },
+      {
+        "title": "Praktische Tipps zur Gewichtsanpassung im Alter",
+        "content": "Ältere Menschen sollten ihr Gewicht regelmäßig überprüfen und auf eine ausgewogene Ernährung achten, die reich an Proteinen und Ballaststoffen ist. Eine individuelle Beratung durch Ernährungsberater kann helfen, einen gesunden Ernährungsplan zu erstellen. Körperliche Aktivität, angepasst an die Fähigkeiten, unterstützt dabei wesentlich den Erhalt eines gesunden Gewichts."
+      }
+    ],
+    "relatedRechner": "bmi-rechner",
+    "publishDate": "2026-08-14",
+    "topicId": "bmi-alter-gesundheit"
   }
 ]
