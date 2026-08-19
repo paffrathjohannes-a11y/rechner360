@@ -1247,5 +1247,37 @@
     "relatedRechner": "gehaltsrechner",
     "publishDate": "2026-08-17",
     "topicId": "gehaltsverhandlung-argumente"
+  },
+  {
+    "slug": "steuerfreie-gehaltsextras",
+    "title": "Steuerfreie Gehaltsextras 2026: Mehr Netto vom Brutto",
+    "metaTitle": "Steuerfreie Gehaltsextras 2026",
+    "metaDescription": "Entdecken Sie 12 steuerfreie Gehaltsextras 2026. Maximieren Sie Ihr Netto mit Jobticket, Essensgutschein & Co.",
+    "intro": "Gehaltsextras sind eine attraktive Möglichkeit, das Netto-Einkommen zu steigern, ohne die Steuerlast zu erhöhen. Dabei können bestimmte Zusatzleistungen komplett steuerfrei sein. Dieser Artikel erläutert, wie Sie von Jobticket, Essensgutschein und weiteren zwölf steuerfreien Gehaltsextras profitieren können.",
+    "sections": [
+      {
+        "title": "Jobticket: Umweltfreundlich und steuerfrei",
+        "content": "Das Jobticket ist eine der beliebtesten steuerfreien Gehaltsextras. Arbeitgeber können ihren Arbeitnehmern ein Jobticket zur Verfügung stellen, welches für öffentliche Verkehrsmittel gilt. Dieses Ticket ist vollständig steuerfrei und bietet den Arbeitnehmern eine kostengünstige und umweltfreundliche Möglichkeit, zur Arbeit zu kommen. Im Jahr 2026 fallen hierfür keine Steuern an, sofern es direkt vom Arbeitgeber bereitgestellt wird."
+      },
+      {
+        "title": "Essensgutschein: Täglich 7,23 € steuerfrei",
+        "content": "Essensgutscheine sind eine einfache Methode, die Verpflegungskosten zu senken. Arbeitgeber können ihren Mitarbeitern täglich einen Essenszuschuss von 7,23 € gewähren, der steuerfrei ist. Bei 20 Arbeitstagen im Monat ergibt sich ein Zusatznutzen von 144,60 €, der weder Steuern noch Sozialabgaben unterliegt. Durch die Nutzung dieser Gehaltsextra, können Arbeitnehmer also effektiv ihr Netto erhöhen, ohne die Lohnsteuer zu belasten."
+      },
+      {
+        "title": "Kita-Zuschuss: Entlastung für Familien",
+        "content": "Für Familien mit Kindern sind Kita-Zuschüsse eine wertvolle Unterstützung. Arbeitgeber können ihren Angestellten steuerfreie Zuschüsse zu den Kosten für die Betreuung im Kindergarten oder in der Tagespflege gewähren. Diese Zuschüsse sind nicht auf einen festen Betrag begrenzt, sondern orientieren sich an den tatsächlichen Betreuungskosten. Dies reduziert die finanzielle Belastung für Familien erheblich."
+      },
+      {
+        "title": "Betriebliche Altersvorsorge: Langfristig denken",
+        "content": "Die betriebliche Altersvorsorge (BAV) bietet Arbeitnehmern nicht nur eine Möglichkeit für den Ruhestand vorzusorgen, sondern ist auch steuerlich begünstigt. Beiträge zur BAV sind bis zu 584 € im Monat steuerfrei (§3 Nr. 63 EStG). Dies hat den Vorteil, dass Arbeitnehmer weniger Steuern zahlen und gleichzeitig für ihre Altersvorsorge sparen. Eine BAV ist somit eine zweifach wirksame Gehaltserhöhung."
+      },
+      {
+        "title": "Sachbezug: 50 € monatlich steuerfrei",
+        "content": "Ein Sachbezug in Höhe von 50 € monatlich kann steuerfrei gewährt werden und in Form von Gutscheinen oder Prepaid-Karten hinzugefügt werden. Diese steuerfreie Gehaltserhöhung kann flexibel genutzt werden und bietet den Arbeitnehmern die Möglichkeit, jeden Monat einen kleinen Betrag von ihrem Arbeitgeber zusätzlich zu erhalten, ohne dass Steuern oder Sozialabgaben anfallen."
+      }
+    ],
+    "relatedRechner": "gehaltsrechner",
+    "publishDate": "2026-08-19",
+    "topicId": "steuerfreie-benefits"
   }
 ]
