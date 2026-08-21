@@ -1279,5 +1279,33 @@
     "relatedRechner": "gehaltsrechner",
     "publishDate": "2026-08-19",
     "topicId": "steuerfreie-benefits"
+  },
+  {
+    "slug": "pfaendungsschutzkonto-p-konto-grundfreibetrag",
+    "title": "Pfändungsschutzkonto: Alles zum Grundfreibetrag 2026",
+    "metaTitle": "Pfändungsschutzkonto: Grundfreibetrag erkennen",
+    "metaDescription": "Erfahren Sie alles über den 1.560 € Grundfreibetrag und die Erhöhung bei Unterhaltspflichten auf dem P-Konto.",
+    "intro": "Das Pfändungsschutzkonto (P-Konto) bietet einen wichtigen Schutz gegen Kontopfändungen. Ab 2026 beträgt der monatliche Grundfreibetrag 1.560 €, um laufende Lebenshaltungskosten zu sichern. Erfahren Sie mehr dazu, wie sich dieser Betrag bei Unterhaltspflichten erhöhen kann und wie Sie ein P-Konto einrichten.",
+    "sections": [
+      {
+        "title": "Grundfreibetrag auf dem P-Konto",
+        "content": "Ein Pfändungsschutzkonto (P-Konto) ermöglicht es Ihnen, auch bei einer Kontopfändung über einen festen Freibetrag zu verfügen. Seit 2026 beträgt dieser Grundfreibetrag 1.560 € pro Monat, basierend auf §850k ZPO. Der Freibetrag stellt sicher, dass Mittel zur Deckung von Grundbedürfnissen wie Lebensmitteln und Miete verfügbar bleiben. Es ist wichtig zu beachten, dass dieser Betrag regelmäßig angepasst werden kann, daher sollten Sie stets die aktuellen Zahlen überprüfen."
+      },
+      {
+        "title": "Erhöhung des Grundfreibetrags",
+        "content": "Unterhaltspflichten können den Grundfreibetrag auf einem P-Konto erhöhen. Für jede unterhaltsberechtigte Person kommt ein zusätzlicher Freibetrag von derzeit etwa 520 € hinzu. Beispielsweise erhöht sich der monatliche Freibetrag für eine Person mit zwei Unterhaltspflichten auf insgesamt 2.600 € (1.560 € + 2 x 520 €). Dies stellt sicher, dass auch bei zusätzlichen finanziellen Verpflichtungen ein gewisser Schutz vorhanden ist."
+      },
+      {
+        "title": "Schritte zur Beantragung eines P-Kontos",
+        "content": "Ein P-Konto kann bei der eigenen Bank beantragt werden. Umwandlung eines bestehenden Girokontos ist in der Regel unkompliziert und kostet in der Regel nichts. Die Bank ist gesetzlich verpflichtet, innerhalb von vier Geschäftstagen das Konto umzuwandeln und den Pfändungsschutz zu gewähren. Achten Sie darauf, Ihrer Bank frühzeitig eine Bescheinigung über etwaige Unterhaltspflichten vorzulegen, um Anspruch auf einen erhöhten Freibetrag geltend zu machen."
+      },
+      {
+        "title": "Erforderliche Bescheinigungen",
+        "content": "Für die Berücksichtigung erhöhter Freibeträge wegen Unterhaltspflichten ist eine Bescheinigung erforderlich. Diese kann von einer anerkannten Schuldnerberatungsstelle, dem Arbeitgeber oder dem zuständigen Sozialleistungsträger ausgestellt werden. Um Verzögerungen zu vermeiden, sollten Sie diese Bescheinigungen rechtzeitig beschaffen und bei Ihrer Bank einreichen. Die korrekte und vollständige Vorlage dieser Dokumente ist entscheidend, um von den vollen Freibeträgen zu profitieren."
+      }
+    ],
+    "relatedRechner": "pfaendungsrechner",
+    "publishDate": "2026-08-21",
+    "topicId": "pfaendung-eigenes-konto"
   }
 ]
