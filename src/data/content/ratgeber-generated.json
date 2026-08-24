@@ -1307,5 +1307,33 @@
     "relatedRechner": "pfaendungsrechner",
     "publishDate": "2026-08-21",
     "topicId": "pfaendung-eigenes-konto"
+  },
+  {
+    "slug": "wohngeld-2026-neue-reform",
+    "title": "Wohngeld 2026: Einkommensgrenzen und Antragsverfahren",
+    "metaTitle": "Wohngeld 2026: Reform und Einkommensgrenzen",
+    "metaDescription": "Erfahren Sie, wer 2026 Wohngeld erhält: Einkommensgrenzen, Mietstufen und Heizkostenkomponente. Jetzt informieren!",
+    "intro": "Das Wohngeld wurde 2026 umfassend reformiert, um mehr Haushalte zu entlasten. Wesentliche Änderungen betreffen die Einkommensgrenzen, Miet-Höchstbeträge nach Mietstufen und die Einführung einer Heizkostenkomponente. Informieren Sie sich über das Antragsverfahren und die neuen Berechnungsgrundlagen.",
+    "sections": [
+      {
+        "title": "Einkommensgrenzen für Wohngeld 2026",
+        "content": "Die Einkommensgrenzen für das Wohngeld wurden angehoben, um der allgemeinen Einkommensentwicklung Rechnung zu tragen. Für einen Ein-Personen-Haushalt liegt die Einkommensgrenze 2026 bei etwa 1.600 € netto monatlich. Bei Zwei-Personen-Haushalten steigt die Grenze auf ca. 2.200 €. Diese Werte variieren je nach Region und Datum der letzten Anpassung. Es ist wichtig, dass alle Einkünfte, einschließlich Kindergeld und Renten, berücksichtigt werden, um Anspruch auf Wohngeld zu prüfen. Eine genaue Überprüfung der individuellen Situation ist daher essenziell."
+      },
+      {
+        "title": "Miet-Höchstbeträge nach Mietstufen",
+        "content": "Die Mietstufen sind ein zentraler Bestandteil des Wohngeldes, da sie die maximal förderfähige Miete bestimmen. Diese Mieten variieren je nach Region und Mietstufe. Für einen Ein-Personen-Haushalt können Mietkosten in einer Region mit Mietstufe 1 bis 430 € förderfähig sein, während in einer großen Stadt mit Mietstufe 6 bis zu 1.000 € akzeptiert werden. Daher ist es wichtig, die lokale Mietstufe zu kennen, um den maximalen Wohngeldanspruch realistisch zu ermitteln."
+      },
+      {
+        "title": "Heizkostenkomponente neu eingeführt",
+        "content": "Eine Neuerung der Reform 2026 ist die Einführung einer Heizkostenkomponente. Diese unterstützt Haushalte bei steigenden Energiekosten. Je nach Haushaltgröße und regionalen Klimabedingungen kann diese zusätzliche Unterstützung betragen. Beispielsweise könnte ein Ein-Personen-Haushalt in einer kühleren Region bis zu 80 € monatlich zusätzlich erhalten. Diese Komponente zielt darauf ab, die Belastung durch Heizkosten zu mindern und ist eine wesentliche Unterstützung für einkommensschwache Haushalte."
+      },
+      {
+        "title": "Antragsverfahren für Wohngeld",
+        "content": "Das Antragsverfahren für Wohngeld bleibt weitgehend unverändert. Der Antrag ist schriftlich bei der Wohngeldbehörde der zuständigen Gemeinde zu stellen. Benötigt werden Einkommensnachweise wie Gehaltsabrechnungen, ein Mietvertrag und Nachweise über Nebenkosten. Die Bearbeitungszeit kann je nach Behörde unterschiedlich sein, oft jedoch mehrere Wochen dauern. Eine rechtzeitige Antragstellung ist ratsam, um finanzielle Engpässe zu vermeiden. Bei Unsicherheit kann eine Vorprüfung des Anspruchs hilfreich sein."
+      }
+    ],
+    "relatedRechner": "wohngeld-rechner",
+    "publishDate": "2026-08-24",
+    "topicId": "wohngeld-2026-anspruch"
   }
 ]
