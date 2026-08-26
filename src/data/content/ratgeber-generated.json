@@ -1335,5 +1335,37 @@
     "relatedRechner": "wohngeld-rechner",
     "publishDate": "2026-08-24",
     "topicId": "wohngeld-2026-anspruch"
+  },
+  {
+    "slug": "weihnachtsgeld-versteuern-2026-netto",
+    "title": "Weihnachtsgeld 2026 versteuern — Was bleibt netto?",
+    "metaTitle": "Weihnachtsgeld 2026: Netto nach Steuern",
+    "metaDescription": "Erfahren Sie, wie viel vom Weihnachtsgeld 2026 netto bleibt. Beispielrechnungen und Tipps zur Steuer.",
+    "intro": "Das Weihnachtsgeld ist ein beliebter Bonus, doch die Freude wird oft durch die Besteuerung getrübt. 2026 wird es als sonstiger Bezug besteuert, was Einfluss auf Ihr Netto hat. Wir zeigen, wie der Progressionseffekt wirkt und was Sie 2026 netto erwarten können.",
+    "sections": [
+      {
+        "title": "Warum das Weihnachtsgeld als sonstiger Bezug gilt",
+        "content": "Weihnachtsgeld fällt unter die Kategorie &#39;sonstiger Bezug&#39;, da es sich um eine einmalige Sonderzahlung handelt. Diese Einkünfte werden zusammen mit Ihrem regulären Gehalt versteuert, jedoch als ein separater Betrag behandelt. Die Berechnung erfolgt meist in dem Monat, in dem das Weihnachtsgeld ausgezahlt wird, und beeinflusst somit Ihren Steuersatz. Da die Fünftelregelung hier nicht greift, ist die steuerliche Belastung höher als bei einer Verteilung des Betrags über das ganze Jahr. Das hat zur Folge, dass diese Einmalzahlung Ihren persönlichen Steuersatz nach oben schrauben kann."
+      },
+      {
+        "title": "Einfluss des Progressionseffekts",
+        "content": "Der Progressionseffekt tritt ein, wenn das Weihnachtsgeld den zu versteuernden Jahresbetrag erhöht und dadurch ein höherer Steuersatz greift. Nach §32a EStG kann sich der Durchschnittssteuersatz durch das erhöhte Einkommen erhöhen, auch wenn die Einmalzahlung im gesamten Jahr unberücksichtigt bliebe. Praktisch bedeutet das: Ihr Weihnachtsgeld unterliegt demselben Steuersatz wie Ihr übriges Einkommen, was in den Spitzensteuersatz führen kann. Bereits bei einem Einkommen von über 62.810 € steigt der Steuersatz 2026 auf 42 %, während der Höchststeuersatz von 45 % bei Einkünften über 277.826 € greift."
+      },
+      {
+        "title": "Netto-Beispielrechnung bei 500 € Weihnachtsgeld",
+        "content": "Nehmen wir an, Sie erhalten 500 € Weihnachtsgeld. Bei einem angenommenen Steuersatz von 30 % und einer Kirchensteuer von 9 %, zuzüglich Solidaritätszuschlag, reduziert sich der Betrag auf etwa 330 €. Bei 500 € wirkt der Progressionseffekt weniger stark, dennoch zeigt sich die steuerliche Belastung deutlich. Die Sozialabgaben sind auf diesen Betrag ebenfalls zu entrichten, wodurch weiter etwa 10 % des Ausgangsbetrags abfließen."
+      },
+      {
+        "title": "Netto-Beispielrechnung bei 1.500 € Weihnachtsgeld",
+        "content": "Erhalten Sie 1.500 € Weihnachtsgeld, erhöht dies Ihren zu versteuernden Betrag deutlich. Bei einem Steuersatz von 35 % sowie der Kirchensteuer und dem Solidaritätszuschlag, bleiben Ihnen netto etwa 960 €. Die Abgabenlast spiegelt sich auch hier im Progressionseffekt wider, der bei größeren Summen stärker spürbar ist. Zusätzlich fallen durch die erhöhte Einkommensgrenze höhere Sozialabgaben an, die Ihren Nettobetrag weiter reduzieren."
+      },
+      {
+        "title": "Netto-Beispielrechnung bei 3.000 € Weihnachtsgeld",
+        "content": "Bei einem Weihnachtsgeld von 3.000 € fällt sofort die Progression besonders ins Gewicht. Angenommen, Ihr Steuersatz liegt bei 42 %, so verbleiben nach Abzug von Kirchensteuer, Solidaritätszuschlag und Sozialversicherungsbeiträgen netto lediglich rund 1.740 €. Die finanzielle Belastung bei dieser Höhe macht es entscheidend, mögliche Anpassungen im Voraus zu kalkulieren und eventuell eine Beratung in Anspruch zu nehmen, um auf die Steuerabzüge vorbereitet zu sein."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-08-26",
+    "topicId": "weihnachtsgeld-steuer"
   }
 ]
