@@ -1367,5 +1367,37 @@
     "relatedRechner": "brutto-netto-rechner",
     "publishDate": "2026-08-26",
     "topicId": "weihnachtsgeld-steuer"
+  },
+  {
+    "slug": "halbjahres-finanzcheck-kennzahlen-juli",
+    "title": "Halbjahres-Finanzcheck: 7 Kennzahlen prüfen",
+    "metaTitle": "Finanzcheck im Juli: 7 wichtige Kennzahlen",
+    "metaDescription": "Erfahren Sie, wie Sie im Juli Ihre Finanzziele überprüfen und optimieren können. Nutzen Sie den Halbjahres-Check.",
+    "intro": "Der Halbjahres-Finanzcheck im Juli bietet Gelegenheit, grundlegende Kennzahlen zu überprüfen. Neben der Sparquote und dem Kreditrate-Einkommen-Verhältnis sind auch die Inflationsrate im Vergleich zu den Zinsen, Altersvorsorge-Beiträge und Notgroschen wesentliche Faktoren. Eine regelmäßige Überprüfung kann langfristig zu finanzieller Stabilität beitragen.",
+    "sections": [
+      {
+        "title": "Sparquote analysieren",
+        "content": "Die Sparquote gibt an, welcher Anteil Ihres Einkommens beiseitegelegt wird. Eine ideale Sparquote liegt bei mindestens 10 % des Nettoeinkommens. <strong>Beispiel:</strong> Bei einem monatlichen Nettoeinkommen von 3.000 € sollten mindestens 300 € gespart werden. Diese Rücklage dient nicht nur dem Vermögensaufbau, sondern auch als Puffer in Notlagen."
+      },
+      {
+        "title": "Inflationsrate vs. Zinsen",
+        "content": "Die Inflationsrate betrug in den letzten Monaten durchschnittlich 4 %. Wenn Ihre Ersparnisse nur mit 2 % verzinst werden, verlieren Sie real an Kaufkraft. Ein Vergleich der Zinssätze Ihrer Anlageprodukte mit der aktuellen Inflationsrate ist entscheidend, um gegebenenfalls in besser verzinste Produkte umzuschichten. Ob sich eine Anlage lohnt, hängt vom individuellen Risikoprofil und den Marktbewegungen ab."
+      },
+      {
+        "title": "Kreditrate-Einkommen-Verhältnis",
+        "content": "Achten Sie darauf, dass der Anteil Ihrer monatlichen Kreditraten Ihr Einkommen nicht übermäßig belastet. Ein Verhältnis von maximal 30 % Ihrer monatlichen Nettoeinnahmen wird empfohlen. <strong>Beispiel:</strong> Bei einem Einkommen von 4.000 € netto sollten die Kreditraten maximal 1.200 € betragen, um finanzielle Freiheit zu bewahren."
+      },
+      {
+        "title": "Altersvorsorge-Beiträge überprüfen",
+        "content": "Regelmäßige Beiträge zur Altersvorsorge sind essenziell. Dazu zählen die gesetzliche Rentenversicherung, betriebliche Altersvorsorge und private Rentenprodukte. Ein jährlicher Mindesteinzahlungsbetrag von 1.200 € in eine private Altersvorsorge kann zur Sicherung des Lebensstandards im Ruhestand beitragen. Die Auswahl des passenden Produkts sollte individuell beraten werden."
+      },
+      {
+        "title": "Notgroschen im Blick behalten",
+        "content": "Der Notgroschen sollte drei bis sechs Monatsausgaben decken, um finanzielle Engpässe abzufedern. Bei monatlichen Ausgaben von 2.500 € wäre ein Notgroschen von mindestens 7.500 € bis 15.000 € ratsam. Dieser Betrag sollte sicher und schnell verfügbar angelegt werden, etwa auf einem Tagesgeldkonto."
+      }
+    ],
+    "relatedRechner": "zinseszinsrechner",
+    "publishDate": "2026-08-31",
+    "topicId": "halbjahres-check"
   }
 ]
