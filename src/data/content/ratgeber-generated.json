@@ -1431,5 +1431,37 @@
     "relatedRechner": "einkommensteuer-rechner",
     "publishDate": "2026-09-02",
     "topicId": "steuer-fristen-2026"
+  },
+  {
+    "slug": "buergergeld-nebenjob-einnahmen",
+    "title": "Bürgergeld und Nebenjob: So viel bleibt vom Verdienst",
+    "metaTitle": "Bürgergeld: Nebenjob optimal kombinieren",
+    "metaDescription": "Erfahren Sie, wie viel Einkommen aus Nebenjobs zum Bürgergeld bleibt. Nutzen Sie Freibeträge optimal.",
+    "intro": "Viele Bürgergeldempfänger stehen vor der Frage, wie sich ein Nebenjob finanziell auswirkt. Durch die Kombination mit Freibeträgen und einer gestaffelten Anrechnung können bestimmte Einkünfte behalten werden. Wer die Regelungen versteht, kann seinen Nebenverdienst sinnvoll optimieren.",
+    "sections": [
+      {
+        "title": "Grundfreibeträge und Staffelung",
+        "content": "Beim Bezug von Bürgergeld gibt es einen Grundfreibetrag von 100 €, der nicht auf das Bürgergeld angerechnet wird. Darüber hinaus greift eine gestaffelte Anrechnung gemäß § 11b SGB II: 20 % des Einkommens zwischen 100 € und 520 €, 30 % des darüber liegenden Einkommens bis 1.000 € und 10 % zwischen 1.000 € und 1.200 € (1.500 € bei Alleinerziehenden). Diese Staffelung ermöglicht es, Teile des Zuverdienstes zu behalten, ohne dass der volle Betrag auf das Bürgergeld angerechnet wird."
+      },
+      {
+        "title": "Beispielrechnung zur Anrechnung von Nebenverdiensten",
+        "content": "Verdienen Sie beispielsweise 450 € im Monat aus einem Minijob, bleiben Ihnen zunächst 100 € grundfrei. Auf die verbleibenden 350 € werden 20 % nicht angerechnet, das sind 70 €. Insgesamt bleiben von den 450 € also 170 € anrechnungsfrei. Dieser Betrag addiert sich zu Ihrem Bürgergeld, sodass sich ein zusätzlicher finanzieller Spielraum ergibt."
+      },
+      {
+        "title": "Kombination mit einem Minijob",
+        "content": "Ein Minijob bis 520 € ist eine häufige Kombination mit dem Bürgergeld. Hier gelten die Regelungen der Freibetragsstaffelung, wodurch ein gewisser Teil des Einkommens nicht angerechnet wird. Bei einem Einkommen von genau 520 € bleiben dank der Staffelung ca. 204 € anrechnungsfrei. Das heißt, dieser Betrag ergänzt das Bürgergeld, ohne die volle Anrechnung auf den Regelsatz."
+      },
+      {
+        "title": "Besonderheiten für Alleinerziehende",
+        "content": "Alleinerziehende haben einen größeren Anrechnungsfreibetrag, da ihr anrechnungsfreier Bereich bis zu 1.500 € steigt. Dadurch können höhere Einnahmen, etwa aus einem größeren Teilzeitjob, deutlich vorteilhafter sein. Bei einem Beispielverdienst von 1.200 € bleiben rund 380 € anrechnungsfrei, was Alleinerziehenden mehr finanziellen Freiraum verschafft."
+      },
+      {
+        "title": "Praktische Tipps zur Optimierung eines Nebenverdienstes",
+        "content": "Um die maximalen Vorteile der Anrechnung von Einkommen zu nutzen, sollten Sie Ihre Nebeneinkünfte so planen, dass die Freibeträge ausgeschöpft werden, ohne die Anrechnungsschwellen unnötig zu überschreiten. Eine Beratung durch Experten kann helfen, die individuelle Situation optimal zu gestalten, insbesondere bei variablen Einkommen oder besonderen Lebensumständen."
+      }
+    ],
+    "relatedRechner": "buergergeld-rechner",
+    "publishDate": "2026-09-04",
+    "topicId": "buergergeld-nebenverdienst"
   }
 ]
