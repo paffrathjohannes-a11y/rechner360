@@ -1495,5 +1495,37 @@
     "relatedRechner": "einkommensteuer-rechner",
     "publishDate": "2026-09-07",
     "topicId": "elster-anmeldung"
+  },
+  {
+    "slug": "eigenkapital-immobilienkauf-2026",
+    "title": "Immobilienkauf 2026: Eigenkapital optimal einsetzen",
+    "metaTitle": "Eigenkapital für Immobilienkauf 2026",
+    "metaDescription": "Finden Sie heraus, wie viel Eigenkapital beim Immobilienkauf 2026 nötig ist und sparen Sie effektiv!",
+    "intro": "Der Immobilienkauf ist eine der größten finanziellen Entscheidungen im Leben. Eine solide Eigenkapitalbasis ist entscheidend, um attraktive Konditionen und eine reibungslose Finanzierung zu sichern. Dieser Artikel beleuchtet die Anforderungen und Optionen für den Immobilienerwerb im Jahr 2026.",
+    "sections": [
+      {
+        "title": "Warum Eigenkapital entscheidend ist",
+        "content": "Beim Kauf einer Immobilie gilt Eigenkapital als Sicherheitsfaktor für Banken und senkt das Risiko der Finanzierung. Wer mindestens 20 % des Kaufpreises aus Eigenmitteln stemmt, profitiert in der Regel von besseren Zinskonditionen. Ohne Eigenkapital steigen die Zinsen, was die Finanzierung deutlich verteuern kann. Ein weiterer Grund für ausreichend Eigenkapital sind die Kaufnebenkosten, die sich auf 10 bis 15 % des Kaufpreises belaufen können."
+      },
+      {
+        "title": "Kostenbeispiel: Familie Schmidt kauft ein Haus",
+        "content": "Familie Schmidt plant, ein Haus für 400.000 € zu kaufen. Ein Eigenkapital von 20 %, also 80.000 €, ist ihr Ziel. Zusätzlich fallen Nebenkosten von etwa 40.000 € an, was insgesamt 120.000 € Eigenmittel erfordert. Ohne diese müssten sie eine sogenannte 110-%-Finanzierung aufnehmen. Bei einem Zinssatz von z.B. 4 % würde dies über 30 Jahre rund 80.000 € mehr Zinszahlungen als eine Finanzierung mit Eigenkapital kosten."
+      },
+      {
+        "title": "Nebenkosten realistisch kalkulieren",
+        "content": "Die Nebenkosten beim Immobilienkauf dürfen nicht unterschätzt werden. Grunderwerbsteuer, Notar und Maklergebühren summieren sich schnell auf 10 bis 15 % des Kaufpreises. Ein Beispiel: Beim Kauf eines Hauses für 300.000 € machen die Nebenkosten etwa 30.000 bis 45.000 € aus. Diese Kosten müssen oft aus eigener Tasche gezahlt werden, da Banken sie ungern finanzieren."
+      },
+      {
+        "title": "Finanzierungsmöglichkeiten über Eigenkapital hinaus",
+        "content": "Neben Eigenkapital können auch andere Finanzierungsquellen genutzt werden. Bausparverträge und KfW-Förderungen sind sinnvolle Ergänzungen. Ein Bausparvertrag bietet günstige Zinssätze, während die KfW günstige Darlehen oder Tilgungszuschüsse für energiebewusste Bauprojekte vergibt. Auch zinsgünstige Darlehen von Familienmitgliedern können helfen, die Eigenkapitalbasis zu stärken und somit die Finanzierungskosten zu senken."
+      },
+      {
+        "title": "110-%-Finanzierung: Risiko und Kosten",
+        "content": "Eine Vollfinanzierung des Kaufpreises zuzüglich der Nebenkosten sollte gut überlegt sein. Die sogenannten 110-%-Finanzierungen bedeuten höhere Kreditraten und Zinsen. Wer ohne Eigenkapital eine Immobilie kauft, zahlt nicht nur mehr für die Zinsen, sondern läuft auch Gefahr, bei einem Wertverlust der Immobilie in die Schuldenfalle zu geraten. Experten empfehlen daher, diese Möglichkeit nur als letzte Option in Betracht zu ziehen."
+      }
+    ],
+    "relatedRechner": "baukosten-rechner",
+    "publishDate": "2026-09-09",
+    "topicId": "immobilienkauf-eigenkapital"
   }
 ]
