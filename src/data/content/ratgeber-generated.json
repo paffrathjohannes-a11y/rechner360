@@ -1527,5 +1527,33 @@
     "relatedRechner": "baukosten-rechner",
     "publishDate": "2026-09-09",
     "topicId": "immobilienkauf-eigenkapital"
+  },
+  {
+    "slug": "riester-2026-lohnt-sich-das",
+    "title": "Riester 2026: Lohnt sich das noch?",
+    "metaTitle": "Riester 2026: Zulagen und Steuervorteile",
+    "metaDescription": "Riester 2026: Erfahren Sie, wann sich die Riester-Rente trotz Kritik lohnen kann. Jetzt informieren!",
+    "intro": "Die Riester-Rente steht im Jahr 2026 weiterhin im Fokus: Staatliche Zulagen und Steuervorteile bieten Potenzial für die private Altersvorsorge. Doch es gibt auch Kritikpunkte wie hohe Kosten und oft geringe Renditen. Wann rechnet sich die Riester-Rente dennoch, insbesondere für kinderreiche Familien?",
+    "sections": [
+      {
+        "title": "Zulagen für Riester-Sparer",
+        "content": "Im Jahr 2026 beträgt die Grundzulage für die Riester-Rente 175 €. Für jedes kindergeldberechtigte Kind erhält man zusätzlich 300 €. Diese Zulagen sind ein zentrales Argument für die Riester-Rente, da sie die jährlichen Sparbeiträge erheblich aufstocken können. Um die vollen Zulagen zu erhalten, müssen mindestens 4 % des Vorjahresbruttoeinkommens in den Vertrag eingezahlt werden. Für eine Familie mit zwei Kindern und einem Jahreseinkommen von 40.000 € würde dies beispielsweise bedeuten, dass der Eigenbetrag von 1.600 € durch 775 € an Zulagen ergänzt wird, was effektiv über 30 % des Sparvolumens ausmacht."
+      },
+      {
+        "title": "Steuervorteile durch Riester-Rente",
+        "content": "Neben den Zulagen bietet die Riester-Rente auch steuerliche Vorteile. Beiträge bis zu 2.100 € jährlich können als Sonderausgaben abgesetzt werden. Überschreitet der damit verbundene Steuervorteil die Summe der Zulagen, erstattet das Finanzamt die Differenz. Somit kann sich das Sparen über einen Riester-Vertrag steuerlich lohnen, insbesondere für Gutverdiener. Wenn zum Beispiel eine Person mit einem zu versteuernden Einkommen von 50.000 € einen Riester-Vertrag besitzt, kann sie bis zu 630 € Einkommenssteuer einsparen, abhängig vom individuellen Steuersatz."
+      },
+      {
+        "title": "Kritik an der Riester-Rente",
+        "content": "Hohe Verwaltungskosten und oft geringe Renditen sind häufige Kritikpunkte an der Riester-Rente. Ein Großteil der Beiträge fließt in Kosten, was die Nettorendite schmälert. Zudem sind viele Produkte mit Garantien versehen, die den Ertrag limitieren. Laut Verbraucherschützern sind die tatsächlichen Rentenleistungen oft enttäuschend. Deshalb ist es essenziell, die individuelle Kostenstruktur eines Riester-Vertrags genau zu prüfen und den Vertrag regelmäßig auf Rentabilität zu überprüfen."
+      },
+      {
+        "title": "Wann lohnt sich die Riester-Rente?",
+        "content": "Die Riester-Rente kann sich besonders für kinderreiche Familien lohnen, da sie hohe Kinderzulagen beanspruchen können. Für eine Familie mit drei Kindern summieren sich die jährlichen Zulagen auf 1.075 €, was einen erheblichen Anteil am gesamten Rentenbeitrag ausmacht. Auch Geringverdiener profitieren, da der Eigenanteil durch die Zulagen stark reduziert wird. Um sicherzustellen, dass sich ein Riester-Vertrag lohnt, sollte jedoch immer eine individuelle Berechnung erfolgen. Hierbei kann ein Rentenrechner helfen, der konkrete Szenarien durchspielt."
+      }
+    ],
+    "relatedRechner": "rentenrechner",
+    "publishDate": "2026-09-11",
+    "topicId": "riester-2026-noch-sinnvoll"
   }
 ]
