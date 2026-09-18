@@ -1555,5 +1555,37 @@
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-09-11",
     "topicId": "riester-2026-noch-sinnvoll"
+  },
+  {
+    "slug": "schenken-10-jahres-regel-nutzen",
+    "title": "Vermögensübertragung: Schenken statt Vererben",
+    "metaTitle": "Schenken statt Vererben: 10-Jahres-Regel nutzen",
+    "metaDescription": "Nutzen Sie die 10-Jahres-Regelung der Freibeträge optimal. Erfahren Sie mehr über Nießbrauch und steuerliche Vorteile.",
+    "intro": "Die Schenkung von Vermögenswerten zu Lebzeiten kann sich gegenüber einer Vererbung steuerlich lohnen. Insbesondere die Möglichkeit, alle zehn Jahre Freibeträge neu zu nutzen, bietet Familien Handlungsfreiheit bei der Vermögensplanung. Erfahren Sie, wie diese Regelung funktioniert und welche Vorteile Nießbrauch bringen kann.",
+    "sections": [
+      {
+        "title": "Freibeträge optimal nutzen",
+        "content": "Bei der Schenkung von Vermögen können alle zehn Jahre die Freibeträge gemäß §16 ErbStG neu ausgeschöpft werden. Für Kinder stehen dabei 400.000 € zur Verfügung, für Enkel 200.000 € und für Ehepartner sogar 500.000 €. Dies bietet Gestaltungsfreiheit: Anstatt Vermögen auf einmal zu vererben, kann eine geschickte Aufteilung in mehreren Schenkungen über Jahrzehnte hinweg Steuerbelastungen merklich reduzieren. Wichtig ist die zeitliche Planung, um die zehnjährige Frist bestmöglich zu nutzen."
+      },
+      {
+        "title": "Nießbrauch: Nutzung erhalten, Steuer sparen",
+        "content": "Der Nießbrauch ist eine weitere Möglichkeit, Steuern zu sparen, während man selbst von der Nutzung des übergebenen Vermögens profitiert. Bei einer Schenkung mit Nießbrauchsvorbehalt behalten die Schenker zwar die Nutzung an der Immobilie, übergeben aber das Eigentum. Dadurch kann der steuerpflichtige Wert der Schenkung vermindert werden, denn der Kapitalwert des Nießbrauchs wird vom Vermögenswert abgezogen, was die Steuerlast deutlich senken kann."
+      },
+      {
+        "title": "Steuerliche Vorteile der Schenkung",
+        "content": "Die rechtzeitige Schenkung ermöglicht nicht nur das Ausnutzen der Freibeträge, sondern kann auch die gesamte Steuerverpflichtung verringern. Beispielsweise unterliegt eine Schenkung dem progressiven Erbschaftsteuersatz von bis zu 30 % bei entfernten Verwandten. Wird hingegen frühzeitig geschenkt, können mehrere Schenkungszyklen zur wirksamen Steuervermeidung genutzt werden. Zudem gibt es potenzielle Steuererleichterungen durch Abzug der Freibeträge."
+      },
+      {
+        "title": "Wohnimmobilie als häufig gewähltes Gut",
+        "content": "Eine Wohnimmobilie ist ein beliebtes Mittel der Vermögensübertragung. Durch Schenkung kann diese steuerlich effektiv auf die nächste Generation übertragen werden. Wenn der Nießbrauch geltend gemacht wird, bleibt der Schenker weiterhin in der Nutzung. Beispiel: Ein Eigenheim im Wert von 800.000 € könnte durch Schenkung an zwei Kinder zu je 400.000 € steuerfrei übertragen werden. Durch den Vorbehalt des Nießbrauchs wird so der Wert der Schenkung weiter verringert."
+      },
+      {
+        "title": "Individuelle Beratung unerlässlich",
+        "content": "Die steuerliche Gestaltung von Schenkungen erfordert sorgfältige Planung und Kenntnis der gesetzlichen Regelungen. Um Fehleinschätzungen und steuerliche Nachteile zu vermeiden, sollten individuelle Umstände, wie Familienkonstellation und Vermögenswerte, in die Planung einbezogen werden. Eine fundierte Beratung durch Steuerexperten kann hier wertvolle Hilfestellung bieten und die optimalen Gestaltungen und die Nutzung aller Vorteile sichern."
+      }
+    ],
+    "relatedRechner": "erbschaftsteuer-rechner",
+    "publishDate": "2026-09-18",
+    "topicId": "schenkung-statt-vererben"
   }
 ]
