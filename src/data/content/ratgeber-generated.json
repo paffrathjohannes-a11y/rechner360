@@ -1615,5 +1615,37 @@
     "relatedRechner": "abfindungsrechner",
     "publishDate": "2026-09-21",
     "topicId": "abfindung-fuenftelregelung"
+  },
+  {
+    "slug": "firmenwagen-1-prozent-oder-fahrtenbuch",
+    "title": "Firmenwagen: 1-%-Regel oder Fahrtenbuch 2026?",
+    "metaTitle": "Firmenwagen: 1-%-Regel vs. Fahrtenbuch 2026",
+    "metaDescription": "Firmenwagen 2026: 1-%-Regel oder Fahrtenbuch wählen? Vor- und Nachteile für Viel- und Wenigfahrer abwägen.",
+    "intro": "Bei der Nutzung eines Firmenwagens stehen Arbeitnehmer vor der Wahl: Geldwerter Vorteil durch die 1-%-Regel oder doch ein Fahrtenbuch führen? Beide Methoden haben Vor- und Nachteile, abhängig vom Fahrverhalten und Fahrzeugtyp. In diesem Artikel beleuchten wir die jeweiligen Vorteile und helfen Ihnen bei der Entscheidung.",
+    "sections": [
+      {
+        "title": "Die 1-%-Regel im Überblick",
+        "content": "Die 1-%-Regel ist eine pauschale Methode zur Ermittlung des geldwerten Vorteils eines Firmenwagens, der monatlich mit 1 % des Bruttolistenpreises versteuert wird. Für ein konventionelles Fahrzeug mit einem Bruttolistenpreis von 40.000 € wären das 400 € monatlich. Bei Hybridfahrzeugen reduziert sich der Satz auf 0,5 %, während für reine Elektrofahrzeuge 0,25 % gelten. Somit würde ein Elektrofahrzeug mit gleichem Preis monatlich nur 100 € geldwerter Vorteil erzeugen. Die Regel eignet sich besonders für Mitarbeiter, die sowohl dienstlich als auch privat viel fahren, da keine detaillierte Aufzeichnung der Fahrten notwendig ist."
+      },
+      {
+        "title": "Fahrtenbuch führen: Vorteile und Nachteile",
+        "content": "Das Fahrtenbuch erfordert eine genaue Dokumentation jeder einzelnen Fahrt, inklusive Datum, Kilometerstand und Anlass der Fahrt. Der steuerpflichtige geldwerte Vorteil berechnet sich dann auf Basis der tatsächlichen Privatfahrten. Bei dem zuvor genannten Beispiel mit einem Bruttolistenpreis von 40.000 € könnte bei einem hohen Anteil an dienstlichen Fahrten der geldwerte Vorteil deutlich niedriger als 400 € pro Monat ausfallen. Allerdings ist die Führung eines Fahrtenbuchs aufwändig und fehleranfällig, was bei einer Steuerprüfung Probleme bereiten kann. Diese Methode lohnt sich vor allem, wenn der Firmenwagen überwiegend für berufliche Zwecke genutzt wird."
+      },
+      {
+        "title": "Wann lohnt sich die 1-%-Regel?",
+        "content": "<strong>Vielprivatfahrer</strong>, die den Firmenwagen häufig privat nutzen, profitieren von der Einfachheit der 1-%-Regel. Zudem ist das Risiko geringer, dass es bei einer Steuerprüfung zu Unstimmigkeiten kommt, da keine detaillierten Aufzeichnungen erforderlich sind. Bei einem typischen Fahrzeugswert von 50.000 € bedeutet dies 500 € monatlich als geldwerter Vorteil, der zu versteuern ist. Für Hybrid- oder Elektrofahrzeuge verringert sich dieser Betrag entsprechend. Dieser pauschale Ansatz rechnet sich meist, wenn der Anteil der Privatfahrten höher als 50 % ist."
+      },
+      {
+        "title": "Fahrtenbuch: Eine Option für Wenigfahrer",
+        "content": "Fahren Arbeitnehmer ihren Firmenwagen nur selten privat, kann das Führen eines Fahrtenbuchs steuerliche Vorteile bringen. Beispielsweise kann bei gleichem Bruttolistenpreis die Steuerlast geringer ausfallen, wenn der Anteil der Privatfahrten deutlich unter 50 % liegt. Nehmen wir an, bei nur 25 % Privatnutzung könnten anstelle von 400 € nur etwa 100 € pro Monat als geldwerter Vorteil versteuert werden. Allerdings ist der erhöhte Dokumentationsaufwand zu bedenken. Eine genaue Berechnung mit einem Steuerberater kann hier über die richtige Wahl aufklären."
+      },
+      {
+        "title": "Beratung und individuelle Entscheidung",
+        "content": "Die Wahl zwischen der 1-%-Regel und dem Fahrtenbuch hängt stark von individuellen Fahrgewohnheiten und Vorlieben ab. Es ist ratsam, diese Entscheidung gemeinsam mit einem Steuerberater zu treffen, um die steuerlichen Auswirkungen optimal zu nutzen. Prüfen Sie die spezifischen Gegebenheiten und wägen Sie den Aufwand gegen das potenzielle Sparpotenzial ab. Ein genauer Kostenvergleich hilft, die beste Methode zu wählen, um steuerliche Belastungen im Rahmen zu halten."
+      }
+    ],
+    "relatedRechner": "gehaltsrechner",
+    "publishDate": "2026-09-23",
+    "topicId": "firmenwagen-versteuern"
   }
 ]
