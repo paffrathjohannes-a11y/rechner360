@@ -1707,5 +1707,33 @@
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-09-28",
     "topicId": "bav-entgeltumwandlung"
+  },
+  {
+    "slug": "kirchensteuer-austritt-finanziell-lohnend",
+    "title": "Kirchensteuer 2026: Ist der Austritt finanziell sinnvoll?",
+    "metaTitle": "Kirchensteuerersparnis 2026: Austritt sinnvoll?",
+    "metaDescription": "Berechnen Sie die Finanzersparnis durch Kirchenaustritt 2026. Nutzen Sie konkrete Beispiele und prüfen Sie die Folgen.",
+    "intro": "Kirchensteuerpflichtige stehen oft vor der Frage, ob sich ein Austritt aus der Kirche finanziell lohnt. Diese Steuer beträgt in Deutschland 8 % oder 9 % der Lohnsteuer und kann bei höheren Einkommen einen erheblichen Betrag ausmachen. Der folgende Beitrag beleuchtet diese Überlegung mit konkreten Berechnungen und erläutert den Austrittsprozess sowie mögliche Folgen.",
+    "sections": [
+      {
+        "title": "Die Höhe der Kirchensteuer in Deutschland",
+        "content": "In Bayern und Baden-Württemberg beträgt der Kirchensteuersatz 8 % der Lohnsteuer, während er in den übrigen Bundesländern 9 % beträgt. Die Zahlung der Kirchensteuer erfolgt automatisch durch den Arbeitgeber, der sie vom Bruttogehalt abzieht. Diese Zweitsteuer ist gekoppelt an die Lohnsteuer, weshalb sich ein Verzicht auf die Kirchensteuer direkt auf das Nettoeinkommen auswirken kann. Bei einem Bruttoverdienst von 3.000 € monatlich, beträgt die Kirchensteuer in Bayern durchschnittlich etwa 64 €, in anderen Bundesländern circa 72 €."
+      },
+      {
+        "title": "Konkrete Beispielrechnungen zur Kirchensteuerersparnis",
+        "content": "Nehmen wir drei Monatsbruttogehälter als Beispiel: 3.000 €, 5.000 € und 8.000 €. Bei einem Einkommen von 5.000 € beträgt die Kirchensteuer in Bayern rund 107 €, im restlichen Deutschland etwa 120 €. Für ein Bruttogehalt von 8.000 € ergibt sich eine Steuer von etwa 172 € in Bayern und etwa 192 € in den übrigen Ländern. Über ein Jahr kann sich so eine Ersparnis von bis zu 2.304 € ergeben, wenn man anstatt Kirchensteuer zu zahlen aus der Kirche austritt."
+      },
+      {
+        "title": "Der Austrittsprozess aus der Kirche",
+        "content": "Der Kirchenaustritt muss in Deutschland je nach Bundesland bei einem Amtsgericht oder Standesamt erklärt werden. Eine schriftliche Erklärung oder ein persönliches Erscheinen ist erforderlich, oft verbunden mit einer Gebühr von ca. 30 €. Der Austritt wird dann dem Arbeitgeber gemeldet und die Kirchensteuer entfällt ab dem folgenden Monat. Beachten Sie jedoch, dass damit auch der Anspruch auf kirchliche Dienstleistungen wie Trauungen oder Taufen in der Regel entfällt."
+      },
+      {
+        "title": "Langfristige Folgen eines Kirchenaustritts",
+        "content": "Der finanzielle Vorteil eines Kirchenaustritts wird häufig gegen andere Überlegungen abgewogen. Ein Austritt hat nicht nur monetäre Folgen, sondern betrifft auch die Zugehörigkeit zur kirchlichen Gemeinschaft. So sind Sakramente wie Taufe und Trauung kirchlichen Mitgliedern vorbehalten. Auch mögliche soziale Verpflichtungen oder ein persönliches Zugehörigkeitsgefühl spielen eine Rolle. Es empfiehlt sich, diese Faktoren vorher gründlich abzuwägen, um eine fundierte Entscheidung zu treffen."
+      }
+    ],
+    "relatedRechner": "einkommensteuer-rechner",
+    "publishDate": "2026-09-30",
+    "topicId": "kirchensteuer-austritt-rechnen"
   }
 ]
