@@ -1735,5 +1735,37 @@
     "relatedRechner": "einkommensteuer-rechner",
     "publishDate": "2026-09-30",
     "topicId": "kirchensteuer-austritt-rechnen"
+  },
+  {
+    "slug": "pendlerpauschale-2026-absetzen",
+    "title": "Pendlerpauschale 2026: Was Sie absetzen können",
+    "metaTitle": "Pendlerpauschale 2026: Alles zu Absetzungen",
+    "metaDescription": "Erfahren Sie, wie Sie 2026 die Pendlerpauschale optimal nutzen können. Tipps für Auto, Home-Office und mehr.",
+    "intro": "Mit der Entfernungspauschale können Sie in 2026 Ihre Fahrtkosten zur Arbeit steuerlich geltend machen. Dabei beträgt der allgemeine Satz 30 Cent pro Kilometer. Ab dem 21. Kilometer erhöht sich die Pauschale auf 38 Cent. Hier erfahren Sie, wie Sie diese Pauschalen kombinieren und welche Ausnahmen es gibt.",
+    "sections": [
+      {
+        "title": "Grundlagen der Entfernungspauschale",
+        "content": "Die Pendlerpauschale beträgt für die ersten 20 Kilometer 30 Cent pro Kilometer. Ab dem 21. Kilometer erhöht sich der Satz auf 38 Cent. Dies ist vor allem für Arbeitnehmer mit langen Anfahrtswegen von Vorteil. Beispiel: Bei einer Entfernung von 25 Kilometern ergibt das 20 km x 0,30 € + 5 km x 0,38 € = 9,10 € pro Arbeitstag. Der maximale Betrag, den Sie pro Jahr absetzen können, beträgt 4.500 €, es sei denn, Sie nutzen ein Auto. Hier gibt es keine Beschränkung."
+      },
+      {
+        "title": "Ausnahmen für die Nutzung des Autos",
+        "content": "Nutzen Sie ein Auto für Ihre Fahrten zur Arbeit, entfällt der Höchstbetrag von 4.500 €. Die tatsächlich gefahrenen Kilometer werden voll berücksichtigt. Dies ist besonders relevant für Arbeitnehmer, die weite Strecken täglich mit dem privaten Fahrzeug zurücklegen. Achten Sie darauf, die Fahrleistungen durch Tankquittungen oder Fahrtenbücher nachzuweisen. Ohne diese könnten die Kosten nicht voll anerkannt werden."
+      },
+      {
+        "title": "Kombination mit Home-Office-Tagen",
+        "content": "In 2026 können Sie Ihre Tage im Home-Office mit der Pendlerpauschale kombinieren. Dabei gilt: Home-Office-Tage werden nicht mit der Entfernungspauschale berücksichtigt, können jedoch über die Home-Office-Pauschale abgerechnet werden. Diese beträgt 6 Euro pro Tag, maximal für 210 Tage jährlich. Der Arbeitsweg an anderen Tagen kann nach wie vor mit der Entfernungspauschale angesetzt werden."
+      },
+      {
+        "title": "Erforderliche Nachweise",
+        "content": "Um die Pendlerpauschale geltend zu machen, sind regelmäßige und ordnungsgemäße Nachweise notwendig. Akzeptierte Belege sind Fahrtenbücher, Tankbelege und Werkstattrechnungen, die das Fahren eines privaten PKWs belegen. Arbeitnehmer sollten auch eine Bescheinigung des Arbeitgebers einreichen, welche die regelmäßige Anwesenheit im Büro bestätigt, um Missverständnissen vorzubeugen."
+      },
+      {
+        "title": "Praktische Tipps zur optimalen Ausnutzung",
+        "content": "Planen Sie Ihre Arbeitswege und Home-Office-Tage bewusst, um die maximale steuerliche Entlastung zu erzielen. Da die Berechnung der Pauschale pro Arbeitstag erfolgt, kann die genaue Dokumentation der gefahrenen Kilometer oder Home-Office-Tage einen erheblichen Einspareffekt haben. Setzen Sie sich bei komplexeren Abrechnungen mit einem Steuerberater in Verbindung, um individuelle Vorteile optimal auszuschöpfen."
+      }
+    ],
+    "relatedRechner": "brutto-netto-rechner",
+    "publishDate": "2026-10-02",
+    "topicId": "pendlerpauschale-2026"
   }
 ]
