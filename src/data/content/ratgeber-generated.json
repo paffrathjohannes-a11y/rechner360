@@ -1883,5 +1883,33 @@
     "relatedRechner": "kreditrechner",
     "publishDate": "2026-10-26",
     "topicId": "kredit-laufzeit-wahl"
+  },
+  {
+    "slug": "prozentrechnen-einkauf-acht-fallen",
+    "title": "Acht Prozentrechen-Fallen beim Einkaufen",
+    "metaTitle": "Acht Fallen beim Prozentrechnen im Einkauf",
+    "metaDescription": "Erfahren Sie, wie Sie typische Prozentrechen-Fallen vermeiden und beim Einkaufen richtig sparen können.",
+    "intro": "Prozentrechnen ist im Alltag unverzichtbar, birgt aber oft Tücken. Besonders beim Einkaufen kann eine falsche Berechnung zu unerwarteten Kosten führen. Dieser Artikel klärt über gängige Rechenfallen auf und hilft, teure Fehler zu vermeiden.",
+    "sections": [
+      {
+        "title": "Dreimal 20 % Rabatt ergeben nicht 60 %",
+        "content": "Häufige Rabattaktionen wie „dreimal 20 %“ führen leicht zu Verwirrung. Die Annahme, dass sich diese Rabatte zu 60 % summieren, ist falsch. Jedes Mal wird der Rabatt auf den bereits reduzierten Preis gewährt. Beispiel: Ein Ausgangspreis von 100 € wird um 20 % auf 80 € reduziert. Ein weiterer Rabatt von 20 % auf 80 € ergibt 64 €, der letzte Rabatt führt zu 51,20 €. Dies entspricht einer Gesamtreduktion von 48,80 €, nicht 60 €."
+      },
+      {
+        "title": "Die Mehrwertsteuer korrekt herausrechnen",
+        "content": "Bei Kaufüberlegungen oder Preisvergleichen ist es oft wichtig, den Netto-Preis ohne Mehrwertsteuer zu kennen. Der Standard-Mehrwertsteuersatz beträgt 19 %. Um diesen aus dem Brutto-Preis zu entfernen, teilt man den Betrag durch 1,19. Beispiel: Ein Produkt kostet 119 €, der Netto-Preis beträgt 100 € (119 ÷ 1,19 = 100). Achten Sie darauf, dass bei speziellen Produkten der reduzierte Steuersatz von 7 % gelten könnte."
+      },
+      {
+        "title": "Trinkgeldberechnung: Brutto oder Netto?",
+        "content": "Beim Berechnen eines angemessenen Trinkgeldes stellt sich häufig die Frage: Brutto oder Netto? Die meisten Konsumenten geben Trinkgeld auf den Gesamtbetrag, also den Bruttobetrag. Angenommen, eine Restaurantrechnung beträgt 47,60 €, inkl. 19 % Mehrwertsteuer. Ein Trinkgeld von 10 % entspräche somit 4,76 €, was den Valor der Gesamtrechnung auf 52,36 € anhebt. Zu beachten ist, dass Trinkgelder in Deutschland als steuerfreie Zuwendungen gelten."
+      },
+      {
+        "title": "Kreditkarten-Cashback richtig berechnen",
+        "content": "Kreditkarten-Cashback-Programme erfreuen sich wachsender Beliebtheit. Dabei wird ein Prozentsatz des Kaufwerts auf die Rechnung gutgeschrieben. Wenn Ihre Karte 1,5 % Cashback bietet und Sie 200 € ausgeben, erhalten Sie 3 €. Diese Rabatte sind jedoch häufig an Bedingungen geknüpft. Prüfen Sie, ob Mindestumsätze oder Höchstbeträge bestehen und vermeiden Sie höhere Ausgaben, nur um den Rabatt zu nutzen."
+      }
+    ],
+    "relatedRechner": "prozentrechner",
+    "publishDate": "2026-11-02",
+    "topicId": "prozent-rabatt-tricks"
   }
 ]
