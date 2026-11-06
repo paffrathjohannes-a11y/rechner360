@@ -1939,5 +1939,37 @@
     "relatedRechner": "abfindungsrechner",
     "publishDate": "2026-11-04",
     "topicId": "abfindung-fuenftelregelung"
+  },
+  {
+    "slug": "steuerfreie-gehaltsextras-2026",
+    "title": "Steuerfreie Gehaltsextras 2026: So sparen Sie effektiv",
+    "metaTitle": "Steuerfreie Gehaltsextras 2026 nutzen",
+    "metaDescription": "Entdecken Sie steuerfreie Gehaltsextras wie Jobticket, Essensgutscheine und mehr. Sparen Sie effektiv!",
+    "intro": "Im Jahr 2026 bieten steuerfreie Gehaltsextras attraktive Möglichkeiten, das Nettoeinkommen zu erhöhen. Arbeitgeber dürfen zahlreiche Leistungen wie Jobtickets, Essensgutscheine oder die betriebliche Altersvorsorge steuerfrei gewähren. Diese Extras sind für Beschäftigte besonders vorteilhaft, da sie ohne Abzüge direkt netto ausgezahlt werden.",
+    "sections": [
+      {
+        "title": "Jobticket: Mobilität ohne Abzüge",
+        "content": "Ein Jobticket, das vom Arbeitgeber finanziert wird, bleibt im Steuerjahr 2026 bis zum vollen Wert steuerfrei. Diese Unterstützung für die Nutzung öffentlicher Verkehrsmittel kann eine erhebliche Ersparnis bedeuten. So sparen Beschäftigte beispielweise bei einer Monatskarte im Wert von 80 € über das Jahr hinweg 960 €, die nicht als steuerpflichtiger Arbeitslohn zählen. Für eine individuelle Betrachtung Ihrer Situation ist es ratsam, Rücksprache mit einem Steuerberater zu halten."
+      },
+      {
+        "title": "Essensgutschein: 7,23 € pro Arbeitstag",
+        "content": "Essensgutscheine bis zu einem Wert von 7,23 € pro Arbeitstag bleiben steuerfrei. Bei einer 5-Tage-Woche können Angestellte somit monatlich rund 144,60 € zusätzlich erhalten. Das jährliche Potenzial dieses Extras beträgt somit etwa 1.735 €, die das Nettoeinkommen aufbessern können. Es ist wichtig, darauf zu achten, dass diese Gutscheine tatsächlich im Rahmen einer Betriebsverpflegung genutzt werden."
+      },
+      {
+        "title": "Kita-Zuschuss: Unterstützung für Familien",
+        "content": "Der Kita-Zuschuss kann im Jahr 2026 steuerfrei vom Arbeitgeber gezahlt werden. Dieser Zuschuss ist insbesondere für Eltern kleiner Kinder relevant, da er die hohen Kosten der Kinderbetreuung mindern kann. Arbeitgeber können die tatsächlichen Betreuungskosten übernehmen, was Ihnen eine signifikante Entlastung ohne zusätzliche Steuerlast verschafft."
+      },
+      {
+        "title": "Betriebliche Altersvorsorge (BAV): Zukunft sichern",
+        "content": "Beiträge zur betrieblichen Altersvorsorge bleiben auch 2026 bis zu einem bestimmten Höchstbetrag steuerfrei. Gemäß §3 Nr. 63 EStG können jährlich bis zu 8 % der Beitragsbemessungsgrenze der Rentenversicherung steuerfrei für die Altersvorsorge genutzt werden. Bei 2026 einem Höchstbetrag von etwa 7.008 € bietet dies eine erhebliche Sparmöglichkeit für die langfristige finanzielle Sicherheit."
+      },
+      {
+        "title": "Sachbezug: Klein, aber fein",
+        "content": "Monatlich dürfen Arbeitgeber Sachbezüge bis zu 50 € steuerfrei ausgeben. Diese können in Form von Gutscheinen oder Sachwerten erfolgen. Wenn Arbeitgeber diese Möglichkeit maximal nutzen, können Beschäftigte im Jahr zusätzliche 600 € steuerfrei erhalten. Dabei ist darauf zu achten, dass der steuerfreie Rahmen nicht überschritten wird, da sonst Steuerpflicht entsteht."
+      }
+    ],
+    "relatedRechner": "gehaltsrechner",
+    "publishDate": "2026-11-06",
+    "topicId": "steuerfreie-benefits"
   }
 ]
