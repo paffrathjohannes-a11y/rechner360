@@ -1971,5 +1971,37 @@
     "relatedRechner": "gehaltsrechner",
     "publishDate": "2026-11-06",
     "topicId": "steuerfreie-benefits"
+  },
+  {
+    "slug": "schenken-statt-vererben-10-jahres-regel",
+    "title": "Schenken statt vererben: 10-Jahres-Regel klug nutzen",
+    "metaTitle": "Schenken statt vererben: 10-Jahres-Regel",
+    "metaDescription": "Nutzen Sie Freibeträge alle 10 Jahre neu. Erfahren Sie die Vor- und Nachteile und wie Nießbrauch für Immobilien hilft.",
+    "intro": "Immobilien und Vermögenswerte zu schenken statt zu vererben kann steuerliche Vorteile bieten. Ein wesentlicher Faktor ist die 10-Jahres-Regel für Schenkungsfreibeträge. Damit lassen sich Steuern sparen, indem Freibeträge erneut genutzt werden. Dieser Artikel beleuchtet die wichtigsten Aspekte und zeigt steuerliche Gestaltungsoptionen auf.",
+    "sections": [
+      {
+        "title": "Die 10-Jahres-Regel und Freibeträge",
+        "content": "Alle 10 Jahre können Schenkungsfreibeträge erneut in Anspruch genommen werden. Für Kinder beträgt der Freibetrag 400.000 €, während Ehegatten oder eingetragene Lebenspartner 500.000 € steuerfrei erhalten können. Durch kluge Planung lassen sich Vermögensübertragungen somit steuerlich optimieren. Diese Regelung erlaubt es, in regelmäßigen Abständen Schenkungen vorzunehmen, um die Steuerlast zu minimieren. Wichtig dabei ist das genaue Timing der Schenkung, damit die vollen Freibeträge nach Ablauf der 10 Jahre wieder nutzbar sind."
+      },
+      {
+        "title": "Nießbrauch gestalten bei Immobilien",
+        "content": "Nießbrauch bietet bei der Schenkung von Immobilien eine Möglichkeit, um Rechte und Pflichten von Eigentum und Nutzung trennen. Durch die Einräumung eines Nießbrauchsrechts kann der Schenker weiterhin in der Immobilie wohnen oder Mieteinnahmen beziehen, während das Eigentum bereits übertragen ist. Das wirkt sich gegebenenfalls auf den Wert der Schenkung aus, da der Kapitalwert des Nießbrauchs den zu versteuernden Betrag mindert. Zu beachten ist, dass vertragliche Regelungen sorgfältig zu gestalten sind, um die steuerlichen Vorteile zu realisieren."
+      },
+      {
+        "title": "Steuerliche Vorteile des Schenkens",
+        "content": "Neben der Nutzung der Freibeträge kann Schenken eine Senkung des zu versteuernden Einkommens bringen, insbesondere durch gezielte Gestaltungen wie den Nießbrauch. Ein Rechenbeispiel verdeutlicht: Überträgt ein Vater eine Immobilie im Wert von 600.000 € an seinen Sohn, können die 400.000 € Freibetrag genutzt werden. Der verbleibende Betrag von 200.000 € könnte durch Nießbrauchsminderung weiter gesenkt werden, was potenziell die Schenkungssteuer verringert. So lässt sich durch gezielte Planung eine erhebliche Steuerersparnis erreichen."
+      },
+      {
+        "title": "Wohnimmobilie steueroptimiert schenken",
+        "content": "Beim Schenken von Wohnimmobilien können bestimmte Bedingungen die Steuerlast beeinflussen. Dazu gehört, dass der Beschenkte die Immobilie für mindestens 10 Jahre selbst nutzen muss, um von einer Steuerbefreiung zu profitieren. Diese Ausnahme gilt allerdings nur für selbstgenutzten Wohnraum, nicht für vermietete Objekte. Die Übertragung sollte sorgfältig geplant werden, um sowohl steuerliche Vorteile als auch persönliche Wohnwünsche zu berücksichtigen. Eine rechtzeitige Beratung durch Fachleute ist hier unerlässlich."
+      },
+      {
+        "title": "Praktische Tipps für die Umsetzung",
+        "content": "Beim Schenken von Vermögen sollte eine langfristige Planung im Vordergrund stehen. Priorität hat, dass die Schenkungen in den Rahmen der Freibetragsgrenzen fallen. Auch ist es entscheidend, alle vertraglichen und rechtlichen Aspekte sorgfältig zu dokumentieren. Ratsam ist, einen Steuerexperten oder Anwalt hinzuzuziehen, um die rechtlichen Voraussetzungen zu prüfen und alle steuerlichen Vorteile umfassend zu nutzen. Dieser Schritt sichert ab, dass keine ungewollten Steuerfallen auftreten."
+      }
+    ],
+    "relatedRechner": "erbschaftsteuer-rechner",
+    "publishDate": "2026-11-09",
+    "topicId": "schenkung-statt-vererben"
   }
 ]
