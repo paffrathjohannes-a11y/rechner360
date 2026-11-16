@@ -2035,5 +2035,33 @@
     "relatedRechner": "abfindungsrechner",
     "publishDate": "2026-11-11",
     "topicId": "abfindung-fuenftelregelung"
+  },
+  {
+    "slug": "riester-2026-lohnt-sich-das-noch",
+    "title": "Riester 2026: Ist der Vertrag noch sinnvoll?",
+    "metaTitle": "Riester 2026: lohnt sich eine Förderung?",
+    "metaDescription": "Riesterförderung 2026: Zulagen und Steuervorteile nutzen. Prüfen Sie, ob sich der Vertrag für Ihre Familie noch rechnet.",
+    "intro": "Riester-Verträge wurden einst stark gefördert, doch in 2026 ist die Popularität gesunken. Trotz hoher Verwaltungskosten und geringer Renditen können Kinderzulagen und Steuervorteile die Altersvorsorge attraktiv machen. Erfahren Sie, wann und für wen die Riester-Rente sinnvoll bleibt.",
+    "sections": [
+      {
+        "title": "Zulagen: Ein Plus für Familien",
+        "content": "Riester-Verträge bieten jährlich Grundzulagen von bis zu 175 € pro Person. Für jedes kindergeldberechtigte Kind kommen 300 € hinzu. Wenn eine Familie mit zwei Kindern eine volle Zulage erhält, steigert dies die jährliche Förderung auf insgesamt 950 €. Diese Summen können besonders kinderreichen Familien einen erheblichen finanziellen Vorteil bieten. Voraussetzung ist jedoch, dass die Mindesteigenleistung erbracht wird, die meist vier Prozent des Vorjahreseinkommens beträgt."
+      },
+      {
+        "title": "Steuervorteile durch Sonderausgabenabzug",
+        "content": "Riester-Beiträge können bis zu 2.100 € als Sonderausgaben steuerlich geltend gemacht werden. Insbesondere bei hohen Einkommen, wo der Grenzsteuersatz über 30 % liegt, kann der Steuervorteil erheblich sein. Ein Alleinverdiener mit 60.000 € zu versteuerndem Jahreseinkommen könnte so bis zu 630 € Steuerersparnis erzielen. Die tatsächliche Ersparnis hängt von individuellen Faktoren ab und sollte mit einem Steuerberater geprüft werden."
+      },
+      {
+        "title": "Hauptkritik: Hohe Kosten und niedrige Renditen",
+        "content": "Kritiker bemängeln die oft hohen Verwaltungskosten von Riester-Verträgen, die die Renditen schmälern. Durchschnittlich betragen diese Kosten etwa 5 % der Beitragszahlungen. Bei einer jährlichen Einzahlung von 1.000 € in den Vertrag, könnten somit 50 € allein an Verwaltungskosten anfallen. Dies vermindert die Effizienz der Ersparnisse erheblich und kann die Gesamtleistung des Riester-Vertrags beeinträchtigen."
+      },
+      {
+        "title": "Für wen lohnt sich Riester noch?",
+        "content": "Die Riester-Rente bleibt besonders für kinderreiche Familien interessant, da die Zulagen die hohen Kosten teilweise kompensieren können. Auch Sparer mit geringen Einkommen profitieren von den garantierten Zulagen. Dennoch ist bei niedrigen und mittleren Einkünften die Leistung im Alter oft enttäuschend. Vor Vertragsabschluss sollten individuelle Berechnungen vorgenommen werden, um das Kosten-Nutzen-Verhältnis zu bewerten. Beratung durch Fachleute kann hier entscheidend sein."
+      }
+    ],
+    "relatedRechner": "rentenrechner",
+    "publishDate": "2026-11-16",
+    "topicId": "riester-2026-noch-sinnvoll"
   }
 ]
