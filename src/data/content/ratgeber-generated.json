@@ -2063,5 +2063,33 @@
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-11-16",
     "topicId": "riester-2026-noch-sinnvoll"
+  },
+  {
+    "slug": "rentenluecke-40-schliessen-sparen",
+    "title": "Rentenlücke mit 40 schließen: So viel sollten Sie sparen",
+    "metaTitle": "Rentenlücke schließen: Sparen ab 40",
+    "metaDescription": "Erfahren Sie, wie Sie die Rentenlücke ab 40 Jahren schließen. Nutzen Sie konkrete Beispiele und Berechnungen.",
+    "intro": "Viele Menschen stehen mit 40 Jahren vor der Herausforderung, ihre zukünftige Rentenlücke zu schließen. Diese Lücke beträgt typischerweise 30 bis 50 % des Nettogehalts. Durch rechtzeitiges und gut geplantes Sparen können Sie Ihren Lebensstandard im Alter sichern.",
+    "sections": [
+      {
+        "title": "Warum entsteht eine Rentenlücke?",
+        "content": "Die Rentenlücke entsteht, weil die gesetzliche Rente im Alter oft nicht ausreicht, um den bisherigen Lebensstandard zu halten. Ursache ist der Unterschied zwischen dem letzten Nettoeinkommen und den erwarteten Rentenzahlungen, welcher meist 30 bis 50 % beträgt. Zusätzliche Altersvorsorge ist notwendig, um diese Lücke zu schließen."
+      },
+      {
+        "title": "Sparstrategien ab 40 Jahren",
+        "content": "Wer mit 40 Jahren beginnt, regelmäßig zu sparen, kann die Rentenlücke effektiv verkleinern. Bei einem Sparbetrag von 100 € monatlich und einer angenommenen Rendite von 5 % über 27 Jahre ergibt sich ein Endkapital von ca. 67.600 €. Höhere Sparbeträge wie 200 € monatlich können diese Summe mehr als verdoppeln. Frühzeitig beginnen ist entscheidend."
+      },
+      {
+        "title": "Vergleich: ETF versus private Rentenversicherung",
+        "content": "ETFs bieten Flexibilität und potenziell höhere Renditen, sind jedoch mit Marktrisiken verbunden. Bei einer monatlichen Sparrate von 100 € über 27 Jahre summiert sich das Vermögen bei 5 % Rendite auf etwa 67.600 €. Private Rentenversicherungen bieten Sicherheit, haben aber oft geringere Renditen wegen Gebühren. Eine individuelle Beratung kann bei der Entscheidung helfen."
+      },
+      {
+        "title": "Konkrete Beispielrechnungen",
+        "content": "Nehmen wir an, Sie sparen monatlich 50 €, 100 € oder 200 € bei einer jährlichen Rendite von 5 %, über 27 Jahre. Bei 50 € monatlich erreichen Sie etwa 33.800 €, bei 100 € sind es ca. 67.600 € und bei 200 € sogar 135.200 €. Diese Beträge zeigen die drastische Wirkung regelmäßigen Sparens auf Ihren Lebensstandard im Alter."
+      }
+    ],
+    "relatedRechner": "rentenrechner",
+    "publishDate": "2026-11-18",
+    "topicId": "rentenluecke-schliessen-40"
   }
 ]
