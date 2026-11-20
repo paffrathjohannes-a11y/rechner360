@@ -2091,5 +2091,33 @@
     "relatedRechner": "rentenrechner",
     "publishDate": "2026-11-18",
     "topicId": "rentenluecke-schliessen-40"
+  },
+  {
+    "slug": "erbschaftsteuer-freibetraege-nutzen",
+    "title": "Erbschaftsteuerfreibeträge 2026 optimal nutzen",
+    "metaTitle": "Erbschaftsteuer: Freibeträge klug nutzen",
+    "metaDescription": "Nutzen Sie Freibeträge bei Erbschaftsteuer 2026 optimal für Ehepartner und Kinder. Beratung empfohlen.",
+    "intro": "Im Steuerjahr 2026 bietet das Erbschaftsteuergesetz attraktive Freibeträge, die es Ihnen ermöglichen, steuerfrei zu vererben oder zu schenken. Ehepartner können bis zu 500.000 €, Kinder bis zu 400.000 € und Enkelkinder bis zu 200.000 € steuerfrei empfangen. Geschickte Nutzung dieser Beträge durch Schenkungen oder Kettenschenkungen kann erhebliche Steuerersparnisse bringen.",
+    "sections": [
+      {
+        "title": "Freibeträge für Ehepartner und Kinder",
+        "content": "Im Jahr 2026 haben Ehepartner gemäß dem Erbschaftsteuergesetz einen Freibetrag von 500.000 €. Diese Summe kann alle 10 Jahre erneut steuerfrei übertragen werden. Für Kinder beträgt der Freibetrag 400.000 €. Diese Regelungen ermöglichen Ihnen, größere Vermögen über Jahrzehnte hinweg fortlaufend an Ihre Nachkommen weiterzugeben, ohne übermäßig hohe Steuerzahlungen. In einem Beispiel: Wenn ein Ehepartner 1.000.000 € vererbt, wären nur 500.000 € erbschaftsteuerpflichtig, falls keine weitere Freibeträge zur Verfügung stehen. Planung hilft, solche steuerlichen Belastungen zu minimieren."
+      },
+      {
+        "title": "Kettenschenkung zur Steueroptimierung",
+        "content": "<strong>Kettenschenkungen</strong>, insbesondere innerhalb der Familie, ermöglichen eine geschickte Nutzung von Freibeträgen. Dabei wird Vermögen über mehrere Familienmitglieder hinweg übertragen. Zum Beispiel kann ein Großvater 400.000 € an seinen Sohn schenken, der im Anschluss innerhalb seiner Freibeträge diese Summe an seinen eigenen Sohn weitergibt. Um mögliche steuerliche Risiken zu vermeiden, sind hier jedoch Wartezeiten und rechtliche Rahmenbedingungen zu beachten. Dadurch kann das Vermögen strategisch auf die nächste Generation verteilt werden, ohne die Erbschaftsteuerbelastung zu hoch werden zu lassen."
+      },
+      {
+        "title": "Schenkungen: Alle 10 Jahre steuerfrei",
+        "content": "Eine wichtige Planungsstrategie bei der Erbschaft- und Schenkungsteuer ist, <em>alle zehn Jahre</em> eine neue steuerfreie Schenkung vorzunehmen. Dies ermöglicht Ihnen, über die Zeit erhebliches Vermögen steuerfrei zu übertragen. So kann zum Beispiel ein Vermögen von 800.000 € innerhalb von 20 Jahren vollständig steuerfrei auf ein Kind übertragen werden, wenn die Schenkungen in zwei 10-Jahres-Intervallen von jeweils 400.000 € vorgenommen werden. Vorausgesetzt, dass der Schenkende lebt und keine weiteren erbschaftsteuerpflichtigen Zuwendungen erfolgt sind."
+      },
+      {
+        "title": "Versorgungsfreibetrag für Ehepartner",
+        "content": "Neben den allgemeinen Freibeträgen haben überlebende Ehepartner Anspruch auf <strong>Versorgungsfreibeträge</strong>. Dieser zusätzliche Freibetrag beträgt gemäß §17 ErbStG 256.000 €, wenn der hinterbliebene Partner keine Witwenrente erhält. Bei erhaltenen Renten wird dieser Freibetrag um den Kapitalwert der Rentenansprüche gekürzt. Diese Regelungen sichern den Lebensstandard des überlebenden Partners und sollten bei der Vermögensnachfolgeplanung berücksichtigt werden. Professionelle Beratung hilft, alle Freibeträge optimal zu kombinieren, um die Steuerlast zu minimieren."
+      }
+    ],
+    "relatedRechner": "erbschaftsteuer-rechner",
+    "publishDate": "2026-11-20",
+    "topicId": "erbschaftsteuer-freibetraege"
   }
 ]
